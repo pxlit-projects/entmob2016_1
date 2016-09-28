@@ -1,0 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>ENTMOB</title>
+</head>
+<body style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d3/Charleroi_-_Ferraris_map_(1770-1778).jpg'); background-position: center;">
+</body>
+</html>

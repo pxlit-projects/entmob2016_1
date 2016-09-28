@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+C:\Users\strij\OneDrive\School\3AOND\ENTERP AND MOB\PROJECT\source\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1419144845.index
+218814075.index
+3902076834.index
+4074466843.index
+4281279832.index
+703960452.index
