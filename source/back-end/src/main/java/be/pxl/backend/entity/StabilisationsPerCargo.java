@@ -1,4 +1,4 @@
-package Entity;
+package be.pxl.backend.entity;
 
 import java.sql.Date;
 
@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="StabilisationsPerCargo")
+@Table(name="Stabilisations_per_cargo")
 public class StabilisationsPerCargo {
 
 	@Id

@@ -1,5 +1,10 @@
+<<<<<<< HEAD:source/back-end/src/main/java/be/pxl/backend/entity/Sensor.java
+package be.pxl.backend.entity;
+
+=======
 package Entity;
 import java.util.ArrayList;
+>>>>>>> 735398f7298d92d05c7a41788bf20773da38ef35:source/back-end/src/main/java/Entity/Sensor.java
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

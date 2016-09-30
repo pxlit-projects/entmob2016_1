@@ -1,4 +1,4 @@
-package Entity;
+package be.pxl.backend.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ExceedingsPerCargo")
+@Table(name="Exceedings_per_cargo")
 public class ExceedingsPerCargo {
 	
 	@Id
