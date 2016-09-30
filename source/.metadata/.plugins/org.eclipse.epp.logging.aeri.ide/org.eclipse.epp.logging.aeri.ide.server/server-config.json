@@ -62,5 +62,9 @@
     "org.eclipse.pde.core::The current target platform contains errors*",
     "org.eclipse.ui::Conflicting handlers for*"
   ],
+<<<<<<< HEAD
   "problemsZipLastDownloadTimestamp": 1475221863936
+=======
+  "problemsZipLastDownloadTimestamp": 1475222129225
+>>>>>>> 99f3b45b7b4beaf5739c160d350e8512dd7a552c
 }
