@@ -1,7 +1,12 @@
 package Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Contact {
 
+	@Id
 	private int contact_id;
 	private String surname;
 	private String name;

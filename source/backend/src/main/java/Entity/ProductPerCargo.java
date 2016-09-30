@@ -1,7 +1,12 @@
 package Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class ProductPerCargo {
 
+	@Id
 	private int product_id;
 	private int cargo_id;
 	private int amount;

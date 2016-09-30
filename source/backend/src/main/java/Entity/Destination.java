@@ -1,7 +1,12 @@
 package Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Destination {
 
+	@Id
 	private int destination_id;
 	private String description;
 	private String postal_code;

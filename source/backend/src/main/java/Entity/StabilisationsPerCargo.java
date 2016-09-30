@@ -2,8 +2,13 @@ package Entity;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class StabilisationsPerCargo {
 
+	@Id
 	private int stabilisations_per_cargo_id;
 	private int exceedings_per_cargo_id;
 	private Date time;

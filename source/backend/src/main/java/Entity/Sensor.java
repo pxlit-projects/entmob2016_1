@@ -2,8 +2,13 @@ package Entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Sensor {
 
+	@Id
 	private int sensor_id;
 	private String sensor_name;
 	private int employee_id;
