@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+=======
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
 		</list>
@@ -62,6 +74,7 @@
 		</list>
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>
+>>>>>>> 6ed4b73f23192973c9ed1220b7c03d3b4f37ab17
 		</list>
 	</section>
 </section>
