@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+INDEX VERSION 1.129+C:\Users\Bram\Documents\GitHub\entmob2016_1\source\.metadata\.plugins\org.eclipse.jdt.core
+1075794691.index
+351221734.index
+2637943071.index
+2538342114.index
+1644702904.index
+3417200662.index
+985286902.index
+808374113.index
+3407430047.index
+2133282975.index
+781808.index
+2800558102.index
+618723895.index
+471236001.index
+2809250744.index
+2019903893.index
+3579120797.index
+2855899100.index
+414978335.index
+516275.index
+4184201189.index
+=======
 INDEX VERSION 1.129+C:\Users\strij\OneDrive\School\3AOND\ENTERP AND MOB\PROJECT\source\.metadata\.plugins\org.eclipse.jdt.core
 339363221.index
 3927050479.index
@@ -56,3 +80,4 @@ INDEX VERSION 1.129+C:\Users\strij\OneDrive\School\3AOND\ENTERP AND MOB\PROJECT\
 2133282975.index
 781808.index
 394208024.index
+>>>>>>> a6322711d8a0d5f41f9238fc4b81f72623dee6e1
