@@ -1,12 +1,15 @@
 package Entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ExceedingsPerCargo {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int exceeding_per_cargo_id;
 	private Cargo cargo;
 	private Variable variable;

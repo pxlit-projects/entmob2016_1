@@ -3,12 +3,15 @@ package Entity;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Variable {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int variable_id;
 	private String description;
 	private Double value;

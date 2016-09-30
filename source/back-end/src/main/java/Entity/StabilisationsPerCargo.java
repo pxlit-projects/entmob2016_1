@@ -3,12 +3,15 @@ package Entity;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class StabilisationsPerCargo {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int stabilisations_per_cargo_id;
 	private ExceedingsPerCargo exceedingsPerCargo;
 	private Date time;
