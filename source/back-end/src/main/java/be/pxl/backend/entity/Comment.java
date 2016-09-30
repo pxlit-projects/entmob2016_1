@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,8 +16,11 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int comment_id;
+	@OneToOne
 	private Employee employee;
+	@OneToOne
 	private Sensor sensor;
+	@OneToOne
 	private Cargo cargo;
 	private String description;
 	private Date time;
