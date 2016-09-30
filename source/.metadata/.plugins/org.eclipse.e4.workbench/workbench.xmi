@@ -75,6 +75,10 @@
           <children xsi:type="basic:PartSashContainer" xmi:id="_pAzQIYWlEeaec_mAAfSrqw" selectedElement="_pAzQIoWlEeaec_mAAfSrqw" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_pAzQIoWlEeaec_mAAfSrqw" elementId="topLeft" containerData="2500" selectedElement="_pAzQI4WlEeaec_mAAfSrqw">
               <tags>active</tags>
+<<<<<<< HEAD
+=======
+              <tags>noFocus</tags>
+>>>>>>> 9167ab68eb2abab4883e9c618315fada66395f92
               <children xsi:type="advanced:Placeholder" xmi:id="_pAzQI4WlEeaec_mAAfSrqw" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_pAVWEIWlEeaec_mAAfSrqw"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_pAzQJIWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.views.ResourceNavigator" toBeRendered="false" ref="_pAWkMIWlEeaec_mAAfSrqw"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_pAzQJYWlEeaec_mAAfSrqw" elementId="org.eclipse.jdt.ui.TypeHierarchy" toBeRendered="false" ref="_pAXLQIWlEeaec_mAAfSrqw"/>
@@ -112,9 +116,9 @@
           </children>
         </children>
       </children>
-      <children xsi:type="basic:PartStack" xmi:id="_ogxsQ4WlEeaec_mAAfSrqw" elementId="stickyFolderRight" toBeRendered="false" containerData="2500">
+      <children xsi:type="basic:PartStack" xmi:id="_ogxsQ4WlEeaec_mAAfSrqw" elementId="stickyFolderRight" containerData="2500" selectedElement="_ogxsRYWlEeaec_mAAfSrqw">
         <children xsi:type="advanced:Placeholder" xmi:id="_ogxsRIWlEeaec_mAAfSrqw" elementId="org.eclipse.help.ui.HelpView" toBeRendered="false" ref="_ogvQAIWlEeaec_mAAfSrqw"/>
-        <children xsi:type="advanced:Placeholder" xmi:id="_ogxsRYWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.internal.introview" toBeRendered="false" ref="_ogxFMIWlEeaec_mAAfSrqw"/>
+        <children xsi:type="advanced:Placeholder" xmi:id="_ogxsRYWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.internal.introview" ref="_ogxFMIWlEeaec_mAAfSrqw"/>
         <children xsi:type="advanced:Placeholder" xmi:id="_ogxsRoWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.cheatsheets.views.CheatSheetView" toBeRendered="false" ref="_ogxsQIWlEeaec_mAAfSrqw"/>
       </children>
     </children>
@@ -135,7 +139,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_pZmKoYWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.internal.introview" visible="false"/>
+      <toolbar xmi:id="_pZmKoYWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.internal.introview"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_ogxsQIWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.cheatsheets.views.CheatSheetView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Cheat Sheets" iconURI="platform:/plugin/org.eclipse.ui.cheatsheets/icons/view16/cheatsheet_view.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.cheatsheets.views.CheatSheetView"/>
@@ -315,7 +319,11 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o31hYIWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_KilLYIZvEeaQ3ssC_fPqjg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_oCWD5oWlEeaec_mAAfSrqw"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2_6aYIbZEeaF2_gOAaTa3w" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_oCWD5oWlEeaec_mAAfSrqw"/>
+>>>>>>> 9167ab68eb2abab4883e9c618315fada66395f92
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o31hYYWlEeaec_mAAfSrqw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -345,7 +353,11 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o31hZYWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_KiuVUIZvEeaQ3ssC_fPqjg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_oCVczIWlEeaec_mAAfSrqw"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2_-r0IbZEeaF2_gOAaTa3w" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_oCVczIWlEeaec_mAAfSrqw"/>
+>>>>>>> 9167ab68eb2abab4883e9c618315fada66395f92
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o32IcIWlEeaec_mAAfSrqw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1606,18 +1618,6 @@
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.wst.xsl.ui"/>
     <tags>View</tags>
     <tags>categoryTag:XML</tags>
-  </descriptors>
-  <descriptors xmi:id="_oGdu0IWlEeaec_mAAfSrqw" elementId="com.microsoft.azureexplorer.views.ServiceExplorerView" label="Azure Explorer" iconURI="platform:/plugin/com.microsoft.azureexplorer/icons/azure_explorer.png" tooltip="" category="Azure" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="com.microsoft.azureexplorer.views.ServiceExplorerView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="com.microsoft.azureexplorer"/>
-    <tags>View</tags>
-    <tags>categoryTag:Azure</tags>
-  </descriptors>
-  <descriptors xmi:id="_oGeV4IWlEeaec_mAAfSrqw" elementId="com.gigaspaces.azure.views.WindowsAzureActivityLogView" label="Azure Activity Log" iconURI="platform:/plugin/com.microsoftopentechnologies.wacommon/icons/RoleFolder.gif" tooltip="" category="Azure" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="com.gigaspaces.azure.views.WindowsAzureActivityLogView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="com.microsoftopentechnologies.wacommon"/>
-    <tags>View</tags>
-    <tags>categoryTag:Azure</tags>
   </descriptors>
   <menuContributions xmi:id="_oBwN-IWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.eclipse.platform" positionInParent="popup:toolbar">
     <children xsi:type="menu:HandledMenuItem" xmi:id="_oBwN-YWlEeaec_mAAfSrqw" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.eclipse.platform" label="%command.name.customize" command="_oBwN-oWlEeaec_mAAfSrqw"/>
@@ -2902,6 +2902,9 @@
   <commands xmi:id="_ogFIsIWlEeaec_mAAfSrqw" elementId="AUTOGEN:::variableViewActions/org.eclipse.wst.jsdt.debug.ui.variableview.show.this" commandName="Show 'this' variable" description="Show or hide the this variable" category="_oCLryIWlEeaec_mAAfSrqw"/>
   <commands xmi:id="_ogG94IWlEeaec_mAAfSrqw" elementId="AUTOGEN:::variableViewActions/org.eclipse.wst.jsdt.debug.ui.variableview.show.prototypes" commandName="Show proto variables" description="Show or hide proto variables" category="_oCLryIWlEeaec_mAAfSrqw"/>
   <commands xmi:id="_ogG94YWlEeaec_mAAfSrqw" elementId="AUTOGEN:::org.eclipse.ui.articles.action.contribution.view/org.eclipse.wst.wsi.ui.internal.actions.actionDelegates.ValidateWSIProfileActionDelegate" commandName="WS-I Profile Validator" description="Validate WS-I Message Log File" category="_oCLryIWlEeaec_mAAfSrqw"/>
+  <commands xmi:id="_2rlJIIbZEeaF2_gOAaTa3w" elementId="org.eclipse.wst.jsdt.js.grunt.commands.gruntLaunch" commandName="Run as Grunt Task" category="_oCLryIWlEeaec_mAAfSrqw"/>
+  <commands xmi:id="_2rlJIYbZEeaF2_gOAaTa3w" elementId="org.eclipse.wst.jsdt.js.gulp.commands.gulpLaunch" commandName="Run as Gulp Task" category="_oCLryIWlEeaec_mAAfSrqw"/>
+  <commands xmi:id="_2rlJIobZEeaF2_gOAaTa3w" elementId="org.eclipse.wst.jsdt.chromium.debug.js.command" commandName="Chrome / Chromium Debugger" category="_2rj7AYbZEeaF2_gOAaTa3w"/>
   <addons xmi:id="_oBwN-4WlEeaec_mAAfSrqw" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_oBwN_IWlEeaec_mAAfSrqw" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_oBwN_YWlEeaec_mAAfSrqw" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -2964,4 +2967,5 @@
   <categories xmi:id="_oCLr4YWlEeaec_mAAfSrqw" elementId="org.eclipse.gef.category.view" name="View" description="View"/>
   <categories xmi:id="_oCLr4oWlEeaec_mAAfSrqw" elementId="org.eclipse.jdt.ui.category.source" name="Source" description="Java Source Actions"/>
   <categories xmi:id="_oCLr44WlEeaec_mAAfSrqw" elementId="org.eclipse.pde.runtime.spy.commands.category" name="Spy"/>
+  <categories xmi:id="_2rj7AYbZEeaF2_gOAaTa3w" elementId="org.eclipse.wst.jsdt.chromium.debug.js.category" name="Chrome / Chromium"/>
 </application:Application>
