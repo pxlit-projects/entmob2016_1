@@ -1,6 +1,12 @@
 package Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class ExceedingsPerCargo {
+	
+	@Id
 	private int exceeding_per_cargo_id;
 	private int cargo_id;
 	private int variable_id;

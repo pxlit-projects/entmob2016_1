@@ -2,8 +2,18 @@ package Entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Employees")
 public class Employee {
 
+	@Id
+	@GeneratedValue
 	private int employee_id;
 	private String username;
 	private String password;
@@ -12,7 +22,8 @@ public class Employee {
 	private String name;
 	private String street;
 	private String houseNr;
-	private String postal_code;
+	@OneToOne
+	private City city;
 	private Date date_employment;
 	private String mobile_phone;
 	private String telephone_number;
@@ -74,11 +85,11 @@ public class Employee {
 	public void setHouseNr(String houseNr) {
 		this.houseNr = houseNr;
 	}
-	public String getPostal_code() {
-		return postal_code;
+	public City getCity() {
+		return city;
 	}
-	public void setPostal_code(String postal_code) {
-		this.postal_code = postal_code;
+	public void setCity(City city) {
+		this.city = city;
 	}
 	public Date getDate_employment() {
 		return date_employment;

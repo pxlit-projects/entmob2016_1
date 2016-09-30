@@ -2,10 +2,15 @@ package Entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Login {
 
+	@Id
 	private int login_id;
-	private int employee_id;
+	private Employee employee;
 	private Date time;
 	
 	public int getLogin_id() {

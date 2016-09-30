@@ -2,8 +2,13 @@ package Entity;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Variable {
 
+	@Id
 	private int variable_id;
 	private String description;
 	private Double value;

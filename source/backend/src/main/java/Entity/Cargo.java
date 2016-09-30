@@ -1,7 +1,12 @@
 package Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Cargo {
 
+	@Id
 	private int cargo_id;
 	private int sensor_id;
 	private int employee_id;

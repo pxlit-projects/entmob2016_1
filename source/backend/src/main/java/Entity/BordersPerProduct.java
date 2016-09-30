@@ -1,7 +1,12 @@
 package Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class BordersPerProduct {
 
+	@Id
 	private int product_id;
 	private int border_value_variable;
 	private float border_value_number;
