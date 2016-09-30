@@ -1,12 +1,14 @@
 package be.pxl.backend.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,12 +19,11 @@ public class Destination {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int destination_id;
 	private String description;
+	@OneToOne
 	private City city;
 	private String street;
 	private String housenr;
 	private int contact_id;
-	@OneToMany(mappedBy="destination")
-	private ArrayList<Sensor> sensors = new ArrayList<Sensor>();
 	
 	public int getDestination_id() {
 		return destination_id;

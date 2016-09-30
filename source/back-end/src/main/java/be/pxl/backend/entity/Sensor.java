@@ -1,16 +1,15 @@
-<<<<<<< HEAD:source/back-end/src/main/java/be/pxl/backend/entity/Sensor.java
 package be.pxl.backend.entity;
 
-=======
-package Entity;
 import java.util.ArrayList;
->>>>>>> 735398f7298d92d05c7a41788bf20773da38ef35:source/back-end/src/main/java/Entity/Sensor.java
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,15 +20,16 @@ public class Sensor {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int sensor_id;
 	private String sensor_name;
+	@OneToOne
 	private Employee employee;
 	private Date employee_start;
 	private Date employee_stop;
 	private String status;
 	@OneToMany(mappedBy="sensor")
-	private ArrayList<Cargo> cargos = new ArrayList<Cargo>();
+	private List<Cargo> cargos = new ArrayList<Cargo>();
 	
 	
-	public ArrayList<Cargo> getCargos() {
+	public List<Cargo> getCargos() {
 		return cargos;
 	}
 	public void setCargos(ArrayList<Cargo> cargos) {

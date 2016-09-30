@@ -2,6 +2,7 @@ package be.pxl.backend.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,18 +36,18 @@ public class Employee {
 	private String status;
 	
 	@OneToMany(mappedBy="employee")
-	private ArrayList<Sensor> sensors = new ArrayList<Sensor>();
+	private List<Sensor> sensors = new ArrayList<Sensor>();
 	@OneToMany(mappedBy="employee")
-	private ArrayList<Login> logins = new ArrayList<Login>();
+	private List<Login> logins = new ArrayList<Login>();
 	
 	
-	public ArrayList<Login> getLogins() {
+	public List<Login> getLogins() {
 		return logins;
 	}
 	public void setLogins(ArrayList<Login> logins) {
 		this.logins = logins;
 	}
-	public ArrayList<Sensor> getSensors() {
+	public List<Sensor> getSensors() {
 		return sensors;
 	}
 	public void setSensors(ArrayList<Sensor> sensors) {
