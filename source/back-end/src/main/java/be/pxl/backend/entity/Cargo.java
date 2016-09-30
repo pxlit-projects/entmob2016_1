@@ -1,6 +1,7 @@
 package be.pxl.backend.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,17 +27,17 @@ public class Cargo {
 	private Destination destination;
 	private float weight;
 	@OneToMany(mappedBy="cargo")
-	private ArrayList<ProductPerCargo> productsPerCargos = new ArrayList<ProductPerCargo>();
+	private List<ProductPerCargo> productsPerCargos = new ArrayList<ProductPerCargo>();
+	@OneToMany(mappedBy="cargo")
+	private List<ExceedingsPerCargo> ExceedingsPerCargos = new ArrayList<ExceedingsPerCargo>();
 	
-	private ArrayList<ExceedingsPerCargo> ExceedingsPerCargos = new ArrayList<ExceedingsPerCargo>();
-	
-	public ArrayList<ProductPerCargo> getProductsPerCargos() {
+	public List<ProductPerCargo> getProductsPerCargos() {
 		return productsPerCargos;
 	}
 	public void setProductsPerCargos(ArrayList<ProductPerCargo> productsPerCargos) {
 		this.productsPerCargos = productsPerCargos;
 	}
-	public ArrayList<ExceedingsPerCargo> getExceedingsPerCargos() {
+	public List<ExceedingsPerCargo> getExceedingsPerCargos() {
 		return ExceedingsPerCargos;
 	}
 	public void setExceedingsPerCargos(ArrayList<ExceedingsPerCargo> exceedingsPerCargos) {
