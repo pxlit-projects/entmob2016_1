@@ -4,3 +4,8 @@
 1475221145639	Delete element
 1475222340712	Delete element
 1475223465212	Rename resource 'NewFile.xml'
+1475225780744	Rename source folder 'META_INF'
+1475225784721	Move file
+1475225942142	Move file
+1475225945353	Move file
+1475226009499	Move 'pom.xml' to 'backend'

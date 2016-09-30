@@ -1,12 +1,15 @@
 package Entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Destination {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int destination_id;
 	private String description;
 	private String postal_code;

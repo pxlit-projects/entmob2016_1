@@ -3,15 +3,18 @@ package Entity;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Sensor {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int sensor_id;
 	private String sensor_name;
-	private int employee_id;
+	private Employee employee;
 	private Date employee_start;
 	private Date employee_stop;
 	private String status;
@@ -28,11 +31,11 @@ public class Sensor {
 	public void setSensor_name(String sensor_name) {
 		this.sensor_name = sensor_name;
 	}
-	public int getEmployee_id() {
-		return employee_id;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 	public Date getEmployee_start() {
 		return employee_start;

@@ -10,7 +10,7 @@ public class StabilisationsPerCargo {
 
 	@Id
 	private int stabilisations_per_cargo_id;
-	private int exceedings_per_cargo_id;
+	private ExceedingsPerCargo exceedingsPerCargo;
 	private Date time;
 	
 	public int getStabilisations_per_cargo_id() {
@@ -19,11 +19,11 @@ public class StabilisationsPerCargo {
 	public void setStabilisations_per_cargo_id(int stabilisations_per_cargo_id) {
 		this.stabilisations_per_cargo_id = stabilisations_per_cargo_id;
 	}
-	public int getExceedings_per_cargo_id() {
-		return exceedings_per_cargo_id;
+	public ExceedingsPerCargo getExceedingsPerCargo() {
+		return exceedingsPerCargo;
 	}
-	public void setExceedings_per_cargo_id(int exceedings_per_cargo_id) {
-		this.exceedings_per_cargo_id = exceedings_per_cargo_id;
+	public void setExceedingsPerCargo(ExceedingsPerCargo exceedingsPerCargo) {
+		this.exceedingsPerCargo = exceedingsPerCargo;
 	}
 	public Date getTime() {
 		return time;
