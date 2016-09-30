@@ -19,11 +19,11 @@ public class Login {
 	public void setLogin_id(int login_id) {
 		this.login_id = login_id;
 	}
-	public int getEmployee_id() {
-		return employee_id;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 	public Date getTime() {
 		return time;

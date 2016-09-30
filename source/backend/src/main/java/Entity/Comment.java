@@ -10,9 +10,9 @@ public class Comment {
 
 	@Id
 	private int comment_id;
-	private int employee_id;
-	private int sensor_id;
-	private int cargo_id;
+	private Employee employee;
+	private Sensor sensor;
+	private Cargo cargo;
 	private String description;
 	private Date time;
 	
@@ -22,23 +22,23 @@ public class Comment {
 	public void setComment_id(int comment_id) {
 		this.comment_id = comment_id;
 	}
-	public int getEmployee_id() {
-		return employee_id;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
-	public int getSensor_id() {
-		return sensor_id;
+	public Sensor getSensor() {
+		return sensor;
 	}
-	public void setSensor_id(int sensor_id) {
-		this.sensor_id = sensor_id;
+	public void setSensor(Sensor sensor) {
+		this.sensor = sensor;
 	}
-	public int getCargo_id() {
-		return cargo_id;
+	public Cargo getCargo() {
+		return cargo;
 	}
-	public void setCargo_id(int cargo_id) {
-		this.cargo_id = cargo_id;
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 	public String getDescription() {
 		return description;
