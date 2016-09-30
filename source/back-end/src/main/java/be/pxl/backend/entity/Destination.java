@@ -1,4 +1,4 @@
-package Entity;
+package be.pxl.backend.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

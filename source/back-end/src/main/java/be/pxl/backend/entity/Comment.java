@@ -1,4 +1,4 @@
-package Entity;
+package be.pxl.backend.entity;
 
 import java.util.Date;
 

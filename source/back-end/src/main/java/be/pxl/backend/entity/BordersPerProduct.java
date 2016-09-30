@@ -1,4 +1,4 @@
-package Entity;
+package be.pxl.backend.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,13 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="BordersPerProduct")
+@Table(name="Borders_per_product")
 public class BordersPerProduct {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int product_id;
-	private int border_value_variable;
+	private Variable variable;
 	private float border_value_number;
 	
 	public int getProduct_id() {
@@ -22,11 +22,11 @@ public class BordersPerProduct {
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
 	}
-	public int getBorder_value_variable() {
-		return border_value_variable;
+	public Variable getVariable() {
+		return variable;
 	}
-	public void setBorder_value_variable(int border_value_variable) {
-		this.border_value_variable = border_value_variable;
+	public void setVariable(Variable variable) {
+		this.variable = variable;
 	}
 	public float getBorder_value_number() {
 		return border_value_number;

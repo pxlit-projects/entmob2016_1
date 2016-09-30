@@ -1,4 +1,4 @@
-package Entity;
+package be.pxl.backend.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,14 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ProductsPerCargo")
-public class ProductPerCargo {
+@Table(name="Products")
+public class Product {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int product_id;
-	private Cargo cargo;
-	private int amount;
+	private String description;
 	
 	public int getProduct_id() {
 		return product_id;
@@ -22,17 +21,11 @@ public class ProductPerCargo {
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
 	}
-	public Cargo getCargo() {
-		return cargo;
+	public String getDescription() {
+		return description;
 	}
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
-	}
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }
