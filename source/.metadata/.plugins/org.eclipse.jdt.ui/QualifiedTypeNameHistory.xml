@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<<<<<<< HEAD
-<fullyQualifiedTypeName name="java.sql.Date"/>
-=======
-<fullyQualifiedTypeName name="java.util.Date"/>
->>>>>>> 99f3b45b7b4beaf5739c160d350e8512dd7a552c
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>
