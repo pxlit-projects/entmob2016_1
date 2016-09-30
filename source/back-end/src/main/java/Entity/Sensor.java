@@ -1,11 +1,11 @@
 package Entity;
-
+import java.util.ArrayList;
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +20,16 @@ public class Sensor {
 	private Date employee_start;
 	private Date employee_stop;
 	private String status;
+	@OneToMany(mappedBy="sensor")
+	private ArrayList<Cargo> cargos = new ArrayList<Cargo>();
 	
+	
+	public ArrayList<Cargo> getCargos() {
+		return cargos;
+	}
+	public void setCargos(ArrayList<Cargo> cargos) {
+		this.cargos = cargos;
+	}
 	public int getSensor_id() {
 		return sensor_id;
 	}

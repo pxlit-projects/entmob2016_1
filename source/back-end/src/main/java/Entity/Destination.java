@@ -1,9 +1,12 @@
 package Entity;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,8 @@ public class Destination {
 	private String street;
 	private String housenr;
 	private int contact_id;
+	@OneToMany(mappedBy="destination")
+	private ArrayList<Sensor> sensors = new ArrayList<Sensor>();
 	
 	public int getDestination_id() {
 		return destination_id;

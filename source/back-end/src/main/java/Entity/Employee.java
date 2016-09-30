@@ -1,11 +1,13 @@
 package Entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,6 +34,24 @@ public class Employee {
 	private String sex;
 	private String status;
 	
+	@OneToMany(mappedBy="employee")
+	private ArrayList<Sensor> sensors = new ArrayList<Sensor>();
+	@OneToMany(mappedBy="employee")
+	private ArrayList<Login> logins = new ArrayList<Login>();
+	
+	
+	public ArrayList<Login> getLogins() {
+		return logins;
+	}
+	public void setLogins(ArrayList<Login> logins) {
+		this.logins = logins;
+	}
+	public ArrayList<Sensor> getSensors() {
+		return sensors;
+	}
+	public void setSensors(ArrayList<Sensor> sensors) {
+		this.sensors = sensors;
+	}
 	public String getStatus() {
 		return status;
 	}

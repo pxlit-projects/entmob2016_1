@@ -1,9 +1,14 @@
 package Entity;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 @Entity
@@ -13,11 +18,30 @@ public class Cargo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int cargo_id;
+	@ManyToOne
 	private Sensor sensor;
+	@ManyToOne
 	private Employee employee;
+	@ManyToOne
 	private Destination destination;
 	private float weight;
+	@OneToMany(mappedBy="cargo")
+	private ArrayList<ProductPerCargo> productsPerCargos = new ArrayList<ProductPerCargo>();
 	
+	private ArrayList<ExceedingsPerCargo> ExceedingsPerCargos = new ArrayList<ExceedingsPerCargo>();
+	
+	public ArrayList<ProductPerCargo> getProductsPerCargos() {
+		return productsPerCargos;
+	}
+	public void setProductsPerCargos(ArrayList<ProductPerCargo> productsPerCargos) {
+		this.productsPerCargos = productsPerCargos;
+	}
+	public ArrayList<ExceedingsPerCargo> getExceedingsPerCargos() {
+		return ExceedingsPerCargos;
+	}
+	public void setExceedingsPerCargos(ArrayList<ExceedingsPerCargo> exceedingsPerCargos) {
+		ExceedingsPerCargos = exceedingsPerCargos;
+	}
 	public int getCargo_id() {
 		return cargo_id;
 	}
