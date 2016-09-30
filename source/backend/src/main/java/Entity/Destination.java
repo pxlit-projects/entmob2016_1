@@ -12,7 +12,7 @@ public class Destination {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int destination_id;
 	private String description;
-	private String postal_code;
+	private City city;
 	private String street;
 	private String housenr;
 	private int contact_id;
@@ -29,11 +29,11 @@ public class Destination {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getPostal_code() {
-		return postal_code;
+	public City getCity() {
+		return city;
 	}
-	public void setPostal_code(String postal_code) {
-		this.postal_code = postal_code;
+	public void setCity(City city) {
+		this.city = city;
 	}
 	public String getStreet() {
 		return street;

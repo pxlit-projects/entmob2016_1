@@ -8,7 +8,7 @@ public class ProductPerCargo {
 
 	@Id
 	private int product_id;
-	private int cargo_id;
+	private Cargo cargo;
 	private int amount;
 	
 	public int getProduct_id() {
@@ -17,11 +17,11 @@ public class ProductPerCargo {
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
 	}
-	public int getCargo_id() {
-		return cargo_id;
+	public Cargo getCargo() {
+		return cargo;
 	}
-	public void setCargo_id(int cargo_id) {
-		this.cargo_id = cargo_id;
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 	public int getAmount() {
 		return amount;

@@ -8,9 +8,9 @@ public class Cargo {
 
 	@Id
 	private int cargo_id;
-	private int sensor_id;
-	private int employee_id;
-	private int destination_id;
+	private Sensor sensor;
+	private Employee employee;
+	private Destination destination;
 	private float weight;
 	
 	public int getCargo_id() {
@@ -19,23 +19,23 @@ public class Cargo {
 	public void setCargo_id(int cargo_id) {
 		this.cargo_id = cargo_id;
 	}
-	public int getSensor_id() {
-		return sensor_id;
+	public Sensor getSensor() {
+		return sensor;
 	}
-	public void setSensor_id(int sensor_id) {
-		this.sensor_id = sensor_id;
+	public void setSensor(Sensor sensor) {
+		this.sensor = sensor;
 	}
-	public int getEmployee_id() {
-		return employee_id;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
-	public int getDestination_id() {
-		return destination_id;
+	public Destination getDestination() {
+		return destination;
 	}
-	public void setDestination_id(int destination_id) {
-		this.destination_id = destination_id;
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 	public float getWeight() {
 		return weight;
