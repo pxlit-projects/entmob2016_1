@@ -1,5 +1,8 @@
 package be.pxl.backend.rest;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +14,7 @@ import be.pxl.backend.repository.ProductRepository;
 @RequestMapping("/products")
 public class ProductController {
 	
+	@Autowired
 	private ProductRepository $repo;
 
 	public ProductController(ProductRepository repo) {
@@ -21,12 +25,18 @@ public class ProductController {
 		$repo = repo;
 	}
 	
-	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces="application/json")
-	Product getProductById(@PathVariable("id") int id) {
-		if ($repo != null && $repo.exists(id)) {
-			return $repo.findOne(id);
-		} else {
-			return null;
-		}
+	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
+	public Product getProductById(@PathVariable("id") int id) {
+		return $repo.findOne(id);
+	}
+	
+	@RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
+	public List<Product> getAllProducts() {
+		return $repo.findAll();
+	}
+	
+	@RequestMapping(value = "/add/{product}", method=RequestMethod.POST)
+	public void addProduct(@PathVariable("product") Product product) {
+		$repo.save(product);
 	}
 }

@@ -18,10 +18,8 @@
 <fullyQualifiedTypeName name="be.pxl.backend.dao.BordersPerProductDAO"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
 <fullyQualifiedTypeName name="be.pxl.backend.entity.BordersPerProduct"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
-<fullyQualifiedTypeName name="org.springframework.boot.SpringApplication"/>
 <fullyQualifiedTypeName name="org.aspectj.apache.bcel.Repository"/>
 <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
@@ -34,10 +32,16 @@
 <fullyQualifiedTypeName name="be.pxl.backend.entity.Product"/>
 <fullyQualifiedTypeName name="org.springframework.context.ConfigurableApplicationContext"/>
 <fullyQualifiedTypeName name="rest.ProductController"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="be.pxl.backend.repository.ProductRepository"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.boot.context.web.SpringBootServletInitializer"/>
+<fullyQualifiedTypeName name="org.springframework.boot.web.support.SpringBootServletInitializer"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.SpringBootApplication"/>
+<fullyQualifiedTypeName name="org.springframework.boot.SpringApplication"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 </qualifiedTypeNameHistroy>

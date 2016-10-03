@@ -58,16 +58,16 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="entmob.testt"/>
 			<item value="entmob.test"/>
+			<item value="entmob.testt"/>
 			<item value="entmob.back_end"/>
 		</list>
 		<list key="groupId">
 			<item value="entmob"/>
 		</list>
 		<list key="artifactId">
-			<item value="testt"/>
 			<item value="test"/>
+			<item value="testt"/>
 			<item value="back-end"/>
 		</list>
 		<list key="projectNameTemplate">
