@@ -1,10 +1,10 @@
 package be.pxl.backend.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import be.pxl.backend.entity.*;
 
-@Component
+@Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {
 
 }
