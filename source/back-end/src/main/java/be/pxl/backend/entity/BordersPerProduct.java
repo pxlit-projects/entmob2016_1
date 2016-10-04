@@ -1,28 +1,36 @@
 package be.pxl.backend.entity;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Borders_per_product")
 public class BordersPerProduct {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int product_id;
-	@OneToOne
+	@EmbeddedId
+	private BordersPerProductPK Id;
+	@MapsId("product_id")
+	@ManyToOne
+	private Product product;
+	@MapsId("variable_id")
+	@ManyToOne
 	private Variable variable;
 	private float border_value_number;
 	
-	public int getProduct_id() {
-		return product_id;
+	public Product getProduct() {
+		return product;
 	}
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	public Variable getVariable() {
 		return variable;
