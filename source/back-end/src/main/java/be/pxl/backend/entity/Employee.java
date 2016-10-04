@@ -38,6 +38,12 @@ public class Employee {
 	@OneToMany(mappedBy="employee")
 	private List<Login> logins = new ArrayList<Login>();
 	
+	public List<Login> getLogins() {
+		return logins;
+	}
+	public void setLogins(List<Login> logins) {
+		this.logins = logins;
+	}
 	public Boolean getStatus() {
 		return status;
 	}
