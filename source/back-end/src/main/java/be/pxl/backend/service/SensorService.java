@@ -3,6 +3,8 @@ package be.pxl.backend.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import be.pxl.backend.entity.Employee;
 import be.pxl.backend.entity.Sensor;
 import be.pxl.backend.repository.SensorRepository;
 
@@ -25,11 +27,13 @@ public class SensorService {
 	}
 	
 	public void delete(int id) {
-		repo.delete(id);
+		Sensor sens = repo.findOne(id);
+		sens.setStatus(false);
+		this.update(id, sens);
 	}
 	
 	public void update(int id, Sensor sensor) {
-		this.delete(id);
+		repo.delete(id);
 		this.persist(sensor);
 	}
 	

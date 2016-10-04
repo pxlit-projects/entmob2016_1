@@ -33,7 +33,7 @@ public class Employee {
 	private String telephone_number;
 	private String email;
 	private String sex;
-	private String status;
+	private Boolean status;
 	
 	@OneToMany(mappedBy="employee")
 	private List<Sensor> sensors = new ArrayList<Sensor>();
@@ -53,10 +53,17 @@ public class Employee {
 	public void setSensors(ArrayList<Sensor> sensors) {
 		this.sensors = sensors;
 	}
-	public String getStatus() {
+
+	public void setSensors(List<Sensor> sensors) {
+		this.sensors = sensors;
+	}
+	public void setLogins(List<Login> logins) {
+		this.logins = logins;
+	}
+	public Boolean getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 	public int getEmployee_id() {

@@ -25,11 +25,13 @@ public class EmployeeService {
 	}
 	
 	public void delete(int id) {
-		repo.delete(id);
+		Employee emp = repo.findOne(id);
+		emp.setStatus(false);
+		this.update(id, emp);
 	}
 	
 	public void update(int id, Employee employee) {
-		this.delete(id);
+		repo.delete(id);
 		this.persist(employee);
 	}
 	
