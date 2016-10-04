@@ -30,12 +30,6 @@ public class Product {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public List<ProductPerCargo> getProducts() {
-		return products;
-	}
-	public void setProducts(List<ProductPerCargo> products) {
-		this.products = products;
-	}
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
 	}
