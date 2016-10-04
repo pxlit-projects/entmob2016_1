@@ -29,7 +29,7 @@ public class CommentController {
 		return service.all();
 	}
 	
-	@RequestMapping(value = "/add/{cargo}", method=RequestMethod.POST)
+	@RequestMapping(value = "/add/{comment}", method=RequestMethod.POST)
 	public void addComment(@RequestBody Comment comment) {
 		service.persist(comment);
 	}
