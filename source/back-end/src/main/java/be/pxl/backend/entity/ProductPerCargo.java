@@ -1,10 +1,13 @@
 package be.pxl.backend.entity;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -12,18 +15,21 @@ import javax.persistence.Table;
 @Table(name="Products_per_cargo")
 public class ProductPerCargo {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int product_id;
+	@EmbeddedId
+	private ProductsPerCargoPK Id;
+	@MapsId("product_id")
+	@ManyToOne
+	private Product product;
+	@MapsId("cargo_id")
 	@ManyToOne
 	private Cargo cargo;
 	private int amount;
 	
-	public int getProduct_id() {
-		return product_id;
+	public Product getProduct() {
+		return product;
 	}
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	public Cargo getCargo() {
 		return cargo;

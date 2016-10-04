@@ -20,7 +20,15 @@ public class ExceedingsPerCargo {
 	private Cargo cargo;
 	@OneToOne
 	private Variable variable;
+	private double value;
 	
+	
+	public double getValue() {
+		return value;
+	}
+	public void setValue(double value) {
+		this.value = value;
+	}
 	public int getExceeding_per_cargo_id() {
 		return exceeding_per_cargo_id;
 	}
