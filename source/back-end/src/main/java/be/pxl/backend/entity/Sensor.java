@@ -24,7 +24,7 @@ public class Sensor {
 	private Employee employee;
 	private Date employee_start;
 	private Date employee_stop;
-	private String status;
+	private boolean status;
 	@OneToMany(mappedBy="sensor")
 	private List<Cargo> cargos = new ArrayList<Cargo>();
 	
@@ -65,10 +65,14 @@ public class Sensor {
 	public void setEmployee_stop(Date employee_stop) {
 		this.employee_stop = employee_stop;
 	}
-	public String getStatus() {
+	public boolean isStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	public void setCargos(List<Cargo> cargos) {
+		this.cargos = cargos;
+	}
+	
 }

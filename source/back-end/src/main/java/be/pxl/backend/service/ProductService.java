@@ -3,6 +3,8 @@ package be.pxl.backend.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import be.pxl.backend.entity.Employee;
 import be.pxl.backend.entity.Product;
 import be.pxl.backend.repository.ProductRepository;
 
@@ -25,11 +27,13 @@ public class ProductService {
 	}
 	
 	public void delete(int id) {
-		repo.delete(id);
+		Product pro = repo.findOne(id);
+		pro.setStatus(false);
+		this.update(id, pro);
 	}
 	
 	public void update(int id, Product product) {
-		this.delete(id);
+		repo.delete(id);
 		this.persist(product);
 	}
 	

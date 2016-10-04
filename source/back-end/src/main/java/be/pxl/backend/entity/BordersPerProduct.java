@@ -5,25 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Products_per_cargo")
-public class ProductPerCargo {
+@Table(name="Borders_per_product")
+public class BordersPerProduct {
 
 	@EmbeddedId
-	private ProductsPerCargoPK Id;
+	private BordersPerProductPK Id;
 	@MapsId("product_id")
 	@ManyToOne
 	private Product product;
-	@MapsId("cargo_id")
+	@MapsId("variable_id")
 	@ManyToOne
-	private Cargo cargo;
-	private int amount;
+	private Variable variable;
+	private float border_value_number;
 	
 	public Product getProduct() {
 		return product;
@@ -31,17 +32,17 @@ public class ProductPerCargo {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public Cargo getCargo() {
-		return cargo;
+	public Variable getVariable() {
+		return variable;
 	}
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
+	public void setVariable(Variable variable) {
+		this.variable = variable;
 	}
-	public int getAmount() {
-		return amount;
+	public float getBorder_value_number() {
+		return border_value_number;
 	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setBorder_value_number(float border_value_number) {
+		this.border_value_number = border_value_number;
 	}
 	
 }
