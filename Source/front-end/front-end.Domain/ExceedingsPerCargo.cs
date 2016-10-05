@@ -8,5 +8,9 @@ namespace front_end.Domain
 {
     public class ExceedingsPerCargo
     {
+        public int exceeding_per_cargo_id { get; set; }
+        public Cargo Cargo { get; set; }
+        public Variable Variable { get; set; }
+        public float Value { get; set; }
     }
 }

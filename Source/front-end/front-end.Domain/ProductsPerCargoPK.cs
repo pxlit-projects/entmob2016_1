@@ -8,5 +8,7 @@ namespace front_end.Domain
 {
     public class ProductsPerCargoPK
     {
+        public int Product_id { get; set; }
+        public int Cargo_id { get; set; }
     }
 }

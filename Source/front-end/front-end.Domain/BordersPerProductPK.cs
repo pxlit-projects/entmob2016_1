@@ -8,5 +8,7 @@ namespace front_end.Domain
 {
     public class BordersPerProductPK
     {
+        public int Product_id { get; set; }
+        public int Variable_id { get; set; }
     }
 }
