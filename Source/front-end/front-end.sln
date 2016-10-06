@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.WindowsPhone", "f
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Domain", "front-end.Domain\front-end.Domain.csproj", "{57D20527-7B0C-458C-A7A7-E0C211946A19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Repository", "front-end.Repository\front-end.Repository.csproj", "{61DC2EAB-D755-4E07-8072-835B63B11602}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		front-end\front-end.Shared\front-end.Shared.projitems*{af32558f-ca1d-44e0-97d8-9feb61990104}*SharedItemsImports = 4
@@ -94,6 +96,22 @@ Global
 		{57D20527-7B0C-458C-A7A7-E0C211946A19}.Release|x64.Build.0 = Release|Any CPU
 		{57D20527-7B0C-458C-A7A7-E0C211946A19}.Release|x86.ActiveCfg = Release|Any CPU
 		{57D20527-7B0C-458C-A7A7-E0C211946A19}.Release|x86.Build.0 = Release|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Debug|ARM.Build.0 = Debug|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Debug|x64.Build.0 = Debug|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Debug|x86.Build.0 = Debug|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|ARM.ActiveCfg = Release|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|ARM.Build.0 = Release|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x64.ActiveCfg = Release|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x64.Build.0 = Release|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x86.ActiveCfg = Release|Any CPU
+		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
