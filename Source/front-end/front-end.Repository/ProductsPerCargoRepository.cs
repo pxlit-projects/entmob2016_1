@@ -1,21 +1,20 @@
 ﻿using front_end.Domain;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace front_end.Repository
 {
-    public class BordersPerProductRepository
+    public class ProductsPerCargoRepository
     {
         public HttpClient Client { get; set; }
 
-        public BordersPerProductRepository()
+        public ProductsPerCargoRepository()
         {
             Client = new HttpClient();
             Client.BaseAddress = new Uri("http://localhost/");
@@ -23,9 +22,9 @@ namespace front_end.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<BordersPerProduct>> GetAllBordersPerProducts()
+        public async Task<IEnumerable<ProductsPerCargo>> GetAllProductsPerCargos()
         {
-            var url = "/bordersperproducts/all";
+            var url = "/productPerCargos/all";
             HttpResponseMessage response = await Client.GetAsync(url);
             string jsonString = "";
 
@@ -34,13 +33,13 @@ namespace front_end.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var bordersPerProducts = JsonConvert.DeserializeObject<IEnumerable<BordersPerProduct>>(jsonString);
-            return bordersPerProducts;
+            var productsPerCargos = JsonConvert.DeserializeObject<IEnumerable<ProductsPerCargo>>(jsonString);
+            return productsPerCargos;
         }
 
-        public async Task<BordersPerProduct> GetBordersPerProductById(int id)
+        public async Task<ProductsPerCargo> GetProductsPerCargoById(int id)
         {
-            var url = "/bordersperproducts/get/" + id;
+            var url = "/productPerCargos/get/" + id;
             HttpResponseMessage response = await Client.GetAsync(url);
             string jsonString = "";
 
@@ -49,29 +48,29 @@ namespace front_end.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var bordersPerProducts = JsonConvert.DeserializeObject<BordersPerProduct>(jsonString);
-            return bordersPerProducts;
+            var productPerCargo = JsonConvert.DeserializeObject<ProductsPerCargo>(jsonString);
+            return productPerCargo;
         }
 
-        public async void AddBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public async void AddProductsPerCargo(ProductsPerCargo productsPerCargo)
         {
-            var url = "/bordersperproducts/add";
-            var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
+            var url = "/productPerCargos/add";
+            var jsonString = JsonConvert.SerializeObject(productsPerCargo);
             var content = new StringContent(jsonString);
             await Client.PostAsync(url, content);
         }
 
-        public async void UpdateBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public async void UpdateProductsPerCargo(ProductsPerCargo productsPerCargo)
         {
-            var url = "/bordersperproducts/update/" + bordersPerProduct.Id;
-            var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
+            var url = "/cities/update/" + productsPerCargo.Id;
+            var jsonString = JsonConvert.SerializeObject(productsPerCargo);
             var content = new StringContent(jsonString);
             await Client.PutAsync(url, content);
         }
 
-        public async void DeleteBordersPerProduct(int id)
+        public async void DeleteProductsPerCargo(int id)
         {
-            var url = "/bordersperproducts/delete/" + id;
+            var url = "/productsPerCargo/delete/" + id;
             await Client.DeleteAsync(url);
         }
     }

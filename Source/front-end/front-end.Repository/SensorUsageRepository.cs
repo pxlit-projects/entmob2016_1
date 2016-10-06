@@ -1,21 +1,20 @@
 ﻿using front_end.Domain;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace front_end.Repository
 {
-    public class BordersPerProductRepository
+    public class SensorUsageRepository
     {
         public HttpClient Client { get; set; }
 
-        public BordersPerProductRepository()
+        public SensorUsageRepository()
         {
             Client = new HttpClient();
             Client.BaseAddress = new Uri("http://localhost/");
@@ -23,9 +22,9 @@ namespace front_end.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<BordersPerProduct>> GetAllBordersPerProducts()
+        public async Task<IEnumerable<SensorUsage>> GetAllSensorUsages()
         {
-            var url = "/bordersperproducts/all";
+            var url = "/sensorusages/all";
             HttpResponseMessage response = await Client.GetAsync(url);
             string jsonString = "";
 
@@ -34,13 +33,13 @@ namespace front_end.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var bordersPerProducts = JsonConvert.DeserializeObject<IEnumerable<BordersPerProduct>>(jsonString);
-            return bordersPerProducts;
+            var sensorUsages = JsonConvert.DeserializeObject<IEnumerable<SensorUsage>>(jsonString);
+            return sensorUsages;
         }
 
-        public async Task<BordersPerProduct> GetBordersPerProductById(int id)
+        public async Task<SensorUsage> GetSensorUsageById(int id)
         {
-            var url = "/bordersperproducts/get/" + id;
+            var url = "/sensorusages/get/" + id;
             HttpResponseMessage response = await Client.GetAsync(url);
             string jsonString = "";
 
@@ -49,29 +48,29 @@ namespace front_end.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var bordersPerProducts = JsonConvert.DeserializeObject<BordersPerProduct>(jsonString);
-            return bordersPerProducts;
+            var sensorUsage = JsonConvert.DeserializeObject<SensorUsage>(jsonString);
+            return sensorUsage;
         }
 
-        public async void AddBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public async void AddSensorUsage(SensorUsage sensorUsage)
         {
-            var url = "/bordersperproducts/add";
-            var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
+            var url = "/sensorusages/add";
+            var jsonString = JsonConvert.SerializeObject(sensorUsage);
             var content = new StringContent(jsonString);
             await Client.PostAsync(url, content);
         }
 
-        public async void UpdateBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public async void UpdateSensorUsage(SensorUsage sensorUsage)
         {
-            var url = "/bordersperproducts/update/" + bordersPerProduct.Id;
-            var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
+            var url = "/sensorusages/update/" + sensorUsage.Sensor_usage_id;
+            var jsonString = JsonConvert.SerializeObject(sensorUsage);
             var content = new StringContent(jsonString);
             await Client.PutAsync(url, content);
         }
 
-        public async void DeleteBordersPerProduct(int id)
+        public async void DeleteSensorUsage(int id)
         {
-            var url = "/bordersperproducts/delete/" + id;
+            var url = "/sensorusages/delete/" + id;
             await Client.DeleteAsync(url);
         }
     }

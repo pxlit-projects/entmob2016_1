@@ -1,21 +1,20 @@
 ﻿using front_end.Domain;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace front_end.Repository
 {
-    public class BordersPerProductRepository
+    public class EmployeeRepository
     {
         public HttpClient Client { get; set; }
 
-        public BordersPerProductRepository()
+        public EmployeeRepository()
         {
             Client = new HttpClient();
             Client.BaseAddress = new Uri("http://localhost/");
@@ -23,9 +22,9 @@ namespace front_end.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<BordersPerProduct>> GetAllBordersPerProducts()
+        public async Task<IEnumerable<Employee>> GetAllEmployees()
         {
-            var url = "/bordersperproducts/all";
+            var url = "/employees/all";
             HttpResponseMessage response = await Client.GetAsync(url);
             string jsonString = "";
 
@@ -34,13 +33,13 @@ namespace front_end.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var bordersPerProducts = JsonConvert.DeserializeObject<IEnumerable<BordersPerProduct>>(jsonString);
-            return bordersPerProducts;
+            var employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
+            return employees;
         }
 
-        public async Task<BordersPerProduct> GetBordersPerProductById(int id)
+        public async Task<Employee> GetEmployeeById(int id)
         {
-            var url = "/bordersperproducts/get/" + id;
+            var url = "/employees/get/" + id;
             HttpResponseMessage response = await Client.GetAsync(url);
             string jsonString = "";
 
@@ -49,29 +48,29 @@ namespace front_end.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var bordersPerProducts = JsonConvert.DeserializeObject<BordersPerProduct>(jsonString);
-            return bordersPerProducts;
+            var employee = JsonConvert.DeserializeObject<Employee>(jsonString);
+            return employee;
         }
 
-        public async void AddBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public async void AddEmployee(Employee employee)
         {
-            var url = "/bordersperproducts/add";
-            var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
+            var url = "/employees/add";
+            var jsonString = JsonConvert.SerializeObject(employee);
             var content = new StringContent(jsonString);
             await Client.PostAsync(url, content);
         }
 
-        public async void UpdateBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public async void UpdateEmployee(Employee employee)
         {
-            var url = "/bordersperproducts/update/" + bordersPerProduct.Id;
-            var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
+            var url = "/cities/update/" + employee.Employee_id;
+            var jsonString = JsonConvert.SerializeObject(employee);
             var content = new StringContent(jsonString);
             await Client.PutAsync(url, content);
         }
 
-        public async void DeleteBordersPerProduct(int id)
+        public async void DeleteEmployee(int id)
         {
-            var url = "/bordersperproducts/delete/" + id;
+            var url = "/employees/delete/" + id;
             await Client.DeleteAsync(url);
         }
     }
