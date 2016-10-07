@@ -5,9 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import be.pxl.backend.entity.Destination;
 import be.pxl.backend.repository.DestinationRepository;
+import org.springframework.stereotype.Service;
 
-@Component
-public class DestinationService {
+@Service
+public class DestinationService implements IDestinationService {
 
 	@Autowired
 	private DestinationRepository repo;

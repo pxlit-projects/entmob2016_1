@@ -8,7 +8,7 @@ import be.pxl.backend.entity.Login;
 import be.pxl.backend.repository.EmployeeRepository;
 
 @Service
-public class EmployeeService {
+public class EmployeeService implements IEmployeeService {
 
 	@Autowired
 	private EmployeeRepository repo;

@@ -9,7 +9,7 @@ import be.pxl.backend.entity.Variable;
 import be.pxl.backend.repository.VariableRepository;
 
 @Service
-public class VariableService {
+public class VariableService implements IVariableService {
 
 	@Autowired
 	private VariableRepository repo;

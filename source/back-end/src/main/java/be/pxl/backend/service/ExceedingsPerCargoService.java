@@ -7,7 +7,7 @@ import be.pxl.backend.entity.ExceedingsPerCargo;
 import be.pxl.backend.repository.ExceedingsPerCargoRepository;
 
 @Service
-public class ExceedingsPerCargoService {
+public class ExceedingsPerCargoService implements IExceedingsPerCargoService {
 
 	@Autowired
 	private ExceedingsPerCargoRepository repo;

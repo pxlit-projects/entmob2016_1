@@ -9,7 +9,7 @@ import be.pxl.backend.entity.SensorUsage;
 import be.pxl.backend.repository.SensorUsageRepository;
 
 @Service
-public class SensorUsageService {
+public class SensorUsageService implements ISensorUsageService {
 
 	@Autowired
 	private SensorUsageRepository repo;

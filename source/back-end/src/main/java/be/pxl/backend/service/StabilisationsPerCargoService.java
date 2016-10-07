@@ -9,7 +9,7 @@ import be.pxl.backend.entity.StabilisationsPerCargo;
 import be.pxl.backend.repository.StabilisationsPerCargoRepository;
 
 @Service
-public class StabilisationsPerCargoService {
+public class StabilisationsPerCargoService implements IStabilisationsPerCargoService {
 
 	@Autowired
 	private StabilisationsPerCargoRepository repo;

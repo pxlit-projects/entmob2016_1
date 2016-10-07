@@ -7,7 +7,7 @@ import be.pxl.backend.entity.ProductPerCargo;
 import be.pxl.backend.repository.ProductPerCargoRepository;
 
 @Service
-public class ProductPerCargoService {
+public class ProductPerCargoService implements IProductPerCargoService {
 
 	@Autowired
 	private ProductPerCargoRepository repo;

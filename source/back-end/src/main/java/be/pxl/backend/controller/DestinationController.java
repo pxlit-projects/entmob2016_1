@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.Destination;
-import be.pxl.backend.service.DestinationService;
-import be.pxl.backend.service.*;
+import be.pxl.backend.service.IDestinationService;
+
 @RestController
 @RequestMapping("/destinations")
 public class DestinationController {
