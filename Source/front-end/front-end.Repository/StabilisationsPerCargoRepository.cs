@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace front_end.Repository
 {
-    public class StabilisationsPerCargoRepository
+    public class StabilisationsPerCargoRepository : IStabilisationsPerCargoRepository
     {
         public HttpClient Client { get; set; }
 
