@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "front-end", "front-end", "{EC6733B9-3601-44BC-A7A4-F095492F713B}"
 EndProject
@@ -15,13 +15,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Domain", "front-e
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Repository", "front-end.Repository\front-end.Repository.csproj", "{61DC2EAB-D755-4E07-8072-835B63B11602}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Services", "front-end.Services\front-end.Services.csproj", "{BAEE1822-6611-4384-BBF1-CA27696C7CD3}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Main", "front-end.Main\front-end.Main.csproj", "{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}"
+>>>>>>> origin/master
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		front-end\front-end.Shared\front-end.Shared.projitems*{0ebd2382-e805-46a0-8db8-cf11f6409f79}*SharedItemsImports = 13
 		front-end\front-end.Shared\front-end.Shared.projitems*{af32558f-ca1d-44e0-97d8-9feb61990104}*SharedItemsImports = 4
 		front-end\front-end.Shared\front-end.Shared.projitems*{efa5aaab-75c0-47de-93c9-94feeaf7a38d}*SharedItemsImports = 4
-		front-end\front-end.Shared\front-end.Shared.projitems*{0ebd2382-e805-46a0-8db8-cf11f6409f79}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +118,7 @@ Global
 		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x64.Build.0 = Release|Any CPU
 		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x86.ActiveCfg = Release|Any CPU
 		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x86.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -130,6 +135,28 @@ Global
 		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|x64.Build.0 = Release|Any CPU
 		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|x86.ActiveCfg = Release|Any CPU
 		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|x86.Build.0 = Release|Any CPU
+=======
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|ARM.ActiveCfg = Debug|ARM
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|ARM.Build.0 = Debug|ARM
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|ARM.Deploy.0 = Debug|ARM
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|x64.ActiveCfg = Debug|x64
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|x64.Build.0 = Debug|x64
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|x64.Deploy.0 = Debug|x64
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|x86.ActiveCfg = Debug|x86
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|x86.Build.0 = Debug|x86
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Debug|x86.Deploy.0 = Debug|x86
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|Any CPU.ActiveCfg = Release|x86
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|ARM.ActiveCfg = Release|ARM
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|ARM.Build.0 = Release|ARM
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|ARM.Deploy.0 = Release|ARM
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|x64.ActiveCfg = Release|x64
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|x64.Build.0 = Release|x64
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|x64.Deploy.0 = Release|x64
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|x86.ActiveCfg = Release|x86
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|x86.Build.0 = Release|x86
+		{0CE5EF0D-31DE-4433-A1D4-FDA215B9D820}.Release|x86.Deploy.0 = Release|x86
+>>>>>>> origin/master
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

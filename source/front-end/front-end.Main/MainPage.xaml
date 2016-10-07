@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="front_end.Main.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:front_end.Main"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SplitView x:Name="NavigationPane" DisplayMode="CompactInline">
+            <SplitView.Pane>
+
+                <Grid Background="LightGreen">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="44" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="HamburgerButton" Grid.Row="0" Style="{StaticResource MenuItemButtonStyle}" Tag="h" Click="HamburgerButton_Click" />
+
+                    <StackPanel x:Name="NavigationMenu" Orientation="Vertical" Grid.Row="1">
+                        <RadioButton x:Name="HomeButton"
+           GroupName="Group1"
+           Style="{StaticResource NavigationButtonStyle}"
+           Tag=""
+           Checked="Option1Button_Checked"
+           Content="Home"
+           />
+                        <RadioButton x:Name="SensorButton"
+           GroupName="Group1"
+           Style="{StaticResource NavigationButtonStyle}"
+           Tag=""
+           Checked="Option2Button_Checked"
+           Content="Sensor"
+           />
+                        <RadioButton x:Name="DriversButton" GroupName="Group1" Style="{StaticResource NavigationButtonStyle}"
+                            Checked="Option3Button_Checked" Content="Drivers"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </SplitView.Pane>
+            <SplitView.Content>
+
+                <Frame x:Name="Content" Background="LightGray">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition>
+                                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                    <EntranceNavigationTransitionInfo/>
+                                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                            </NavigationThemeTransition>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
