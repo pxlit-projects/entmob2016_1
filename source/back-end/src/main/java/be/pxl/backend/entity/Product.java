@@ -17,6 +17,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int product_id;
+	private String title;
 	private String description;
 	private boolean status;
 	@OneToMany(mappedBy="product")
@@ -24,6 +25,8 @@ public class Product {
 	public int getProduct_id() {
 		return product_id;
 	}
+	public String getTitle() { return title; }
+	public void setTitle(String status) { this.title = title; }
 	public boolean isStatus() {
 		return status;
 	}
