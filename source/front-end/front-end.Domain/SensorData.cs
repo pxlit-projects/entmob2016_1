@@ -12,7 +12,7 @@ namespace front_end.Domain
         public DateTime Time { get; set; }
         public double Temperature { get; set; }
         public double Humidity { get; set; }
-       public double BaroMeter { get; set; }
+        public double BaroMeter { get; set; }
         public double AcceleroMeter { get; set; }
         public double MagnetMeter { get; set; }
         public double Gyroscoop { get; set; }
