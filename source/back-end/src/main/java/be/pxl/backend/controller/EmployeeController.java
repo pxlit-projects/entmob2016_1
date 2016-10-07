@@ -11,7 +11,7 @@ import be.pxl.backend.entity.Employee;
 import be.pxl.backend.service.EmployeeService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping(this.EMPLOYEE_BASE_URL)
+@RequestMapping(EmployeeController.EMPLOYEE_BASE_URL)
 public class EmployeeController {
 	public static final String EMPLOYEE_BASE_URL = "/employees";
 	@Autowired

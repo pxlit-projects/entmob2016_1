@@ -11,7 +11,7 @@ import be.pxl.backend.entity.Cargo;
 import be.pxl.backend.service.CargoService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping(this.CARGO_BASE_URL)
+@RequestMapping(CargoController.CARGO_BASE_URL)
 public class CargoController {
 	
 	@Autowired

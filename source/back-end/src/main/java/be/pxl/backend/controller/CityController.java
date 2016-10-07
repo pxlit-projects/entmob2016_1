@@ -11,7 +11,7 @@ import be.pxl.backend.entity.City;
 import be.pxl.backend.service.CityService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping(this.CITIES_BASE_URL)
+@RequestMapping(CityController.CITIES_BASE_URL)
 public class CityController {
 
 	public static final String CITIES_BASE_URL = "/cities";

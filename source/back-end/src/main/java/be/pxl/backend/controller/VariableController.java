@@ -12,7 +12,7 @@ import be.pxl.backend.service.IVariableService;
 import be.pxl.backend.service.*;
 
 @RestController
-@RequestMapping(this.VARIABLE_BASE_URL)
+@RequestMapping(VariableController.VARIABLE_BASE_URL)
 public class VariableController {
 	public static final String VARIABLE_BASE_URL = "/variables";
 	@Autowired
