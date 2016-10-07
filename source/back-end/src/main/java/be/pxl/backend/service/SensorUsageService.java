@@ -3,10 +3,12 @@ package be.pxl.backend.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import be.pxl.backend.entity.SensorUsage;
 import be.pxl.backend.repository.SensorUsageRepository;
 
-@Component
+@Service
 public class SensorUsageService {
 
 	@Autowired

@@ -3,10 +3,12 @@ package be.pxl.backend.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import be.pxl.backend.entity.Variable;
 import be.pxl.backend.repository.VariableRepository;
 
-@Component
+@Service
 public class VariableService {
 
 	@Autowired
