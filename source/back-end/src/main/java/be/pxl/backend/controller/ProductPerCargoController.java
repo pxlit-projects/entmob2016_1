@@ -11,9 +11,9 @@ import be.pxl.backend.entity.ProductPerCargo;
 import be.pxl.backend.service.ProductPerCargoService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/productPerCargos")
+@RequestMapping(this.PRODUCTPERCARGO_BASE_URL)
 public class ProductPerCargoController {
-	
+	public static final String PRODUCTPERCARGO_BASE_URL = "/productpercargo";
 	@Autowired
 	private IProductPerCargoService service;
 	

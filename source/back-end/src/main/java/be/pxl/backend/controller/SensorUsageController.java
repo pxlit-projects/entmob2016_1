@@ -11,9 +11,9 @@ import be.pxl.backend.entity.SensorUsage;
 import be.pxl.backend.service.SensorUsageService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/sensorusages")
+@RequestMapping(this.SENSORUSAGE_BASE_URL)
 public class SensorUsageController {
-	
+	public static final String SENSORUSAGE_BASE_URL = "/sensorusages";
 	@Autowired
 	private ISensorUsageService service;
 	

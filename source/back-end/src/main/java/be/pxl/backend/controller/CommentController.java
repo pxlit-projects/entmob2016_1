@@ -13,9 +13,10 @@ import be.pxl.backend.service.CargoService;
 import be.pxl.backend.service.CommentService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/comments")
+@RequestMapping(this.COMMENTS_BASE_URL)
 public class CommentController {
-	
+
+	public static final String COMMENTS_BASE_URL = "/comments";
 	@Autowired
 	private ICommentService service;
 	

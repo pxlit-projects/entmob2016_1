@@ -8,7 +8,38 @@ using System.Threading.Tasks;
 
 namespace front_end.Services
 {
-    public class DestinationService
+    public class DestinationService : IDestinationService
     {
+        private DestinationRepository destinationRepository;
+
+        public DestinationService()
+        {
+            destinationRepository = new DestinationRepository();
+        }
+
+        public void Add(Destination destination)
+        {
+            destinationRepository.AddDestination(destination);
+        }
+
+        public List<Destination> All()
+        {
+            return destinationRepository.GetAllDestinations().Result.ToList();
+        }
+
+        public void Delete(int id)
+        {
+            destinationRepository.DeleteDestination(id);
+        }
+
+        public Destination Find(int id)
+        {
+            return destinationRepository.GetDestinationById(id).Result;
+        }
+
+        public void Update(Destination destination)
+        {
+            destinationRepository.UpdateDestination(destination);
+        }
     }
 }

@@ -11,9 +11,9 @@ import be.pxl.backend.entity.StabilisationsPerCargo;
 import be.pxl.backend.service.StabilisationsPerCargoService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/stabilisationspercargos")
+@RequestMapping(this.STABILISATIONSPERCARGO_BASE_URL)
 public class StabilisationsPerCargoController {
-	
+	public static final String STABILISATIONSPERCARGO_BASE_URL = "/stabilisationspercargos";
 	@Autowired
 	private IStabilisationsPerCargoService service;
 	
