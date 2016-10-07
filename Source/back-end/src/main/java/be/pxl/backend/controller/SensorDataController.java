@@ -11,9 +11,9 @@ import be.pxl.backend.entity.SensorData;
 import be.pxl.backend.service.SensorDataService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/sensordata")
+@RequestMapping(this.SENSORDATA_BASE_URL)
 public class SensorDataController {
-
+    public static final String SENSORDATA_BASE_URL = "/sensordata";
     @Autowired
     private ISensorDataService service;
 

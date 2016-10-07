@@ -11,9 +11,9 @@ import be.pxl.backend.entity.Login;
 import be.pxl.backend.service.LoginService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/logins")
+@RequestMapping(this.LOGIN_BASE_URL)
 public class LoginController {
-	
+	public static final String LOGIN_BASE_URL = "/logins";
 	@Autowired
 	private ILoginService service;
 	

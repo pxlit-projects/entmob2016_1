@@ -11,11 +11,13 @@ import be.pxl.backend.entity.Cargo;
 import be.pxl.backend.service.CargoService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/cargos")
+@RequestMapping(this.CARGO_BASE_URL)
 public class CargoController {
 	
 	@Autowired
 	private ICargoService service;
+
+	public static final String CARGO_BASE_URL = "/cargos";
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Cargo getCargoById(@PathVariable("id") int id) {

@@ -11,9 +11,9 @@ import be.pxl.backend.entity.Destination;
 import be.pxl.backend.service.IDestinationService;
 
 @RestController
-@RequestMapping("/destinations")
+@RequestMapping(this.DESTINATIONS_BASE_URL)
 public class DestinationController {
-	
+	public static final String DESTINATIONS_BASE_URL = "/destinations";
 	@Autowired
 	private IDestinationService service;
 	

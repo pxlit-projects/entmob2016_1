@@ -11,8 +11,10 @@ import be.pxl.backend.entity.BordersPerProduct;
 import be.pxl.backend.service.BordersPerProductService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/bordersperproducts")
+@RequestMapping(this.BORDERSPERPRODUCT_BASE_URL)
 public class BordersPerProductController {
+
+	public static final String BORDERSPERPRODUCT_BASE_URL = "/bordersperproducts";
 	
 	@Autowired
 	private IBordersPerProductService service;

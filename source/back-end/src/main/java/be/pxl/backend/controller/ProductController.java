@@ -11,9 +11,9 @@ import be.pxl.backend.entity.Product;
 import be.pxl.backend.service.ProductService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/products")
+@RequestMapping(this.PRODUCT_BASE_URL)
 public class ProductController {
-	
+	public static final String PRODUCT_BASE_URL = "/products";
 	@Autowired
 	private IProductService service;
 	
