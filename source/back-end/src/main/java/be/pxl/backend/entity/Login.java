@@ -28,11 +28,12 @@ public class Login {
 	public void setLogin_id(int login_id) {
 		this.login_id = login_id;
 	}
-	public Employee getEmployee() {
-		return employee;
-	}
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+	
+	public Employee getEmployee() {
+		return employee;
 	}
 	public Date getTime() {
 		return time;

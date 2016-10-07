@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Employees")
 public class Employee {
@@ -36,26 +38,10 @@ public class Employee {
 	private Boolean status;
 	
 	@OneToMany(mappedBy="employee")
-	private List<Sensor> sensors = new ArrayList<Sensor>();
-	@OneToMany(mappedBy="employee")
 	private List<Login> logins = new ArrayList<Login>();
-	
-	
+	@JsonIgnore
 	public List<Login> getLogins() {
 		return logins;
-	}
-	public void setLogins(ArrayList<Login> logins) {
-		this.logins = logins;
-	}
-	public List<Sensor> getSensors() {
-		return sensors;
-	}
-	public void setSensors(ArrayList<Sensor> sensors) {
-		this.sensors = sensors;
-	}
-
-	public void setSensors(List<Sensor> sensors) {
-		this.sensors = sensors;
 	}
 	public void setLogins(List<Login> logins) {
 		this.logins = logins;

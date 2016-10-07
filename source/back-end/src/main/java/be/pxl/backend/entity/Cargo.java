@@ -20,7 +20,7 @@ public class Cargo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int cargo_id;
 	@ManyToOne
-	private Sensor sensor;
+	private SensorUsage sensor_usage;
 	@ManyToOne
 	private Employee employee;
 	@ManyToOne
@@ -31,29 +31,23 @@ public class Cargo {
 	@OneToMany(mappedBy="cargo")
 	private List<ExceedingsPerCargo> ExceedingsPerCargos = new ArrayList<ExceedingsPerCargo>();
 	
-	public List<ProductPerCargo> getProductsPerCargos() {
-		return productsPerCargos;
-	}
-	public void setProductsPerCargos(ArrayList<ProductPerCargo> productsPerCargos) {
-		this.productsPerCargos = productsPerCargos;
-	}
-	public List<ExceedingsPerCargo> getExceedingsPerCargos() {
-		return ExceedingsPerCargos;
-	}
-	public void setExceedingsPerCargos(ArrayList<ExceedingsPerCargo> exceedingsPerCargos) {
-		ExceedingsPerCargos = exceedingsPerCargos;
-	}
 	public int getCargo_id() {
 		return cargo_id;
 	}
 	public void setCargo_id(int cargo_id) {
 		this.cargo_id = cargo_id;
 	}
-	public Sensor getSensor() {
-		return sensor;
+	public SensorUsage getSensor_usage() {
+		return sensor_usage;
 	}
-	public void setSensor(Sensor sensor) {
-		this.sensor = sensor;
+	public void setSensor_usage(SensorUsage sensor_usage) {
+		this.sensor_usage = sensor_usage;
+	}
+	public void setProductsPerCargos(List<ProductPerCargo> productsPerCargos) {
+		this.productsPerCargos = productsPerCargos;
+	}
+	public void setExceedingsPerCargos(List<ExceedingsPerCargo> exceedingsPerCargos) {
+		ExceedingsPerCargos = exceedingsPerCargos;
 	}
 	public Employee getEmployee() {
 		return employee;

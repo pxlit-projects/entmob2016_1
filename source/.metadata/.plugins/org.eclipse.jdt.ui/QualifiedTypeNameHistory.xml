@@ -13,7 +13,6 @@
 <fullyQualifiedTypeName name="be.pxl.backend.dao.BordersPerProductDAO"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
 <fullyQualifiedTypeName name="be.pxl.backend.entity.BordersPerProduct"/>
-<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="org.aspectj.apache.bcel.Repository"/>
 <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
 <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
@@ -57,7 +56,12 @@
 <fullyQualifiedTypeName name="be.pxl.backend.service.CommentService"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
 <fullyQualifiedTypeName name="javax.persistence.PrimaryKeyJoinColumn"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="be.pxl.backend.entity.Login"/>
 <fullyQualifiedTypeName name="javax.persistence.NamedQuery"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+=======
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+>>>>>>> 530fa0d116c099ad8c07a6b16660ae9cf67a514a
 </qualifiedTypeNameHistroy>

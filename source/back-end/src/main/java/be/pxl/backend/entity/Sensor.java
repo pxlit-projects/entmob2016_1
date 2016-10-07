@@ -20,59 +20,32 @@ public class Sensor {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int sensor_id;
 	private String sensor_name;
-	@OneToOne
-	private Employee employee;
-	private Date employee_start;
-	private Date employee_stop;
 	private boolean status;
+	
 	@OneToMany(mappedBy="sensor")
-	private List<Cargo> cargos = new ArrayList<Cargo>();
-	
-	
-	public List<Cargo> getCargos() {
-		return cargos;
-	}
-	public void setCargos(ArrayList<Cargo> cargos) {
-		this.cargos = cargos;
-	}
+	private List<SensorUsage> cargos = new ArrayList<SensorUsage>();
+
 	public int getSensor_id() {
 		return sensor_id;
 	}
+
 	public void setSensor_id(int sensor_id) {
 		this.sensor_id = sensor_id;
 	}
+
 	public String getSensor_name() {
 		return sensor_name;
 	}
+
 	public void setSensor_name(String sensor_name) {
 		this.sensor_name = sensor_name;
 	}
-	public Employee getEmployee() {
-		return employee;
-	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-	public Date getEmployee_start() {
-		return employee_start;
-	}
-	public void setEmployee_start(Date employee_start) {
-		this.employee_start = employee_start;
-	}
-	public Date getEmployee_stop() {
-		return employee_stop;
-	}
-	public void setEmployee_stop(Date employee_stop) {
-		this.employee_stop = employee_stop;
-	}
+
 	public boolean isStatus() {
 		return status;
 	}
+
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public void setCargos(List<Cargo> cargos) {
-		this.cargos = cargos;
-	}
-	
 }
