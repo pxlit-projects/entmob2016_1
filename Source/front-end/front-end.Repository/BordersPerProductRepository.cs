@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace front_end.Repository
 {
-    public class BordersPerProductRepository
+    public class BordersPerProductRepository : IBordersPerProductRepository
     {
         public HttpClient Client { get; set; }
 

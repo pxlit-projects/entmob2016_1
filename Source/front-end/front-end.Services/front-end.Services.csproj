@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{61DC2EAB-D755-4E07-8072-835B63B11602}</ProjectGuid>
+    <ProjectGuid>{BAEE1822-6611-4384-BBF1-CA27696C7CD3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>front_end.Repository</RootNamespace>
-    <AssemblyName>front-end.Repository</AssemblyName>
+    <RootNamespace>front_end.Services</RootNamespace>
+    <AssemblyName>front-end.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,31 +40,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BordersPerProductRepository.cs" />
-    <Compile Include="CargoRepository.cs" />
-    <Compile Include="CityRepository.cs" />
-    <Compile Include="CommentRepository.cs" />
-    <Compile Include="DestinationRepository.cs" />
-    <Compile Include="EmployeeRepository.cs" />
-    <Compile Include="ExceedingsPerCargoRepository.cs" />
-    <Compile Include="IBordersPerProductRepository.cs" />
-    <Compile Include="LoginRepository.cs" />
-    <Compile Include="ProductsPerCargoRepository.cs" />
-    <Compile Include="ProductRepository.cs" />
+    <Compile Include="BordersPerProductService.cs" />
+    <Compile Include="CargoService.cs" />
+    <Compile Include="CityService.cs" />
+    <Compile Include="CommentService.cs" />
+    <Compile Include="DestinationService.cs" />
+    <Compile Include="EmployeeService.cs" />
+    <Compile Include="ExceedingsPerCargoService.cs" />
+    <Compile Include="LoginService.cs" />
+    <Compile Include="ProductService.cs" />
+    <Compile Include="ProductsPerCargoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SensorRepository.cs" />
-    <Compile Include="SensorUsageRepository.cs" />
-    <Compile Include="StabilisationsPerCargoRepository.cs" />
-    <Compile Include="VariableRepository.cs" />
+    <Compile Include="SensorService.cs" />
+    <Compile Include="SensorUsageService.cs" />
+    <Compile Include="StabilisationsPerCargoService.cs" />
+    <Compile Include="VariableService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\front-end.Domain\front-end.Domain.csproj">
       <Project>{57d20527-7b0c-458c-a7a7-e0c211946a19}</Project>
       <Name>front-end.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\front-end.Repository\front-end.Repository.csproj">
+      <Project>{61dc2eab-d755-4e07-8072-835b63b11602}</Project>
+      <Name>front-end.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

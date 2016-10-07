@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Domain", "front-e
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Repository", "front-end.Repository\front-end.Repository.csproj", "{61DC2EAB-D755-4E07-8072-835B63B11602}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "front-end.Services", "front-end.Services\front-end.Services.csproj", "{BAEE1822-6611-4384-BBF1-CA27696C7CD3}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		front-end\front-end.Shared\front-end.Shared.projitems*{af32558f-ca1d-44e0-97d8-9feb61990104}*SharedItemsImports = 4
@@ -112,6 +114,22 @@ Global
 		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x64.Build.0 = Release|Any CPU
 		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x86.ActiveCfg = Release|Any CPU
 		{61DC2EAB-D755-4E07-8072-835B63B11602}.Release|x86.Build.0 = Release|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|x64.Build.0 = Debug|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Debug|x86.Build.0 = Debug|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|ARM.Build.0 = Release|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|x64.ActiveCfg = Release|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|x64.Build.0 = Release|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|x86.ActiveCfg = Release|Any CPU
+		{BAEE1822-6611-4384-BBF1-CA27696C7CD3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
