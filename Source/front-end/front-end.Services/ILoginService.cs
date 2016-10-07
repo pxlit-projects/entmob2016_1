@@ -9,5 +9,10 @@ namespace front_end.Services
 {
     public interface ILoginService
     {
+        List<Login> All();
+        Login Find(int id);
+        void Add(Login login);
+        void Update(Login login);
+        void Delete(int id);
     }
 }

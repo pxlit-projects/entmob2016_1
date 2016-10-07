@@ -9,5 +9,10 @@ namespace front_end.Services
 {
     public interface IBordersPerProductService
     {
+        List<BordersPerProduct> All();
+        BordersPerProduct Find(int id);
+        void Add(BordersPerProduct bordersPerProduct);
+        void Update(BordersPerProduct bordersPerProduct);
+        void Delete(int id);
     }
 }

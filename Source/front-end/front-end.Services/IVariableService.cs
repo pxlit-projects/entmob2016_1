@@ -9,5 +9,10 @@ namespace front_end.Services
 {
     public interface IVariableService
     {
+        List<Variable> All();
+        Variable Find(int id);
+        void Add(Variable variable);
+        void Update(Variable variable);
+        void Delete(int id);
     }
 }

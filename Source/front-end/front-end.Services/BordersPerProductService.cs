@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace front_end.Services
 {
-    public class BordersPerProductService
+    public class BordersPerProductService : IBordersPerProductService
     {
         private BordersPerProductRepository bordersPerProductRepository;
 

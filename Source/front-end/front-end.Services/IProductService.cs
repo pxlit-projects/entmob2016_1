@@ -9,5 +9,10 @@ namespace front_end.Services
 {
     public interface IProductService
     {
+        List<Product> All();
+        Product Find(int id);
+        void Add(Product product);
+        void Update(Product product);
+        void Delete(int id);
     }
 }

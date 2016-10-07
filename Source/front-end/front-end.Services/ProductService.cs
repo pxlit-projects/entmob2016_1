@@ -8,7 +8,38 @@ using System.Threading.Tasks;
 
 namespace front_end.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
+        private ProductRepository productRepository;
+
+        public ProductService()
+        {
+            productRepository = new ProductRepository();
+        }
+
+        public void Add(Product product)
+        {
+            productRepository.AddProduct(product);
+        }
+
+        public List<Product> All()
+        {
+            return productRepository.GetAllProducts().Result.ToList();
+        }
+
+        public void Delete(int id)
+        {
+            productRepository.DeleteProduct(id);
+        }
+
+        public Product Find(int id)
+        {
+            return productRepository.GetProductById(id).Result;
+        }
+
+        public void Update(Product product)
+        {
+            productRepository.UpdateProduct(product);
+        }
     }
 }
