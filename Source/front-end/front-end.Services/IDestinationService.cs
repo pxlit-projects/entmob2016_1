@@ -9,5 +9,10 @@ namespace front_end.Services
 {
     public interface IDestinationService
     {
+        List<Destination> All();
+        Destination Find(int id);
+        void Add(Destination destination);
+        void Update(Destination destination);
+        void Delete(int id);
     }
 }

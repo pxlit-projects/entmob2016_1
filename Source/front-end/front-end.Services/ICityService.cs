@@ -9,5 +9,10 @@ namespace front_end.Services
 {
     public interface ICityService
     {
+        List<City> All();
+        City Find(int id);
+        void Add(City city);
+        void Update(City city);
+        void Delete(int id);
     }
 }
