@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.129+C:\Users\Bram\Documents\GitHub\entmob2016_1\source\.metadata\.plugins\org.eclipse.jdt.core
 2601660790.index
 3417200662.index
@@ -21,6 +22,85 @@ INDEX VERSION 1.129+C:\Users\Bram\Documents\GitHub\entmob2016_1\source\.metadata
 3011571666.index
 808374113.index
 2342886595.index
+=======
+INDEX VERSION 1.129+C:\Users\strij\OneDrive\School\3AOND\ENTERP AND MOB\PROJECT\source\.metadata\.plugins\org.eclipse.jdt.core
+2457198689.index
+2809250744.index
+27892318.index
+9466063.index
+4063382353.index
+2320661670.index
+1956511414.index
+2143992977.index
+1081817101.index
+1645973342.index
+3255841394.index
+3651188584.index
+2133282975.index
+3463274712.index
+516275.index
+804015209.index
+2851410354.index
+3032486964.index
+2347159234.index
+4184201189.index
+2476307892.index
+1265069647.index
+3603289552.index
+781808.index
+2019903893.index
+2825671413.index
+3407430047.index
+835924382.index
+2800558102.index
+3417200662.index
+808374113.index
+3726546628.index
+414978335.index
+4012414016.index
+3745881903.index
+969396509.index
+394208024.index
+2637943071.index
+3886697702.index
+2855899100.index
+624946284.index
+2387963124.index
+4213418138.index
+339363221.index
+985286902.index
+52236678.index
+2067738984.index
+1075794691.index
+418610120.index
+1334303112.index
+10801171.index
+4040512104.index
+471236001.index
+1644702904.index
+3927050479.index
+196062867.index
+2549128427.index
+618723895.index
+2129467050.index
+3801847116.index
+1793869464.index
+2253143716.index
+557714660.index
+351221734.index
+2398244993.index
+1044390340.index
+<<<<<<< HEAD
+859398863.index
+2867183648.index
+496513412.index
+1058003655.index
+=======
+3726546628.index
+196062867.index
+27892318.index
+=======
+>>>>>>> cfb696224fe34ba6cba03747a1760ca0caa9b351
 4016152852.index
 607019384.index
 471236001.index
@@ -71,3 +151,8 @@ INDEX VERSION 1.129+C:\Users\Bram\Documents\GitHub\entmob2016_1\source\.metadata
 243732941.index
 3586357048.index
 4032552725.index
+<<<<<<< HEAD
+=======
+>>>>>>> 8b8e60080c8f56819ecdf47c195d9c7beb23063a
+>>>>>>> 0c9d15733bd5bdb42f4456ffaf94c386f436b4fa
+>>>>>>> cfb696224fe34ba6cba03747a1760ca0caa9b351
