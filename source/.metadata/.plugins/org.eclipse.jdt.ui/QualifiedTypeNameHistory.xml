@@ -33,7 +33,6 @@
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.SpringBootApplication"/>
 <fullyQualifiedTypeName name="org.springframework.boot.SpringApplication"/>
 <fullyQualifiedTypeName name="be.pxl.backend.service.ProductService"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -58,4 +57,7 @@
 <fullyQualifiedTypeName name="be.pxl.backend.service.CommentService"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
 <fullyQualifiedTypeName name="javax.persistence.PrimaryKeyJoinColumn"/>
+<fullyQualifiedTypeName name="be.pxl.backend.entity.Login"/>
+<fullyQualifiedTypeName name="javax.persistence.NamedQuery"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

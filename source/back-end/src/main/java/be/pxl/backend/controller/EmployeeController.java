@@ -41,4 +41,9 @@ public class EmployeeController {
 	public void updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee) {
 		service.update(id, employee);
 	}
+	
+	@RequestMapping(value = "/get/{id}/logins", method = RequestMethod.GET, produces="application/json")
+	public void getLogins(@PathVariable("id") int id) {
+		service.logins(id);
+	}
 }
