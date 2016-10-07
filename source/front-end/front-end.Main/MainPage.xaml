@@ -11,7 +11,7 @@
         <SplitView x:Name="NavigationPane" DisplayMode="CompactInline">
             <SplitView.Pane>
 
-                <Grid>
+                <Grid Background="LightGreen">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="44" />
@@ -35,6 +35,9 @@
            Checked="Option2Button_Checked"
            Content="Sensor"
            />
+                        <RadioButton x:Name="DriversButton" GroupName="Group1" Style="{StaticResource NavigationButtonStyle}"
+                            Checked="Option3Button_Checked" Content="Drivers"/>
+
                     </StackPanel>
 
                 </Grid>
@@ -42,7 +45,7 @@
             </SplitView.Pane>
             <SplitView.Content>
 
-                <Frame x:Name="Content" Background="LightGreen">
+                <Frame x:Name="Content" Background="LightGray">
                     <Frame.ContentTransitions>
                         <TransitionCollection>
                             <NavigationThemeTransition>
