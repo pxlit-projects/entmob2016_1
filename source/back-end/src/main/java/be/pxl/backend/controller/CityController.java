@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.City;
 import be.pxl.backend.service.CityService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/cities")
 public class CityController {
 	
 	@Autowired
-	private CityService service;
+	private ICityService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public City getCityById(@PathVariable("id") String postal) {

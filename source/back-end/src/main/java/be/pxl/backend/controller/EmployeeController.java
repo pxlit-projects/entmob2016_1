@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.Employee;
 import be.pxl.backend.service.EmployeeService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
 	
 	@Autowired
-	private EmployeeService service;
+	private IEmployeeService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Employee getEmployeeById(@PathVariable("id") int id) {

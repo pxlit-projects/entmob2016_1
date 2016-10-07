@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.Product;
 import be.pxl.backend.service.ProductService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
 	
 	@Autowired
-	private ProductService service;
+	private IProductService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Product getProductById(@PathVariable("id") int id) {

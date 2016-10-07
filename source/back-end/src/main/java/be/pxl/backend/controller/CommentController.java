@@ -11,13 +11,13 @@ import be.pxl.backend.entity.Cargo;
 import be.pxl.backend.entity.Comment;
 import be.pxl.backend.service.CargoService;
 import be.pxl.backend.service.CommentService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/comments")
 public class CommentController {
 	
 	@Autowired
-	private CommentService service;
+	private ICommentService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Comment getCommentById(@PathVariable("id") int id) {
