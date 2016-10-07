@@ -2,14 +2,14 @@ package be.pxl.backend.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import be.pxl.backend.entity.Employee;
 import be.pxl.backend.entity.Product;
 import be.pxl.backend.repository.ProductRepository;
 
-@Component
-public class ProductService {
+@Service
+public class ProductService implements IProductService {
 
 	@Autowired
 	private ProductRepository repo;

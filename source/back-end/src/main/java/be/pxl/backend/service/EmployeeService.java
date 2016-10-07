@@ -2,12 +2,12 @@ package be.pxl.backend.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Employee;
 import be.pxl.backend.entity.Login;
 import be.pxl.backend.repository.EmployeeRepository;
 
-@Component
+@Service
 public class EmployeeService {
 
 	@Autowired
@@ -34,10 +34,6 @@ public class EmployeeService {
 	public void update(int id, Employee employee) {
 		repo.delete(id);
 		this.persist(employee);
-	}
-	
-	public List<Login> logins(int id) {
-		return repo.getLogins();
 	}
 	
 }

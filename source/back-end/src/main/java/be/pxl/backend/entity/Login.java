@@ -11,6 +11,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="Logins")
 public class Login {
@@ -19,6 +21,7 @@ public class Login {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int login_id;
 	@ManyToOne
+	@JsonBackReference
 	private Employee employee;
 	private Date time;
 	

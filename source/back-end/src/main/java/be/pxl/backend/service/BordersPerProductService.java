@@ -2,12 +2,12 @@ package be.pxl.backend.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.BordersPerProduct;
 import be.pxl.backend.repository.BordersPerProductRepository;
 
-@Component
-public class BordersPerProductService {
+@Service
+public class BordersPerProductService implements IBordersPerProductService {
 
 	@Autowired
 	private BordersPerProductRepository repo;

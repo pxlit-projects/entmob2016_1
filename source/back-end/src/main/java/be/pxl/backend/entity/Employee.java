@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="Employees")
@@ -38,6 +39,7 @@ public class Employee {
 	private Boolean status;
 	
 	@OneToMany(mappedBy="employee")
+	@JsonManagedReference
 	private List<Login> logins = new ArrayList<Login>();
 	@JsonIgnore
 	public List<Login> getLogins() {
