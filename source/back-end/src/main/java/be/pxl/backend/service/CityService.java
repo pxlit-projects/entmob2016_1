@@ -2,12 +2,12 @@ package be.pxl.backend.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.City;
 import be.pxl.backend.repository.CityRepository;
 
-@Component
-public class CityService {
+@Service
+public class CityService implements ICityService {
 
 	@Autowired
 	private CityRepository repo;

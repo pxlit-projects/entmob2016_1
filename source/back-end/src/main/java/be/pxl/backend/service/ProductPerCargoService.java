@@ -2,11 +2,11 @@ package be.pxl.backend.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.ProductPerCargo;
 import be.pxl.backend.repository.ProductPerCargoRepository;
 
-@Component
+@Service
 public class ProductPerCargoService {
 
 	@Autowired

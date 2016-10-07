@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="DAO.BordersPerProductDAOImpl"/>
 <fullyQualifiedTypeName name="javax.persistence.Persistence"/>
@@ -61,3 +62,6 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="be.pxl.backend.service.IVariableService"/>
 </qualifiedTypeNameHistroy>
+=======
+<qualifiedTypeNameHistroy/>
+>>>>>>> 6584c56099adc825ed9922d56414e5fa0306fdae

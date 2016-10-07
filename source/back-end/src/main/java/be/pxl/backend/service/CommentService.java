@@ -2,13 +2,13 @@ package be.pxl.backend.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Cargo;
 import be.pxl.backend.entity.Comment;
 import be.pxl.backend.repository.CommentRepository;
 
-@Component
-public class CommentService {
+@Service
+public class CommentService implements ICommentService {
 
 	@Autowired
 	private CommentRepository repo;

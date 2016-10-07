@@ -2,11 +2,12 @@ package be.pxl.backend.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Employee;
+import be.pxl.backend.entity.Login;
 import be.pxl.backend.repository.EmployeeRepository;
 
-@Component
+@Service
 public class EmployeeService {
 
 	@Autowired
