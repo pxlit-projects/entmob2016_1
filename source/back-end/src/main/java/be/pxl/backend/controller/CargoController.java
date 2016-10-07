@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.Cargo;
 import be.pxl.backend.service.CargoService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/cargos")
 public class CargoController {
 	
 	@Autowired
-	private CargoService service;
+	private ICargoService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Cargo getCargoById(@PathVariable("id") int id) {

@@ -8,14 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.Variable;
-import be.pxl.backend.service.VariableService;
+import be.pxl.backend.service.IVariableService;
+import be.pxl.backend.service.*;
 
 @RestController
 @RequestMapping("/variables")
 public class VariableController {
 	
 	@Autowired
-	private VariableService service;
+	private IVariableService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Variable getVariableById(@PathVariable("id") int id) {

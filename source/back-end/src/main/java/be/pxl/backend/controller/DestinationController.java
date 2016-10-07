@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.Destination;
 import be.pxl.backend.service.DestinationService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/destinations")
 public class DestinationController {
 	
 	@Autowired
-	private DestinationService service;
+	private IDestinationService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Destination getDestinationById(@PathVariable("id") int id) {

@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.Sensor;
 import be.pxl.backend.service.SensorService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/sensors")
 public class SensorController {
 	
 	@Autowired
-	private SensorService service;
+	private ISensorService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Sensor getSensorById(@PathVariable("id") int id) {

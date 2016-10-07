@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.Login;
 import be.pxl.backend.service.LoginService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/logins")
 public class LoginController {
 	
 	@Autowired
-	private LoginService service;
+	private ILoginService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public Login getLoginById(@PathVariable("id") int id) {

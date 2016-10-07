@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import be.pxl.backend.entity.BordersPerProduct;
 import be.pxl.backend.service.BordersPerProductService;
-
+import be.pxl.backend.service.*;
 @RestController
 @RequestMapping("/bordersperproducts")
 public class BordersPerProductController {
 	
 	@Autowired
-	private BordersPerProductService service;
+	private IBordersPerProductService service;
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public BordersPerProduct getBordersPerProductById(@PathVariable("id") int id) {
