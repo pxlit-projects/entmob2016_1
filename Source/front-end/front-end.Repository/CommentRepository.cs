@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace front_end.Repository
 {
-    public class CommentRepository
+    public class CommentRepository : ICommentRepository
     {
         public HttpClient Client { get; set; }
 
