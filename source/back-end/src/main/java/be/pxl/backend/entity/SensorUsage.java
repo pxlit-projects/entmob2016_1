@@ -29,6 +29,8 @@ public class SensorUsage {
 	
 	@OneToMany(mappedBy="sensor_usage")
 	private List<Cargo> cargos = new ArrayList<Cargo>();
+	@OneToMany(mappedBy="sensor_usage")
+	private List<SensorData> sensorData = new ArrayList<SensorData>();
 
 	public int getSensor_usage_id() {
 		return sensor_usage_id;
