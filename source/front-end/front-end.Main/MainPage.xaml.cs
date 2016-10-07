@@ -38,5 +38,10 @@ namespace front_end.Main
         {
 
         }
+
+        private void Option3Button_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
