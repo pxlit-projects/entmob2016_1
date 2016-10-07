@@ -17,7 +17,7 @@ namespace front_end.Repository
         public StabilisationsPerCargoRepository()
         {
             Client = new HttpClient();
-            Client.BaseAddress = new Uri("http://localhost/");
+            Client.BaseAddress = new Uri("http://localhost:8080/");
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

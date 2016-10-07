@@ -11,14 +11,14 @@ using Newtonsoft.Json;
 
 namespace front_end.Repository
 {
-    public class BordersPerProductRepository
+    public class BordersPerProductRepository : IBordersPerProductRepository
     {
         public HttpClient Client { get; set; }
 
         public BordersPerProductRepository()
         {
             Client = new HttpClient();
-            Client.BaseAddress = new Uri("http://localhost/");
+            Client.BaseAddress = new Uri("http://localhost:8080/");
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
