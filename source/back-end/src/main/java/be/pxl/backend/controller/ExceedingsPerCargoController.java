@@ -11,11 +11,13 @@ import be.pxl.backend.entity.ExceedingsPerCargo;
 import be.pxl.backend.service.ExceedingsPerCargoService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping("/exceedingsPerCargos")
+@RequestMapping(ExceedingsPerCargo.EXCEEDINGSPERCARGO_BASE_URl)
 public class ExceedingsPerCargoController {
 	
 	@Autowired
 	private IExceedingsPerCargoService service;
+
+	public static final String EXCEEDINGSPERCARGO_BASE_URL = "/exceedingspercargo";
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
 	public ExceedingsPerCargo getExceedingsPerCargoById(@PathVariable("id") int id) {
