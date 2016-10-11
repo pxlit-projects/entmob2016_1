@@ -11,7 +11,7 @@ import be.pxl.backend.entity.ExceedingsPerCargo;
 import be.pxl.backend.service.ExceedingsPerCargoService;
 import be.pxl.backend.service.*;
 @RestController
-@RequestMapping(ExceedingsPerCargo.EXCEEDINGSPERCARGO_BASE_URl)
+@RequestMapping(ExceedingsPerCargoController.EXCEEDINGSPERCARGO_BASE_URL)
 public class ExceedingsPerCargoController {
 	
 	@Autowired
