@@ -14,5 +14,6 @@ namespace front_end.Services
         void Add(Sensor sensor);
         void Update(Sensor sensor);
         void Delete(int id);
+        void ChangeStatus(Sensor sensor);
     }
 }

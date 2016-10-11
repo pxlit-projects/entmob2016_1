@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
+using front_end.App;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,6 +41,48 @@ namespace SplitViewDemo
         private void sensorsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.DataContext = ((Sensor)sensorsList.SelectedItem);
+        }
+
+        private async void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            Sensor sensor = new Sensor();
+            ISensorService service = new SensorService();
+            try
+            {
+                sensor.Sensor_id = Int32.Parse(idTxt.Text);
+                sensor.Sensor_name = nameTxt.Text;
+                sensor.Status = Boolean.Parse(statusTxt.Text);
+                service.Update(sensor);
+                init();
+            }
+            catch (Exception ex)
+            {
+                MessageDialog message = new MessageDialog("You might have made a mistake in one of the textboxes.");
+                message.Title = "Error";
+                message.Commands.Clear();
+                message.Commands.Add(new UICommand { Label = "Ok", Id = 0 });
+                await message.ShowAsync();
+            }
+        }
+
+        private void ChangeStatusButton_Click(object sender, RoutedEventArgs e)
+        {
+            ISensorService service = new SensorService();
+            Sensor sensor = (Sensor)sensorsList.SelectedItem;
+            service.ChangeStatus(sensor);
+            init();
+            
+        }
+
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            var sensordialog = new AddSensorDialog();
+            var result = await sensordialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                init();
+                
+            } 
         }
     }
 }

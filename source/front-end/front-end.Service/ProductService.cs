@@ -41,5 +41,17 @@ namespace front_end.Services
         {
             productRepository.UpdateProduct(product);
         }
+        public void ChangeStatus(Product product)
+        {
+            if (product.Status==true)
+            {
+                product.Status = false;
+
+            } else
+            {
+                product.Status = true;
+            }
+            productRepository.UpdateProduct(product);
+        }
     }
 }

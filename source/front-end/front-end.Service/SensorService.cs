@@ -41,5 +41,17 @@ namespace front_end.Services
         {
             sensorRepository.UpdateSensor(sensor);
         }
+
+        public void ChangeStatus(Sensor sensor)
+        {
+            if (sensor.Status==true)
+            {
+                sensor.Status = false;
+            } else
+            {
+                sensor.Status = true;
+            }
+            sensorRepository.UpdateSensor(sensor);
+        }
     }
 }
