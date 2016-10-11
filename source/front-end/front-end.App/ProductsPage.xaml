@@ -38,8 +38,11 @@
                 </StackPanel>
             </Grid>
             <Grid Padding="20" x:Name="buttonGrid">
-                <Button Click="UpdateButton_Click" Style="{StaticResource UpdateButtonStyle}" Padding="12" HorizontalAlignment="Left" Margin="20,0,0,0" Width="125">Update</Button>
-                <Button Click="ChangeStatusButton_Click" Style="{StaticResource UpdateButtonStyle}" Padding="12" HorizontalAlignment="Right" Margin="0,0,20,0" Width="125">Change Status</Button>
+                <Button Click="UpdateButton_Click" Style="{StaticResource PageButtonStyle}" Padding="12" HorizontalAlignment="Left" Margin="20,0,0,0" Width="125">Update</Button>
+                <Button Click="ChangeStatusButton_Click" Style="{StaticResource PageButtonStyle}" Padding="12" HorizontalAlignment="Right" Margin="0,0,20,0" Width="125">Change Status</Button>
+            </Grid>
+            <Grid Padding="20" x:Name="addGrid">
+                <Button Click="AddButton_Click" Style="{StaticResource PageButtonStyle}" Padding="12" HorizontalAlignment="Center" Margin="0,0,0,0" Width="125">Add Product</Button>
             </Grid>
         </StackPanel>
     </Grid>
