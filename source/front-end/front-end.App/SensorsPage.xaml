@@ -8,8 +8,35 @@
     mc:Ignorable="d">
 
     <Grid Background="LightGray">
-        <Grid Background="White" VerticalAlignment="Top">
-            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10"> Sensors </TextBlock>
-        </Grid>
+        <StackPanel Orientation="Vertical" Margin="10, 10, 10, 10">
+            <Grid VerticalAlignment="Top" x:Name="titleGrid">
+                <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Sensors</TextBlock>
+            </Grid>
+            <ListView x:Name="sensorsList" ItemsSource="{Binding}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" SelectionChanged="sensorsList_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Sensor_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Sensor_name}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Status}" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="100, 0, 100, 0" Padding="20">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Width="100px">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> ID:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Naam:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Status:</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Width="500px">
+                        <TextBlock x:Name="idTxt" Text="{Binding Sensor_id}"/>
+                        <TextBlock x:Name="nameTxt" Text="{Binding Sensor_name}"/>
+                        <TextBlock x:Name="statusTxt" Text="{Binding Status}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Page>

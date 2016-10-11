@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using front_end.Domain;
+using front_end.Services;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +27,18 @@ namespace SplitViewDemo
         public SensorsPage()
         {
             this.InitializeComponent();
+            init();
+        }
+        private void init()
+        {
+            ISensorService service = new SensorService();
+            List<Sensor> sensors = service.All();
+            sensorsList.DataContext = sensors;
+        }
+
+        private void sensorsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.DataContext = ((Sensor)sensorsList.SelectedItem);
         }
     }
 }
