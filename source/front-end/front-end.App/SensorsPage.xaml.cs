@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
 using front_end.App;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -36,12 +37,18 @@ namespace SplitViewDemo
             ISensorService service = new SensorService();
             List<Sensor> sensors = service.All();
             sensorsList.DataContext = sensors;
+
         }
 
         private void sensorsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             this.DataContext = ((Sensor)sensorsList.SelectedItem);
+            sensorUsageList.DataContext = "";
+            
         }
+
+        
 
         private async void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
@@ -57,11 +64,15 @@ namespace SplitViewDemo
             }
             catch (Exception ex)
             {
-                MessageDialog message = new MessageDialog("You might have made a mistake in one of the textboxes.");
+                MessageDialog message = new MessageDialog("You might have made a mistake in one of the textboxes. :" + ex.ToString());
                 message.Title = "Error";
-                message.Commands.Clear();
-                message.Commands.Add(new UICommand { Label = "Ok", Id = 0 });
-                await message.ShowAsync();
+                message.Commands.Add(new UICommand("Ok") { Id = 0 });                ;
+                message.DefaultCommandIndex = 0;
+
+                var result = await message.ShowAsync();
+
+                
+                    
             }
         }
 
@@ -83,6 +94,12 @@ namespace SplitViewDemo
                 init();
                 
             } 
+        }
+
+        private void sensorUsageButton_Click(object sender, RoutedEventArgs e)
+        {
+            ISensorUsageService service = new SensorUsageService();
+            sensorUsageList.DataContext = service.Find(((Sensor)sensorsList.SelectedItem).Sensor_id);
         }
     }
 }

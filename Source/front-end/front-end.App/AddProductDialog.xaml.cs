@@ -59,7 +59,7 @@ namespace front_end.App
             if (checkBoxes())
             {
                 Product product = new Product();
-                IProductService service = new ProductService;
+                IProductService service = new ProductService();
 
 
                 product.Title = nameBox.Text;
