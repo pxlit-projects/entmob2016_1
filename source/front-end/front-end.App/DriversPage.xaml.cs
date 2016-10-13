@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using front_end.Services;
 using front_end.Domain;
 using Windows.UI.Popups;
+using front_end.App;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -113,6 +114,16 @@ namespace SplitViewDemo
                     service.Update(employee);
                     init();
                 }
+            }
+        }
+
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            var driverdialog = new AddDriverDialog();
+            var result = await driverdialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                init();
             }
         }
     }
