@@ -8,7 +8,7 @@ namespace front_end.Domain
 {
     public class City
     {
-        public string Postal_code { get; set; }
+        public string postal_code { get; set; }
         public string city { get; set; }
     }
 }

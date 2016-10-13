@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<Comment>> GetAllComments()
         {
             var url = "/comments/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<Comment> GetCommentById(int id)
         {
             var url = "/comment/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/comments/add";
             var jsonString = JsonConvert.SerializeObject(comment);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateComment(Comment comment)
         {
-            var url = "/comments/update/" + comment.Comment_id;
+            var url = "/comments/update/" + comment.comment_id;
             var jsonString = JsonConvert.SerializeObject(comment);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteComment(int id)

@@ -24,10 +24,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Employee_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding SurBame}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Status}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding employee_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding surName}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding name}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding status}" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -44,13 +44,13 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Status:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Employee_id}"/>
-                        <TextBox x:Name="surNameTxt" Text="{Binding SurName}"/>
-                        <TextBlock x:Name="nameTxt" Text="{Binding Name}"/>
-                        <TextBlock x:Name="emailTxt" Text="{Binding Email}"/>
-                        <TextBlock x:Name="mobileTxt" Text="{Binding Mobile_phone}"/>
-                        <TextBlock x:Name="telephoneTxt" Text="{Binding Telephone_number}"/>
-                        <TextBlock x:Name="statusTxt" Text="{Binding Status}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding employee_id}"/>
+                        <TextBox x:Name="surNameTxt" Text="{Binding surName}"/>
+                        <TextBox x:Name="nameTxt" Text="{Binding name}"/>
+                        <TextBox x:Name="emailTxt" Text="{Binding email}"/>
+                        <TextBox x:Name="mobileTxt" Text="{Binding mobile_phone}"/>
+                        <TextBox x:Name="telephoneTxt" Text="{Binding telephone_number}"/>
+                        <TextBlock x:Name="statusTxt" Text="{Binding status}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<City>> GetAllCities()
         {
             var url = "/cities/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<City> GetCityById(int id)
         {
             var url = "/cities/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/cities/add";
             var jsonString = JsonConvert.SerializeObject(city);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateCity(City city)
         {
-            var url = "/cities/update/" + city.Postal_code;
+            var url = "/cities/update/" + city.postal_code;
             var jsonString = JsonConvert.SerializeObject(city);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteCity(int id)

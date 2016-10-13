@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
             var url = "/products/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<Product> GetProductById(int id)
         {
             var url = "/products/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/products/add";
             var jsonString = JsonConvert.SerializeObject(product);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateProduct(Product product)
         {
-            var url = "/products/update/" + product.Product_id;
+            var url = "/products/update/" + product.product_id;
             var jsonString = JsonConvert.SerializeObject(product);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteProduct(int id)

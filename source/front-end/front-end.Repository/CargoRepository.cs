@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<Cargo>> GetAllCargos()
         {
             var url = "/cargos/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<Cargo> GetCargoById(int id)
         {
             var url = "/cargos/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/cargos/add";
             var jsonString = JsonConvert.SerializeObject(cargo);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateCargo(Cargo cargo)
         {
-            var url = "/cargos/update/" + cargo.Cargo_id;
+            var url = "/cargos/update/" + cargo.cargo_id;
             var jsonString = JsonConvert.SerializeObject(cargo);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteCargo(int id)

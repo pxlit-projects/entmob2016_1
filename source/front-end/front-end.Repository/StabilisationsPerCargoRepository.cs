@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<StabilisationsPerCargo>> GetAllStabilisationsPerCargos()
         {
             var url = "/stabilisationspercargos/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<StabilisationsPerCargo> GetStabilisationsPerCargoById(int id)
         {
             var url = "/stabilisationspercargos/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/stabilisationspercargos/add";
             var jsonString = JsonConvert.SerializeObject(stabilisationsPerCargo);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateStabilisationsPerCargo(StabilisationsPerCargo stabilisationsPerCargo)
         {
-            var url = "/stabilisationspercargos/update/" + stabilisationsPerCargo.Stabilisations_per_cargo_id;
+            var url = "/stabilisationspercargos/update/" + stabilisationsPerCargo.stabilisations_per_cargo_id;
             var jsonString = JsonConvert.SerializeObject(stabilisationsPerCargo);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteStabilisationsPerCargo(int id)

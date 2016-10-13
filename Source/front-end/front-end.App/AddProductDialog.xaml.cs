@@ -62,9 +62,9 @@ namespace front_end.App
                 IProductService service = new ProductService();
 
 
-                product.Title = nameBox.Text;
-                product.Description = descBox.Text;
-                product.Status = true;
+                product.title = nameBox.Text;
+                product.description = descBox.Text;
+                product.status = true;
 
                 service.Add(product);
                 this.Title = "Succesfull";

@@ -8,7 +8,7 @@ namespace front_end.Domain
 {
     public class Variable
     {
-        public int Variable_id { get; set; }
-        public string Description { get; set; }
+        public int variable_id { get; set; }
+        public string description { get; set; }
     }
 }

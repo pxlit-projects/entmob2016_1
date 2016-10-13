@@ -26,7 +26,7 @@ public class Product {
 		return product_id;
 	}
 	public String getTitle() { return title; }
-	public void setTitle(String status) { this.title = title; }
+	public void setTitle(String title) { this.title = title; }
 	public boolean isStatus() {
 		return status;
 	}

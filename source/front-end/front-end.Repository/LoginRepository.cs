@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<Login>> GetAllLogins()
         {
             var url = "/logins/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<Login> GetLoginById(int id)
         {
             var url = "/logins/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/logins/add";
             var jsonString = JsonConvert.SerializeObject(login);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateLogin(Login login)
         {
-            var url = "/logins/update/" + login.Login_id;
+            var url = "/logins/update/" + login.login_id;
             var jsonString = JsonConvert.SerializeObject(login);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteLogin(int id)

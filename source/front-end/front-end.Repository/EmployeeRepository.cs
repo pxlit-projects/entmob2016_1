@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<Employee>> GetAllEmployees()
         {
             var url = "/employees/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<Employee> GetEmployeeById(int id)
         {
             var url = "/employees/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/employees/add";
             var jsonString = JsonConvert.SerializeObject(employee);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateEmployee(Employee employee)
         {
-            var url = "/cities/update/" + employee.Employee_id;
+            var url = "/cities/update/" + employee.employee_id;
             var jsonString = JsonConvert.SerializeObject(employee);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteEmployee(int id)

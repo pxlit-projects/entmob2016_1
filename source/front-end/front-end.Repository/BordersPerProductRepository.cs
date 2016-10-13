@@ -27,7 +27,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<BordersPerProduct>> GetAllBordersPerProducts()
         {
             var url = "/bordersperproducts/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -42,7 +42,7 @@ namespace front_end.Repository
         public async Task<BordersPerProduct> GetBordersPerProductById(int id)
         {
             var url = "/bordersperproducts/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -58,16 +58,14 @@ namespace front_end.Repository
         {
             var url = "/bordersperproducts/add";
             var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateBordersPerProduct(BordersPerProduct bordersPerProduct)
         {
-            var url = "/bordersperproducts/update/" + bordersPerProduct.Id;
+            var url = "/bordersperproducts/update/" + bordersPerProduct.id;
             var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteBordersPerProduct(int id)

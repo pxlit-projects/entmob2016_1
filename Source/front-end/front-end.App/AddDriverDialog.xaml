@@ -27,8 +27,8 @@
             </StackPanel>
             
             <DatePicker x:Name="dateEmployementBox" Header="Date employement"/>
-            <TextBox x:Name="mobileBox" Text="Insert Email" FocusEngaged="Box_FocusEngaged" Header="Mobile number"/>
-            <TextBox x:Name="telephoneBox" Text="Insert Email" FocusEngaged="Box_FocusEngaged" Header="Telephone number"/>
+            <TextBox x:Name="mobileBox" Text="Insert Mobile Number" FocusEngaged="Box_FocusEngaged" Header="Mobile number"/>
+            <TextBox x:Name="telephoneBox" Text="Insert Telepone Number" FocusEngaged="Box_FocusEngaged" Header="Telephone number"/>
             <StackPanel Orientation="Horizontal">
                 <ComboBox x:Name="sexBox" Width="139px" Header="Sex" ItemsSource="{Binding}"/>
                 <ComboBox x:Name="statusBox" Width="140px" Margin="4,0,0,0" Header="Status" ItemsSource="{Binding}"/>

@@ -50,13 +50,13 @@ namespace SplitViewDemo
             try
             {
                 Employee employee = new Employee();
-                employee.Employee_id = Int32.Parse(idTxt.Text);
-                employee.SurName = surNameTxt.Text;
-                employee.Name = nameTxt.Text;
-                employee.Email = emailTxt.Text;
-                employee.Mobile_phone = mobileTxt.Text;
-                employee.Telephone_number = telephoneTxt.Text;
-                employee.Status = Convert.ToBoolean(statusTxt);
+                employee.employee_id = Int32.Parse(idTxt.Text);
+                employee.surName = surNameTxt.Text;
+                employee.name = nameTxt.Text;
+                employee.email = emailTxt.Text;
+                employee.mobile_phone = mobileTxt.Text;
+                employee.telephone_number = telephoneTxt.Text;
+                employee.status = Convert.ToBoolean(statusTxt);
                 service.Update(employee);
                 init();
             }
@@ -73,7 +73,7 @@ namespace SplitViewDemo
         private async void ChangeStatusButton_Click(object sender, RoutedEventArgs e)
         {
             Employee employee = (Employee) driversList.SelectedItem;
-            if (employee.Status == true)
+            if (employee.status == true)
             {
                 MessageDialog message = new MessageDialog("Are you sure you want to deactivate this driver?");
                 message.Title = "Deactivate driver";
@@ -89,7 +89,7 @@ namespace SplitViewDemo
 
                 if (result == yesCommand)
                 {
-                    employee.Status = false;
+                    employee.status = false;
                     service.Update(employee);
                     init();
                 }
@@ -110,7 +110,7 @@ namespace SplitViewDemo
 
                 if (result == yesCommand)
                 {
-                    employee.Status = true;
+                    employee.status = true;
                     service.Update(employee);
                     init();
                 }

@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<ProductsPerCargo>> GetAllProductsPerCargos()
         {
             var url = "/productPerCargos/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<ProductsPerCargo> GetProductsPerCargoById(int id)
         {
             var url = "/productPerCargos/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/productPerCargos/add";
             var jsonString = JsonConvert.SerializeObject(productsPerCargo);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateProductsPerCargo(ProductsPerCargo productsPerCargo)
         {
-            var url = "/cities/update/" + productsPerCargo.Id;
+            var url = "/cities/update/" + productsPerCargo.id;
             var jsonString = JsonConvert.SerializeObject(productsPerCargo);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteProductsPerCargo(int id)

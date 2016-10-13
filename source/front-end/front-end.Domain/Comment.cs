@@ -8,11 +8,11 @@ namespace front_end.Domain
 {
     public class Comment
     {
-        public int Comment_id { get; set; }
-        public Employee Employee { get; set; }
-        public Sensor Sensor { get; set; }
-        public Cargo Cargo { get; set; }
-        public string Description { get; set; }
+        public int comment_id { get; set; }
+        public Employee employee { get; set; }
+        public Sensor sensor { get; set; }
+        public Cargo cargo { get; set; }
+        public string description { get; set; }
         public DateTime time { get; set; }
     }
 }

@@ -60,8 +60,8 @@ namespace front_end.App
             {
                 Sensor sensor = new Sensor();
                 ISensorService service = new SensorService();
-                sensor.Sensor_name = nameBox.Text;
-                sensor.Status = true;
+                sensor.sensor_name = nameBox.Text;
+                sensor.status = true;
                 service.Add(sensor);
                 this.Title = "Succesfull!";
                 this.Hide();

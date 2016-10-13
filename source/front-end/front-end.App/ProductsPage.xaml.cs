@@ -48,12 +48,12 @@ namespace SplitViewDemo
             IProductService service = new ProductService();
             try
             {
-                product.Product_id = int.Parse(idTxt.Text);
-                product.Title = nameTxt.Text;
-                product.Description = descTxt.Text;
+                product.product_id = int.Parse(idTxt.Text);
+                product.title = nameTxt.Text;
+                product.description = descTxt.Text;
                 service.Update(product);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageDialog message = new MessageDialog("You might have made a mistake in one of the textboxes.");
                 message.Title = "Format Error";

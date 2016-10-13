@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<Variable>> GetAllVariables()
         {
             var url = "/variables/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<Variable> GetVariableById(int id)
         {
             var url = "/variables/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/variables/add";
             var jsonString = JsonConvert.SerializeObject(variable);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateVariable(Variable variable)
         {
-            var url = "/variables/update/" + variable.Variable_id;
+            var url = "/variables/update/" + variable.variable_id;
             var jsonString = JsonConvert.SerializeObject(variable);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteVariable(int id)

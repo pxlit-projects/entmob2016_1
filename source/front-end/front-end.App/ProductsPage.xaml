@@ -22,9 +22,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Product_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding Title}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Description}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding product_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding title}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding description}" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -37,9 +37,9 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Beschrijving:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Product_id}"/>
-                        <TextBox x:Name="nameTxt" Text="{Binding Title}"/>
-                        <TextBlock x:Name="descTxt" Text="{Binding Description}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding product_id}"/>
+                        <TextBox x:Name="nameTxt" Text="{Binding title}"/>
+                        <TextBlock x:Name="descTxt" Text="{Binding description}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

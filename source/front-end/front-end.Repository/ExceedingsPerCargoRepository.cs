@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<ExceedingsPerCargo>> GetAllExceedingsPerCargos()
         {
             var url = "/exceedingsPerCargos/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<ExceedingsPerCargo> GetExceedingsPerCargoById(int id)
         {
             var url = "/exceedinsPerCargos/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/exceedingsPerCargos/add";
             var jsonString = JsonConvert.SerializeObject(exceedingsPerCargo);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateExceedingsPerCargo(ExceedingsPerCargo exceedingsPerCargo)
         {
             var url = "/exceedingsPerCargo/update/" + exceedingsPerCargo.exceeding_per_cargo_id;
             var jsonString = JsonConvert.SerializeObject(exceedingsPerCargo);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteExceedingsPerCargo(int id)

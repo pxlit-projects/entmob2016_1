@@ -8,9 +8,9 @@ namespace front_end.Domain
 {
     public class ProductsPerCargo
     {
-        public ProductsPerCargoPK Id { get; set; }
-        public Product Product { get; set; }
-        public Cargo Cargo { get; set; }
-        public int Amount { get; set; }
+        public ProductsPerCargoPK id { get; set; }
+        public Product product { get; set; }
+        public Cargo cargo { get; set; }
+        public int amount { get; set; }
     }
 }

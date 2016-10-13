@@ -69,27 +69,27 @@ namespace front_end.App
                 {
                     Employee employee = new Employee();
                     service = new EmployeeService();
-                    employee.SurName = surNameBox.Text;
-                    employee.Name = nameBox.Text;
-                    employee.Email = emailBox.Text;
-                    employee.Street = streetBox.Text;
-                    employee.Housenr = houseNrBox.Text;
+                    employee.surName = surNameBox.Text;
+                    employee.name = nameBox.Text;
+                    employee.email = emailBox.Text;
+                    employee.street = streetBox.Text;
+                    employee.housenr = houseNrBox.Text;
                     City city = new City();
                     city.city = cityBox.Text;
-                    city.Postal_code = postalAddressBox.Text;
-                    employee.City = city;
-                    employee.Date_employement = dateEmployementBox.Date.DateTime;
-                    employee.Mobile_phone = mobileBox.Text;
-                    employee.Telephone_number = telephoneBox.Text;
-                    employee.Sex = sexBox.SelectedItem.ToString();
+                    city.postal_code = postalAddressBox.Text;
+                    employee.city = city;
+                    employee.date_employement = dateEmployementBox.Date.DateTime;
+                    employee.mobile_phone = mobileBox.Text;
+                    employee.telephone_number = telephoneBox.Text;
+                    employee.sex = sexBox.SelectedItem.ToString();
 
                     if (statusBox.SelectedItem.ToString() == "Active")
                     {
-                        employee.Status = true;
+                        employee.status = true;
                     }
                     else
                     {
-                        employee.Status = false;
+                        employee.status = false;
                     }
 
                     service.Add(employee);

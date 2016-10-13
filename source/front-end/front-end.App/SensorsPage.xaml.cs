@@ -56,9 +56,9 @@ namespace SplitViewDemo
             ISensorService service = new SensorService();
             try
             {
-                sensor.Sensor_id = Int32.Parse(idTxt.Text);
-                sensor.Sensor_name = nameTxt.Text;
-                sensor.Status = Boolean.Parse(statusTxt.Text);
+                sensor.sensor_id = Int32.Parse(idTxt.Text);
+                sensor.sensor_name = nameTxt.Text;
+                sensor.status = Boolean.Parse(statusTxt.Text);
                 service.Update(sensor);
                 init();
             }
@@ -99,7 +99,7 @@ namespace SplitViewDemo
         private void sensorUsageButton_Click(object sender, RoutedEventArgs e)
         {
             ISensorUsageService service = new SensorUsageService();
-            sensorUsageList.DataContext = service.Find(((Sensor)sensorsList.SelectedItem).Sensor_id);
+            sensorUsageList.DataContext = service.Find(((Sensor)sensorsList.SelectedItem).sensor_id);
         }
     }
 }

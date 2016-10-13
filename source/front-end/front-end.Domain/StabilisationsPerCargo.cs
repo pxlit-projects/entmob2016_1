@@ -8,8 +8,8 @@ namespace front_end.Domain
 {
     public class StabilisationsPerCargo
     {
-        public int Stabilisations_per_cargo_id { get; set; }
-        public ExceedingsPerCargo ExceedingsPerCargo { get; set; }
-        public DateTime Time { get; set; }
+        public int stabilisations_per_cargo_id { get; set; }
+        public ExceedingsPerCargo exceedingsPerCargo { get; set; }
+        public DateTime time { get; set; }
     }
 }

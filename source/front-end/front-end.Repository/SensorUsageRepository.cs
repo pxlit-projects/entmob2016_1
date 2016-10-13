@@ -25,7 +25,7 @@ namespace front_end.Repository
         public async Task<IEnumerable<SensorUsage>> GetAllSensorUsages()
         {
             var url = "/sensorusages/all";
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace front_end.Repository
         public async Task<SensorUsage> GetSensorUsageById(int id)
         {
             var url = "/sensorusages/get/" + id;
-            HttpResponseMessage response = await Client.GetAsync(url);
+            HttpResponseMessage response = Client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -56,16 +56,14 @@ namespace front_end.Repository
         {
             var url = "/sensorusages/add";
             var jsonString = JsonConvert.SerializeObject(sensorUsage);
-            var content = new StringContent(jsonString);
-            await Client.PostAsync(url, content);
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateSensorUsage(SensorUsage sensorUsage)
         {
-            var url = "/sensorusages/update/" + sensorUsage.Sensor_usage_id;
+            var url = "/sensorusages/update/" + sensorUsage.sensor_usage_id;
             var jsonString = JsonConvert.SerializeObject(sensorUsage);
-            var content = new StringContent(jsonString);
-            await Client.PutAsync(url, content);
+            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void DeleteSensorUsage(int id)
