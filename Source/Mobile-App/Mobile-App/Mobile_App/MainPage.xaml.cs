@@ -13,9 +13,10 @@ namespace Mobile_App
         {
             InitializeComponent();
         }
-        public void LoginClicked(object sender, EventArgs e)
+        public async void OnLoginClicked(object sender, EventArgs e)
         {
-            
+            Button btn = (Button)sender;
+            await DisplayAlert("Clicked", usernameEntry.Text + " " + passwordEntry.Text,"OK");
         }
     }
 }

@@ -9,8 +9,8 @@
     <StackLayout Orientation="Vertical" Spacing="10" Margin="20">
       <Image Source="banner.png" HeightRequest="143"/>
     <Label Text="Please Log in." FontSize="20"></Label>
-    <Entry xName="UsernameEntry" Placeholder="Username" TextColor="Black"></Entry>
-    <Entry xName="PasswordEntry" Placeholder="Password" IsPassword="True" TextColor="Black" ></Entry>
-    <Button xName="LoginBtn" Clicked="LoginClicked" BackgroundColor="#3FC2D0" FontSize="20" TextColor="White" Text="Login" />
+    <Entry x:Name="usernameEntry" Placeholder="Username" TextColor="Black"></Entry>
+    <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" TextColor="Black" ></Entry>
+    <Button Clicked="OnLoginClicked" BackgroundColor="#3FC2D0" FontSize="20" TextColor="White" Text="Login" />
   </StackLayout>
   </ContentPage>
