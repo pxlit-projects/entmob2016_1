@@ -22,12 +22,13 @@ namespace front_end.App.ViewModel
 
         public ICommand UpdateCommand { get; set; }
         public ICommand ChangeStatusCommand { get; set; }
-        public ICommand AddDriverCommand { get; set; }
+        public ICommand ShowDriverDialogCommand { get; set; }
 
         public DriverViewModel(IEmployeeService service)
         {
             service = this.service;
             LoadData();
+            LoadCommands();
         }
 
         public ObservableCollection<Employee> Drivers
@@ -67,7 +68,7 @@ namespace front_end.App.ViewModel
         {
             UpdateCommand = new CustomCommand(Update, CanUpdate);
             ChangeStatusCommand = new CustomCommand(ChangeStatus, CanChangeStatus);
-            AddDriverCommand = new CustomCommand(AddDriver, null);
+            ShowDriverDialogCommand = new CustomCommand(ShowDriverDialog, null);
         }
 
         private bool CanUpdate(object obj)
@@ -129,7 +130,7 @@ namespace front_end.App.ViewModel
             }
         }
 
-        private async void AddDriver(object obj)
+        private async void ShowDriverDialog(object obj)
         {
             var driverdialog = new AddDriverDialog();
             var result = await driverdialog.ShowAsync();
