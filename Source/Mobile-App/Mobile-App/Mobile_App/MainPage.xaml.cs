@@ -1,4 +1,5 @@
-﻿using front_end.Services;
+﻿using front_end.Domain;
+using front_end.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,25 @@ namespace Mobile_App
             String username = usernameEntry.Text;
             String password = passwordEntry.Text;
 
-           var log = new LoginService();
-           var user = new EmployeeService();
+            var logService = new LoginService();
+            var empService = new EmployeeService();
+            //var emp = user.FindByUsername(username);
+            var emp = new Employee();
+
+
         }
+        /*   public static string Md5Encrypt(string original)
+           {
+               byte[] encodedBytes;
+
+               using (var md5 = new MD5CryptoServiceProvider())
+               {
+                   var originalBytes = Encoding.Default.GetBytes(original);
+                   encodedBytes = md5.ComputeHash(originalBytes);
+               }
+
+               return Convert.ToBase64String(encodedBytes);
+           }
+       */
     }
 }

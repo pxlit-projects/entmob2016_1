@@ -55,6 +55,12 @@
     <Reference Include="front-end.Domain">
       <HintPath>..\..\..\front-end\front-end.Domain\bin\Debug\front-end.Domain.dll</HintPath>
     </Reference>
+    <Reference Include="front-end.Repository">
+      <HintPath>..\..\..\front-end\front-end.Repository\bin\Debug\front-end.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="front-end.Service">
+      <HintPath>..\..\..\front-end\front-end.Service\bin\Debug\front-end.Service.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />

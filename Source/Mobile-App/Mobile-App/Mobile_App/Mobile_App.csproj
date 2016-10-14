@@ -54,6 +54,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="front-end.Domain">
+      <HintPath>..\..\..\front-end\front-end.Service\bin\Debug\front-end.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="front-end.Repository">
+      <HintPath>..\..\..\front-end\front-end.Service\bin\Debug\front-end.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="front-end.Service">
+      <HintPath>..\..\..\front-end\front-end.Service\bin\Debug\front-end.Service.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.2.0.45\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
