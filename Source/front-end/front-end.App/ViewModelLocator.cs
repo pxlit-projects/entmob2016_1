@@ -10,9 +10,9 @@ namespace front_end.App
 {
     public class ViewModelLocator
     {
-        private ISensorService sensorService = new SensorService();
-        private IProductService productService = new ProductService();
-        private IEmployeeService employeeService = new EmployeeService();
+        private static ISensorService sensorService = new SensorService();
+        private static IProductService productService = new ProductService();
+        private static IEmployeeService employeeService = new EmployeeService();
 
         private static SensorViewModel SensorViewModel = new SensorViewModel(sensorService);
         private static ProductViewModel ProductViewModel = new ProductViewModel(productService);

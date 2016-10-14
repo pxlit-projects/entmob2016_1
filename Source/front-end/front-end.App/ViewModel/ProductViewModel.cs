@@ -13,35 +13,40 @@ namespace front_end.App.ViewModel
     public class ProductViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private ISensorService service = new SensorService();
+        private IProductService service = new ProductService();
 
-        private ObservableCollection<Sensor> sensors;
+        private ObservableCollection<Product> products;
 
-        public ObservableCollection<Sensor> Sensors
+        public ProductViewModel (IProductService service)
+        {
+            this.service = service;
+        }
+
+        public ObservableCollection<Product> Products
         {
             get
             {
-                return sensors;
+                return products;
             }
             set
             {
-                sensors = value;
-                RaisePropertyChanged("Sensors");
+                products = value;
+                RaisePropertyChanged("Products");
             }
         }
 
-        private Sensor selectedSensor;
+        private Sensor selectedProduct;
 
-        public Sensor SelectedSensor
+        public Sensor SelectedProduct
         {
             get
             {
-                return selectedSensor;
+                return selectedProduct;
             }
             set
             {
-                selectedSensor = value;
-                RaisePropertyChanged("SelectedSensor");
+                selectedProduct = value;
+                RaisePropertyChanged("SelectedProduct");
             }
         }
 
