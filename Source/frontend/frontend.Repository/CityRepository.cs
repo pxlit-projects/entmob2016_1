@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace frontend.Repository
 {
-    public class Class1
+    class CityRepository
     {
     }
 }
