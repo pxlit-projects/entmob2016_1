@@ -128,6 +128,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Messages\" />
+    <Folder Include="Utility\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\frontend.Domain\frontend.Domain.csproj">
       <Project>{164d65e9-d4ee-4ec4-b457-7d558dfeebf3}</Project>
       <Name>frontend.Domain</Name>
@@ -140,13 +147,6 @@
       <Project>{db0ecc45-ce6a-48ed-9d4a-7eaa71d7e678}</Project>
       <Name>frontend.Service</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Messages\" />
-    <Folder Include="Utility\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using frontend.Domain;
+using frontend.Repository;
 
 namespace frontend.Service
 {
