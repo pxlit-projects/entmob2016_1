@@ -9,13 +9,13 @@ namespace Mobile_App
 {
     public partial class App : Application
     {
-        public App()
+        public IMD5 md5;
+        public App(IMD5 md5)
         {
             InitializeComponent();
-
-            MainPage = new Mobile_App.MainPage();
+            this.md5 = md5;
+            MainPage = new MainPage();
         }
-
         protected override void OnStart()
         {
             // Handle when your app starts

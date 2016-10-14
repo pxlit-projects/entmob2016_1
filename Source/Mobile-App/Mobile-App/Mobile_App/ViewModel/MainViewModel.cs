@@ -40,6 +40,7 @@ namespace Mobile_App.ViewModel
             LoginCommand = new Command(() =>
             {
                 Debug.WriteLine(username + " " + password);
+                
             });
         }
     }
