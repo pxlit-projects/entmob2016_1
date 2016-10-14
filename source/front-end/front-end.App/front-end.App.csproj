@@ -121,6 +121,7 @@
       <DependentUpon>SensorsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="ViewModel\DriversViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
     <Compile Include="ViewModel\SensorViewModel.cs" />
   </ItemGroup>
