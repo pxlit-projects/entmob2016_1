@@ -1,34 +1,46 @@
 using GalaSoft.MvvmLight;
+using System;
+using System.Diagnostics;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Mobile_App.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
+        private String username;
+        public String Username {
+            get {
+                return username;
+            }
+            set {
+                username = value;
+                RaisePropertyChanged("Username");
+            }
+        }
+        private String password;
+        public String Password
+        {
+            get
+            {
+                return password;
+            }
+            set
+            {
+                password = value;
+                RaisePropertyChanged("Password");
+            }
+        }
+        public ICommand LoginCommand { get; set; }
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            InitializeCommands();
+        }
+        private void InitializeCommands() {
+            LoginCommand = new Command(() =>
+            {
+                Debug.WriteLine(username + " " + password);
+            });
         }
     }
 }
