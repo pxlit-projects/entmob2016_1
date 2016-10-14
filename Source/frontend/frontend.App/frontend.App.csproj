@@ -95,11 +95,36 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\CustomCommand.cs" />
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="ViewModels\DriverViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\SensorViewModel.cs" />
+    <Compile Include="Views\AddDriverDialog.xaml.cs">
+      <DependentUpon>AddDriverDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddProductDialog.xaml.cs">
+      <DependentUpon>AddProductDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSensorDialog.xaml.cs">
+      <DependentUpon>AddSensorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DriversPage.xaml.cs">
+      <DependentUpon>DriversPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="Views\ProductsPage.xaml.cs">
+      <DependentUpon>ProductsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SensorsPage.xaml.cs">
+      <DependentUpon>SensorsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -122,29 +147,55 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="SplitViewStyles.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\AddDriverDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddProductDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddSensorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DriversPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SensorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Messages\" />
-    <Folder Include="Utility\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\frontend.Domain\frontend.Domain.csproj">
-      <Project>{164d65e9-d4ee-4ec4-b457-7d558dfeebf3}</Project>
+      <Project>{164D65E9-D4EE-4EC4-B457-7D558DFEEBF3}</Project>
       <Name>frontend.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\frontend.Repository\frontend.Repository.csproj">
-      <Project>{7cc7cb1f-076a-4e1b-aebf-28d9ba9eed7e}</Project>
-      <Name>frontend.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\frontend.Service\frontend.Service.csproj">
-      <Project>{db0ecc45-ce6a-48ed-9d4a-7eaa71d7e678}</Project>
+      <Project>{DB0ECC45-CE6A-48ED-9D4A-7EAA71D7E678}</Project>
       <Name>frontend.Service</Name>
     </ProjectReference>
   </ItemGroup>

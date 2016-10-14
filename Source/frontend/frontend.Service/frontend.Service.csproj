@@ -140,7 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\frontend.Domain\frontend.Domain.csproj">
-      <Project>{164D65E9-D4EE-4EC4-B457-7D558DFEEBF3}</Project>
+      <Project>{164d65e9-d4ee-4ec4-b457-7d558dfeebf3}</Project>
       <Name>frontend.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\frontend.Repository\frontend.Repository.csproj">
