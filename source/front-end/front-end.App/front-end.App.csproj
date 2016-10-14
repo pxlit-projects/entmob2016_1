@@ -120,6 +120,9 @@
     <Compile Include="SensorsPage.xaml.cs">
       <DependentUpon>SensorsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\SensorViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -198,7 +201,6 @@
     <Folder Include="Messages\" />
     <Folder Include="Services\" />
     <Folder Include="Utility\" />
-    <Folder Include="ViewModel\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
