@@ -30,9 +30,8 @@ public class StabilisationsPerCargoService implements IStabilisationsPerCargoSer
 		repo.delete(id);
 	}
 	
-	public void update(int id, StabilisationsPerCargo stabilisationsPerCargo) {
-		this.delete(id);
-		this.persist(stabilisationsPerCargo);
+	public void update(StabilisationsPerCargo stabilisationsPerCargo) {
+		repo.save(stabilisationsPerCargo);
 	}
 	
 }

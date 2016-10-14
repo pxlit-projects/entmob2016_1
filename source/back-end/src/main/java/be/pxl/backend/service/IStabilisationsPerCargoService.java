@@ -16,5 +16,5 @@ public interface IStabilisationsPerCargoService {
 	
 	public void delete(int id);
 	
-	public void update(int id, StabilisationsPerCargo stabilisationsPerCargo);
+	public void update(StabilisationsPerCargo stabilisationsPerCargo);
 }

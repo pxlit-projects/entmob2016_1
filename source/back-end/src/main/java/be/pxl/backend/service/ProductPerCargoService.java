@@ -28,9 +28,8 @@ public class ProductPerCargoService implements IProductPerCargoService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, ProductPerCargo productPerCargo) {
-		this.delete(id);
-		this.persist(productPerCargo);
+	public void update(ProductPerCargo productPerCargo) {
+		repo.save(productPerCargo);
 	}
 	
 }

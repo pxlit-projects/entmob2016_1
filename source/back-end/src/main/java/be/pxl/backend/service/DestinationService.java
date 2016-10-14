@@ -29,9 +29,8 @@ public class DestinationService implements IDestinationService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, Destination destination) {
-		this.delete(id);
-		this.persist(destination);
+	public void update(Destination destination) {
+		repo.save(destination);
 	}
 	
 }

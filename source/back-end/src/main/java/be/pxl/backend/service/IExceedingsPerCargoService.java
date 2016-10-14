@@ -13,6 +13,6 @@ public interface IExceedingsPerCargoService {
 	
 	public void delete(int id);
 	
-	public void update(int id, ExceedingsPerCargo employee);
+	public void update(ExceedingsPerCargo employee);
 	
 }

@@ -37,8 +37,8 @@ public class SensorUsageController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateSensorUsage(@PathVariable("id") int id, @RequestBody SensorUsage sensorUsage) {
-		service.update(id, sensorUsage);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateSensorUsage(@RequestBody SensorUsage sensorUsage) {
+		service.update(sensorUsage);
 	}
 }

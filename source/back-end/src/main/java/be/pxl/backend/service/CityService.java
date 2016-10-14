@@ -28,9 +28,8 @@ public class CityService implements ICityService {
 		repo.delete(postal);
 	}
 	
-	public void update(String postal, City city) {
-		this.delete(postal);
-		this.persist(city);
+	public void update(City city) {
+		repo.save(city);
 	}
 	
 }

@@ -39,8 +39,8 @@ public class CargoController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateCargo(@PathVariable("id") int id, @RequestBody Cargo cargo) {
-		service.update(id, cargo);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateCargo(@RequestBody Cargo cargo) {
+		service.update(cargo);
 	}
 }

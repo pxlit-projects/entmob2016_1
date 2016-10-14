@@ -13,6 +13,6 @@ public interface IProductService {
 	
 	public void delete(int id);
 	
-	public void update(int id, Product product);
+	public void update(Product product);
 	
 }

@@ -13,6 +13,6 @@ public interface ICargoService {
 	
 	public void delete(int id);
 	
-	public void update(int id, Cargo cargo);
+	public void update(Cargo cargo);
 	
 }

@@ -14,6 +14,6 @@ public interface IDestinationService {
 
     public void delete(int id);
 
-    public void update(int id, Destination destination);
+    public void update(Destination destination);
 
 }

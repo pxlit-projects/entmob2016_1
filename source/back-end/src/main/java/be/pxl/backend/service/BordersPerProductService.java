@@ -28,9 +28,8 @@ public class BordersPerProductService implements IBordersPerProductService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, BordersPerProduct bordersPerProduct) {
-		this.delete(id);
-		this.persist(bordersPerProduct);
+	public void update(BordersPerProduct bordersPerProduct) {
+		repo.save(bordersPerProduct);
 	}
 	
 }

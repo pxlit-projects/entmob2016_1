@@ -30,9 +30,8 @@ public class SensorUsageService implements ISensorUsageService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, SensorUsage sensorUsage) {
-		this.delete(id);
-		this.persist(sensorUsage);
+	public void update(SensorUsage sensorUsage) {
+		repo.save(sensorUsage);
 	}
 	
 }

@@ -15,5 +15,5 @@ public interface IVariableService {
 	
 	public void delete(int id);
 	
-	public void update(int id, Variable variable);
+	public void update(Variable variable);
 }

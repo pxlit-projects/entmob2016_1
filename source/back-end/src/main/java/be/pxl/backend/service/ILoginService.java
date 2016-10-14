@@ -13,6 +13,6 @@ public interface ILoginService {
 	
 	public void delete(int id);
 	
-	public void update(int id, Login login);
+	public void update(Login login);
 	
 }

@@ -13,5 +13,5 @@ public interface ISensorUsageService {
 	
 	public void delete(int id);
 	
-	public void update(int id, SensorUsage sensorUsage);
+	public void update(SensorUsage sensorUsage);
 }

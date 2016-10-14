@@ -37,8 +37,8 @@ public class DestinationController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateDestination(@PathVariable("id") int id, @RequestBody Destination destination) {
-		service.update(id, destination);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateDestination(@RequestBody Destination destination) {
+		service.update(destination);
 	}
 }

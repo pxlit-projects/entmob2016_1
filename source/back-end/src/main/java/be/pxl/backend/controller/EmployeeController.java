@@ -17,7 +17,7 @@ public class EmployeeController {
 	@Autowired
 	private IEmployeeService service;
 	
-	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value = "/get/id/{id}", method = RequestMethod.GET, produces="application/json")
 	public Employee getEmployeeById(@PathVariable("id") int id) {
 		return service.find(id);
 	}
@@ -37,9 +37,14 @@ public class EmployeeController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee) {
-		service.update(id, employee);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateEmployee(@RequestBody Employee employee) {
+		service.update(employee);
+	}
+
+	@RequestMapping(value = "/get/username/{username}", method = RequestMethod.GET, produces = "application/json")
+	public Employee getEmployeeByUsername(@PathVariable("username") String username) {
+		return service.getEmployeeByUsername(username);
 	}
 	
 }

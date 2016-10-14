@@ -39,8 +39,8 @@ public class ExceedingsPerCargoController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateExceedingsPerCargo(@PathVariable("id") int id, @RequestBody ExceedingsPerCargo exceedingsPerCargo) {
-		service.update(id, exceedingsPerCargo);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateExceedingsPerCargo(@RequestBody ExceedingsPerCargo exceedingsPerCargo) {
+		service.update(exceedingsPerCargo);
 	}
 }

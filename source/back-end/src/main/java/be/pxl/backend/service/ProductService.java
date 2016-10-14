@@ -29,12 +29,11 @@ public class ProductService implements IProductService {
 	public void delete(int id) {
 		Product pro = repo.findOne(id);
 		pro.setStatus(false);
-		this.update(id, pro);
+		this.update(pro);
 	}
 	
-	public void update(int id, Product product) {
-		repo.delete(id);
-		this.persist(product);
+	public void update(Product product) {
+		repo.save(product);
 	}
 	
 }

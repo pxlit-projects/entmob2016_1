@@ -28,9 +28,8 @@ public class LoginService implements ILoginService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, Login login) {
-		this.delete(id);
-		this.persist(login);
+	public void update(Login login) {
+		repo.save(login);
 	}
 	
 }

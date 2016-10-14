@@ -14,6 +14,6 @@ public interface ISensorDataService {
 
     public void delete(int id);
 
-    public void update(int id, SensorData sensorData);
+    public void update(SensorData sensorData);
 
 }

@@ -26,14 +26,17 @@ public class EmployeeService implements IEmployeeService {
 	}
 	
 	public void delete(int id) {
-		Employee emp = repo.findOne(id);
-		emp.setStatus(false);
-		this.update(id, emp);
+		Employee employee = repo.findOne(id);
+		employee.setStatus(false);
+		this.update(employee);
 	}
 	
-	public void update(int id, Employee employee) {
-		repo.delete(id);
-		this.persist(employee);
+	public void update(Employee employee) {
+		repo.save(employee);
+	}
+
+	public Employee getEmployeeByUsername(String username) {
+		return repo.getEmployeeByUsername(username);
 	}
 	
 }

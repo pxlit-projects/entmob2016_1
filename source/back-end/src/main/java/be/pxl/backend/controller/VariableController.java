@@ -38,8 +38,8 @@ public class VariableController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateVariable(@PathVariable("id") int id, @RequestBody Variable variable) {
-		service.update(id, variable);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateVariable(@RequestBody Variable variable) {
+		service.update(variable);
 	}
 }

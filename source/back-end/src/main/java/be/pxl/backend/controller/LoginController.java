@@ -37,8 +37,8 @@ public class LoginController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateLogin(@PathVariable("id") int id, @RequestBody Login login) {
-		service.update(id, login);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateLogin(@RequestBody Login login) {
+		service.update(login);
 	}
 }

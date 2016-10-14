@@ -13,6 +13,7 @@ public interface IEmployeeService {
 	
 	public void delete(int id);
 	
-	public void update(int id, Employee employee);
-	
+	public void update(Employee employee);
+
+	public Employee getEmployeeByUsername(String username);
 }

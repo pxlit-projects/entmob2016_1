@@ -13,7 +13,7 @@ public interface ICityService {
 	
 	public void delete(String postal);
 	
-	public void update(String postal, City city);
+	public void update(City city);
 	
 }
 

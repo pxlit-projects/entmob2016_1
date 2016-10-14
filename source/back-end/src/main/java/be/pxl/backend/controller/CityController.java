@@ -38,8 +38,8 @@ public class CityController {
 		service.delete(postal);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateCity(@PathVariable("id") String postal, @RequestBody City city) {
-		service.update(postal, city);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateCity(@RequestBody City city) {
+		service.update(city);
 	}
 }

@@ -40,8 +40,8 @@ public class CommentController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateComment(@PathVariable("id") int id, @RequestBody Comment comment) {
-		service.update(id, comment);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateComment(@RequestBody Comment comment) {
+		service.update(comment);
 	}
 }

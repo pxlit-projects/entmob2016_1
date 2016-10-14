@@ -13,6 +13,6 @@ public interface ICommentService {
 	
 	public void delete(int id);
 	
-	public void update(int id, Comment comment);
+	public void update(Comment comment);
 	
 }

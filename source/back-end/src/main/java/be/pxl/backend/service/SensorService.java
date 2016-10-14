@@ -28,14 +28,13 @@ public class SensorService implements ISensorService {
 	}
 	
 	public void delete(int id) {
-		Sensor sens = repo.findOne(id);
-		sens.setStatus(false);
-		this.update(id, sens);
+		Sensor sensor = repo.findOne(id);
+		sensor.setStatus(false);
+		this.update(sensor);
 	}
 	
-	public void update(int id, Sensor sensor) {
-		repo.delete(id);
-		this.persist(sensor);
+	public void update(Sensor sensor) {
+		repo.save(sensor);
 	}
 	
 }

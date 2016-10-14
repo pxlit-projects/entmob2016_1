@@ -13,6 +13,6 @@ public interface IProductPerCargoService {
 	
 	public void delete(int id);
 	
-	public void update(int id, ProductPerCargo productPerCargo);
+	public void update(ProductPerCargo productPerCargo);
 	
 }

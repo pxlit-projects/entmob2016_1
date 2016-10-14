@@ -38,9 +38,8 @@ public class SensorDataService implements ISensorDataService {
         repo.delete(id);
     }
 
-    public void update(int id, SensorData sensorData) {
-        repo.delete(id);
-        this.persist(sensorData);
+    public void update(SensorData sensorData) {
+        repo.save(sensorData);
     }
 
 }

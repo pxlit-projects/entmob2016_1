@@ -28,9 +28,8 @@ public class ExceedingsPerCargoService implements IExceedingsPerCargoService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, ExceedingsPerCargo exceedingsPerCargo) {
-		this.delete(id);
-		this.persist(exceedingsPerCargo);
+	public void update(ExceedingsPerCargo exceedingsPerCargo) {
+		repo.save(exceedingsPerCargo);
 	}
 	
 }

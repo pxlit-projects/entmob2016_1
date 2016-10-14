@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.NamedQuery;
+import org.springframework.data.jpa.repository.Query;
 
 @Entity
 @Table(name="Employees")

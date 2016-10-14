@@ -30,8 +30,7 @@ public class VariableService implements IVariableService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, Variable variable) {
-		this.delete(id);
-		this.persist(variable);
+	public void update(Variable variable) {
+		repo.save(variable);
 	}
 }

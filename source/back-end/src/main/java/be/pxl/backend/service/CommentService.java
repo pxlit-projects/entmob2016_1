@@ -29,9 +29,8 @@ public class CommentService implements ICommentService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, Comment comment) {
-		this.delete(id);
-		this.persist(comment);
+	public void update(Comment comment) {
+		repo.save(comment);
 	}
 	
 }

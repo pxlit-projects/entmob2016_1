@@ -13,6 +13,6 @@ public interface IBordersPerProductService {
 	
 	public void delete(int id);
 	
-	public void update(int id, BordersPerProduct bordersPerProduct);
+	public void update(BordersPerProduct bordersPerProduct);
 	
 }

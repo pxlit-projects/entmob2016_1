@@ -39,8 +39,8 @@ public class BordersPerProductController {
 		service.delete(id);
 	}
 	
-	@RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
-	public void updateBordersPerProduct(@PathVariable("id") int id, @RequestBody BordersPerProduct BordersPerProduct) {
-		service.update(id, BordersPerProduct);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	public void updateBordersPerProduct(@RequestBody BordersPerProduct BordersPerProduct) {
+		service.update(BordersPerProduct);
 	}
 }

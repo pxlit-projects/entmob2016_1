@@ -28,9 +28,8 @@ public class CargoService implements ICargoService {
 		repo.delete(id);
 	}
 	
-	public void update(int id, Cargo cargo) {
-		this.delete(id);
-		this.persist(cargo);
+	public void update(Cargo cargo) {
+		repo.save(cargo);
 	}
 	
 }
