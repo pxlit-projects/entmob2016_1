@@ -17,13 +17,15 @@ namespace frontend.App.ViewModels
 {
     public class DriverViewModel : INotifyPropertyChanged
     {
-        IEmployeeService service;
+        
         private ObservableCollection<Employee> drivers;
         private Employee selectedDriver;
 
         public ICommand UpdateCommand { get; set; }
         public ICommand ChangeStatusCommand { get; set; }
         public ICommand ShowDriverDialogCommand { get; set; }
+
+        private IEmployeeService service;
 
         public DriverViewModel(IEmployeeService service)
         {

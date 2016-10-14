@@ -13,7 +13,7 @@ namespace frontend.App.Navigation
     {
         public void NavigateTo(string key)
         {
-            Frame rootFrame;
+            Frame rootFrame = Window.Current.Content as Frame;
             switch (key)
             {
                 case "Drivers":
@@ -37,7 +37,7 @@ namespace frontend.App.Navigation
                     rootFrame.Navigate(typeof(HomePage));
                     break;
             }
-          
+
         }
     }
 }
