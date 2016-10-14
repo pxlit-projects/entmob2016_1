@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{164d65e9-d4ee-4ec4-b457-7d558dfeebf3}</ProjectGuid>
+    <ProjectGuid>{164D65E9-D4EE-4EC4-B457-7D558DFEEBF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>frontend.Domain</RootNamespace>
@@ -107,8 +107,24 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BordersPerProduct.cs" />
+    <Compile Include="BordersPerProductPK.cs" />
+    <Compile Include="Cargo.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="Destination.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="ExceedingsPerCargo.cs" />
+    <Compile Include="Login.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductsPerCargo.cs" />
+    <Compile Include="ProductsPerCargoPK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sensor.cs" />
+    <Compile Include="SensorData.cs" />
+    <Compile Include="SensorUsage.cs" />
+    <Compile Include="StabilisationsPerCargo.cs" />
+    <Compile Include="Variable.cs" />
     <EmbeddedResource Include="Properties\frontend.Domain.rd.xml" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
