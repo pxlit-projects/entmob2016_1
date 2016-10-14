@@ -19,7 +19,7 @@
             <Grid VerticalAlignment="Top" x:Name="titleGrid">
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Sensors</TextBlock>
             </Grid>
-            <ListView x:Name="sensorsList" ItemsSource="{Binding}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" SelectionChanged="sensorsList_SelectionChanged">
+            <ListView x:Name="sensorsList" ItemsSource="{Binding Sensors}" SelectedItem="{Binding SelectedSensor, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -30,8 +30,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Content="Show sensor usage" HorizontalAlignment="Center" Style="{StaticResource PageButtonStyle}" Click="sensorUsageButton_Click"/>
-            <ListView x:Name="sensorUsageList" ItemsSource="{Binding}" Background="White" BorderBrush="Black" Margin="20" BorderThickness="2">
+            <Button Content="Show sensor usage" HorizontalAlignment="Center" Style="{StaticResource PageButtonStyle}" DataContext="{Binding ShowSensorUsageCommand}"/>
+            <ListView x:Name="sensorUsageList" ItemsSource="{Binding SensorUsages}" Background="White" BorderBrush="Black" Margin="20" BorderThickness="2">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -52,19 +52,19 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Status:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding sensor_id}"/>
-                        <TextBox x:Name="nameTxt" Text="{Binding sensor_name}"/>
-                        <TextBlock x:Name="statusTxt" Text="{Binding status}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedSensor.sensor_id}"/>
+                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedSensor.sensor_name}"/>
+                        <TextBlock x:Name="statusTxt" Text="{Binding Path=SelectedSensor.status}"/>
                     </StackPanel>
                 </StackPanel>
 
             </Grid>
             <Grid Padding="20" x:Name="buttonGrid">
                 <Button DataContext="{Binding UpdateCommand}" Style="{StaticResource PageButtonStyle}" Padding="12" HorizontalAlignment="Left" Margin="20,0,0,0" Width="125">Update</Button>
-                <Button Click="ChangeStatusButton_Click" Style="{StaticResource PageButtonStyle}" Padding="12" HorizontalAlignment="Right" Margin="0,0,20,0" Width="125">Change Status</Button>
+                <Button DataContext="{Binding ChangeStatusCommand}" Style="{StaticResource PageButtonStyle}" Padding="12" HorizontalAlignment="Right" Margin="0,0,20,0" Width="125">Change Status</Button>
             </Grid>
             <Grid Padding="20" x:Name="addGrid">
-                <Button Click="AddButton_Click" Style="{StaticResource PageButtonStyle}" Padding="12" HorizontalAlignment="Center" Margin="0,0,0,0" Width="125">Add sensor</Button>
+                <Button DataContext="{Binding ShowDialogCommand}" Style="{StaticResource PageButtonStyle}" Padding="12" HorizontalAlignment="Center" Margin="0,0,0,0" Width="125">Add sensor</Button>
             </Grid>
         </StackPanel>
     </Grid>

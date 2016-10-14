@@ -24,7 +24,7 @@
                 <RadioButton Style="{StaticResource SplitViewMenuButtonStyle}" Click="OnMenuButtonClicked" />
 
                 <!-- Home button -->
-                <RadioButton Tag="&#xe10f;" Content="Home" Style="{StaticResource SplitViewNavButtonStyle}" Checked="OnHomeButtonChecked" IsChecked="True" />
+                <RadioButton Tag="&#xe10f;" Content="Home" Style="{StaticResource SplitViewNavButtonStyle}"  Checked="{Binding }" IsChecked="True" />
 
                 <!-- Products button -->
                 <RadioButton Tag="&#xe781;" Content="Products" Style="{StaticResource SplitViewNavButtonStyle}" Checked="OnProductsButtonChecked" />
