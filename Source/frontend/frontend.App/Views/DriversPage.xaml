@@ -20,7 +20,7 @@
             <Grid VerticalAlignment="Top" x:Name="titleGrid">
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Drivers</TextBlock>
             </Grid>
-            <ListView x:Name="driversList" ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" SelectionChanged="driversList_SelectionChanged">
+            <ListView x:Name="driversList" ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
