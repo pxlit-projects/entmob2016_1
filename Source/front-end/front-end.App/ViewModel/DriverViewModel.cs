@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace front_end.App.ViewModel
 {
-    class DriversViewModel : INotifyPropertyChanged
+    class DriverViewModel : INotifyPropertyChanged
     {
         IEmployeeService service;
         private ObservableCollection<Employee> drivers;
         private Employee selectedDriver;
 
-        public DriversViewModel(IEmployeeService service)
+        public DriverViewModel(IEmployeeService service)
         {
             service = this.service;
             LoadData();
