@@ -1,4 +1,5 @@
-﻿using System;
+﻿using front_end.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,15 @@ namespace Mobile_App
         {
             InitializeComponent();
         }
-        public async void OnLoginClicked(object sender, EventArgs e)
+        public void OnLoginClicked(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            await DisplayAlert("Clicked", usernameEntry.Text + " " + passwordEntry.Text,"OK");
+            //await DisplayAlert("Clicked", usernameEntry.Text + " " + passwordEntry.Text,"OK");
+            String username = usernameEntry.Text;
+            String password = passwordEntry.Text;
+
+           var log = new LoginService();
+           var user = new EmployeeService();
         }
     }
 }

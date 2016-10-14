@@ -143,10 +143,11 @@
       <Project>{f8ef3b88-646d-48b9-97d9-04af6a88e05e}</Project>
       <Name>front-end.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\front-end.Repository\front-end.Repository.csproj">
-      <Project>{ceb11bb6-018e-4691-9013-da6ce228544a}</Project>
-      <Name>front-end.Repository</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="front-end.Repository">
+      <HintPath>..\front-end.Repository\bin\Debug\front-end.Repository.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

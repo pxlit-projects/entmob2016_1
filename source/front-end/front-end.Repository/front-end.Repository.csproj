@@ -114,6 +114,7 @@
     <Compile Include="DestinationRepository.cs" />
     <Compile Include="EmployeeRepository.cs" />
     <Compile Include="ExceedingsPerCargoRepository.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="IBordersPerProductRepository.cs" />
     <Compile Include="ICargoRepository.cs" />
     <Compile Include="ICityRepository.cs" />

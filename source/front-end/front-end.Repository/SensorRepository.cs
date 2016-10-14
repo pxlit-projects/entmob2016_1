@@ -17,7 +17,7 @@ namespace front_end.Repository
         public SensorRepository()
         {
             Client = new HttpClient();
-            Client.BaseAddress = new Uri("http://localhost:8080/");
+            Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

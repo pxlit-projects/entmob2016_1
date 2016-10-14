@@ -52,6 +52,9 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="front-end.Domain">
+      <HintPath>..\..\..\front-end\front-end.Domain\bin\Debug\front-end.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
