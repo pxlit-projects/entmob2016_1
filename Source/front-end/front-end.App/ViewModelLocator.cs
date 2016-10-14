@@ -14,9 +14,33 @@ namespace front_end.App
         private static IProductService productService = new ProductService();
         private static IEmployeeService employeeService = new EmployeeService();
 
-        private static SensorViewModel SensorViewModel = new SensorViewModel(sensorService);
-        private static ProductViewModel ProductViewModel = new ProductViewModel(productService);
-        private static DriverViewModel DriverViewModel = new DriverViewModel(employeeService);
+        private static SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
+        private static ProductViewModel productViewModel = new ProductViewModel(productService);
+        private static DriverViewModel driverViewModel = new DriverViewModel(employeeService);
+
+        public static DriverViewModel DriverViewModel
+        {
+            get
+            {
+                return driverViewModel;
+            }
+        }
+
+        public static ProductViewModel ProductViewModel
+        {
+            get
+            {
+                return productViewModel;
+            }
+        }
+
+        public static SensorViewModel SensorViewModel
+        {
+            get
+            {
+                return sensorViewModel;
+            }
+        }
 
 
     }

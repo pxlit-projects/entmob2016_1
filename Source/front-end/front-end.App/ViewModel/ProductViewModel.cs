@@ -20,6 +20,7 @@ namespace front_end.App.ViewModel
         public ProductViewModel (IProductService service)
         {
             this.service = service;
+            LoadData();
         }
 
         public ObservableCollection<Product> Products
@@ -35,9 +36,9 @@ namespace front_end.App.ViewModel
             }
         }
 
-        private Sensor selectedProduct;
+        private Product selectedProduct;
 
-        public Sensor SelectedProduct
+        public Product SelectedProduct
         {
             get
             {
@@ -50,6 +51,12 @@ namespace front_end.App.ViewModel
             }
         }
 
+        private void LoadData()
+        {
+            var productslist = service.All().OrderBy(d => d.product_id);
+            Products = new ObservableCollection<Product>(productslist);
+            SelectedProduct = products.ElementAt(0);
+        }
         private void RaisePropertyChanged(string propertyName)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
