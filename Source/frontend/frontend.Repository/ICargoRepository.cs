@@ -1,4 +1,5 @@
-﻿using System;
+﻿using frontend.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace frontend.Repository
 {
-    interface ICargoRepository
+    public interface ICargoRepository
     {
+        Task<IEnumerable<Cargo>> GetAllCargos();
+        Task<Cargo> GetCargoById(int id);
+        void AddCargo(Cargo cargo);
+        void UpdateCargo(Cargo cargo);
+        void DeleteCargo(int id);
     }
 }

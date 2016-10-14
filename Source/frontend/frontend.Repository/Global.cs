@@ -8,5 +8,6 @@ namespace frontend.Repository
 {
     class Global
     {
+        public static String IP_ADRESS = "10.84.134.55:8080";
     }
 }
