@@ -1,4 +1,5 @@
-﻿using frontend.Repository;
+﻿using frontend.Domain;
+using frontend.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,3 +42,4 @@ namespace frontend.Service
             employeeRepository.UpdateEmployee(employee);
         }
     }
+}
