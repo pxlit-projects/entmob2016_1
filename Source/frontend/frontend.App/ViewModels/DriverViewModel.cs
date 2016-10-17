@@ -27,7 +27,7 @@ namespace frontend.App.ViewModels
 
         public DriverViewModel(IEmployeeService service)
         {
-            service = this.service;
+            this.service = service;
             LoadData();
             LoadCommands();
         }
