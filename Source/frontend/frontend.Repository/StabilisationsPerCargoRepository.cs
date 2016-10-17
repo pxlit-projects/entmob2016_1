@@ -61,7 +61,7 @@ namespace frontend.Repository
 
         public async void UpdateStabilisationsPerCargo(StabilisationsPerCargo stabilisationsPerCargo)
         {
-            var url = "/stabilisationspercargos/update/" + stabilisationsPerCargo.stabilisations_per_cargo_id;
+            var url = "/stabilisationspercargos/update";
             var jsonString = JsonConvert.SerializeObject(stabilisationsPerCargo);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }

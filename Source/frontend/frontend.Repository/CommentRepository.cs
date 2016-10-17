@@ -61,7 +61,7 @@ namespace frontend.Repository
 
         public async void UpdateComment(Comment comment)
         {
-            var url = "/comments/update/" + comment.comment_id;
+            var url = "/comments/update";
             var jsonString = JsonConvert.SerializeObject(comment);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }

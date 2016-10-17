@@ -61,7 +61,7 @@ namespace frontend.Repository
 
         public async void UpdateSensorUsage(SensorUsage sensorUsage)
         {
-            var url = "/sensorusages/update/" + sensorUsage.sensor_usage_id;
+            var url = "/sensorusages/update";
             var jsonString = JsonConvert.SerializeObject(sensorUsage);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }

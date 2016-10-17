@@ -61,7 +61,7 @@ namespace frontend.Repository
 
         public async void UpdateVariable(Variable variable)
         {
-            var url = "/variables/update/" + variable.variable_id;
+            var url = "/variables/update";
             var jsonString = JsonConvert.SerializeObject(variable);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
