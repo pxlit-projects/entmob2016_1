@@ -55,11 +55,11 @@
                 </StackPanel>
             </Grid>
             <Grid Padding="20" x:Name="buttonGrid">
-                <Button Style="{StaticResource PageButtonStyle}" DataContext="{Binding UpdateCommand}" Padding="12" HorizontalAlignment="Left" Margin="20,0,0,0" Width="125">Update</Button>
-                <Button Style="{StaticResource PageButtonStyle}" DataContext="{Binding ChangeStatusCommand}" Padding="12" HorizontalAlignment="Right" Margin="0,0,20,0" Width="125">Change Status</Button>
+                <Button Style="{StaticResource PageButtonStyle}" Command="{Binding UpdateCommand}" Padding="12" HorizontalAlignment="Left" Margin="20,0,0,0" Width="125">Update</Button>
+                <Button Style="{StaticResource PageButtonStyle}" Command="{Binding ChangeStatusCommand}" Padding="12" HorizontalAlignment="Right" Margin="0,0,20,0" Width="125">Change Status</Button>
             </Grid>
             <Grid Padding="20" x:Name="addGrid">
-                <Button Style="{StaticResource PageButtonStyle}" DataContext="{Binding ShowDriverDialogCommand}" Padding="12" HorizontalAlignment="Center" Margin="0,0,0,0" Width="125">Add driver</Button>
+                <Button Style="{StaticResource PageButtonStyle}" Command="{Binding ShowDriverDialogCommand}" Padding="12" HorizontalAlignment="Center" Margin="0,0,0,0" Width="125">Add driver</Button>
             </Grid>
         </StackPanel>
     </Grid>
