@@ -28,6 +28,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/add/{login}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addLogin(@RequestBody Login login) {
 		service.persist(login);
 	}

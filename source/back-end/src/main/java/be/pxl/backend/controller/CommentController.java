@@ -31,6 +31,7 @@ public class CommentController {
 	}
 	
 	@RequestMapping(value = "/add/{comment}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addComment(@RequestBody Comment comment) {
 		service.persist(comment);
 	}

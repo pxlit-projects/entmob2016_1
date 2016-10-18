@@ -30,6 +30,7 @@ public class ExceedingsPerCargoController {
 	}
 	
 	@RequestMapping(value = "/add/{exceedingsPerCargo}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addExceedingsPerCargo(@RequestBody ExceedingsPerCargo exceedingsPerCargo) {
 		service.persist(exceedingsPerCargo);
 	}

@@ -29,6 +29,7 @@ public class CityController {
 	}
 	
 	@RequestMapping(value = "/add/{city}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addCity(@RequestBody City city) {
 		service.persist(city);
 	}

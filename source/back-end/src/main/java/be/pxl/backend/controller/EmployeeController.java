@@ -28,6 +28,7 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "/add/{employee}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addEmployee(@RequestBody Employee employee) {
 		service.persist(employee);
 	}

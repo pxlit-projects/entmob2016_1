@@ -28,6 +28,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/add/{product}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addProduct(@RequestBody Product product) {
 		service.persist(product);
 	}

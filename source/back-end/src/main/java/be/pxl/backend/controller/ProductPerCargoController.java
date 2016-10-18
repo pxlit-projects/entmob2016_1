@@ -28,6 +28,7 @@ public class ProductPerCargoController {
 	}
 	
 	@RequestMapping(value = "/add/{productPerCargo}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addProductPerCargo(@RequestBody ProductPerCargo productPerCargo) {
 		service.persist(productPerCargo);
 	}

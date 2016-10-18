@@ -82,6 +82,12 @@
       </list>
     </option>
   </component>
+  <component name="ProjectCodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS">
+      <value />
+    </option>
+    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default (1)" />
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backend.iml" filepath="$PROJECT_DIR$/backend.iml" />
@@ -166,7 +172,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/classmate/1.3.1/classmate-1.3.1-sources.jar!/" />
       </SOURCES>
     </library>
-
     <library name="Maven: com.jayway.jsonpath:json-path:2.2.0">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/jayway/jsonpath/json-path/2.2.0/json-path-2.2.0.jar!/" />
@@ -178,8 +183,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/jayway/jsonpath/json-path/2.2.0/json-path-2.2.0-sources.jar!/" />
       </SOURCES>
     </library>
-
-
     <library name="Maven: dom4j:dom4j:1.6.1">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar!/" />
@@ -213,7 +216,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final-sources.jar!/" />
       </SOURCES>
     </library>
-
     <library name="Maven: junit:junit:4.12">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/" />
@@ -225,8 +227,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/" />
       </SOURCES>
     </library>
-
-
     <library name="Maven: mysql:mysql-connector-java:6.0.4">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/6.0.4/mysql-connector-java-6.0.4.jar!/" />
@@ -238,7 +238,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/6.0.4/mysql-connector-java-6.0.4-sources.jar!/" />
       </SOURCES>
     </library>
-
     <library name="Maven: net.minidev:accessors-smart:1.1">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/net/minidev/accessors-smart/1.1/accessors-smart-1.1.jar!/" />
@@ -261,8 +260,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/net/minidev/json-smart/2.2.1/json-smart-2.2.1-sources.jar!/" />
       </SOURCES>
     </library>
-
-
     <library name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.5">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.5/tomcat-embed-core-8.5.5.jar!/" />
@@ -329,7 +326,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.8.9/aspectjweaver-1.8.9-sources.jar!/" />
       </SOURCES>
     </library>
-
     <library name="Maven: org.assertj:assertj-core:2.5.0">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/2.5.0/assertj-core-2.5.0.jar!/" />
@@ -363,8 +359,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3-sources.jar!/" />
       </SOURCES>
     </library>
-
-
     <library name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.0.1.Final/hibernate-commons-annotations-5.0.1.Final.jar!/" />
@@ -453,7 +447,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.0.0.Final/jandex-2.0.0.Final-sources.jar!/" />
       </SOURCES>
     </library>
-
     <library name="Maven: org.json:json:20140107">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20140107/json-20140107.jar!/" />
@@ -509,8 +502,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/skyscreamer/jsonassert/1.3.0/jsonassert-1.3.0-sources.jar!/" />
       </SOURCES>
     </library>
-
-
     <library name="Maven: org.slf4j:jcl-over-slf4j:1.7.21">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jcl-over-slf4j/1.7.21/jcl-over-slf4j-1.7.21.jar!/" />
@@ -610,7 +601,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/1.4.1.RELEASE/spring-boot-starter-logging-1.4.1.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-
     <library name="Maven: org.springframework.boot:spring-boot-starter-test:1.4.1.RELEASE">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-test/1.4.1.RELEASE/spring-boot-starter-test-1.4.1.RELEASE.jar!/" />
@@ -622,8 +612,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-test/1.4.1.RELEASE/spring-boot-starter-test-1.4.1.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-
-
     <library name="Maven: org.springframework.boot:spring-boot-starter-tomcat:1.4.1.RELEASE">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-tomcat/1.4.1.RELEASE/spring-boot-starter-tomcat-1.4.1.RELEASE.jar!/" />
@@ -657,7 +645,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter/1.4.1.RELEASE/spring-boot-starter-1.4.1.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-
     <library name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:1.4.1.RELEASE">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test-autoconfigure/1.4.1.RELEASE/spring-boot-test-autoconfigure-1.4.1.RELEASE.jar!/" />
@@ -680,8 +667,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/1.4.1.RELEASE/spring-boot-test-1.4.1.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-
-
     <library name="Maven: org.springframework.boot:spring-boot:1.4.1.RELEASE">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.4.1.RELEASE/spring-boot-1.4.1.RELEASE.jar!/" />
@@ -803,7 +788,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/4.3.3.RELEASE/spring-orm-4.3.3.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-
     <library name="Maven: org.springframework:spring-test:4.3.3.RELEASE">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.3.RELEASE/spring-test-4.3.3.RELEASE.jar!/" />
@@ -815,8 +799,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.3.RELEASE/spring-test-4.3.3.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-
-
     <library name="Maven: org.springframework:spring-tx:4.3.3.RELEASE">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.3.3.RELEASE/spring-tx-4.3.3.RELEASE.jar!/" />

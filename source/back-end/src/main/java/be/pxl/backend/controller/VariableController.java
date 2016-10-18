@@ -29,6 +29,7 @@ public class VariableController {
 	}
 	
 	@RequestMapping(value = "/add/{variable}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addVariable(@RequestBody Variable variable) {
 		service.persist(variable);
 	}

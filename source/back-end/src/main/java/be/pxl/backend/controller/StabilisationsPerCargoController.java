@@ -28,6 +28,7 @@ public class StabilisationsPerCargoController {
 	}
 	
 	@RequestMapping(value = "/add/{StabilisationsPerCargo}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addStabilisationsPerCargo(@RequestBody StabilisationsPerCargo stabilisationsPerCargo) {
 		service.persist(stabilisationsPerCargo);
 	}

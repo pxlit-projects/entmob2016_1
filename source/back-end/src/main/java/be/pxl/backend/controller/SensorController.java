@@ -28,6 +28,7 @@ public class SensorController {
 	}
 	
 	@RequestMapping(value = "/add/{sensor}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addSensor(@RequestBody Sensor sensor) {
 		service.persist(sensor);
 	}

@@ -30,6 +30,7 @@ public class CargoController {
 	}
 	
 	@RequestMapping(value = "/add/{cargo}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addCargo(@RequestBody Cargo cargo) {
 		service.persist(cargo);
 	}

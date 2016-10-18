@@ -30,6 +30,7 @@ public class BordersPerProductController {
 	}
 	
 	@RequestMapping(value = "/add/{BordersPerProduct}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addBordersPerProduct(@RequestBody BordersPerProduct bordersPerProduct) {
 		service.persist(bordersPerProduct);
 	}

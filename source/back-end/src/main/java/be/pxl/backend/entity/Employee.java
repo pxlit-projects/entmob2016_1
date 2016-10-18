@@ -39,11 +39,10 @@ public class Employee {
 	private String email;
 	private String sex;
 	private Boolean status;
-	
 	@OneToMany(mappedBy="employee")
 	@JsonManagedReference
 	private List<Login> logins = new ArrayList<Login>();
-	@JsonIgnore
+	
 	public List<Login> getLogins() {
 		return logins;
 	}

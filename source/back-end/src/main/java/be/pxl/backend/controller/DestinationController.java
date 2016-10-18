@@ -28,6 +28,7 @@ public class DestinationController {
 	}
 	
 	@RequestMapping(value = "/add/{destination}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addDestination(@RequestBody Destination destination) {
 		service.persist(destination);
 	}

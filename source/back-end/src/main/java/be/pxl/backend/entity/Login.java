@@ -34,7 +34,6 @@ public class Login {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
 	public Employee getEmployee() {
 		return employee;
 	}
