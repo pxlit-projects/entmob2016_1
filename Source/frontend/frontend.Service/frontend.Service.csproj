@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{db0ecc45-ce6a-48ed-9d4a-7eaa71d7e678}</ProjectGuid>
+    <ProjectGuid>{DB0ECC45-CE6A-48ED-9D4A-7EAA71D7E678}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>frontend.Service</RootNamespace>
@@ -107,9 +107,46 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BordersPerProductService.cs" />
+    <Compile Include="CargoService.cs" />
+    <Compile Include="CityService.cs" />
+    <Compile Include="CommentService.cs" />
+    <Compile Include="DestinationService.cs" />
+    <Compile Include="EmployeeService.cs" />
+    <Compile Include="ExceedingsPerCargoService.cs" />
+    <Compile Include="IBordersPerProductService.cs" />
+    <Compile Include="ICargoService.cs" />
+    <Compile Include="ICityService.cs" />
+    <Compile Include="ICommentService.cs" />
+    <Compile Include="IDestinationService.cs" />
+    <Compile Include="IEmployeeService.cs" />
+    <Compile Include="IExceedingsPerCargoService.cs" />
+    <Compile Include="ILoginService.cs" />
+    <Compile Include="IProductPerCargoService.cs" />
+    <Compile Include="IProductService.cs" />
+    <Compile Include="ISensorService.cs" />
+    <Compile Include="ISensorUsageService.cs" />
+    <Compile Include="IStabilisationsPerCargoService.cs" />
+    <Compile Include="IVariableService.cs" />
+    <Compile Include="LoginService.cs" />
+    <Compile Include="ProductService.cs" />
+    <Compile Include="ProductsPerCargoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorService.cs" />
+    <Compile Include="SensorUsageService.cs" />
+    <Compile Include="StabilisationsPerCargoService.cs" />
+    <Compile Include="VariableService.cs" />
     <EmbeddedResource Include="Properties\frontend.Service.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\frontend.Domain\frontend.Domain.csproj">
+      <Project>{164d65e9-d4ee-4ec4-b457-7d558dfeebf3}</Project>
+      <Name>frontend.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\frontend.Repository\frontend.Repository.csproj">
+      <Project>{7cc7cb1f-076a-4e1b-aebf-28d9ba9eed7e}</Project>
+      <Name>frontend.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
