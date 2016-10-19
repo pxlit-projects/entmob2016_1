@@ -21,7 +21,7 @@
         <SplitView.Pane>
             <StackPanel>
                 <!-- Menu (hamburger) button -->
-                <RadioButton Style="{StaticResource SplitViewMenuButtonStyle}" Click="OnMenuButtonClicked" />
+                <RadioButton Style="{StaticResource SplitViewMenuButtonStyle}" Click="{Binding MenuCommand}" />
 
                 <!-- Home button -->
                 <RadioButton Tag="&#xe10f;" Content="Home" Style="{StaticResource SplitViewNavButtonStyle}"  Checked="{Binding HomeCommand}" IsChecked="True" />
