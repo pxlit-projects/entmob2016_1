@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import be.pxl.backend.entity.Variable;
 import be.pxl.backend.repository.VariableRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class VariableService implements IVariableService {
 
 	@Autowired
@@ -31,6 +33,8 @@ public class VariableService implements IVariableService {
 	}
 	
 	public void update(Variable variable) {
-		repo.save(variable);
+		Variable v = repo.findOne(variable.getVariable_id());
+		v.copy(variable);
+		repo.save(v);
 	}
 }

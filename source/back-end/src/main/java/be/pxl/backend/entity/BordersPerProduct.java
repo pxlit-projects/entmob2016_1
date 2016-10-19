@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class BordersPerProduct {
 
 	@EmbeddedId
-	private BordersPerProductPK Id;
+	private BordersPerProductPK id;
 	@MapsId("product_id")
 	@ManyToOne
 	private Product product;
@@ -26,6 +26,7 @@ public class BordersPerProduct {
 	private Variable variable;
 	private float border_value_number;
 	
+	public BordersPerProductPK getPK() { return id; }
 	public Product getProduct() {
 		return product;
 	}
@@ -45,4 +46,9 @@ public class BordersPerProduct {
 		this.border_value_number = border_value_number;
 	}
 	
+	public void copy(BordersPerProduct bpp) {
+		this.product = bpp.product;
+		this.variable = bpp.variable;
+		this.border_value_number = bpp.border_value_number;
+	}
 }

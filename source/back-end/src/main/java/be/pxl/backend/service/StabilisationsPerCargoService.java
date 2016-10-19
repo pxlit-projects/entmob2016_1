@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import be.pxl.backend.entity.StabilisationsPerCargo;
 import be.pxl.backend.repository.StabilisationsPerCargoRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class StabilisationsPerCargoService implements IStabilisationsPerCargoService {
 
 	@Autowired
@@ -29,9 +31,5 @@ public class StabilisationsPerCargoService implements IStabilisationsPerCargoSer
 	public void delete(int id) {
 		repo.delete(id);
 	}
-	
-	public void update(StabilisationsPerCargo stabilisationsPerCargo) {
-		repo.save(stabilisationsPerCargo);
-	}
-	
+
 }

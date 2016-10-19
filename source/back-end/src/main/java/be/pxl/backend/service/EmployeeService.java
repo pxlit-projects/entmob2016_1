@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Employee;
 import be.pxl.backend.entity.Login;
 import be.pxl.backend.repository.EmployeeRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class EmployeeService implements IEmployeeService {
 
 	@Autowired
@@ -32,6 +34,8 @@ public class EmployeeService implements IEmployeeService {
 	}
 	
 	public void update(Employee employee) {
+		Employee e = repo.findOne(employee.getEmployee_id());
+		e.copy(employee);
 		repo.save(employee);
 	}
 

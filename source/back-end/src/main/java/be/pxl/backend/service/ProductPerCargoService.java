@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.ProductPerCargo;
 import be.pxl.backend.repository.ProductPerCargoRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ProductPerCargoService implements IProductPerCargoService {
 
 	@Autowired
@@ -26,10 +28,6 @@ public class ProductPerCargoService implements IProductPerCargoService {
 	
 	public void delete(int id) {
 		repo.delete(id);
-	}
-	
-	public void update(ProductPerCargo productPerCargo) {
-		repo.save(productPerCargo);
 	}
 	
 }

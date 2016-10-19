@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.ExceedingsPerCargo;
 import be.pxl.backend.repository.ExceedingsPerCargoRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ExceedingsPerCargoService implements IExceedingsPerCargoService {
 
 	@Autowired
@@ -26,10 +28,6 @@ public class ExceedingsPerCargoService implements IExceedingsPerCargoService {
 	
 	public void delete(int id) {
 		repo.delete(id);
-	}
-	
-	public void update(ExceedingsPerCargo exceedingsPerCargo) {
-		repo.save(exceedingsPerCargo);
 	}
 	
 }

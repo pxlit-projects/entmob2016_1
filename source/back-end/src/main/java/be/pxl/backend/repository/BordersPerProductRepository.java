@@ -4,6 +4,6 @@ import org.springframework.stereotype.Repository;
 import be.pxl.backend.entity.*;
 
 @Repository
-public interface BordersPerProductRepository extends JpaRepository<BordersPerProduct, Integer>  {
+public interface BordersPerProductRepository extends JpaRepository<BordersPerProduct, BordersPerProductPK>  {
 
 }

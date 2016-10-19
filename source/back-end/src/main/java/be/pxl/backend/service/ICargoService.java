@@ -13,6 +13,4 @@ public interface ICargoService {
 	
 	public void delete(int id);
 	
-	public void update(Cargo cargo);
-	
 }

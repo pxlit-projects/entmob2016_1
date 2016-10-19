@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Employee;
 import be.pxl.backend.entity.Product;
 import be.pxl.backend.repository.ProductRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ProductService implements IProductService {
 
 	@Autowired
@@ -27,13 +29,15 @@ public class ProductService implements IProductService {
 	}
 	
 	public void delete(int id) {
-		Product pro = repo.findOne(id);
-		pro.setStatus(false);
-		this.update(pro);
+		Product product = repo.findOne(id);
+		product.setStatus(false);
+		this.update(product);
 	}
 	
 	public void update(Product product) {
-		repo.save(product);
+		Product p = repo.findOne(product.getProduct_id());
+		p.copy(product);
+		repo.save(p);
 	}
 	
 }
