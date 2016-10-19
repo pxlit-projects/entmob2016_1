@@ -15,12 +15,12 @@ namespace MainApp
         private static IEmployeeService employeeService = new EmployeeService();
 
 
-        private static SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
-        private static ProductViewModel productViewModel = new ProductViewModel(productService);
-        private static DriverViewModel driverViewModel = new DriverViewModel(employeeService);
-        private static MainViewModel mainViewModel = new MainViewModel();
+        private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
+        private ProductViewModel productViewModel = new ProductViewModel(productService);
+        private DriverViewModel driverViewModel = new DriverViewModel(employeeService);
+        private MainViewModel mainViewModel = new MainViewModel();
 
-        public static DriverViewModel DriverViewModel
+        public DriverViewModel DriverViewModel
         {
             get
             {
@@ -28,7 +28,7 @@ namespace MainApp
             }
         }
 
-        public static ProductViewModel ProductViewModel
+        public ProductViewModel ProductViewModel
         {
             get
             {
@@ -36,7 +36,7 @@ namespace MainApp
             }
         }
 
-        public static SensorViewModel SensorViewModel
+        public SensorViewModel SensorViewModel
         {
             get
             {
@@ -44,7 +44,7 @@ namespace MainApp
             }
         }
 
-        public static MainViewModel MainViewModel
+        public MainViewModel MainViewModel
         {
             get
             {
