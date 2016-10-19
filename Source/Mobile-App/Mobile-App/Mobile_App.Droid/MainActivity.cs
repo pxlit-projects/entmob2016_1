@@ -21,6 +21,7 @@ namespace Mobile_App.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             IMD5 md5 = new Mobile_App.Droid.MD5();
+
             LoadApplication(new App(md5));
         }
     }

@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Mobile_App"
              x:Class="Mobile_App.MainPage"
-             BackgroundImage="background.jpg"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=Main}">
+             BackgroundImage="background.jpg">
+  <!--BindingContext="{Binding Source={StaticResource Locator}, Path=Main}">-->
   <StackLayout Orientation="Vertical" Spacing="10" Margin="20">
     <Image Source="banner.png" HeightRequest="143"/>
     <Label Text="Please Log in." FontSize="20"></Label>

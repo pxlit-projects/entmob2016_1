@@ -9,12 +9,12 @@ namespace Mobile_App
 {
     public partial class App : Application
     {
-        public IMD5 md5;
+        private IMD5 md5;
         public App(IMD5 md5)
         {
             InitializeComponent();
             this.md5 = md5;
-            MainPage = new MainPage();
+            MainPage = new MainPage(md5);
         }
         protected override void OnStart()
         {
