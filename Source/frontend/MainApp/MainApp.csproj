@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Messages\Messenger.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -140,6 +141,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\SplitViewStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -163,7 +169,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="Messages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\frontend.Domain\frontend.Domain.csproj">
+      <Project>{164d65e9-d4ee-4ec4-b457-7d558dfeebf3}</Project>
+      <Name>frontend.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\frontend.Repository\frontend.Repository.csproj">
+      <Project>{7cc7cb1f-076a-4e1b-aebf-28d9ba9eed7e}</Project>
+      <Name>frontend.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\frontend.Service\frontend.Service.csproj">
+      <Project>{db0ecc45-ce6a-48ed-9d4a-7eaa71d7e678}</Project>
+      <Name>frontend.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
