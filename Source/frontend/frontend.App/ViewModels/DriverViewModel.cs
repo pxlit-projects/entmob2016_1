@@ -1,5 +1,5 @@
-﻿using frontend.App.Utility;
-using frontend.App.Views;
+﻿using frontend.Appl.Utility;
+using frontend.Appl.Views;
 using frontend.Domain;
 using frontend.Service;
 using System;
@@ -13,17 +13,19 @@ using System.Windows.Input;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
-namespace frontend.App.ViewModels
+namespace frontend.Appl.ViewModels
 {
     public class DriverViewModel : INotifyPropertyChanged
     {
-        IEmployeeService service;
+        
         private ObservableCollection<Employee> drivers;
         private Employee selectedDriver;
 
         public ICommand UpdateCommand { get; set; }
         public ICommand ChangeStatusCommand { get; set; }
         public ICommand ShowDriverDialogCommand { get; set; }
+
+        private IEmployeeService service;
 
         public DriverViewModel(IEmployeeService service)
         {

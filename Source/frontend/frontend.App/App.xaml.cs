@@ -1,8 +1,5 @@
-﻿using frontend.App.Views;
+﻿using frontend.Appl.Views;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -16,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace frontend.App
+namespace frontend.Appl
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
