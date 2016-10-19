@@ -1,6 +1,7 @@
 using frontend.Domain;
 using frontend.Service;
 using GalaSoft.MvvmLight;
+using JoesBurgerStore.Contracts;
 using System;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -10,7 +11,8 @@ namespace Mobile_App.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private IMD5 _md5;
+        //  private IMD5 _md5;
+        private INavigationService navService;
         private String username;
         public String Username {
             get {
@@ -35,14 +37,16 @@ namespace Mobile_App.ViewModel
             }
         }
         public ICommand LoginCommand { get; set; }
-        public MainViewModel(IMD5 md5)
+        public MainViewModel(INavigationService navigationService)
         {
-            _md5 = md5;
+            //_md5 = md5;
+            this.navService = navigationService;
             InitializeCommands();
         }
         private void InitializeCommands() {
             LoginCommand = new Command(() =>
             {
+                /*
                 Debug.WriteLine(username + " " + password);
                 IEmployeeService empService = new EmployeeService();
                 ILoginService logService = new LoginService();
@@ -53,6 +57,8 @@ namespace Mobile_App.ViewModel
                         Debug.WriteLine("LOGIN");
                     }
                 }
+                */
+                navService.PushAsync("ConnectSensor");
             });
         }
     }

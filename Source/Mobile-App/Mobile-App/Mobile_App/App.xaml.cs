@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using JoesBurgerStore;
+using JoesBurgerStore.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +17,11 @@ namespace Mobile_App
         {
             InitializeComponent();
             this.md5 = md5;
-            MainPage = new MainPage(md5);
+            AppContainer.Container = new Bootstrap().CreateContainer();
+            var login = new MainPage();
+            var navigationService = AppContainer.Container.Resolve<INavigationService>();
+            navigationService.Navigation = login.Navigation;
+            MainPage = new NavigationPage(login);
         }
         protected override void OnStart()
         {

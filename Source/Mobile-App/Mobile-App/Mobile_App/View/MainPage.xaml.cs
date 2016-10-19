@@ -1,4 +1,6 @@
-﻿using Mobile_App.ViewModel;
+﻿using Autofac;
+using JoesBurgerStore;
+using Mobile_App.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +12,12 @@ namespace Mobile_App
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage(IMD5 md5)
+        private readonly MainViewModel viewModel;
+        public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new MainViewModel(md5);
+            viewModel = AppContainer.Container.Resolve<MainViewModel>();
+            this.BindingContext = viewModel;
         }
     }
 }

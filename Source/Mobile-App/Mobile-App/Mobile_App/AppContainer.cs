@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autofac;
 
-namespace frontend.Repository
+namespace JoesBurgerStore
 {
-    class Global
+    public static class AppContainer
     {
-        public static string IP_ADRESS = "http://10.84.134.171:8080/";
+        public static IContainer Container { get; set; }
     }
 }
