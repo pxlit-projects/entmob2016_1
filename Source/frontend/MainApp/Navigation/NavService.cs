@@ -14,6 +14,10 @@ namespace MainApp.Navigation
         public void NavigateTo(string key)
         {
             Frame rootFrame = Window.Current.Content as Frame;
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 0ef0c13002dce119e938fae6487b08c26a99f21f
             switch (key)
             {
                 case "Drivers":
