@@ -51,6 +51,20 @@ namespace frontend.Repository
             var employee = JsonConvert.DeserializeObject<Employee>(jsonString);
             return employee;
         }
+        public async Task<Employee> GetEmployeeByUsername(String username)
+        {
+            var url = "/employees/get/username/" + username;
+            HttpResponseMessage response = Client.GetAsync(url).Result;
+            string jsonString = "";
+
+            if (response.IsSuccessStatusCode)
+            {
+                jsonString = await response.Content.ReadAsStringAsync();
+            }
+
+            var employee = JsonConvert.DeserializeObject<Employee>(jsonString);
+            return employee;
+        }
 
         public async void AddEmployee(Employee employee)
         {

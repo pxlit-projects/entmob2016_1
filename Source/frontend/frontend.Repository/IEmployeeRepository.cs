@@ -11,6 +11,7 @@ namespace frontend.Repository
     {
         Task<IEnumerable<Employee>> GetAllEmployees();
         Task<Employee> GetEmployeeById(int id);
+        Task<Employee> GetEmployeeByUsername(String username);
         void AddEmployee(Employee employee);
         void UpdateEmployee(Employee employee);
         void DeleteEmployee(int id);

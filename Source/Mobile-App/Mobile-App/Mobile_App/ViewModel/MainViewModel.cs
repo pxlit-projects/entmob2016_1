@@ -1,3 +1,4 @@
+using front_end.Services;
 using GalaSoft.MvvmLight;
 using System;
 using System.Diagnostics;
@@ -40,6 +41,8 @@ namespace Mobile_App.ViewModel
             LoginCommand = new Command(() =>
             {
                 Debug.WriteLine(username + " " + password);
+                IEmployeeService empService = new EmployeeService();
+                ILoginService logService = new LoginService();
                 
             });
         }

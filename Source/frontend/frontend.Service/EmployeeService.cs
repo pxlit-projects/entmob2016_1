@@ -36,6 +36,9 @@ namespace frontend.Service
         {
             return employeeRepository.GetEmployeeById(id).Result;
         }
+        public Employee FindByUsername(String username) {
+            return employeeRepository.GetEmployeeByUsername(username).Result;
+        }
 
         public void Update(Employee employee)
         {

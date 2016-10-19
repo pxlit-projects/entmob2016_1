@@ -14,5 +14,6 @@ namespace frontend.Service
         void Add(Employee employee);
         void Update(Employee employee);
         void Delete(int id);
+	Employee FindByUsername(String username);
     }
 }
