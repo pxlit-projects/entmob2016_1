@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Cargo;
 import be.pxl.backend.entity.Comment;
 import be.pxl.backend.repository.CommentRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class CommentService implements ICommentService {
 
 	@Autowired
@@ -28,9 +30,5 @@ public class CommentService implements ICommentService {
 	public void delete(int id) {
 		repo.delete(id);
 	}
-	
-	public void update(Comment comment) {
-		repo.save(comment);
-	}
-	
+
 }

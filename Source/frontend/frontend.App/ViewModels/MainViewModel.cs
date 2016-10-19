@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using frontend.App.Utility;
+using frontend.Appl.Utility;
 using System.Windows.Input;
 
-namespace frontend.App.ViewModels
+namespace frontend.Appl.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
@@ -20,6 +20,7 @@ namespace frontend.App.ViewModels
 
         public MainViewModel()
         {
+            
             LoadCommands();
         }
 

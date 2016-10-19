@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Login;
 import be.pxl.backend.repository.LoginRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class LoginService implements ILoginService {
 
 	@Autowired
@@ -27,9 +29,5 @@ public class LoginService implements ILoginService {
 	public void delete(int id) {
 		repo.delete(id);
 	}
-	
-	public void update(Login login) {
-		repo.save(login);
-	}
-	
+
 }

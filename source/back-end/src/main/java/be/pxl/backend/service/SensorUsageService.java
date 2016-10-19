@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import be.pxl.backend.entity.SensorUsage;
 import be.pxl.backend.repository.SensorUsageRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class SensorUsageService implements ISensorUsageService {
 
 	@Autowired
@@ -28,10 +30,6 @@ public class SensorUsageService implements ISensorUsageService {
 	
 	public void delete(int id) {
 		repo.delete(id);
-	}
-	
-	public void update(SensorUsage sensorUsage) {
-		repo.save(sensorUsage);
 	}
 	
 }

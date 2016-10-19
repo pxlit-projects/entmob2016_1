@@ -55,5 +55,11 @@ public class Destination {
 		this.housenr = housenr;
 	}
 	
+	public void copy(Destination destination) {
+		this.city = destination.city;
+		this.street = destination.street;
+		this.housenr = destination.housenr;
+		this.description = destination.description;
+	}
 	
 }

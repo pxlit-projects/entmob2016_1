@@ -28,4 +28,7 @@ public class Variable {
 		this.description = description;
 	}
 	
+	public void copy(Variable variable) {
+		this.description = variable.description;
+	}
 }

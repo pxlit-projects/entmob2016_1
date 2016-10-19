@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.City;
 import be.pxl.backend.repository.CityRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class CityService implements ICityService {
 
 	@Autowired
@@ -29,7 +31,9 @@ public class CityService implements ICityService {
 	}
 	
 	public void update(City city) {
-		repo.save(city);
+		City c = repo.findOne(city.getPostal_code());
+		c.copy(city);
+		repo.save(c);
 	}
 	
 }

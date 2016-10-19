@@ -1,4 +1,4 @@
-﻿using frontend.App.Utility;
+﻿using frontend.Appl.Utility;
 using frontend.Domain;
 using frontend.Service;
 using System;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace frontend.App.ViewModels
+namespace frontend.Appl.ViewModels
 {
     public class SensorViewModel : INotifyPropertyChanged
     {

@@ -139,4 +139,22 @@ public class Employee {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+	
+	public void copy(Employee employee) {
+		this.username = employee.username;
+		this.password = employee.password;
+		this.salt = employee.salt;
+		this.name = employee.name;
+		this.surName = employee.surName;
+		this.street = employee.street;
+		this.houseNr = employee.houseNr;
+		this.city = employee.city;
+		this.date_employment = employee.date_employment;
+		this.mobile_phone = employee.mobile_phone;
+		this.telephone_number = employee.telephone_number;
+		this.email = employee.email;
+		this.sex = employee.sex;
+		this.status = employee.status;
+		this.logins = employee.logins;
+	}
 }

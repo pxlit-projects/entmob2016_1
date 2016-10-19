@@ -43,4 +43,5 @@ public class Login {
 	public void setTime(Date time) {
 		this.time = time;
 	}
+	
 }

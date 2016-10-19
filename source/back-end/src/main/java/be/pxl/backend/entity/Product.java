@@ -43,4 +43,11 @@ public class Product {
 		this.description = description;
 	}
 	
+	public void copy(Product product) {
+		this.title = product.title;
+		this.description = product.description;
+		this.status = product.status;
+		
+	}
+	
 }

@@ -6,8 +6,10 @@ import org.springframework.stereotype.Component;
 import be.pxl.backend.entity.Destination;
 import be.pxl.backend.repository.DestinationRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class DestinationService implements IDestinationService {
 
 	@Autowired
@@ -30,6 +32,8 @@ public class DestinationService implements IDestinationService {
 	}
 	
 	public void update(Destination destination) {
+		Destination d = repo.findOne(destination.getDestination_id());
+		d.copy(destination);
 		repo.save(destination);
 	}
 	

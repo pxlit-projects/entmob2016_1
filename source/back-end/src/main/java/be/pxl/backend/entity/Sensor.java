@@ -48,4 +48,9 @@ public class Sensor {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	
+	public void copy(Sensor sensor) {
+		this.sensor_name = sensor.sensor_name;
+		this.status = sensor.status;
+	}
 }

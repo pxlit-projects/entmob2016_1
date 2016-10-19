@@ -2,11 +2,8 @@ package be.pxl.backend.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import be.pxl.backend.entity.SensorUsage;
 import be.pxl.backend.service.SensorUsageService;
 import be.pxl.backend.service.*;
@@ -27,8 +24,8 @@ public class SensorUsageController {
 		return service.all();
 	}
 	
-	@RequestMapping(value = "/add/{SensorUsage}", method=RequestMethod.POST)
-	@ResponseStatus(value = HttpStatus.CREATED)
+	@RequestMapping(value = "/add", method=RequestMethod.POST)
+	@ResponseStatus (value = HttpStatus.CREATED)
 	public void addSensorUsage(@RequestBody SensorUsage sensorUsage) {
 		service.persist(sensorUsage);
 	}
@@ -37,9 +34,5 @@ public class SensorUsageController {
 	public void deleteSensorUsage(@PathVariable("id") int id) {
 		service.delete(id);
 	}
-	
-	@RequestMapping(value = "/update", method=RequestMethod.PUT)
-	public void updateSensorUsage(@RequestBody SensorUsage sensorUsage) {
-		service.update(sensorUsage);
-	}
+
 }

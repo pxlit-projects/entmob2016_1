@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Employee;
 import be.pxl.backend.entity.Sensor;
 import be.pxl.backend.repository.SensorRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class SensorService implements ISensorService {
 
 	@Autowired
@@ -34,7 +36,9 @@ public class SensorService implements ISensorService {
 	}
 	
 	public void update(Sensor sensor) {
-		repo.save(sensor);
+		Sensor s = repo.findOne(sensor.getSensor_id());
+		s.copy(sensor);
+		repo.save(s);
 	}
 	
 }

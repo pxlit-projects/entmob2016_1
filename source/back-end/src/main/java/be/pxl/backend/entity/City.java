@@ -27,5 +27,7 @@ public class City {
 		this.city = city;
 	}
 	
-	
+	public void copy(City city) {
+		this.city = city.city;
+	}
 }
