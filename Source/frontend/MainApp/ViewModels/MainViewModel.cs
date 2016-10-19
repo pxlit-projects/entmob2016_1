@@ -18,10 +18,17 @@ namespace MainApp.ViewModels
         public ICommand SensorCommand { get; set; }
         public ICommand DriverCommand { get; set; }
 
+        public ICommand MenuCommand { get; set; }
+
         public MainViewModel()
         {
 
             LoadCommands();
+        }
+        
+        public void ShowHideMenu(object obj)
+        {
+
         }
 
         public void NavigateHome(object obj)
@@ -50,6 +57,7 @@ namespace MainApp.ViewModels
             ProductCommand = new CustomCommand(NavigateProduct, null);
             SensorCommand = new CustomCommand(NavigateSensor, null);
             DriverCommand = new CustomCommand(NavigateDriver, null);
+            MenuCommand = new CustomCommand(ShowHideMenu, null);
 
         }
 

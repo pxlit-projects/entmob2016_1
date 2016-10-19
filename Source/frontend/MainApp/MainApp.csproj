@@ -175,6 +175,10 @@
       <Project>{164d65e9-d4ee-4ec4-b457-7d558dfeebf3}</Project>
       <Name>frontend.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\frontend.Repository\frontend.Repository.csproj">
+      <Project>{7cc7cb1f-076a-4e1b-aebf-28d9ba9eed7e}</Project>
+      <Name>frontend.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\frontend.Service\frontend.Service.csproj">
       <Project>{db0ecc45-ce6a-48ed-9d4a-7eaa71d7e678}</Project>
       <Name>frontend.Service</Name>
