@@ -37,6 +37,9 @@
                 <RadioButton Tag="&#xe125;" Content="Drivers" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DriverCommand}" />
             </StackPanel>
         </SplitView.Pane>
+        <SplitView.Content>
+            <Frame Name="myFrame"/>
+        </SplitView.Content>
     </SplitView>
 </Page>
 
