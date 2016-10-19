@@ -7,7 +7,34 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SplitViewStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
-    </Grid>
+    <SplitView x:Name="ShellSplitView" DisplayMode="CompactOverlay"
+               IsPaneOpen="False" CompactPaneLength="48" OpenPaneLength="200"
+               PaneBackground="{ThemeResource SplitViewBackgroundBrush}">
+        <SplitView.Pane>
+            <StackPanel>
+                <!-- Menu (hamburger) button -->
+                <RadioButton Style="{StaticResource SplitViewMenuButtonStyle}" Click="OnMenuButtonClicked" />
+
+                <!-- Home button -->
+                <RadioButton Tag="&#xe10f;" Content="Home" Style="{StaticResource SplitViewNavButtonStyle}" Checked="OnHomeButtonChecked" IsChecked="True" />
+
+                <!-- Products button -->
+                <RadioButton Tag="&#xe781;" Content="Products" Style="{StaticResource SplitViewNavButtonStyle}" Checked="OnProductsButtonChecked" />
+
+                <!-- Sensors button -->
+                <RadioButton Tag="&#xe12c;" Content="Sensors" Style="{StaticResource SplitViewNavButtonStyle}" Checked="OnSensorsButtonChecked" />
+
+                <!-- Drivers button -->
+                <RadioButton Tag="&#xe125;" Content="Drivers" Style="{StaticResource SplitViewNavButtonStyle}" Checked="OnDriversButtonChecked" />
+            </StackPanel>
+        </SplitView.Pane>
+    </SplitView>
 </Page>
