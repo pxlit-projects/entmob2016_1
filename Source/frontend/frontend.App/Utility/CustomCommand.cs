@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace frontend.App.Utility
+namespace frontend.Appl.Utility
 {
     public class CustomCommand : ICommand
     {

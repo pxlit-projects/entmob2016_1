@@ -1,4 +1,4 @@
-﻿using frontend.App.Views;
+﻿using frontend.Appl.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace frontend.App.Navigation
+namespace frontend.Appl.Navigation
 {
     public class NavService
     {
