@@ -15,90 +15,84 @@ using Windows.UI.Xaml.Controls;
 
 namespace MainApp.ViewModels
 {
-    public class CargoViewModel : INotifyPropertyChanged
+    public class CityViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Cargo> cargos;
-        private Cargo selectedCargo;
+        private ObservableCollection<City> cities;
+        private City selectedCity;
 
         public ICommand UpdateCommand { get; set; }
-        public ICommand DetailsCommand { get; set; }
-        public ICommand ShowCargoDialogCommand { get; set; }
+        
+        public ICommand ShowCityDialogCommand { get; set; }
 
-        private ICargoService service;
+        private ICityService service;
 
-        public CargoViewModel(ICargoService service)
+        public CityViewModel(ICityService service)
         {
             this.service = service;
             LoadData();
             LoadCommands();
         }
 
-        public ObservableCollection<Cargo> Cargos
+        public ObservableCollection<City> Cities
         {
             get
             {
-                return cargos;
+                return cities;
             }
             set
             {
-                cargos = value;
-                RaisePropertyChanged("Cargos");
+                cities = value;
+                RaisePropertyChanged("Cities");
             }
         }
 
-        public Cargo SelectedCargo
+        public City SelectedCity
         {
             get
             {
-                return selectedCargo;
+                return selectedCity;
             }
             set
             {
-                selectedCargo = value;
-                RaisePropertyChanged("SelectedCargo");
+                selectedCity = value;
+                RaisePropertyChanged("SelectedCity");
             }
         }
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.cargo_id);
-            Cargos = new ObservableCollection<Cargo>(dummy);
-            SelectedCargo = cargos.ElementAt(0);
+            var dummy = service.All().OrderBy(d => d.postal_code);
+            Cities = new ObservableCollection<City>(dummy);
+            SelectedCity = cities.ElementAt(0);
         }
 
         private void LoadCommands()
         {
             UpdateCommand = new CustomCommand(Update, CanUpdate);
-            DetailsCommand = new RelayCommand<MessageDialog>(ShowDetails, null);
-            ShowCargoDialogCommand = new CustomCommand(ShowCargoDialog, null);
+            
+            ShowCityDialogCommand = new CustomCommand(ShowCityDialog, null);
         }
 
         private bool CanUpdate(object obj)
         {
-            return SelectedCargo != null;
+            return SelectedCity != null;
         }
 
-        private bool CanChangeStatus(object obj)
-        {
-            return SelectedCargo != null;
-        }
+        
 
         private void Update(object obj)
         {
-            service.Update(SelectedCargo);
+            service.Update(SelectedCity);
             LoadData();
         }
 
-        public void ShowDetails(MessageDialog message)
+
+
+
+        public async void ShowCityDialog(object obj)
         {
-
-        }
-
-
-        public async void ShowCargoDialog(object obj)
-        {
-            //var dialog = new AddCargoDialog();
-            //var result = await dialog.ShowAsync();
+            //var dialog = new AddCityDialog();
+            //var result = await driverdialog.ShowAsync();
             //if (result == ContentDialogResult.Primary)
             //{
             //    LoadData();
@@ -114,4 +108,3 @@ namespace MainApp.ViewModels
         }
     }
 }
-

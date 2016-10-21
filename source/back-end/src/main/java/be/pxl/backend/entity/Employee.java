@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,10 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.annotations.NamedQuery;
-import org.springframework.data.jpa.repository.Query;
 
 @Entity
 @Table(name="Employees")
@@ -30,6 +28,7 @@ public class Employee {
 	private String surName;
 	private String name;
 	private String street;
+	@Column(name="house_nr")
 	private String houseNr;
 	@OneToOne
 	private City city;

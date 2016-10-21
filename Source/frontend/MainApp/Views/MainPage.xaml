@@ -35,6 +35,14 @@
 
                 <!-- Drivers button -->
                 <RadioButton Tag="&#xe125;" Content="Drivers" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DriverCommand}" />
+                <!-- Logins button -->
+                <RadioButton Tag="&#xe125;" Content="Logins" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding LoginCommand}" />
+                <!-- Cities button -->
+                <RadioButton Tag="&#xe125;" Content="Cities" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding CityCommand}" />
+                <!-- Cargos button -->
+                <RadioButton Tag="&#xe125;" Content="Cargos" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding CargoCommand}" />
+                <!-- BordersPerProduct button -->
+                <RadioButton Tag="&#xe125;" Content="Borders Per Product" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding BordersPerProductCommand}" />
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>

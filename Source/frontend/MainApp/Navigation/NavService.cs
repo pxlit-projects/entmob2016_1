@@ -23,20 +23,36 @@ namespace MainApp.Navigation
             switch (key)
             {
                 case "Drivers":
-                    DriversPage driversView = new DriversPage();
+                    
                     page.getFrame().Navigate(typeof(DriversPage));
                     break;
                     
                 case "Products":
-                    ProductsPage productsView = new ProductsPage();
+                    
                     page.getFrame().Navigate(typeof(ProductsPage));
                     break;
 
                 case "Sensors":
-                    SensorsPage sensorsView = new SensorsPage();
+                    
                     page.getFrame().Navigate(typeof(SensorsPage));
                     break;
-                
+                case "City":
+                    
+                    page.getFrame().Navigate(typeof(CitiesPage));
+                    break;
+                case "Cargo":
+                    
+                    page.getFrame().Navigate(typeof(CargosPage));
+                    break;
+                case "Login":
+                    
+                    page.getFrame().Navigate(typeof(LoginsPage));
+                    break;
+                case "BordersPerProduct":
+                    
+                    page.getFrame().Navigate(typeof(BordersPerProductPage));
+                    break;
+
                 default:
                     HomePage homeView = new HomePage();
                     page.getFrame().Navigate(typeof(HomePage));

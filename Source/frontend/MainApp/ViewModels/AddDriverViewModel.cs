@@ -17,12 +17,13 @@ namespace MainApp.ViewModels
     {
         private IEmployeeService service;
 
-        private ObservableCollection<string> sexList;
-        private ObservableCollection<string> statusList;
+        private List<string> sexList;
+        private List<string> statusList;
 
         private string selectedSex;
         private string selectedStatus;
         private Employee currentDriver;
+        private City currentCity;
 
         public ICommand AddCommand { get; set; }
         public ICommand CancelCommand { get; set; }
@@ -34,7 +35,7 @@ namespace MainApp.ViewModels
             LoadCommands();
         }
 
-        public ObservableCollection<string> SexList
+        public List<string> SexList
         {
             get
             {
@@ -47,7 +48,7 @@ namespace MainApp.ViewModels
             }
         }
 
-        public ObservableCollection<string> StatusList
+        public List<string> StatusList
         {
             get
             {
@@ -99,19 +100,35 @@ namespace MainApp.ViewModels
             }
         }
 
+        public City CurrentCity
+        {
+            get
+            {
+                return currentCity;
+            }
+            set
+            {
+                currentCity = value;
+                RaisePropertyChanged("CurrentCity");
+            }
+        }
+
         private void LoadData()
         {
-            SexList = new ObservableCollection<string>
+            SexList = new List<string>
             {
                 "Male",
                 "Female"
             };
 
-            StatusList = new ObservableCollection<string>
+            StatusList = new List<string>
             {
                 "Active",
                 "Non-active"
             };
+
+            CurrentDriver = new Employee();
+            CurrentCity = new City();
         }
 
         private void LoadCommands()
@@ -129,6 +146,7 @@ namespace MainApp.ViewModels
             try
             {
                 CurrentDriver.sex = SelectedSex;
+                CurrentDriver.city = CurrentCity;
 
                 if (SelectedStatus == "Active")
                 {

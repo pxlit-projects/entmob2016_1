@@ -8,15 +8,15 @@ namespace frontend.Repository
 {
     class Global
     {
-<<<<<<< HEAD
-        public static string IP_ADRESS = "http://10.84.134.171:8080/";
-=======
+
+ 
+
 
         
 
         public static String IP_ADRESS = "http://localhost:8080";
 
 
->>>>>>> origin/master
+
     }
 }

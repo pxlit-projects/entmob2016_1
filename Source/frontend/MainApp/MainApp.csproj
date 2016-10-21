@@ -100,7 +100,10 @@
     <Compile Include="ViewModels\AddDriverViewModel.cs" />
     <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="ViewModels\AddSensorViewModel.cs" />
+    <Compile Include="ViewModels\BordersPerProductViewModel.cs" />
     <Compile Include="ViewModels\CargoViewModel.cs" />
+    <Compile Include="ViewModels\CityViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\AddDriverDialog.xaml.cs">
       <DependentUpon>AddDriverDialog.xaml</DependentUpon>
     </Compile>
@@ -110,8 +113,17 @@
     <Compile Include="Views\AddSensorDialog.xaml.cs">
       <DependentUpon>AddSensorDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BordersPerProductPage.xaml.cs">
+      <DependentUpon>BordersPerProductPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CargosPage.xaml.cs">
       <DependentUpon>CargosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CitiesPage.xaml.cs">
+      <DependentUpon>CitiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginsPage.xaml.cs">
+      <DependentUpon>LoginsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -170,7 +182,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BordersPerProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CargosPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CitiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

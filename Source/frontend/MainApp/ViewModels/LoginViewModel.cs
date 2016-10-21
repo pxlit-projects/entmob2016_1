@@ -1,7 +1,6 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Utility;
-using MainApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,81 +10,80 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
-using Windows.UI.Xaml.Controls;
 
 namespace MainApp.ViewModels
 {
-    public class CargoViewModel : INotifyPropertyChanged
+    public class LoginViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Cargo> cargos;
-        private Cargo selectedCargo;
+        private ObservableCollection<Login> logins;
+        private Login selectedLogin;
 
         public ICommand UpdateCommand { get; set; }
         public ICommand DetailsCommand { get; set; }
-        public ICommand ShowCargoDialogCommand { get; set; }
+        
 
-        private ICargoService service;
+        private ILoginService service;
 
-        public CargoViewModel(ICargoService service)
+        public LoginViewModel(ILoginService service)
         {
             this.service = service;
             LoadData();
             LoadCommands();
         }
 
-        public ObservableCollection<Cargo> Cargos
+        public ObservableCollection<Login> Logins
         {
             get
             {
-                return cargos;
+                return logins;
             }
             set
             {
-                cargos = value;
-                RaisePropertyChanged("Cargos");
+                logins = value;
+                RaisePropertyChanged("Logins");
             }
         }
 
-        public Cargo SelectedCargo
+        public Login SelectedLogin
         {
             get
             {
-                return selectedCargo;
+                return selectedLogin;
             }
             set
             {
-                selectedCargo = value;
-                RaisePropertyChanged("SelectedCargo");
+                selectedLogin = value;
+                RaisePropertyChanged("SelectedLogin");
             }
         }
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.cargo_id);
-            Cargos = new ObservableCollection<Cargo>(dummy);
-            SelectedCargo = cargos.ElementAt(0);
+            var dummy = service.All().OrderBy(d => d.login_id);
+            Logins = new ObservableCollection<Login>(dummy);
+            SelectedLogin = logins.ElementAt(0);
         }
 
         private void LoadCommands()
         {
             UpdateCommand = new CustomCommand(Update, CanUpdate);
             DetailsCommand = new RelayCommand<MessageDialog>(ShowDetails, null);
-            ShowCargoDialogCommand = new CustomCommand(ShowCargoDialog, null);
+           
         }
 
         private bool CanUpdate(object obj)
         {
-            return SelectedCargo != null;
+            return SelectedLogin != null;
         }
 
         private bool CanChangeStatus(object obj)
         {
-            return SelectedCargo != null;
+            return SelectedLogin != null;
         }
 
         private void Update(object obj)
         {
-            service.Update(SelectedCargo);
+            service.Update(SelectedLogin);
             LoadData();
         }
 
@@ -94,18 +92,12 @@ namespace MainApp.ViewModels
 
         }
 
+       
+              
+    
 
-        public async void ShowCargoDialog(object obj)
-        {
-            //var dialog = new AddCargoDialog();
-            //var result = await dialog.ShowAsync();
-            //if (result == ContentDialogResult.Primary)
-            //{
-            //    LoadData();
-            //}
-        }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+    public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string v)
         {

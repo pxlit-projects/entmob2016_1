@@ -15,7 +15,7 @@ namespace frontend.Domain
         public string surName { get; set; }
         public string name { get; set; }
         public string street { get; set; }
-        public string housenr { get; set; }
+        public string houseNr { get; set; }
         public City city { get; set; }
         public DateTime date_employement { get; set; }
         public string mobile_phone { get; set; }

@@ -1,6 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Utility;
+using MainApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 
 namespace MainApp.ViewModels
 {
@@ -77,9 +79,14 @@ namespace MainApp.ViewModels
             service.ChangeStatus(SelectedProduct);
         }
 
-        public void ShowDialog(object obj)
+        public async void ShowDialog(object obj)
         {
-
+            var dialog = new AddProductDialog();
+            var result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                LoadData();
+            }
         }
         private void LoadData()
         {
