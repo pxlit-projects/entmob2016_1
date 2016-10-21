@@ -66,10 +66,10 @@ namespace MainApp.ViewModels
         public void LoadCommands()
         {
             HomeCommand = new CustomCommand(NavigateHome, null);
-            HomeCommand = new CustomCommand(NavigateLogin, null);
-            HomeCommand = new CustomCommand(NavigateCargo, null);
-            HomeCommand = new CustomCommand(NavigateCity, null);
-            HomeCommand = new CustomCommand(NavigateBordersPerProduct, null);
+            LoginCommand = new CustomCommand(NavigateLogin, null);
+            CargoCommand = new CustomCommand(NavigateCargo, null);
+            CityCommand = new CustomCommand(NavigateCity, null);
+            BordersPerProductCommand = new CustomCommand(NavigateBordersPerProduct, null);
             ProductCommand = new CustomCommand(NavigateProduct, null);
             SensorCommand = new CustomCommand(NavigateSensor, null);
             DriverCommand = new CustomCommand(NavigateDriver, null);
