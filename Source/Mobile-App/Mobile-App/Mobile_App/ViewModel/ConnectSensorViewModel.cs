@@ -22,6 +22,8 @@ namespace Mobile_App.ViewModel
         public ICommand SearchCommand { get; set; }
         public ICommand ConnectCommand { get; set; }
         private IDevice selectedDevice;
+        private ObservableCollection<IService> services;
+
         public IDevice SelectedDevice
         {
             get
@@ -32,8 +34,9 @@ namespace Mobile_App.ViewModel
             {
                 if (selectedDevice != value)
                 {
-                    Set("SelectedCustomer", ref selectedDevice, value);
+                    selectedDevice = value;
                     RaisePropertyChanged("SelectedDevice");
+                    ConnectCommand.Execute(selectedDevice);
                 }
             }
         }
@@ -72,8 +75,57 @@ namespace Mobile_App.ViewModel
             });
             ConnectCommand = new Command(() =>
             {
-                Debug.WriteLine(selectedDevice.Name);
+                StopScanning();
+                this.services = new ObservableCollection<IService>();
+                var device = SelectedDevice as IDevice;
+                Debug.WriteLine(adapter.ConnectedDevices.Count);
+                adapter.ConnectToDevice(device);
+                adapter.DeviceConnected += (s, e) => {
+                    device = e.Device; // do we need to overwrite this?
+                    // when services are discovered
+                    device.ServicesDiscovered += (object se, EventArgs ea) => {
+                        Debug.WriteLine("device.ServicesDiscovered");
+                        //services = (List<IService>)device.Services;
+                        if (services.Count == 0)
+                            Device.BeginInvokeOnMainThread(() =>
+                            {
+                                foreach (var service in device.Services)
+                                {
+                                    services.Add(service);
+                                    foreach (var item in service.Characteristics)
+                                    {
+                                        item.StartUpdates();
+                                        Debug.WriteLine("OUTPUT: " + item.StringValue);
+                                        item.StopUpdates();
+                                    }
+                                }
+                            });
+                    };
+                    // start looking for services
+                    device.DiscoverServices();
+                };
             });
+        }
+
+        private void DisplayCharactaristic(ICharacteristic characteristic)
+        {
+            if (characteristic.CanUpdate)
+            {
+                characteristic.ValueUpdated += (s, e) =>
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        //UpdateDisplay(characteristic);
+                        Debug.WriteLine(s.ToString());
+                        if (characteristic.CanRead)
+                        {
+                            var c = await characteristic.ReadAsync();
+                            UpdateDisplay(c);
+                        }
+                    });
+                };
+                characteristic.StartUpdates();
+            }
         }
 
         void StartScanning()
@@ -105,6 +157,10 @@ namespace Mobile_App.ViewModel
                     adapter.StopScanningForDevices();
                 }
             }).Start();
+        }
+        void UpdateDisplay(ICharacteristic c)
+        {
+            Debug.WriteLine(c.StringValue);
         }
     }
 }
