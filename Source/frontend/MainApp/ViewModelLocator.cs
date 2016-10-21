@@ -18,7 +18,7 @@ namespace MainApp
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
         private ProductViewModel productViewModel = new ProductViewModel(productService);
         private DriverViewModel driverViewModel = new DriverViewModel(employeeService);
-        private MainViewModel mainViewModel = new MainViewModel();
+        private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
 
         public DriverViewModel DriverViewModel
         {
