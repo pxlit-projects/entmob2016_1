@@ -1,5 +1,6 @@
 ﻿<ContentDialog
     x:Class="MainApp.Views.AddDriverDialog"
+    x:Name="addDriverContentDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MainApp.Views"
@@ -9,28 +10,31 @@
     Title="Add driver"
     PrimaryButtonText="Add"
     SecondaryButtonText="Cancel"
+    PrimaryButtonCommand="{Binding AddCommand}"
+    PrimaryButtonCommandParameter="{Binding ElementName=addDriverContentDialog}"
+    SecondaryButtonCommand="{Binding CancelCommand}"
     DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=AddDriverViewModel}">
 
     <Grid>
         <StackPanel>
-            <TextBox Text="" Header="Surname"/>
-            <TextBox Text="Insert Name" Header="Name"/>
-            <TextBox Text="Insert Email" Header="Email"/>
+            <TextBox Text="{Binding CurrentDriver.surName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Surname"/>
+            <TextBox Text="{Binding CurrentDriver.name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Name"/>
+            <TextBox Text="{Binding CurrentDriver.email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Email"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Insert Street" Width="175px" Header="Street"/>
-                <TextBox Width="100px" Margin="10,0,0,0" Header="Housenumber"/>
+                <TextBox Text="{Binding CurrentDriver.street, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="175px" Header="Street"/>
+                <TextBox Text="{Binding CurrentDriver.housenr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100px" Margin="10,0,0,0" Header="Housenumber"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Insert City" Width="175px" Header="City"/>
-                <TextBox Width="100px" Margin="10,0,0,0" Header="Postal Address"/>
+                <TextBox Text="{Binding CurrentDriver.city.city, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="175px" Header="City"/>
+                <TextBox Text="{Binding CurrentDriver.city.postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100px" Margin="10,0,0,0" Header="Postal Address"/>
             </StackPanel>
 
-            <DatePicker Header="Date employement"/>
-            <TextBox Text="Insert Mobile Number" Header="Mobile number"/>
-            <TextBox Text="Insert Telepone Number" Header="Telephone number"/>
+            <DatePicker Date="{Binding CurrentDriver.date_employement, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Date employement"/>
+            <TextBox Text="{Binding CurrentDriver.mobile_phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mobile number"/>
+            <TextBox Text="{Binding CurrentDriver.telephone_number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Telephone number"/>
             <StackPanel Orientation="Horizontal">
-                <ComboBox Width="139px" Header="Sex"/>
-                <ComboBox Width="140px" Margin="4,0,0,0" Header="Status"/>
+                <ComboBox Width="139px" Header="Sex" ItemsSource="{Binding SexList}"/>
+                <ComboBox Width="140px" Margin="4,0,0,0" Header="Status" ItemsSource="{Binding StatusList}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

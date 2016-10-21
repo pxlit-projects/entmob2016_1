@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 
 namespace MainApp.ViewModels
 {
-    public class AddDriverViewModel
+    public class AddDriverViewModel : INotifyPropertyChanged
     {
         private IEmployeeService service;
 
@@ -114,51 +115,38 @@ namespace MainApp.ViewModels
 
         private void LoadCommands()
         {
-            AddCommand = new CustomCommand(AddDriver, null);
+            AddCommand = new RelayCommand<ContentDialog>(AddDriver, CanAddDriver);
         }
 
-        private void AddDriver(object obj)
+        private bool CanAddDriver(object obj)
+        {
+            return CurrentDriver != null;
+        }
+
+        private void AddDriver(ContentDialog dialog)
         {
             try
             {
+                CurrentDriver.sex = SelectedSex;
 
+                if (SelectedStatus == "Active")
+                {
+                    CurrentDriver.status = true;
+                }
+                else
+                {
+                    CurrentDriver.status = false;
+                }
 
                 service.Add(CurrentDriver);
-
-                //if (statusBox.SelectedItem.ToString() == "Active")
-                //{
-                //    employee.status = true;
-                //}
-                //else
-                //{
-                //    employee.status = false;
-                //}
-
-                //service.Add(employee);
-                //this.Title = "Succesfull!";
-                //this.Hide();
+                dialog.Title = "Succesfull!";
+                dialog.Hide();
             }
             catch (Exception)
             {
-                //this.Title = "Error! Please try again";
+                dialog.Title = "Error! Please try again";
             }
 
-        }
-
-        private Boolean checkBoxes()
-        {
-            //if (surNameBox.Text != null && nameBox.Text != null && emailBox.Text != null &&
-            //    streetBox.Text != null && houseNrBox.Text != null && cityBox.Text != null &&
-            //    postalAddressBox != null && dateEmployementBox.Date.DateTime != null && mobileBox.Text != null &&
-            //    telephoneBox.Text != null && sexBox.SelectedItem != null && statusBox.SelectedItem != null)
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-            return true;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
