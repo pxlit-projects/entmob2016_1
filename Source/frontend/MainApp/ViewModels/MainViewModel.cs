@@ -1,4 +1,5 @@
-﻿using MainApp.Utility;
+﻿using MainApp.Navigation;
+using MainApp.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +39,7 @@ namespace MainApp.ViewModels
 
         public void NavigateProduct(object obj)
         {
-
+            new NavService().NavigateTo("Products");
         }
 
         public void NavigateSensor(object obj)
