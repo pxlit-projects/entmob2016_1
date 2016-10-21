@@ -28,20 +28,14 @@ namespace MainApp.Views
             this.InitializeComponent();
             
         }
-
-        public SplitView GetSplitview()
-        {
-            return ShellSplitView;
-        }
-
-        public MainPage getPage()
-        {
-            return this;
-        }
-
         public Frame getFrame()
         {
             return myFrame;
+        }
+
+        public SplitView splitview()
+        {
+            return this.ShellSplitView;
         }
         
     }

@@ -25,19 +25,21 @@ namespace MainApp.Navigation
                 case "Drivers":
                     DriversPage driversView = new DriversPage();
                     page.getFrame().Navigate(typeof(DriversPage));
-                    
-
                     break;
                     
                 case "Products":
                     ProductsPage productsView = new ProductsPage();
                     page.getFrame().Navigate(typeof(ProductsPage));
                     break;
+
                 case "Sensors":
-                   
+                    SensorsPage sensorsView = new SensorsPage();
+                    page.getFrame().Navigate(typeof(SensorsPage));
                     break;
+                
                 default:
-                  
+                    HomePage homeView = new HomePage();
+                    page.getFrame().Navigate(typeof(HomePage));
                     break;
             }
 

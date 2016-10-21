@@ -10,14 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using MainApp.Views;
+using Windows.UI.Xaml;
 
 namespace MainApp.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
         
+
         public ICommand HomeCommand { get; set; }
         public ICommand ProductCommand { get; set; }
         public ICommand SensorCommand { get; set; }
@@ -31,8 +32,12 @@ namespace MainApp.ViewModels
             LoadCommands();
         }
         
-        public void ShowHideMenu(object obj)
+        public void ShowHideMenu(RadioButton obj)
         {
+            var frame = (Frame)Window.Current.Content;
+            var page = (MainPage)frame.Content;
+            page.splitview().IsPaneOpen = !page.splitview().IsPaneOpen;
+            obj.IsChecked = false;
 
         }
 
@@ -62,7 +67,8 @@ namespace MainApp.ViewModels
             ProductCommand = new CustomCommand(NavigateProduct, null);
             SensorCommand = new CustomCommand(NavigateSensor, null);
             DriverCommand = new CustomCommand(NavigateDriver, null);
-            MenuCommand = new CustomCommand(ShowHideMenu, null);
+            MenuCommand = new RelayCommand<RadioButton>(ShowHideMenu, null);
+
 
         }
 
