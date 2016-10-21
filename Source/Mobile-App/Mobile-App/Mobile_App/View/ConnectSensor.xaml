@@ -1,6 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Mobile_App.View.ConnectSensor">
-  
+             x:Class="Mobile_App.View.ConnectSensor"
+             xmlns:local="clr-namespace:Mobile_App">
+ 
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:GuidConverter x:Key="guidConverter"/>
+      <local:EmptyStringConverter x:Key="strConverter"/>
+      <local:NameColorConverter x:Key="nameColorConverter"/>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.ToolbarItems>
+    <!--ToolbarItem x:Name="ScanHrmButton" Name="Scan" Icon="glyphish_29_heart.png"/-->
+    <ToolbarItem x:Name="ScanAllButton" Command="{Binding SearchCommand}" Name="Scan" Icon="bluetooth.png"/>
+  </ContentPage.ToolbarItems>
+  <ListView x:Name="listView" Command="{Binding ConnectCommand}" ItemsSource="{Binding DeviceList, Mode=TwoWay}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" SelectedItem="{Binding SelectedDevice}" AbsoluteLayout.LayoutFlags="All" >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+              <Label Text="{Binding Name, Converter={StaticResource strConverter}}"
+                YAlign="Center"
+                Font="Medium"
+                LineBreakMode="TailTruncation"
+                TextColor="{Binding Name, Converter={StaticResource nameColorConverter}}" />
+              <Label Text="{Binding Path=ID, Converter={StaticResource guidConverter}}"
+                YAlign="Center"
+                Font="Micro"
+                TextColor="Gray" />
+            </StackLayout>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
 </ContentPage>

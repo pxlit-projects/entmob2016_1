@@ -18,7 +18,8 @@ namespace Mobile_App.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-
+            var a = new Robotics.Mobile.Core.Bluetooth.LE.Adapter();
+            App.SetAdapter(a);
             global::Xamarin.Forms.Forms.Init(this, bundle);
             IMD5 md5 = new Mobile_App.Droid.MD5();
 
