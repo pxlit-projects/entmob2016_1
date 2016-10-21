@@ -9,8 +9,6 @@
     Title="Add driver"
     PrimaryButtonText="Add"
     SecondaryButtonText="Cancel"
-    PrimaryButtonClick="{Binding AddCommand}"
-    SecondaryButtonClick="{Binding CancelCommand}"
     DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=AddDriverViewModel}">
 
     <Grid>

@@ -19,6 +19,7 @@ namespace MainApp
         private ProductViewModel productViewModel = new ProductViewModel(productService);
         private DriverViewModel driverViewModel = new DriverViewModel(employeeService);
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
+        private MainViewModel mainViewModel = new MainViewModel();
 
         public DriverViewModel DriverViewModel
         {
@@ -49,6 +50,14 @@ namespace MainApp
             get
             {
                 return addDriverViewModel;
+            }
+        }
+
+        public MainViewModel MainViewModel
+        {
+            get
+            {
+                return mainViewModel;
             }
         }
     }
