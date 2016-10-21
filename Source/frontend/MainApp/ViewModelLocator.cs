@@ -13,6 +13,7 @@ namespace MainApp
         private static ISensorService sensorService = new SensorService();
         private static IProductService productService = new ProductService();
         private static IEmployeeService employeeService = new EmployeeService();
+        private static ICargoService cargoService = new CargoService();
 
 
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
@@ -20,6 +21,7 @@ namespace MainApp
         private DriverViewModel driverViewModel = new DriverViewModel(employeeService);
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
         private MainViewModel mainViewModel = new MainViewModel();
+        private CargoViewModel cargoViewModel = new CargoViewModel(cargoService);
 
         public DriverViewModel DriverViewModel
         {
@@ -58,6 +60,14 @@ namespace MainApp
             get
             {
                 return mainViewModel;
+            }
+        }
+
+        public CargoViewModel CargoViewModel
+        {
+            get
+            {
+                return cargoViewModel;
             }
         }
     }
