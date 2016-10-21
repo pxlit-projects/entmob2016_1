@@ -43,14 +43,5 @@ namespace MainApp
                 return sensorViewModel;
             }
         }
-
-        public MainViewModel MainViewModel
-        {
-            get
-            {
-                return mainViewModel;
-            }
-        }
-
     }
 }
