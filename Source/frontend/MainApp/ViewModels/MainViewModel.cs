@@ -1,15 +1,9 @@
 ﻿using MainApp.Navigation;
 using MainApp.Utility;
 using MainApp.Views;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
-using MainApp.Views;
 using Windows.UI.Xaml;
 
 namespace MainApp.ViewModels
@@ -53,7 +47,7 @@ namespace MainApp.ViewModels
 
         public void NavigateSensor(object obj)
         {
-
+            new NavService().NavigateTo("Sensors");
         }
 
         public void NavigateDriver(object obj)
