@@ -5,7 +5,8 @@
     xmlns:local="using:MainApp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=DriverViewModel}">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -50,7 +51,6 @@
                         <TextBox x:Name="emailTxt" Text="{Binding Path=SelectedDriver.email}"/>
                         <TextBox x:Name="mobileTxt" Text="{Binding Path=SelectedDriver.mobile_phone}"/>
                         <TextBox x:Name="telephoneTxt" Text="{Binding Path=SelectedDriver.telephone_number}"/>
-                        <TextBlock x:Name="statusTxt" Text="{Binding Path=SelectedDriver.status}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
