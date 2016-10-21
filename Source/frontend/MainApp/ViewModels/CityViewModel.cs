@@ -91,12 +91,12 @@ namespace MainApp.ViewModels
 
         public async void ShowCityDialog(object obj)
         {
-            var dialog = new AddCityDialog();
-            var result = await driverdialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
-            {
-                LoadData();
-            }
+            //var dialog = new AddCityDialog();
+            //var result = await driverdialog.ShowAsync();
+            //if (result == ContentDialogResult.Primary)
+            //{
+            //    LoadData();
+            //}
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
