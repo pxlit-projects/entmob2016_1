@@ -69,6 +69,7 @@ namespace MainApp.ViewModels
         public void Update(object obj)
         {
             service.Update(SelectedProduct);
+            LoadData();
         }
 
         public void ChangeStatus(object obj)

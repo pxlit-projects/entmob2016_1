@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="MainApp.Views.DriversPage"
+    x:Class="MainApp.Views.CargosPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MainApp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=DriverViewModel}">
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=CargoViewModel}">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -19,16 +19,15 @@
     <Grid Background="LightGray">
         <StackPanel Orientation="Vertical" Margin="10, 10, 10, 10">
             <Grid VerticalAlignment="Top" x:Name="titleGrid">
-                <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Drivers</TextBlock>
+                <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Cargos</TextBlock>
             </Grid>
-            <ListView x:Name="driversList" ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" >
+            <ListView x:Name="cargosList" ItemsSource="{Binding Cargos}" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding employee_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding surName}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding name}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding status}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding cargo_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding weight}" Width="250px" HorizontalAlignment="Center"/>
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -37,19 +36,13 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Vertical" Width="100px">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> ID:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Voornaam:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Naam:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Email:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Mobiel:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Telefoon:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Gewicht:</TextBlock>
+                        
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedDriver.employee_id}"/>
-                        <TextBox x:Name="surNameTxt" Text="{Binding Path=SelectedDriver.surName}"/>
-                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedDriver.name}"/>
-                        <TextBox x:Name="emailTxt" Text="{Binding Path=SelectedDriver.email}"/>
-                        <TextBox x:Name="mobileTxt" Text="{Binding Path=SelectedDriver.mobile_phone}"/>
-                        <TextBox x:Name="telephoneTxt" Text="{Binding Path=SelectedDriver.telephone_number}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedCargo.cargo_id}"/>
+                        <TextBox x:Name="weightTxt" Text="{Binding Path=SelectedCargo.weight}"/>
+                        
                     </StackPanel>
                 </StackPanel>
             </Grid>

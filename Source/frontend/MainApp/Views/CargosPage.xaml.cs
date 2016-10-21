@@ -12,31 +12,19 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using MainApp.Messages;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace MainApp.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class CargosPage : Page
     {
-        public MainPage()
+        public CargosPage()
         {
             this.InitializeComponent();
-            
         }
-        public Frame getFrame()
-        {
-            return myFrame;
-        }
-
-        public SplitView splitview()
-        {
-            return this.ShellSplitView;
-        }
-        
     }
 }

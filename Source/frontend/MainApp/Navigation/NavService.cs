@@ -13,32 +13,33 @@ namespace MainApp.Navigation
     {
         public void NavigateTo(string key)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-<<<<<<< HEAD
-=======
-            
->>>>>>> 0ef0c13002dce119e938fae6487b08c26a99f21f
+            var frame = (Frame)Window.Current.Content;
+            var page = (MainPage)frame.Content;
+
+
+
+
+
             switch (key)
             {
                 case "Drivers":
                     DriversPage driversView = new DriversPage();
-                    rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(DriversPage));
+                    page.getFrame().Navigate(typeof(DriversPage));
                     break;
+                    
                 case "Products":
                     ProductsPage productsView = new ProductsPage();
-                    rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(ProductsPage));
+                    page.getFrame().Navigate(typeof(ProductsPage));
                     break;
+
                 case "Sensors":
                     SensorsPage sensorsView = new SensorsPage();
-                    rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(SensorsPage));
+                    page.getFrame().Navigate(typeof(SensorsPage));
                     break;
+                
                 default:
                     HomePage homeView = new HomePage();
-                    rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(HomePage));
+                    page.getFrame().Navigate(typeof(HomePage));
                     break;
             }
 

@@ -22,7 +22,7 @@
         <SplitView.Pane>
             <StackPanel>
                 <!-- Menu (hamburger) button -->
-                <RadioButton Style="{StaticResource SplitViewMenuButtonStyle}" Command="{Binding MenuButton}" />
+                <RadioButton x:Name="MenuRadioButton" Style="{StaticResource SplitViewMenuButtonStyle}" Command="{Binding MenuCommand}" CommandParameter="{Binding ElementName=MenuRadioButton}" />
 
                 <!-- Home button -->
                 <RadioButton Tag="&#xe10f;" Content="Home" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding HomeCommand}" IsChecked="True" />
@@ -37,12 +37,9 @@
                 <RadioButton Tag="&#xe125;" Content="Drivers" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DriverCommand}" />
             </StackPanel>
         </SplitView.Pane>
-<<<<<<< HEAD
-=======
         <SplitView.Content>
-            <Frame Name="myFrame"/>
+            <Frame x:Name="myFrame"></Frame>
         </SplitView.Content>
->>>>>>> 0ef0c13002dce119e938fae6487b08c26a99f21f
     </SplitView>
 </Page>
 

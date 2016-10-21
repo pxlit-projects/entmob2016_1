@@ -1,6 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Utility;
+using MainApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 
 namespace MainApp.ViewModels
 {
@@ -85,6 +87,7 @@ namespace MainApp.ViewModels
         private void Update(object obj)
         {
             service.Update(SelectedDriver);
+            LoadData();
         }
 
         private async void ChangeStatus(object obj)
@@ -107,6 +110,7 @@ namespace MainApp.ViewModels
                 {
                     SelectedDriver.status = false;
                     service.Update(SelectedDriver);
+                    LoadData();
                 }
             }
             else
@@ -127,13 +131,19 @@ namespace MainApp.ViewModels
                 {
                     SelectedDriver.status = true;
                     service.Update(SelectedDriver);
+                    LoadData();
                 }
             }
         }
 
-        public void ShowDriverDialog(object obj)
+        public async void ShowDriverDialog(object obj)
         {
-
+            var driverdialog = new AddDriverDialog();
+            var result = await driverdialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                LoadData();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
