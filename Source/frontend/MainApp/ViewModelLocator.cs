@@ -43,5 +43,13 @@ namespace MainApp
                 return sensorViewModel;
             }
         }
+
+        public AddDriverViewModel AddDriverViewModel
+        {
+            get
+            {
+                return addDriverViewModel;
+            }
+        }
     }
 }
