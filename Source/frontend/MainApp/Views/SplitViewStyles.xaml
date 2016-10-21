@@ -1,8 +1,11 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MainApp.Views">
-    
+    xmlns:local="using:MainApp.Views"
+    xmlns:converters="using:MainApp.Converter">
+
+    <converters:DateConverter x:Key="DateConverter"/>
+
     <SolidColorBrush x:Key="SplitViewBackgroundBrush" Color="Green" />
     <SolidColorBrush x:Key="SplitViewForegroundBrush" Color="White" />
 
