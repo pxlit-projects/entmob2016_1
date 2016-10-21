@@ -97,13 +97,22 @@
     </Compile>
     <Compile Include="Messages\Messenger.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
+    <Compile Include="ViewModels\AddCityViewModel.cs" />
     <Compile Include="ViewModels\AddDriverViewModel.cs" />
     <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="ViewModels\AddSensorViewModel.cs" />
+    <Compile Include="ViewModels\AddVariableViewModel.cs" />
     <Compile Include="ViewModels\BordersPerProductViewModel.cs" />
     <Compile Include="ViewModels\CargoViewModel.cs" />
     <Compile Include="ViewModels\CityViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\VariableViewModel.cs" />
+    <Compile Include="Views\AddCargoDialog.xaml.cs">
+      <DependentUpon>AddCargoDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddCityDialog.xaml.cs">
+      <DependentUpon>AddCityDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddDriverDialog.xaml.cs">
       <DependentUpon>AddDriverDialog.xaml</DependentUpon>
     </Compile>
@@ -112,6 +121,9 @@
     </Compile>
     <Compile Include="Views\AddSensorDialog.xaml.cs">
       <DependentUpon>AddSensorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddVariableDialog.xaml.cs">
+      <DependentUpon>AddVariableDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BordersPerProductPage.xaml.cs">
       <DependentUpon>BordersPerProductPage.xaml</DependentUpon>
@@ -148,6 +160,9 @@
     <Compile Include="Views\SensorsPage.xaml.cs">
       <DependentUpon>SensorsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VariablesPage.xaml.cs">
+      <DependentUpon>VariablesPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -170,6 +185,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\AddCargoDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddCityDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddDriverDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddSensorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddVariableDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SensorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VariablesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

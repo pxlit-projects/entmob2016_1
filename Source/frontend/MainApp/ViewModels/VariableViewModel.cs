@@ -1,7 +1,6 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Utility;
-using MainApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,79 +9,78 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
 namespace MainApp.ViewModels
 {
-    public class CityViewModel : INotifyPropertyChanged
+    public class VariableViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<City> cities;
-        private City selectedCity;
+        private ObservableCollection<Variable> variables;
+        private Variable selectedVariable;
 
         public ICommand UpdateCommand { get; set; }
-        
+
         public ICommand ShowCityDialogCommand { get; set; }
 
-        private ICityService service;
+        private IVariableService service;
 
-        public CityViewModel(ICityService service)
+        public VariableViewModel(IVariableService service)
         {
             this.service = service;
             LoadData();
             LoadCommands();
         }
 
-        public ObservableCollection<City> Cities
+        public ObservableCollection<Variable> Variables
         {
             get
             {
-                return cities;
+                return variables;
             }
             set
             {
-                cities = value;
-                RaisePropertyChanged("Cities");
+                variables = value;
+                RaisePropertyChanged("Variables");
             }
         }
 
-        public City SelectedCity
+        public Variable SelectedVariable
         {
             get
             {
-                return selectedCity;
+                return selectedVariable;
             }
             set
             {
-                selectedCity = value;
-                RaisePropertyChanged("SelectedCity");
+                selectedVariable = value;
+                RaisePropertyChanged("SelectedVariable");
             }
         }
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.postal_code);
-            Cities = new ObservableCollection<City>(dummy);
-            SelectedCity = cities.ElementAt(0);
+            var dummy = service.All().OrderBy(d => d.variable_id);
+            Variables = new ObservableCollection<Variable>(dummy);
+            SelectedVariable = variables.ElementAt(0);
         }
 
         private void LoadCommands()
         {
             UpdateCommand = new CustomCommand(Update, CanUpdate);
-            
+
             ShowCityDialogCommand = new CustomCommand(ShowCityDialog, null);
         }
 
         private bool CanUpdate(object obj)
         {
-            return SelectedCity != null;
+            return SelectedVariable != null;
         }
 
-        
+
 
         private void Update(object obj)
         {
-            service.Update(SelectedCity);
+            service.Update(SelectedVariable);
             LoadData();
         }
 
@@ -91,7 +89,7 @@ namespace MainApp.ViewModels
 
         public async void ShowCityDialog(object obj)
         {
-            var dialog = new AddCityDialog();
+            var dialog = new AddVariableDialog();
             var result = await dialog.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
