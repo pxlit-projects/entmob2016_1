@@ -14,6 +14,9 @@ namespace MainApp
         private static IProductService productService = new ProductService();
         private static IEmployeeService employeeService = new EmployeeService();
         private static ICargoService cargoService = new CargoService();
+        private static ILoginService loginService = new LoginService();
+        private static ICityService cityService = new CityService();
+        private static IBordersPerProductService bordersPerProductService = new BordersPerProductService();
 
 
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
@@ -22,6 +25,9 @@ namespace MainApp
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
         private MainViewModel mainViewModel = new MainViewModel();
         private CargoViewModel cargoViewModel = new CargoViewModel(cargoService);
+        private LoginViewModel loginViewModel = new LoginViewModel(loginService);
+        private CityViewModel cityViewModel = new CityViewModel(cityService);
+        private BordersPerProductViewModel bordersPerProductViewModel = new BordersPerProductViewModel(bordersPerProductService);
 
         public DriverViewModel DriverViewModel
         {
@@ -68,6 +74,30 @@ namespace MainApp
             get
             {
                 return cargoViewModel;
+            }
+        }
+
+        public CityViewModel CityViewModel
+        {
+            get
+            {
+                return cityViewModel;
+            }
+        }
+
+        public LoginViewModel LoginViewModel
+        {
+            get
+            {
+                return loginViewModel;
+            }
+        }
+
+        public BordersPerProductViewModel BordersPerProductViewModel
+        {
+            get
+            {
+                return bordersPerProductViewModel;
             }
         }
     }

@@ -100,6 +100,7 @@
     <Compile Include="ViewModels\AddDriverViewModel.cs" />
     <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="ViewModels\AddSensorViewModel.cs" />
+    <Compile Include="ViewModels\BordersPerProductViewModel.cs" />
     <Compile Include="ViewModels\CargoViewModel.cs" />
     <Compile Include="ViewModels\CityViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -111,6 +112,9 @@
     </Compile>
     <Compile Include="Views\AddSensorDialog.xaml.cs">
       <DependentUpon>AddSensorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BordersPerProductPage.xaml.cs">
+      <DependentUpon>BordersPerProductPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CargosPage.xaml.cs">
       <DependentUpon>CargosPage.xaml</DependentUpon>
@@ -175,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddSensorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BordersPerProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -92,10 +92,12 @@ namespace MainApp.ViewModels
 
         }
 
-
        
+              
+    
 
-        public event PropertyChangedEventHandler PropertyChanged;
+
+    public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string v)
         {

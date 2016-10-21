@@ -93,16 +93,16 @@ namespace MainApp.ViewModels
         {
 
         }
-        
 
-        public void ShowCargoDialog(object obj)
+
+        public async void ShowCargoDialog(object obj)
         {
-            //var cargodialog = new AddCargoDialog();
-            //var result = await cargodialog.ShowAsync();
-            //if (result == ContentDialogResult.Primary)
-            //{
-            //    LoadData();
-            //}
+            var dialog = new AddCargoDialog();
+            var result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                LoadData();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -1,6 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Utility;
+using MainApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 
 namespace MainApp.ViewModels
 {
@@ -84,17 +86,17 @@ namespace MainApp.ViewModels
             LoadData();
         }
 
-        
 
 
-        public void ShowCityDialog(object obj)
+
+        public async void ShowCityDialog(object obj)
         {
-            //var logindialog = new AddCargoDialog();
-            //var result = await logindialog.ShowAsync();
-            //if (result == ContentDialogResult.Primary)
-            //{
-            //    LoadData();
-            //}
+            var dialog = new AddCityDialog();
+            var result = await driverdialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                LoadData();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
