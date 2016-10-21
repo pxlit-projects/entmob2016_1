@@ -38,10 +38,6 @@
             </StackPanel>
         </SplitView.Pane>
 
-        <SplitView.Content>
-            <Frame Name="myFrame"/>
-        </SplitView.Content>
-
     </SplitView>
 </Page>
 

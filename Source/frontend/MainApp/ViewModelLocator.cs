@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MainApp.Views;
 
 namespace MainApp
 {
     public class ViewModelLocator
     {
+        
         private static ISensorService sensorService = new SensorService();
         private static IProductService productService = new ProductService();
         private static IEmployeeService employeeService = new EmployeeService();
@@ -19,7 +21,7 @@ namespace MainApp
         private ProductViewModel productViewModel = new ProductViewModel(productService);
         private DriverViewModel driverViewModel = new DriverViewModel(employeeService);
         private MainViewModel mainViewModel = new MainViewModel();
-
+        
         public DriverViewModel DriverViewModel
         {
             get

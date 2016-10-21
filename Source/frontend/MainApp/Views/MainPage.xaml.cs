@@ -26,5 +26,10 @@ namespace MainApp.Views
         {
             this.InitializeComponent();
         }
+
+        public SplitView GetSplitview()
+        {
+            return ShellSplitView;
+        }
     }
 }
