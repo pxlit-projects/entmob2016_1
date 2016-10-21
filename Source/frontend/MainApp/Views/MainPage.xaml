@@ -22,7 +22,7 @@
         <SplitView.Pane>
             <StackPanel>
                 <!-- Menu (hamburger) button -->
-                <RadioButton x:Name="MenuRadioButton" Style="{StaticResource SplitViewMenuButtonStyle}" Command="{Binding MenuButton}" CommandParameter="{Binding ElementName=MenuRadioButton}" />
+                <RadioButton x:Name="MenuRadioButton" Style="{StaticResource SplitViewMenuButtonStyle}" Command="{Binding MenuCommand}" CommandParameter="{Binding ElementName=MenuRadioButton}" />
 
                 <!-- Home button -->
                 <RadioButton Tag="&#xe10f;" Content="Home" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding HomeCommand}" IsChecked="True" />
