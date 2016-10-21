@@ -42,7 +42,6 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Email:</TextBlock>
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Mobiel:</TextBlock>
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Telefoon:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Status:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
                         <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedDriver.employee_id}"/>

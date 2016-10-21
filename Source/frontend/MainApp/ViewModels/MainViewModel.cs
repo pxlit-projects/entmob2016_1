@@ -58,7 +58,7 @@ namespace MainApp.ViewModels
 
         public void NavigateDriver(object obj)
         {
-
+            new NavService().NavigateTo("Drivers");
         }
 
         public void LoadCommands()

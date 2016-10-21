@@ -30,6 +30,7 @@ namespace MainApp.ViewModels
         public AddDriverViewModel(IEmployeeService service)
         {
             this.service = service;
+            LoadData();
             LoadCommands();
         }
 
