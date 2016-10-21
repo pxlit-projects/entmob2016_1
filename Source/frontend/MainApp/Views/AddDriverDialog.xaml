@@ -22,19 +22,19 @@
             <TextBox Text="{Binding CurrentDriver.email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Email"/>
             <StackPanel Orientation="Horizontal">
                 <TextBox Text="{Binding CurrentDriver.street, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="175px" Header="Street"/>
-                <TextBox Text="{Binding CurrentDriver.housenr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100px" Margin="10,0,0,0" Header="Housenumber"/>
+                <TextBox Text="{Binding CurrentDriver.houseNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100px" Margin="10,0,0,0" Header="Housenumber"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding CurrentDriver.city.city, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="175px" Header="City"/>
-                <TextBox Text="{Binding CurrentDriver.city.postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100px" Margin="10,0,0,0" Header="Postal Address"/>
+                <TextBox Text="{Binding CurrentCity.city, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="175px" Header="City"/>
+                <TextBox Text="{Binding CurrentCity.postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100px" Margin="10,0,0,0" Header="Postal Address"/>
             </StackPanel>
 
             <DatePicker Date="{Binding CurrentDriver.date_employement, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Date employement"/>
             <TextBox Text="{Binding CurrentDriver.mobile_phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mobile number"/>
             <TextBox Text="{Binding CurrentDriver.telephone_number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Telephone number"/>
             <StackPanel Orientation="Horizontal">
-                <ComboBox Width="139px" Header="Sex" ItemsSource="{Binding SexList}"/>
-                <ComboBox Width="140px" Margin="4,0,0,0" Header="Status" ItemsSource="{Binding StatusList}"/>
+                <ComboBox Width="139px" Header="Sex" ItemsSource="{Binding SexList}" SelectedItem="{Binding SelectedSex, Mode=TwoWay}"/>
+                <ComboBox Width="140px" Margin="4,0,0,0" Header="Status" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"/>
             </StackPanel>
         </StackPanel>
     </Grid>
