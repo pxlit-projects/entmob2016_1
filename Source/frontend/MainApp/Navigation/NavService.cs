@@ -14,28 +14,49 @@ namespace MainApp.Navigation
         public void NavigateTo(string key)
         {
             Frame rootFrame = Window.Current.Content as Frame;
+            SplitView  rootsplitview;
+            
+        
 
             switch (key)
             {
                 case "Drivers":
                     DriversPage driversView = new DriversPage();
-                    rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(DriversPage));
+                    rootsplitview = new MainPage().GetSplitview();
+                    rootsplitview.IsPaneOpen = false;
+                    if (rootsplitview.Content != null)
+                    {
+                        ((Frame)rootsplitview.Content).Navigate(typeof(DriversPage));
+                    }
+
                     break;
+                    
                 case "Products":
                     ProductsPage productsView = new ProductsPage();
-                    rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(ProductsPage));
+                    rootsplitview = new MainPage().GetSplitview();
+                    rootsplitview.IsPaneOpen = false;
+                    if (rootsplitview.Content != null)
+                    {
+                        ((Frame)rootsplitview.Content).Navigate(typeof(ProductsPage));
+                    }
                     break;
                 case "Sensors":
                     SensorsPage sensorsView = new SensorsPage();
-                    rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(SensorsPage));
+                    rootsplitview = new MainPage().GetSplitview();
+                    rootsplitview.IsPaneOpen = false;
+                    if (rootsplitview.Content != null)
+                    {
+                        ((Frame)rootsplitview.Content).Navigate(typeof(SensorsPage));
+                    }
                     break;
                 default:
-                    HomePage homeView = new HomePage();
-                    rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(HomePage));
+                    rootsplitview = new MainPage().GetSplitview();
+                    rootsplitview.IsPaneOpen = false;
+                    if (rootsplitview.Content != null)
+                    {
+                        ((Frame)rootsplitview.Content).Navigate(typeof(MainPage));
+                    }
+
                     break;
             }
 

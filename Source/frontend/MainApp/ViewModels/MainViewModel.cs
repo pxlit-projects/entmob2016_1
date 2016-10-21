@@ -1,5 +1,6 @@
 ﻿using MainApp.Navigation;
 using MainApp.Utility;
+using MainApp.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
+using MainApp.Views;
 
 namespace MainApp.ViewModels
 {
@@ -14,6 +17,7 @@ namespace MainApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        
         public ICommand HomeCommand { get; set; }
         public ICommand ProductCommand { get; set; }
         public ICommand SensorCommand { get; set; }
@@ -23,7 +27,7 @@ namespace MainApp.ViewModels
 
         public MainViewModel()
         {
-
+            
             LoadCommands();
         }
         
@@ -34,7 +38,7 @@ namespace MainApp.ViewModels
 
         public void NavigateHome(object obj)
         {
-
+            new NavService().NavigateTo("Home");
         }
 
         public void NavigateProduct(object obj)

@@ -97,8 +97,16 @@
     </Compile>
     <Compile Include="Messages\Messenger.cs" />
     <Compile Include="ViewModels\AddDriverViewModel.cs" />
+    <Compile Include="ViewModels\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\AddSensorViewModel.cs" />
     <Compile Include="Views\AddDriverDialog.xaml.cs">
       <DependentUpon>AddDriverDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddProductDialog.xaml.cs">
+      <DependentUpon>AddProductDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSensorDialog.xaml.cs">
+      <DependentUpon>AddSensorDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -146,6 +154,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Views\AddDriverDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddProductDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddSensorDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
