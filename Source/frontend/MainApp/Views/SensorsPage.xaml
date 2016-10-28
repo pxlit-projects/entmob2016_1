@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=MainViewModel}">
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=SensorViewModel}">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -39,8 +39,8 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Sensor_usage_id}" Width="100px"/>
-                            <!--<TextBlock Text="{Binding employee}" Width="150px"/>-->
-                            <!--<TextBlock Text="{Binding sensor}" Width="150px"/>-->
+                            <TextBlock Text="{Binding Path=Employee.Name}" Width="150px"/>
+                            <TextBlock Text="{Binding Path=Sensor.Sensor_name}" Width="150px"/>
                             <TextBlock Text="{Binding Employee_start}"/>
                             <TextBlock Text="{Binding Employee_end}"/>
                         </StackPanel>

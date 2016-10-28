@@ -26,6 +26,7 @@ namespace MainApp.ViewModels
         public ICommand BordersPerProductCommand { get; set; }
         public ICommand MenuCommand { get; set; }
         public ICommand DestinationCommand { get; set; }
+        public ICommand VariableCommand { get; set; }
 
         public MainViewModel()
         {
@@ -41,7 +42,10 @@ namespace MainApp.ViewModels
             obj.IsChecked = false;
 
         }
-
+        public void NavigateVariable(object obj)
+        {
+            new NavService().NavigateTo("Variable");
+        }
         public void NavigateHome(object obj)
         {
             new NavService().NavigateTo("Home");
@@ -79,6 +83,7 @@ namespace MainApp.ViewModels
             DriverCommand = new CustomCommand(NavigateDriver, null);
             MenuCommand = new RelayCommand<RadioButton>(ShowHideMenu, null);
             DestinationCommand = new CustomCommand(NavigateDestination, null);
+            VariableCommand = new CustomCommand(NavigateVariable, null);
             
 
 
