@@ -43,6 +43,8 @@
                 <RadioButton Tag="&#xe125;" Content="Cargos" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding CargoCommand}" />
                 <!-- BordersPerProduct button -->
                 <RadioButton Tag="&#xe125;" Content="Borders Per Product" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding BordersPerProductCommand}" />
+                <!-- DestinationButton -->
+                <RadioButton Tag="&#xe125;" Content="Destinations" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DestinationCommand}" />
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>

@@ -1,0 +1,26 @@
+﻿<ContentDialog
+    x:Class="MainApp.Views.AddDestinationDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MainApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Add Destination"
+   PrimaryButtonText="Add"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonCommand="{Binding AddCommand}"
+    PrimaryButtonCommandParameter="{Binding ElementName=addDestinationContentDialog}"
+    SecondaryButtonCommand="{Binding CancelCommand}"
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=AddDestinationViewModel}">
+
+    <Grid>
+        <StackPanel>
+            <TextBox Text="{Binding CurrentDestination.housnr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Housenr"/>
+            <TextBox Text="{Binding CurrentDestination.description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            <TextBox Text="{Binding CurrentCity.city, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Header="City"/>
+            <TextBox Text="{Binding CurrentCity.postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Postal Address"/>
+
+        </StackPanel>
+    </Grid>
+</ContentDialog>

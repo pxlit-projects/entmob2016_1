@@ -52,7 +52,9 @@ namespace MainApp.Navigation
                     
                     page.getFrame().Navigate(typeof(BordersPerProductPage));
                     break;
-
+                case "Destination":
+                    page.getFrame().Navigate(typeof(DestinationsPage));
+                    break;
                 default:
                     HomePage homeView = new HomePage();
                     page.getFrame().Navigate(typeof(HomePage));
