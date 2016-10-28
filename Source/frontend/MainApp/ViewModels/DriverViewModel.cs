@@ -62,7 +62,7 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.employee_id);
+            var dummy = service.All().OrderBy(d => d.Employee_id);
             Drivers = new ObservableCollection<Employee>(dummy);
             SelectedDriver = drivers.ElementAt(0);
         }
@@ -92,7 +92,7 @@ namespace MainApp.ViewModels
 
         private async void ChangeStatus(object obj)
         {
-            if (SelectedDriver.status == true)
+            if (SelectedDriver.Status == true)
             {
                 MessageDialog message = new MessageDialog("Are you sure you want to deactivate this driver?");
                 message.Title = "Deactivate driver";
@@ -108,7 +108,7 @@ namespace MainApp.ViewModels
 
                 if (result == yesCommand)
                 {
-                    SelectedDriver.status = false;
+                    SelectedDriver.Status = false;
                     service.Update(SelectedDriver);
                     LoadData();
                 }
@@ -129,7 +129,7 @@ namespace MainApp.ViewModels
 
                 if (result == yesCommand)
                 {
-                    SelectedDriver.status = true;
+                    SelectedDriver.Status = true;
                     service.Update(SelectedDriver);
                     LoadData();
                 }

@@ -6,12 +6,21 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Title="TITLE"
-    PrimaryButtonText="Button1"
-    SecondaryButtonText="Button2"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    Title="Add sensor"
+    PrimaryButtonText="Add"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonCommand="{Binding AddCommand}"
+    PrimaryButtonCommandParameter="{Binding ElementName=addSensorContentDialog}"
+    SecondaryButtonCommand="{Binding CancelCommand}"
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=AddSensorViewModel}">
 
     <Grid>
+        <StackPanel>
+            <TextBox Text="{Binding CurrentSensor.Sensor_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Name"/>
+            
+
+            <ComboBox Width="140px" Margin="4,0,0,0" Header="Status" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"/>
+
+        </StackPanel>
     </Grid>
 </ContentDialog>

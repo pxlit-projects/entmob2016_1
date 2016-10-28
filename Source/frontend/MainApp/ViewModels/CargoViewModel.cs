@@ -61,7 +61,7 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.cargo_id);
+            var dummy = service.All().OrderBy(d => d.Cargo_id);
             Cargos = new ObservableCollection<Cargo>(dummy);
             SelectedCargo = cargos.ElementAt(0);
         }
@@ -97,12 +97,12 @@ namespace MainApp.ViewModels
 
         public async void ShowCargoDialog(object obj)
         {
-            //var dialog = new AddCargoDialog();
-            //var result = await dialog.ShowAsync();
-            //if (result == ContentDialogResult.Primary)
-            //{
-            //    LoadData();
-            //}
+            var dialog = new AddCargoDialog();
+            var result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                LoadData();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

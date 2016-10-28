@@ -90,7 +90,7 @@ namespace MainApp.ViewModels
         }
         private void LoadData()
         {
-            var productslist = service.All().OrderBy(d => d.product_id);
+            var productslist = service.All().OrderBy(d => d.Product_id);
             Products = new ObservableCollection<Product>(productslist);
             SelectedProduct = products.ElementAt(0);
         }

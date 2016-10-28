@@ -44,13 +44,13 @@ namespace frontend.Service
 
         public void ChangeStatus(Sensor sensor)
         {
-            if (sensor.status == true)
+            if (sensor.Status == true)
             {
-                sensor.status = false;
+                sensor.Status = false;
             }
             else
             {
-                sensor.status = true;
+                sensor.Status = true;
             }
             sensorRepository.UpdateSensor(sensor);
         }

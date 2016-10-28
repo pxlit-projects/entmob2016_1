@@ -3,10 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MainApp.Views"
+    xmlns:converters="using:MainApp.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=MainViewModel}">
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=SensorViewModel}">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -14,6 +15,7 @@
                 <ResourceDictionary Source="SplitViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+        
     </Page.Resources>
     <Grid Background="LightGray">
         <StackPanel Orientation="Vertical" Margin="10, 10, 10, 10">
@@ -24,9 +26,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding sensor_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding sensor_name}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding status}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Sensor_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Sensor_name}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Status}" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -36,11 +38,11 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding sensor_usage_id}" Width="100px"/>
-                            <TextBlock Text="{Binding employee}" Width="150px"/>
-                            <TextBlock Text="{Binding sensor}" Width="150px"/>
-                            <TextBlock Text="{Binding employee_start}"/>
-                            <TextBlock Text="{Binding employee_end}"/>
+                            <TextBlock Text="{Binding Sensor_usage_id}" Width="100px"/>
+                            <TextBlock Text="{Binding Path=Employee.Name}" Width="150px"/>
+                            <TextBlock Text="{Binding Path=Sensor.Sensor_name}" Width="150px"/>
+                            <TextBlock Text="{Binding Employee_start}"/>
+                            <TextBlock Text="{Binding Employee_end}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -53,9 +55,9 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Status:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedSensor.sensor_id}"/>
-                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedSensor.sensor_name}"/>
-                        <TextBlock x:Name="statusTxt" Text="{Binding Path=SelectedSensor.status}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedSensor.Sensor_id}"/>
+                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedSensor.Sensor_name}"/>
+                        <TextBlock x:Name="statusTxt" Text="{Binding Path=SelectedSensor.Status}"/>
                     </StackPanel>
                 </StackPanel>
 

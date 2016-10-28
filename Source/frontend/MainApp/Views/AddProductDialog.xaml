@@ -6,12 +6,21 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Title="TITLE"
-    PrimaryButtonText="Button1"
-    SecondaryButtonText="Button2"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    Title="Add Product"
+    PrimaryButtonText="Add"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonCommand="{Binding AddCommand}"
+    PrimaryButtonCommandParameter="{Binding ElementName=addProductContentDialog}"
+    SecondaryButtonCommand="{Binding CancelCommand}"
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=AddProductViewModel}">
 
     <Grid>
+        <StackPanel>
+            <TextBox Text="{Binding CurrentProduct.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Title"/>
+            <TextBox Text="{Binding CurrentProduct.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            
+                <ComboBox Width="140px" Margin="4,0,0,0" Header="Status" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"/>
+            
+        </StackPanel>
     </Grid>
 </ContentDialog>

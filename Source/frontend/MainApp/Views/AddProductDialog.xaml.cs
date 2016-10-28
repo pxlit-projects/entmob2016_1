@@ -22,14 +22,35 @@ namespace MainApp.Views
         public AddProductDialog()
         {
             this.InitializeComponent();
+            Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing += (s, args) =>
+            {
+                const double extraHeightBuffer = 20.0;
+
+                UIElement focused = FocusManager.GetFocusedElement() as UIElement;
+                if (null != focused)
+                {
+                    GeneralTransform gt = focused.TransformToVisual(this);
+                    Point focusedPoint = gt.TransformPoint(new Point(0, focused.RenderSize.Height - 1));
+                    double bottomOfFocused = focusedPoint.Y + extraHeightBuffer;
+                    if (bottomOfFocused > args.OccludedRect.Top)
+                    {
+                        var trans = new TranslateTransform();
+                        trans.Y = -(bottomOfFocused - args.OccludedRect.Top);
+                        this.RenderTransform = trans;
+                    }
+                    args.EnsuredFocusedElementInView = true;
+                }
+            };
+
+            Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding += (s, args) =>
+            {
+                var trans = new TranslateTransform();
+                trans.Y = 0;
+                this.RenderTransform = trans;
+                args.EnsuredFocusedElementInView = false;
+            };
         }
 
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-        }
 
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-        }
     }
 }

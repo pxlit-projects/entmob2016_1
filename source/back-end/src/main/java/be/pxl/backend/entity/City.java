@@ -12,7 +12,7 @@ public class City {
 
 	@Id
 	private String postal_code;
-	private String city;
+	private String city_name;
 	
 	public String getPostal_code() {
 		return postal_code;
@@ -21,13 +21,13 @@ public class City {
 		this.postal_code = postal_code;
 	}
 	public String getCity() {
-		return city;
+		return city_name;
 	}
 	public void setCity(String city) {
-		this.city = city;
+		this.city_name = city;
 	}
 	
 	public void copy(City city) {
-		this.city = city.city;
+		this.city_name = city.city_name;
 	}
 }

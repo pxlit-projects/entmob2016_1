@@ -1,5 +1,7 @@
 ﻿using frontend.Domain;
+using frontend.Domain.Converter;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,7 +35,7 @@ namespace frontend.Repository
             {
                 jsonString = await response.Content.ReadAsStringAsync();
             }
-
+            
             var employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
             return employees;
         }
@@ -67,16 +69,20 @@ namespace frontend.Repository
             return employee;
         }
 
-        public async void AddEmployee(Employee employee)
+        public void AddEmployee(Employee employee)
         {
             var url = "/employees/add";
             var jsonString = JsonConvert.SerializeObject(employee);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                //test
+            }
         }
 
         public async void UpdateEmployee(Employee employee)
         {
-            var url = "/cities/update";
+            var url = "/employees/update";
             var jsonString = JsonConvert.SerializeObject(employee);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }

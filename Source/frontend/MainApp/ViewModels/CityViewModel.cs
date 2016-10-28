@@ -61,7 +61,7 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.postal_code);
+            var dummy = service.All().OrderBy(d => d.Postal_code);
             Cities = new ObservableCollection<City>(dummy);
             SelectedCity = cities.ElementAt(0);
         }
@@ -91,12 +91,12 @@ namespace MainApp.ViewModels
 
         public async void ShowCityDialog(object obj)
         {
-            //var dialog = new AddCityDialog();
-            //var result = await driverdialog.ShowAsync();
-            //if (result == ContentDialogResult.Primary)
-            //{
-            //    LoadData();
-            //}
+            var dialog = new AddCityDialog();
+            var result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                LoadData();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -8,8 +8,8 @@ namespace frontend.Domain
 {
     public class Login
     {
-        public int login_id { get; set; }
-        public Employee employee { get; set; }
-        public DateTime time { get; set; }
+        public int Login_id { get; set; }
+        public Employee Employee { get; set; }
+        public string Time { get; set; }
     }
 }
