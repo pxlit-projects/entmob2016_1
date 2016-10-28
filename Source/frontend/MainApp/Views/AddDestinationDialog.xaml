@@ -16,10 +16,10 @@
 
     <Grid>
         <StackPanel>
-            <TextBox Text="{Binding CurrentDestination.housnr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Housenr"/>
-            <TextBox Text="{Binding CurrentDestination.description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
-            <TextBox Text="{Binding CurrentCity.city, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Header="City"/>
-            <TextBox Text="{Binding CurrentCity.postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Postal Address"/>
+            <TextBox Text="{Binding CurrentDestination.Housnr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Housenr"/>
+            <TextBox Text="{Binding CurrentDestination.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            <TextBox Text="{Binding CurrentCity.City_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Header="City"/>
+            <TextBox Text="{Binding CurrentCity.Postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Postal Address"/>
 
         </StackPanel>
     </Grid>

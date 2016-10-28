@@ -24,10 +24,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding product}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding variable}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding border_value_number}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Product}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Variable}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Border_value_number}" HorizontalAlignment="Right"/>
 
                         </StackPanel>
                     </DataTemplate>
@@ -42,10 +42,10 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Time:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedBordersPerProduct.id}"/>
-                        <TextBlock x:Name="employeeTxt" Text="{Binding Path=SelectedBordersPerProduct.product}"/>
-                        <TextBlock x:Name="timeTxt" Text="{Binding Path=SelectedBordersPerProduct.variable}"/>
-                        <TextBox x:Name="valueTxt" Text="{Binding Path=SelectedBordersPerProduct.border_value_number}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedBordersPerProduct.Id}"/>
+                        <TextBlock x:Name="employeeTxt" Text="{Binding Path=SelectedBordersPerProduct.Product}"/>
+                        <TextBlock x:Name="timeTxt" Text="{Binding Path=SelectedBordersPerProduct.Variable}"/>
+                        <TextBox x:Name="valueTxt" Text="{Binding Path=SelectedBordersPerProduct.Border_value_number}"/>
 
                     </StackPanel>
                 </StackPanel>

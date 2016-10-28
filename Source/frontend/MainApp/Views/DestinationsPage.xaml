@@ -24,10 +24,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding destination_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding city.city}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding housenr}" Width="50px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding description}" Width="350px" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Destination_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding City.City_name}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Housenr}" Width="50px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Description}" Width="350px" HorizontalAlignment="Right"/>
 
 
                         </StackPanel>
@@ -44,8 +44,8 @@
 
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="HousenrTxt" Text="{Binding Path=SelectedCity.housenr}"/>
-                        <TextBlock x:Name="DescriptionTxt" Text="{Binding Path=SelectedDestination.description}"/>
+                        <TextBlock x:Name="HousenrTxt" Text="{Binding Path=SelectedCity.Housenr}"/>
+                        <TextBlock x:Name="DescriptionTxt" Text="{Binding Path=SelectedDestination.Description}"/>
 
 
                     </StackPanel>
@@ -64,8 +64,8 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding postal_code}" Width="100px" HorizontalAlignment="Left"/>
-                                <TextBlock Text="{Binding city}" Width="250px" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Postal_code}" Width="100px" HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding City_name}" Width="250px" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

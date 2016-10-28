@@ -16,8 +16,8 @@
 
     <Grid>
         <StackPanel>
-            <TextBox Text="{Binding CurrentProduct.title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Title"/>
-            <TextBox Text="{Binding CurrentProduct.description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            <TextBox Text="{Binding CurrentProduct.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Title"/>
+            <TextBox Text="{Binding CurrentProduct.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
             
                 <ComboBox Width="140px" Margin="4,0,0,0" Header="Status" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"/>
             

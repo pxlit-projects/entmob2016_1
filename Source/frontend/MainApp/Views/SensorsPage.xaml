@@ -26,9 +26,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding sensor_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding sensor_name}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding status}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Sensor_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Sensor_name}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Status}" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -38,11 +38,11 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding sensor_usage_id}" Width="100px"/>
+                            <TextBlock Text="{Binding Sensor_usage_id}" Width="100px"/>
                             <!--<TextBlock Text="{Binding employee}" Width="150px"/>-->
                             <!--<TextBlock Text="{Binding sensor}" Width="150px"/>-->
-                            <TextBlock Text="{Binding employee_start}"/>
-                            <TextBlock Text="{Binding employee_end}"/>
+                            <TextBlock Text="{Binding Employee_start}"/>
+                            <TextBlock Text="{Binding Employee_end}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -55,9 +55,9 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Status:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedSensor.sensor_id}"/>
-                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedSensor.sensor_name}"/>
-                        <TextBlock x:Name="statusTxt" Text="{Binding Path=SelectedSensor.status}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedSensor.Sensor_id}"/>
+                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedSensor.Sensor_name}"/>
+                        <TextBlock x:Name="statusTxt" Text="{Binding Path=SelectedSensor.Status}"/>
                     </StackPanel>
                 </StackPanel>
 

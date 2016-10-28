@@ -25,10 +25,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding employee_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding surName}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding name}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding status}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Employee_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding SurName}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Status}" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -44,12 +44,12 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Telefoon:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedDriver.employee_id}"/>
-                        <TextBox x:Name="surNameTxt" Text="{Binding Path=SelectedDriver.surName}"/>
-                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedDriver.name}"/>
-                        <TextBox x:Name="emailTxt" Text="{Binding Path=SelectedDriver.email}"/>
-                        <TextBox x:Name="mobileTxt" Text="{Binding Path=SelectedDriver.mobile_phone}"/>
-                        <TextBox x:Name="telephoneTxt" Text="{Binding Path=SelectedDriver.telephone_number}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedDriver.Employee_id}"/>
+                        <TextBox x:Name="surNameTxt" Text="{Binding Path=SelectedDriver.SurName}"/>
+                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedDriver.Name}"/>
+                        <TextBox x:Name="emailTxt" Text="{Binding Path=SelectedDriver.Email}"/>
+                        <TextBox x:Name="mobileTxt" Text="{Binding Path=SelectedDriver.Mobile_phone}"/>
+                        <TextBox x:Name="telephoneTxt" Text="{Binding Path=SelectedDriver.Telephone_number}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

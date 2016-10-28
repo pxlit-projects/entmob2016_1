@@ -25,8 +25,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding cargo_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding weight}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Cargo_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Weight}" Width="250px" HorizontalAlignment="Center"/>
                             
                         </StackPanel>
                     </DataTemplate>
@@ -40,9 +40,9 @@
                         
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedCargo.cargo_id}"/>
-                        <TextBox x:Name="weightTxt" Text="{Binding Path=SelectedCargo.weight}"/>
-                        
+                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedCargo.Cargo_id}"/>
+                        <TextBox x:Name="weightTxt" Text="{Binding Path=SelectedCargo.Weight}"/>
+
                     </StackPanel>
                 </StackPanel>
             </Grid>
