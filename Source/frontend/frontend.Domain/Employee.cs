@@ -8,20 +8,20 @@ namespace frontend.Domain
 {
     public class Employee
     {
-        public int employee_id { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public string salt { get; set; }
-        public string surName { get; set; }
-        public string name { get; set; }
-        public string street { get; set; }
-        public string houseNr { get; set; }
-        public City city { get; set; }
-        public DateTime date_employement { get; set; }
-        public string mobile_phone { get; set; }
-        public string telephone_number { get; set; }
-        public string email { get; set; }
-        public string sex { get; set; }
-        public bool status { get; set; }
+        public int Employee_id { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Salt { get; set; }
+        public string SurName { get; set; }
+        public string Name { get; set; }
+        public string Street { get; set; }
+        public string HouseNr { get; set; }
+        public City City { get; set; }
+        public DateTime Date_employement { get; set; }
+        public string Mobile_phone { get; set; }
+        public string Telephone_number { get; set; }
+        public string Email { get; set; }
+        public string Sex { get; set; }
+        public bool Status { get; set; }
     }
 }

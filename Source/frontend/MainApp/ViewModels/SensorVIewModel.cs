@@ -43,7 +43,7 @@ namespace MainApp.ViewModels
         }
         private void LoadData()
         {
-            var sensorsList = service.All().OrderBy(d => d.sensor_id);
+            var sensorsList = service.All().OrderBy(d => d.Sensor_id);
             Sensors = new ObservableCollection<Sensor>(sensorsList);
             SelectedSensor = sensors.ElementAt(0);
         }
@@ -75,7 +75,7 @@ namespace MainApp.ViewModels
 
         public void ShowSensorUsage(object obj)
         {
-            var list = usageService.All().Where(d => d.sensor == SelectedSensor);
+            var list = usageService.All().Where(d => d.Sensor == SelectedSensor);
             SensorUsages = new ObservableCollection<SensorUsage>(list);
         }
         public ObservableCollection<Sensor> Sensors

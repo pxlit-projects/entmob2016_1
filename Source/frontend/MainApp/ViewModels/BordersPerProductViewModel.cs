@@ -61,7 +61,7 @@ namespace MainApp.ViewModels
 
             private void LoadData()
             {
-                var dummy = service.All().OrderBy(d => d.id);
+                var dummy = service.All().OrderBy(d => d.Id);
                 BorderPerProducts = new ObservableCollection<BordersPerProduct>(dummy);
                 SelectedBordersPerProduct = bordersPerProducts.ElementAt(0);
             }

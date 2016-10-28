@@ -61,7 +61,7 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.cargo_id);
+            var dummy = service.All().OrderBy(d => d.Cargo_id);
             Cargos = new ObservableCollection<Cargo>(dummy);
             SelectedCargo = cargos.ElementAt(0);
         }

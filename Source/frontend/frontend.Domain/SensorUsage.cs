@@ -8,10 +8,10 @@ namespace frontend.Domain
 {
     public class SensorUsage
     {
-        public int sensor_usage_id { get; set; }
-        public Employee employee { get; set; }
-        public Sensor sensor { get; set; }
-        public DateTime employee_start { get; set; }
-        public DateTime employee_end { get; set; }
+        public int Sensor_usage_id { get; set; }
+        public Employee Employee { get; set; }
+        public Sensor Sensor { get; set; }
+        public DateTime Employee_start { get; set; }
+        public DateTime Employee_end { get; set; }
     }
 }

@@ -8,9 +8,10 @@ namespace frontend.Domain
 {
     public class Destination
     {
-        public int destination_id { get; set; }
-        public City city { get; set; }
-        public string housenr { get; set; }
-        public string description { get; set; }
+        public int Destination_id { get; set; }
+        public City City { get; set; }
+        public string Housenr { get; set; }
+        public string Street { get; set; }
+        public string Description { get; set; }
     }
 }

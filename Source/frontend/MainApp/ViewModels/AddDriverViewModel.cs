@@ -145,16 +145,16 @@ namespace MainApp.ViewModels
         {
             try
             {
-                CurrentDriver.sex = SelectedSex;
-                CurrentDriver.city = CurrentCity;
+                CurrentDriver.Sex = SelectedSex;
+                CurrentDriver.City = CurrentCity;
 
                 if (SelectedStatus == "Active")
                 {
-                    CurrentDriver.status = true;
+                    CurrentDriver.Status = true;
                 }
                 else
                 {
-                    CurrentDriver.status = false;
+                    CurrentDriver.Status = false;
                 }
 
                 service.Add(CurrentDriver);
