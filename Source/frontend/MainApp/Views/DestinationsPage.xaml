@@ -46,7 +46,7 @@
 
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBox x:Name="HousenrTxt" Text="{Binding Path=SelectedCity.Housenr}"/>
+                        <TextBox x:Name="HousenrTxt" Text="{Binding Path=SelectedDestination.Housenr}"/>
                         <TextBox x:Name="StreetTxt" Text="{Binding Path=SelectedDestination.Street}"/>
                         <TextBox x:Name="DescriptionTxt" Text="{Binding Path=SelectedDestination.Description}"/>
 

@@ -21,7 +21,7 @@ namespace frontend.Domain
         public string HouseNr { get; set; }
         public City City { get; set; }
         //[JsonConverter(typeof(DateConverter))]
-        public string Date_employement { get; set; }
+        public string Date_employment { get; set; }
         public string Mobile_phone { get; set; }
         public string Telephone_number { get; set; }
         public string Email { get; set; }
