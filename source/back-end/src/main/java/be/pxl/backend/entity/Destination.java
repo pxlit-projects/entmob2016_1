@@ -1,5 +1,8 @@
 package be.pxl.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +26,9 @@ public class Destination {
 	private String street;
 	private String housenr;
 	private String description;
+	@OneToMany(mappedBy = "destination")
+	@JsonBackReference
+	private List<Cargo> cargos = new ArrayList<Cargo>();
 	
 	public int getDestination_id() {
 		return destination_id;

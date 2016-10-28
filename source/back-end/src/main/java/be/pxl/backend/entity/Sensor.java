@@ -1,5 +1,9 @@
 package be.pxl.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,8 +25,15 @@ public class Sensor {
 	private int sensor_id;
 	private String sensor_name;
 	private boolean status;
-	
+	@OneToMany(mappedBy = "sensor")
+	@JsonManagedReference
+	private List<SensorData> data = new ArrayList<SensorData>();
+	@OneToMany(mappedBy = "sensor")
+	@JsonManagedReference
+	private List<SensorUsage> usages = new ArrayList<SensorUsage>();
 	@OneToMany(mappedBy="sensor")
+	@JsonManagedReference
+    @JsonIgnore
 	private List<SensorUsage> cargos = new ArrayList<SensorUsage>();
 
 	public int getSensor_id() {

@@ -1,5 +1,6 @@
 package be.pxl.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.ArrayList;
@@ -24,7 +25,8 @@ public class SensorData {
     private double gyroscoop;
     private double lightsensor;
     @ManyToOne
-    private SensorUsage sensor_usage;
+    @JsonBackReference
+    private Sensor sensor;
 
     public int getSensor_data_id() {
         return sensor_data_id;
@@ -32,14 +34,6 @@ public class SensorData {
 
     public void setSensor_data_id(int sensor_data_id) {
         this.sensor_data_id = sensor_data_id;
-    }
-    @JsonIgnore
-    public SensorUsage getSensor_usage() {
-        return sensor_usage;
-    }
-
-    public void setSensor_usage(SensorUsage sensor_usage) {
-        this.sensor_usage = sensor_usage;
     }
 
     public Date getTime() {

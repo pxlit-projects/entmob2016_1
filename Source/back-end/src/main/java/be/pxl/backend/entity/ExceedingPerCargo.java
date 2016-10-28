@@ -1,5 +1,7 @@
 package be.pxl.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,12 +13,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Exceedings_per_cargo")
-public class ExceedingsPerCargo {
+public class ExceedingPerCargo {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int exceeding_per_cargo_id;
 	@ManyToOne
+	@JsonBackReference
 	private Cargo cargo;
 	@OneToOne
 	private Variable variable;

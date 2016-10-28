@@ -1,6 +1,9 @@
 package be.pxl.backend.service;
 
 import java.util.List;
+
+import be.pxl.backend.entity.Product;
+import be.pxl.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Cargo;
@@ -13,6 +16,9 @@ public class CargoService implements ICargoService {
 
 	@Autowired
 	private CargoRepository repo;
+	
+	@Autowired
+    private ProductRepository productRepo;
 	
 	public Cargo find(int id) {
 		return repo.findOne(id);
