@@ -27,22 +27,19 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Cargo_id}" Width="100px" HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding Weight}" Width="250px" HorizontalAlignment="Center"/>
-                            
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="100, 0, 100, 0" Padding="20">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical" Width="100px">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> ID:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Gewicht:</TextBlock>
-                        
+                <StackPanel Orientation="Vertical" Width="600px">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> ID:</TextBlock>
+                        <TextBlock x:Name="idTxt" Width="500" Text="{Binding Path=SelectedCargo.Cargo_id}"/>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedCargo.Cargo_id}"/>
-                        <TextBox x:Name="weightTxt" Text="{Binding Path=SelectedCargo.Weight}"/>
-
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Gewicht:</TextBlock>
+                        <TextBox x:Name="weightTxt" Width="500" Text="{Binding Path=SelectedCargo.Weight}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

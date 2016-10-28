@@ -75,7 +75,7 @@ namespace MainApp.ViewModels
 
         public void ShowSensorUsage(object obj)
         {
-            var list = usageService.All().Where(d => d.Sensor == SelectedSensor);
+            var list = usageService.All().Where(d => d.Sensor.Sensor_id == SelectedSensor.Sensor_id);
             SensorUsages = new ObservableCollection<SensorUsage>(list);
         }
         public ObservableCollection<Sensor> Sensors

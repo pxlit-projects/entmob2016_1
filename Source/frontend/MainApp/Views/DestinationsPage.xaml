@@ -29,28 +29,23 @@
                             <TextBlock Text="{Binding Street}" Width="200" HorizontalAlignment="Center"/>
                             <TextBlock Text="{Binding Housenr}" Width="50px" HorizontalAlignment="Center"/>
                             <TextBlock Text="{Binding Description}" Width="350px" HorizontalAlignment="Right"/>
-
-
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="100, 0, 100, 0" Padding="20">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical" Width="100px">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> House nr:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Street:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Description:</TextBlock>
-                        
-
-
+                <StackPanel Orientation="Vertical" Width="600px">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> House nr:</TextBlock>
+                        <TextBox x:Name="HousenrTxt" Width="500px" Text="{Binding Path=SelectedDestination.Housenr}"/>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBox x:Name="HousenrTxt" Text="{Binding Path=SelectedDestination.Housenr}"/>
-                        <TextBox x:Name="StreetTxt" Text="{Binding Path=SelectedDestination.Street}"/>
-                        <TextBox x:Name="DescriptionTxt" Text="{Binding Path=SelectedDestination.Description}"/>
-
-
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Street:</TextBlock>
+                        <TextBox x:Name="StreetTxt" Width="500px" Text="{Binding Path=SelectedDestination.Street}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Description:</TextBlock>
+                        <TextBox x:Name="DescriptionTxt" Width="500px" Text="{Binding Path=SelectedDestination.Description}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
