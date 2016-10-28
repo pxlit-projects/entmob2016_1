@@ -1,0 +1,39 @@
+﻿<ContentDialog
+    x:Class="MainApp.Views.AddBordersPerProductDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MainApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Add borders per product"
+   PrimaryButtonText="Done"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonCommand="{Binding DoneCommand}"
+    PrimaryButtonCommandParameter="{Binding ElementName=addBordersPerProductContentDialog}"
+    SecondaryButtonCommand="{Binding CancelCommand}"
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=AddBordersPerProductViewModel}">
+    <ContentDialog.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SplitViewStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </ContentDialog.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="productBox" Header="Product" Width="125" Margin="5" ItemsSource="{Binding Path=Products}" DisplayMemberPath="Title" SelectedValuePath="Product_id" SelectedValue="{Binding Path=SelectedProduct}"/>
+                <ComboBox x:Name="variableBox" Header="Variable" Width="125" Margin="5" ItemsSource="{Binding Path=Variables}" DisplayMemberPath="Description" SelectedValuePath="Variable_id" SelectedValue="{Binding Path=SelectedVariable}"/>
+                
+            </StackPanel>
+            <TextBox x:Name="borderValueTxt" Text="{Binding CurrentBorderPerProduct.Border_value_number}" Header="Border float value"></TextBox>
+            <StackPanel Orientation="Horizontal" Margin="30">
+                <Button Command="{Binding SaveCommand}" Style="{StaticResource PageButtonStyle }" FontSize="18"> Save </Button>
+                <TextBlock Text="Objects Created :" Margin="40,0,0,0" Style="{StaticResource BaseTextBlockStyle }" VerticalAlignment="Center"/>
+                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Counter}" Style="{StaticResource BaseTextBlockStyle }" VerticalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

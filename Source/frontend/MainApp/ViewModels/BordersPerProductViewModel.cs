@@ -1,6 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Utility;
+using MainApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -91,12 +92,12 @@ namespace MainApp.ViewModels
 
         public async void ShowBordersPerProductDialog(object obj)
         {
-            //var driverdialog = new AddBordersPerProductDialog();
-            //var result = await driverdialog.ShowAsync();
-            //if (result == ContentDialogResult.Primary)
-            //{
-            //    LoadData();
-            //}
+            var driverdialog = new AddBordersPerProductDialog();
+            var result = await driverdialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                LoadData();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
