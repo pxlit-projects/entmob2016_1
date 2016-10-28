@@ -13,6 +13,7 @@ namespace frontend.Domain
         public string Title { get; set; }
         public string Description { get; set; }
         public bool Status { get; set; }
-        public ObservableCollection<ProductsPerCargo> products { get; set; }
+        public List<BorderPerProduct> Borders { get; set; }
+        public List<ProductPerCargo> Cargos { get; set; }
     }
 }

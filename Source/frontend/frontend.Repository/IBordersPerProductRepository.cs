@@ -9,10 +9,10 @@ namespace frontend.Repository
 {
     public interface IBordersPerProductRepository
     {
-        Task<IEnumerable<BordersPerProduct>> GetAllBordersPerProducts();
-        Task<BordersPerProduct> GetBordersPerProductById(int id);
-        void AddBordersPerProduct(BordersPerProduct bordersPerProduct);
-        void UpdateBordersPerProduct(BordersPerProduct bordersPerProduct);
+        Task<IEnumerable<BorderPerProduct>> GetAllBordersPerProducts();
+        Task<BorderPerProduct> GetBordersPerProductById(int id);
+        void AddBordersPerProduct(BorderPerProduct bordersPerProduct);
+        void UpdateBordersPerProduct(BorderPerProduct bordersPerProduct);
         void DeleteBordersPerProduct(int id);
     }
 }

@@ -17,12 +17,12 @@ namespace frontend.Service
             productsPerCargoRepository = new ProductsPerCargoRepository();
         }
 
-        public void Add(ProductsPerCargo productsPerCargo)
+        public void Add(ProductPerCargo productsPerCargo)
         {
             productsPerCargoRepository.AddProductsPerCargo(productsPerCargo);
         }
 
-        public List<ProductsPerCargo> All()
+        public List<ProductPerCargo> All()
         {
             return productsPerCargoRepository.GetAllProductsPerCargos().Result.ToList();
         }
@@ -32,12 +32,12 @@ namespace frontend.Service
             productsPerCargoRepository.DeleteProductsPerCargo(id);
         }
 
-        public ProductsPerCargo Find(int id)
+        public ProductPerCargo Find(int id)
         {
             return productsPerCargoRepository.GetProductsPerCargoById(id).Result;
         }
 
-        public void Update(ProductsPerCargo productsPerCargo)
+        public void Update(ProductPerCargo productsPerCargo)
         {
             productsPerCargoRepository.UpdateProductsPerCargo(productsPerCargo);
         }

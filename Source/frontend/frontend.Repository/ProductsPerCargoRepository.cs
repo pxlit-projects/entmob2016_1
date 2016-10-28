@@ -22,7 +22,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<ProductsPerCargo>> GetAllProductsPerCargos()
+        public async Task<IEnumerable<ProductPerCargo>> GetAllProductsPerCargos()
         {
             var url = "/productPerCargos/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,11 +33,11 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var productsPerCargos = JsonConvert.DeserializeObject<IEnumerable<ProductsPerCargo>>(jsonString);
+            var productsPerCargos = JsonConvert.DeserializeObject<IEnumerable<ProductPerCargo>>(jsonString);
             return productsPerCargos;
         }
 
-        public async Task<ProductsPerCargo> GetProductsPerCargoById(int id)
+        public async Task<ProductPerCargo> GetProductsPerCargoById(int id)
         {
             var url = "/productPerCargos/get/" + id;
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -48,18 +48,18 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var productPerCargo = JsonConvert.DeserializeObject<ProductsPerCargo>(jsonString);
+            var productPerCargo = JsonConvert.DeserializeObject<ProductPerCargo>(jsonString);
             return productPerCargo;
         }
 
-        public async void AddProductsPerCargo(ProductsPerCargo productsPerCargo)
+        public async void AddProductsPerCargo(ProductPerCargo productsPerCargo)
         {
             var url = "/productPerCargos/add";
             var jsonString = JsonConvert.SerializeObject(productsPerCargo);
             await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
-        public async void UpdateProductsPerCargo(ProductsPerCargo productsPerCargo)
+        public async void UpdateProductsPerCargo(ProductPerCargo productsPerCargo)
         {
             var url = "/cities/update";
             var jsonString = JsonConvert.SerializeObject(productsPerCargo);

@@ -17,12 +17,12 @@ namespace frontend.Service
             exceedingsPerCargoRepository = new ExceedingsPerCargoRepository();
         }
 
-        public void Add(ExceedingsPerCargo exceedingsPerCargo)
+        public void Add(ExceedingPerCargo exceedingsPerCargo)
         {
             exceedingsPerCargoRepository.AddExceedingsPerCargo(exceedingsPerCargo);
         }
 
-        public List<ExceedingsPerCargo> All()
+        public List<ExceedingPerCargo> All()
         {
             return exceedingsPerCargoRepository.GetAllExceedingsPerCargos().Result.ToList();
         }
@@ -32,12 +32,12 @@ namespace frontend.Service
             exceedingsPerCargoRepository.DeleteExceedingsPerCargo(id);
         }
 
-        public ExceedingsPerCargo Find(int id)
+        public ExceedingPerCargo Find(int id)
         {
             return exceedingsPerCargoRepository.GetExceedingsPerCargoById(id).Result;
         }
 
-        public void Update(ExceedingsPerCargo exceedingsPerCargo)
+        public void Update(ExceedingPerCargo exceedingsPerCargo)
         {
             exceedingsPerCargoRepository.UpdateExceedingsPerCargo(exceedingsPerCargo);
         }

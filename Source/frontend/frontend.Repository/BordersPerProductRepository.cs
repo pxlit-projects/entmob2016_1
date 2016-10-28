@@ -22,7 +22,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<BordersPerProduct>> GetAllBordersPerProducts()
+        public async Task<IEnumerable<BorderPerProduct>> GetAllBordersPerProducts()
         {
             var url = "/bordersperproducts/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,11 +33,11 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var bordersPerProducts = JsonConvert.DeserializeObject<IEnumerable<BordersPerProduct>>(jsonString);
+            var bordersPerProducts = JsonConvert.DeserializeObject<IEnumerable<BorderPerProduct>>(jsonString);
             return bordersPerProducts;
         }
 
-        public async Task<BordersPerProduct> GetBordersPerProductById(int id)
+        public async Task<BorderPerProduct> GetBordersPerProductById(int id)
         {
             var url = "/bordersperproducts/get/" + id;
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -48,11 +48,11 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var bordersPerProducts = JsonConvert.DeserializeObject<BordersPerProduct>(jsonString);
+            var bordersPerProducts = JsonConvert.DeserializeObject<BorderPerProduct>(jsonString);
             return bordersPerProducts;
         }
 
-        public void AddBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public void AddBordersPerProduct(BorderPerProduct bordersPerProduct)
         {
             var url = "/bordersperproducts/add/";
             var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
@@ -63,7 +63,7 @@ namespace frontend.Repository
             }
         }
 
-        public async void UpdateBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public async void UpdateBordersPerProduct(BorderPerProduct bordersPerProduct)
         {
             var url = "/bordersperproducts/update";
             var jsonString = JsonConvert.SerializeObject(bordersPerProduct);

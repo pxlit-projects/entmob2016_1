@@ -27,9 +27,9 @@ namespace MainApp.ViewModels
         private ObservableCollection<Product> products;
         private ObservableCollection<Variable> variables;
 
-        private BordersPerProduct currentBordersPerProduct;
+        private BorderPerProduct currentBordersPerProduct;
 
-        private List<BordersPerProduct> bppList = new List<BordersPerProduct>();
+        private List<BorderPerProduct> bppList = new List<BorderPerProduct>();
 
 
         public ICommand DoneCommand { get; set; }
@@ -68,7 +68,7 @@ namespace MainApp.ViewModels
             get { return variables; }
             set { variables = value; RaisePropertyChanged("Variables"); }
         }
-        public BordersPerProduct CurrentBordersPerProduct
+        public BorderPerProduct CurrentBordersPerProduct
         {
             get
             {
@@ -97,7 +97,7 @@ namespace MainApp.ViewModels
             Variables = new ObservableCollection<Variable>(dummyy);
             SelectedVariable = variables.ElementAt(0);
 
-            CurrentBordersPerProduct = new BordersPerProduct();
+            CurrentBordersPerProduct = new BorderPerProduct();
         }
 
         private void LoadCommands()
@@ -116,7 +116,7 @@ namespace MainApp.ViewModels
             
             CurrentBordersPerProduct.Product = productService.Find(SelectedProduct.Product_id);
             CurrentBordersPerProduct.Variable = variableService.Find(SelectedVariable.Variable_id);
-            CurrentBordersPerProduct.Id = new BordersPerProductPK() { Variable_id = SelectedVariable.Variable_id, Product_id = SelectedProduct.Product_id };
+            CurrentBordersPerProduct.Id = new BorderPerProductPK() { Variable_id = SelectedVariable.Variable_id, Product_id = SelectedProduct.Product_id };
 
             bppList.Add(CurrentBordersPerProduct);
             counter += 1;  

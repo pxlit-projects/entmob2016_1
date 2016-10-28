@@ -18,8 +18,8 @@ namespace MainApp.ViewModels
     {
         
         
-            private ObservableCollection<BordersPerProduct> bordersPerProducts;
-            private BordersPerProduct selectedBordersPerProduct;
+            private ObservableCollection<BorderPerProduct> bordersPerProducts;
+            private BorderPerProduct selectedBordersPerProduct;
 
             public ICommand UpdateCommand { get; set; }
 
@@ -34,7 +34,7 @@ namespace MainApp.ViewModels
                 LoadCommands();
             }
 
-            public ObservableCollection<BordersPerProduct> BorderPerProducts
+            public ObservableCollection<BorderPerProduct> BorderPerProducts
             {
                 get
                 {
@@ -47,7 +47,7 @@ namespace MainApp.ViewModels
                 }
             }
 
-            public BordersPerProduct SelectedBordersPerProduct
+            public BorderPerProduct SelectedBordersPerProduct
             {
                 get
                 {
@@ -63,7 +63,7 @@ namespace MainApp.ViewModels
             private void LoadData()
             {
                 var dummy = service.All().OrderBy(d => d.Id);
-                BorderPerProducts = new ObservableCollection<BordersPerProduct>(dummy);
+                BorderPerProducts = new ObservableCollection<BorderPerProduct>(dummy);
                 SelectedBordersPerProduct = bordersPerProducts.ElementAt(0);
             }
 

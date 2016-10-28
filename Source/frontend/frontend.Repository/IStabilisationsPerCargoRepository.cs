@@ -9,10 +9,10 @@ namespace frontend.Repository
 {
     public interface IStabilisationsPerCargoRepository
     {
-        Task<IEnumerable<StabilisationsPerCargo>> GetAllStabilisationsPerCargos();
-        Task<StabilisationsPerCargo> GetStabilisationsPerCargoById(int id);
-        void AddStabilisationsPerCargo(StabilisationsPerCargo stabilisationsPerCargo);
-        void UpdateStabilisationsPerCargo(StabilisationsPerCargo stabilisationsPerCargo);
+        Task<IEnumerable<StabilisationPerCargo>> GetAllStabilisationsPerCargos();
+        Task<StabilisationPerCargo> GetStabilisationsPerCargoById(int id);
+        void AddStabilisationsPerCargo(StabilisationPerCargo stabilisationsPerCargo);
+        void UpdateStabilisationsPerCargo(StabilisationPerCargo stabilisationsPerCargo);
         void DeleteStabilisationsPerCargo(int id);
     }
 }

@@ -9,10 +9,10 @@ namespace frontend.Service
 {
     public interface IExceedingsPerCargoService
     {
-        List<ExceedingsPerCargo> All();
-        ExceedingsPerCargo Find(int id);
-        void Add(ExceedingsPerCargo exceedingsPerCargo);
-        void Update(ExceedingsPerCargo exceedingsPerCargo);
+        List<ExceedingPerCargo> All();
+        ExceedingPerCargo Find(int id);
+        void Add(ExceedingPerCargo exceedingsPerCargo);
+        void Update(ExceedingPerCargo exceedingsPerCargo);
         void Delete(int id);
     }
 }

@@ -22,7 +22,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<ExceedingsPerCargo>> GetAllExceedingsPerCargos()
+        public async Task<IEnumerable<ExceedingPerCargo>> GetAllExceedingsPerCargos()
         {
             var url = "/exceedingsPerCargos/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,11 +33,11 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var exceedingsPerCargos = JsonConvert.DeserializeObject<IEnumerable<ExceedingsPerCargo>>(jsonString);
+            var exceedingsPerCargos = JsonConvert.DeserializeObject<IEnumerable<ExceedingPerCargo>>(jsonString);
             return exceedingsPerCargos;
         }
 
-        public async Task<ExceedingsPerCargo> GetExceedingsPerCargoById(int id)
+        public async Task<ExceedingPerCargo> GetExceedingsPerCargoById(int id)
         {
             var url = "/exceedinsPerCargos/get/" + id;
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -48,18 +48,18 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var exceedingsPerCargo = JsonConvert.DeserializeObject<ExceedingsPerCargo>(jsonString);
+            var exceedingsPerCargo = JsonConvert.DeserializeObject<ExceedingPerCargo>(jsonString);
             return exceedingsPerCargo;
         }
 
-        public async void AddExceedingsPerCargo(ExceedingsPerCargo exceedingsPerCargo)
+        public async void AddExceedingsPerCargo(ExceedingPerCargo exceedingsPerCargo)
         {
             var url = "/exceedingsPerCargos/add";
             var jsonString = JsonConvert.SerializeObject(exceedingsPerCargo);
             await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
-        public async void UpdateExceedingsPerCargo(ExceedingsPerCargo exceedingsPerCargo)
+        public async void UpdateExceedingsPerCargo(ExceedingPerCargo exceedingsPerCargo)
         {
             var url = "/exceedingsPerCargo/update";
             var jsonString = JsonConvert.SerializeObject(exceedingsPerCargo);

@@ -13,5 +13,6 @@ namespace frontend.Domain
         public string Housenr { get; set; }
         public string Street { get; set; }
         public string Description { get; set; }
+        public List<Cargo> Cargos { get; set; }
     }
 }

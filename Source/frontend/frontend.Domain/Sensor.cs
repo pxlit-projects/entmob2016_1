@@ -12,6 +12,7 @@ namespace frontend.Domain
         public int Sensor_id { get; set; }
         public string Sensor_name { get; set; }
         public bool Status { get; set; }
-        public ObservableCollection<SensorUsage> Cargos { get; set; }
+        public List<SensorUsage> Usages { get; set; }
+        public List<SensorData> Data { get; set; }
     }
 }

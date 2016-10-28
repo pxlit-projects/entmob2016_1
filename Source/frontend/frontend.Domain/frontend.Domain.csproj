@@ -107,24 +107,23 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BordersPerProduct.cs" />
-    <Compile Include="BordersPerProductPK.cs" />
+    <Compile Include="BorderPerProduct.cs" />
+    <Compile Include="BorderPerProductPK.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="City.cs" />
-    <Compile Include="Comment.cs" />
     <Compile Include="Converter\DateConverter.cs" />
     <Compile Include="Destination.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="ExceedingsPerCargo.cs" />
+    <Compile Include="ExceedingPerCargo.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Product.cs" />
-    <Compile Include="ProductsPerCargo.cs" />
-    <Compile Include="ProductsPerCargoPK.cs" />
+    <Compile Include="ProductPerCargo.cs" />
+    <Compile Include="ProductPerCargoPK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sensor.cs" />
     <Compile Include="SensorData.cs" />
     <Compile Include="SensorUsage.cs" />
-    <Compile Include="StabilisationsPerCargo.cs" />
+    <Compile Include="StabilisationPerCargo.cs" />
     <Compile Include="Variable.cs" />
     <EmbeddedResource Include="Properties\frontend.Domain.rd.xml" />
   </ItemGroup>

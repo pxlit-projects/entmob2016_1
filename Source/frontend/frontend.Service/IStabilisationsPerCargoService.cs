@@ -9,10 +9,10 @@ namespace frontend.Service
 {
     public interface IStabilisationsPerCargoService
     {
-        List<StabilisationsPerCargo> All();
-        StabilisationsPerCargo Find(int id);
-        void Add(StabilisationsPerCargo stabilisationsPerCargo);
-        void Update(StabilisationsPerCargo stabilisationsPerCargo);
+        List<StabilisationPerCargo> All();
+        StabilisationPerCargo Find(int id);
+        void Add(StabilisationPerCargo stabilisationsPerCargo);
+        void Update(StabilisationPerCargo stabilisationsPerCargo);
         void Delete(int id);
     }
 }

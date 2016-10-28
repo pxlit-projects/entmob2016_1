@@ -17,12 +17,12 @@ namespace frontend.Service
             stabilisationsPerCargoRepository = new StabilisationsPerCargoRepository();
         }
 
-        public void Add(StabilisationsPerCargo stabilisationsPerCargo)
+        public void Add(StabilisationPerCargo stabilisationsPerCargo)
         {
             stabilisationsPerCargoRepository.AddStabilisationsPerCargo(stabilisationsPerCargo);
         }
 
-        public List<StabilisationsPerCargo> All()
+        public List<StabilisationPerCargo> All()
         {
             return stabilisationsPerCargoRepository.GetAllStabilisationsPerCargos().Result.ToList();
         }
@@ -32,12 +32,12 @@ namespace frontend.Service
             stabilisationsPerCargoRepository.DeleteStabilisationsPerCargo(id);
         }
 
-        public StabilisationsPerCargo Find(int id)
+        public StabilisationPerCargo Find(int id)
         {
             return stabilisationsPerCargoRepository.GetStabilisationsPerCargoById(id).Result;
         }
 
-        public void Update(StabilisationsPerCargo stabilisationsPerCargo)
+        public void Update(StabilisationPerCargo stabilisationsPerCargo)
         {
             stabilisationsPerCargoRepository.UpdateStabilisationsPerCargo(stabilisationsPerCargo);
         }
