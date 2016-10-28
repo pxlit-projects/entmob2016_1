@@ -35,7 +35,7 @@ namespace frontend.Repository
             {
                 jsonString = await response.Content.ReadAsStringAsync();
             }
-
+            
             var employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
             return employees;
         }

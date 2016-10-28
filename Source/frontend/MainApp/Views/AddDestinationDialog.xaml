@@ -19,6 +19,7 @@
             <TextBox Text="{Binding CurrentDestination.Housnr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Housenr"/>
             <TextBox Text="{Binding CurrentDestination.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
             <TextBox Text="{Binding CurrentCity.City_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Header="City"/>
+            <TextBox Text="{Binding CurrentCity.Street, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Header="Street"/>
             <TextBox Text="{Binding CurrentCity.Postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Postal Address"/>
 
         </StackPanel>
