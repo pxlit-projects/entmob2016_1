@@ -82,7 +82,7 @@ namespace MainApp.ViewModels
             try
             {
                 
-                CurrentDestination.city = CurrentCity;
+                CurrentDestination.City = CurrentCity;
 
                
 

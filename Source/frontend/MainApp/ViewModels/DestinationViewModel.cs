@@ -91,7 +91,7 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = destinationService.All().OrderBy(d => d.destination_id);
+            var dummy = destinationService.All().OrderBy(d => d.Destination_id);
             Destinations = new ObservableCollection<Destination>(dummy);
             SelectedDestination = destinations.ElementAt(0);
         }
@@ -136,13 +136,13 @@ namespace MainApp.ViewModels
 
         private void ChangeCity (object obj)
         {
-            SelectedDestination.city = SelectedCity;
+            SelectedDestination.City = SelectedCity;
             destinationService.Update(SelectedDestination);
             LoadData();
         }
         public void ShowCities(object obj)
         {
-            var dummy = cityService.All().OrderBy(d => d.postal_code);
+            var dummy = cityService.All().OrderBy(d => d.Postal_code);
             Cities = new ObservableCollection<City>(dummy);
             selectedCity = cities.ElementAt(0);
         }
