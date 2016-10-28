@@ -28,7 +28,7 @@
                             <TextBlock Text="{Binding Employee_id}" Width="100px" HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding SurName}" Width="250px" HorizontalAlignment="Center"/>
                             <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Status}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Status}" Margin="20,0,0,0" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -50,6 +50,7 @@
                         <TextBox x:Name="emailTxt" Text="{Binding Path=SelectedDriver.Email}"/>
                         <TextBox x:Name="mobileTxt" Text="{Binding Path=SelectedDriver.Mobile_phone}"/>
                         <TextBox x:Name="telephoneTxt" Text="{Binding Path=SelectedDriver.Telephone_number}"/>
+                        <TextBox x:Name="dateTxt" Text="{Binding Path=SelectedDriver.Date_employement}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

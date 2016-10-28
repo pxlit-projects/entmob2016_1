@@ -29,7 +29,7 @@
                 <TextBox Text="{Binding CurrentCity.Postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100px" Margin="10,0,0,0" Header="Postal Address"/>
             </StackPanel>
 
-            <DatePicker Date="{Binding CurrentDriver.Date_employement, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Date employement"/>
+            <!--<DatePicker Date="{Binding CurrentDriver.Date_employement, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Date employement"/>-->
             <TextBox Text="{Binding CurrentDriver.Mobile_phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mobile number"/>
             <TextBox Text="{Binding CurrentDriver.Telephone_number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Telephone number"/>
             <StackPanel Orientation="Horizontal">

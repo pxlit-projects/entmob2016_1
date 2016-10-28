@@ -10,6 +10,6 @@ namespace frontend.Domain
     {
         public int Login_id { get; set; }
         public Employee Employee { get; set; }
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
     }
 }

@@ -147,6 +147,7 @@ namespace MainApp.ViewModels
             {
                 CurrentDriver.Sex = SelectedSex;
                 CurrentDriver.City = CurrentCity;
+                CurrentDriver.Date_employement = new DateTime(1996, 1, 2).ToString();
 
                 if (SelectedStatus == "Active")
                 {

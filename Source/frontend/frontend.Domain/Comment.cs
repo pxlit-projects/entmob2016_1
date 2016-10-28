@@ -13,6 +13,6 @@ namespace frontend.Domain
         public Sensor Sensor { get; set; }
         public Cargo Cargo { get; set; }
         public string Description { get; set; }
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
     }
 }

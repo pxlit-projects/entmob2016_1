@@ -1,6 +1,9 @@
-﻿using System;
+﻿using frontend.Domain.Converter;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +20,8 @@ namespace frontend.Domain
         public string Street { get; set; }
         public string HouseNr { get; set; }
         public City City { get; set; }
-        public DateTime Date_employement { get; set; }
+        //[JsonConverter(typeof(DateConverter))]
+        public string Date_employement { get; set; }
         public string Mobile_phone { get; set; }
         public string Telephone_number { get; set; }
         public string Email { get; set; }

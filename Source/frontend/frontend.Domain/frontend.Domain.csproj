@@ -112,6 +112,7 @@
     <Compile Include="Cargo.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="Converter\DateConverter.cs" />
     <Compile Include="Destination.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="ExceedingsPerCargo.cs" />
