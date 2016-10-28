@@ -1,19 +1,19 @@
 package be.pxl.backend.service;
 
 import java.util.List;
-import be.pxl.backend.entity.BordersPerProduct;
-import be.pxl.backend.entity.BordersPerProductPK;
+import be.pxl.backend.entity.BorderPerProduct;
+import be.pxl.backend.entity.BorderPerProductPK;
 
 public interface IBordersPerProductService {
 
-	public BordersPerProduct find(BordersPerProductPK id);
+	public BorderPerProduct find(BorderPerProductPK id);
 	
-	public List<BordersPerProduct> all();
+	public List<BorderPerProduct> all();
 	
-	public void persist(BordersPerProduct bordersPerProduct);
+	public void persist(BorderPerProduct borderPerProduct);
 	
-	public void delete(BordersPerProductPK id);
+	public void delete(BorderPerProductPK id);
 	
-	public void update(BordersPerProduct bordersPerProduct);
+	public void update(BorderPerProduct borderPerProduct);
 	
 }

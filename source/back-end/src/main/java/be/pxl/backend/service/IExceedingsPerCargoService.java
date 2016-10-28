@@ -1,15 +1,15 @@
 package be.pxl.backend.service;
 
 import java.util.List;
-import be.pxl.backend.entity.ExceedingsPerCargo;
+import be.pxl.backend.entity.ExceedingPerCargo;
 
 public interface IExceedingsPerCargoService {
 
-	public ExceedingsPerCargo find(int id);
+	public ExceedingPerCargo find(int id);
 	
-	public List<ExceedingsPerCargo> all();
+	public List<ExceedingPerCargo> all();
 	
-	public void persist(ExceedingsPerCargo employee);
+	public void persist(ExceedingPerCargo employee);
 	
 	public void delete(int id);
 	

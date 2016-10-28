@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import be.pxl.backend.entity.*;
 
 @Repository
-public interface StabilisationsPerCargoRepository extends JpaRepository<StabilisationsPerCargo, Integer> {
+public interface StabilisationsPerCargoRepository extends JpaRepository<StabilisationPerCargo, Integer> {
 
 }
