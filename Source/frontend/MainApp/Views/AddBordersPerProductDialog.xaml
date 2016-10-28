@@ -28,7 +28,7 @@
                 <ComboBox x:Name="variableBox" Header="Variable" Width="125" Margin="5" ItemsSource="{Binding Path=Variables}" DisplayMemberPath="Description" SelectedValuePath="Variable_id" SelectedValue="{Binding Path=SelectedVariable}"/>
                 
             </StackPanel>
-            <TextBox x:Name="borderValueTxt" Text="{Binding CurrentBorderPerProduct.Border_value_number}" Header="Border float value"></TextBox>
+            <TextBox x:Name="borderValueTxt" Text="{Binding CurrentBordersPerProduct.Border_value_number, Mode=TwoWay}" Header="Border float value"></TextBox>
             <StackPanel Orientation="Horizontal" Margin="30">
                 <Button Command="{Binding SaveCommand}" Style="{StaticResource PageButtonStyle }" FontSize="18"> Save </Button>
                 <TextBlock Text="Objects Created :" Margin="40,0,0,0" Style="{StaticResource BaseTextBlockStyle }" VerticalAlignment="Center"/>

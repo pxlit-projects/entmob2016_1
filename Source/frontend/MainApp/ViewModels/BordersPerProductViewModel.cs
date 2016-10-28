@@ -23,7 +23,7 @@ namespace MainApp.ViewModels
 
             public ICommand UpdateCommand { get; set; }
 
-            public ICommand ShowBordersPerProductDialogCommand { get; set; }
+            public ICommand DetailsCommand { get; set; }
 
             private IBordersPerProductService service;
 
@@ -71,7 +71,7 @@ namespace MainApp.ViewModels
             {
                 UpdateCommand = new CustomCommand(Update, CanUpdate);
 
-                ShowBordersPerProductDialogCommand = new CustomCommand(ShowBordersPerProductDialog, null);
+                DetailsCommand = new CustomCommand(ShowBordersPerProductDialog, null);
             }
 
             private bool CanUpdate(object obj)

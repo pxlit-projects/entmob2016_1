@@ -138,7 +138,6 @@ namespace MainApp.ViewModels
             {
                 MessageDialog msg = new MessageDialog("Unsuccesfull because of :" + ex.Message.ToString());
                 await msg.ShowAsync();
-                await dialog.ShowAsync();
             }
         }
 

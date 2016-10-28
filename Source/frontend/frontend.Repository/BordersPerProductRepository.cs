@@ -52,11 +52,15 @@ namespace frontend.Repository
             return bordersPerProducts;
         }
 
-        public async void AddBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public void AddBordersPerProduct(BordersPerProduct bordersPerProduct)
         {
-            var url = "/bordersperproducts/add";
+            var url = "/bordersperproducts/add/";
             var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                // test
+            }
         }
 
         public async void UpdateBordersPerProduct(BordersPerProduct bordersPerProduct)
