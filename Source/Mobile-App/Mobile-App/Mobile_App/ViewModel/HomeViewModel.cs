@@ -70,7 +70,7 @@ namespace Mobile_App.ViewModel
         {
             valueUpdatedHandler = (fs, a) =>
             {
-                    Data = Decode(a.Characteristic);
+                Data = Decode(a.Characteristic);
             };
             foreach (var car in characteristics)
             {
@@ -100,16 +100,16 @@ namespace Mobile_App.ViewModel
                     });
             };
             // start looking for services
-                device.DiscoverServices();
+            device.DiscoverServices();
         }
 
         private void DiscoverCharacteristics()
         {
-            
+
             foreach (var service in services)
             {
                 service.CharacteristicsDiscovered += (object sender, EventArgs e) => {
-                    if(characteristics.Count<38)
+                    if (characteristics.Count < 38)
                         Device.BeginInvokeOnMainThread(() => {
                             foreach (var serv in services)
                             {
