@@ -23,6 +23,7 @@ namespace JoesBurgerStore
             builder.RegisterType<NavigationService>()
                 .As<INavigationService>()
                 .SingleInstance();
+            builder.RegisterType<HomeViewModel>().SingleInstance();
         }
     }
 }

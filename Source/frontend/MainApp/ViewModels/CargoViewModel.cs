@@ -69,7 +69,7 @@ namespace MainApp.ViewModels
         private void LoadCommands()
         {
             UpdateCommand = new CustomCommand(Update, CanUpdate);
-            DetailsCommand = new RelayCommand<MessageDialog>(ShowDetails, null);
+            DetailsCommand = new CustomCommand(ShowDetails, null);
             ShowCargoDialogCommand = new CustomCommand(ShowCargoDialog, null);
         }
 
@@ -89,7 +89,7 @@ namespace MainApp.ViewModels
             LoadData();
         }
 
-        public void ShowDetails(MessageDialog message)
+        public void ShowDetails(object obj)
         {
 
         }

@@ -18,6 +18,7 @@ namespace JoesBurgerStore.Services
             {
                 case "MainPage": return new MainPage();
                 case "ConnectSensor": return new ConnectSensor();
+                case "HomeView": return new HomeView();
             }
             return null;
         }

@@ -2,7 +2,7 @@ package be.pxl.backend.entity;
 
 import java.io.Serializable;
 
-public class BordersPerProductPK implements Serializable{
+public class BorderPerProductPK implements Serializable{
 	private int product_id;
     private int variable_id;
     

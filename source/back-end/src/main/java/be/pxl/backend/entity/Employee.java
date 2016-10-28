@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -41,6 +42,9 @@ public class Employee {
 	@OneToMany(mappedBy="employee")
 	@JsonManagedReference
 	private List<Login> logins = new ArrayList<Login>();
+	@OneToMany(mappedBy = "employee")
+	@JsonBackReference
+	private List<SensorUsage> usages = new ArrayList<SensorUsage>();
 	
 	public List<Login> getLogins() {
 		return logins;
