@@ -1,6 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Utility;
+using MainApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -59,7 +60,7 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.variable_id);
+            var dummy = service.All().OrderBy(d => d.Variable_id);
             Variables = new ObservableCollection<Variable>(dummy);
             SelectedVariable = variables.ElementAt(0);
         }

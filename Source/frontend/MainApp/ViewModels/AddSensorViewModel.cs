@@ -111,11 +111,11 @@ namespace MainApp.ViewModels
 
                 if (SelectedStatus == "Active")
                 {
-                    CurrentSensor.status = true;
+                    CurrentSensor.Status = true;
                 }
                 else
                 {
-                    CurrentSensor.status = false;
+                    CurrentSensor.Status = false;
                 }
 
                 service.Add(CurrentSensor);

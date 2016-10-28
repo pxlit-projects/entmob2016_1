@@ -10,14 +10,13 @@
    PrimaryButtonText="Add"
     SecondaryButtonText="Cancel"
     PrimaryButtonCommand="{Binding AddCommand}"
-    PrimaryButtonCommandParameter="{Binding ElementName=addCityContentDialog}"
+    PrimaryButtonCommandParameter="{Binding ElementName=addCargoContentDialog}"
     SecondaryButtonCommand="{Binding CancelCommand}"
-    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=AddCityViewModel}">
+    DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=AddCargoViewModel}">
 
     <Grid>
         <StackPanel>
-            <TextBox Text="{Binding CurrentCity.postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Title"/>
-            <TextBox Text="{Binding CurrentCity.city, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            
 
 
 

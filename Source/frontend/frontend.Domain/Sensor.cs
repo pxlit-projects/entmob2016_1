@@ -9,9 +9,9 @@ namespace frontend.Domain
 {
     public class Sensor
     {
-        public int sensor_id { get; set; }
-        public string sensor_name { get; set; }
-        public bool status { get; set; }
-        public ObservableCollection<SensorUsage> cargos { get; set; }
+        public int Sensor_id { get; set; }
+        public string Sensor_name { get; set; }
+        public bool Status { get; set; }
+        public ObservableCollection<SensorUsage> Cargos { get; set; }
     }
 }

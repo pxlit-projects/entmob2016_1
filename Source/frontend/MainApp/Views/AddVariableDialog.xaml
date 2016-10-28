@@ -17,7 +17,7 @@
     <Grid>
         <StackPanel>
             
-            <TextBox Text="{Binding CurrentVariable.description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            <TextBox Text="{Binding CurrentVariable.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
 
 
 

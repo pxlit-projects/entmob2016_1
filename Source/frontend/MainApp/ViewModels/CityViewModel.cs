@@ -61,7 +61,7 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.postal_code);
+            var dummy = service.All().OrderBy(d => d.Postal_code);
             Cities = new ObservableCollection<City>(dummy);
             SelectedCity = cities.ElementAt(0);
         }

@@ -109,7 +109,7 @@ namespace MainApp.ViewModels
             try
             {
 
-                currentProduct.status = Boolean.Parse(selectedStatus);
+                currentProduct.Status = Boolean.Parse(selectedStatus);
 
                 service.Add(CurrentProduct);
                 dialog.Title = "Succesfull!";

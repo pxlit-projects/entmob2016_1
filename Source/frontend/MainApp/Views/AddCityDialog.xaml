@@ -16,8 +16,8 @@
 
     <Grid>
         <StackPanel>
-            <TextBox Text="{Binding CurrentCity.postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Title"/>
-            <TextBox Text="{Binding CurrentCity.city, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
+            <TextBox Text="{Binding CurrentCity.Postal_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Title"/>
+            <TextBox Text="{Binding CurrentCity.City_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Description"/>
 
             
 

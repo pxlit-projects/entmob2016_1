@@ -59,7 +59,7 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.login_id);
+            var dummy = service.All().OrderBy(d => d.Login_id);
             Logins = new ObservableCollection<Login>(dummy);
             SelectedLogin = logins.ElementAt(0);
         }

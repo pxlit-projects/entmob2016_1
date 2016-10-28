@@ -8,14 +8,14 @@ namespace frontend.Domain
 {
     public class SensorData
     {
-        public int sensor_data_id { get; set; }
-        public DateTime time { get; set; }
-        public double temperature { get; set; }
-        public double humidity { get; set; }
-        public double baroMeter { get; set; }
-        public double acceleroMeter { get; set; }
-        public double magnetMeter { get; set; }
-        public double gyroscoop { get; set; }
-        public double lightsensor { get; set; }
+        public int Sensor_data_id { get; set; }
+        public string Time { get; set; }
+        public double Temperature { get; set; }
+        public double Humidity { get; set; }
+        public double BaroMeter { get; set; }
+        public double AcceleroMeter { get; set; }
+        public double MagnetMeter { get; set; }
+        public double Gyroscoop { get; set; }
+        public double Lightsensor { get; set; }
     }
 }

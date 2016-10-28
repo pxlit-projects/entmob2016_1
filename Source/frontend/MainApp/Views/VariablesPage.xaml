@@ -24,8 +24,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding variable_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding description}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Variable_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Description}" Width="250px" HorizontalAlignment="Center"/>
                             
 
                         </StackPanel>
@@ -40,8 +40,8 @@
                         
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedVariable.variable_id}"/>
-                        <TextBlock x:Name="descriptionTxt" Text="{Binding Path=SelectedVariable.description}"/>
+                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedVariable.Variable_id}"/>
+                        <TextBlock x:Name="descriptionTxt" Text="{Binding Path=SelectedVariable.Description}"/>
                         
 
                     </StackPanel>
