@@ -23,6 +23,8 @@ namespace MainApp.ViewModels
 
             public ICommand UpdateCommand { get; set; }
 
+            public ICommand AddCommand { get; set; }
+
             public ICommand ShowBordersPerProductDialogCommand { get; set; }
 
             private IBordersPerProductService service;
@@ -43,7 +45,7 @@ namespace MainApp.ViewModels
                 set
                 {
                     bordersPerProducts = value;
-                    RaisePropertyChanged("Cities");
+                    RaisePropertyChanged("BorderPerProducts");
                 }
             }
 
@@ -70,7 +72,7 @@ namespace MainApp.ViewModels
             private void LoadCommands()
             {
                 UpdateCommand = new CustomCommand(Update, CanUpdate);
-
+                AddCommand = new CustomCommand(AddBorders, null);
                 ShowBordersPerProductDialogCommand = new CustomCommand(ShowBordersPerProductDialog, null);
             }
 
@@ -78,7 +80,8 @@ namespace MainApp.ViewModels
             {
                 return SelectedBordersPerProduct != null;
             }
-
+            
+            
 
 
             private void Update(object obj)
@@ -87,13 +90,16 @@ namespace MainApp.ViewModels
                 LoadData();
             }
 
-
-
-
-        public async void ShowBordersPerProductDialog(object obj)
+        public void ShowBordersPerProductDialog(object obj)
         {
-            var driverdialog = new AddBordersPerProductDialog();
-            var result = await driverdialog.ShowAsync();
+            
+        }
+
+
+        public async void AddBorders(object obj)
+        {
+            var dialog = new AddBordersPerProductDialog();
+            var result = await dialog.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
                 LoadData();
