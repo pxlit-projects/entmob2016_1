@@ -110,7 +110,6 @@
     <Compile Include="BordersPerProductRepository.cs" />
     <Compile Include="CargoRepository.cs" />
     <Compile Include="CityRepository.cs" />
-    <Compile Include="CommentRepository.cs" />
     <Compile Include="DestinationRepository.cs" />
     <Compile Include="EmployeeRepository.cs" />
     <Compile Include="ExceedingsPerCargoRepository.cs" />
@@ -118,7 +117,6 @@
     <Compile Include="IBordersPerProductRepository.cs" />
     <Compile Include="ICargoRepository.cs" />
     <Compile Include="ICityRepository.cs" />
-    <Compile Include="ICommentRepository.cs" />
     <Compile Include="IDestinationRepository.cs" />
     <Compile Include="IEmployeeRepository.cs" />
     <Compile Include="IExceedingsPerCargoRepository.cs" />

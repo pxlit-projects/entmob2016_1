@@ -25,7 +25,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<Employee>> GetAllEmployees()
+        public async Task<List<Employee>> GetAllEmployees()
         {
             var url = "/employees/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -36,7 +36,7 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
             
-            var employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
+            var employees = JsonConvert.DeserializeObject<List<Employee>>(jsonString);
             return employees;
         }
 
@@ -54,6 +54,7 @@ namespace frontend.Repository
             var employee = JsonConvert.DeserializeObject<Employee>(jsonString);
             return employee;
         }
+
         public async Task<Employee> GetEmployeeByUsername(String username)
         {
             var url = "/employees/get/username/" + username;
@@ -69,15 +70,11 @@ namespace frontend.Repository
             return employee;
         }
 
-        public void AddEmployee(Employee employee)
+        public async void AddEmployee(Employee employee)
         {
             var url = "/employees/add";
             var jsonString = JsonConvert.SerializeObject(employee);
-            HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
-            if (response.StatusCode == System.Net.HttpStatusCode.Created)
-            {
-                //test
-            }
+            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
         public async void UpdateEmployee(Employee employee)
@@ -85,12 +82,6 @@ namespace frontend.Repository
             var url = "/employees/update";
             var jsonString = JsonConvert.SerializeObject(employee);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteEmployee(int id)
-        {
-            var url = "/employees/delete/" + id;
-            await Client.DeleteAsync(url);
         }
     }
 }

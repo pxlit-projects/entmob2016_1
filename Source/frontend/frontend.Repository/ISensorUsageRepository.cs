@@ -9,10 +9,8 @@ namespace frontend.Repository
 {
     public interface ISensorUsageRepository
     {
-        Task<IEnumerable<SensorUsage>> GetAllSensorUsages();
+        Task<List<SensorUsage>> GetAllSensorUsages();
         Task<SensorUsage> GetSensorUsageById(int id);
         void AddSensorUsage(SensorUsage sensorUsage);
-        void UpdateSensorUsage(SensorUsage sensorUsage);
-        void DeleteSensorUsage(int id);
     }
 }

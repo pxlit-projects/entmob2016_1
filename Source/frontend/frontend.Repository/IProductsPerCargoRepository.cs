@@ -9,10 +9,8 @@ namespace frontend.Repository
 {
     public interface IProductsPerCargoRepository
     {
-        Task<IEnumerable<ProductPerCargo>> GetAllProductsPerCargos();
-        Task<ProductPerCargo> GetProductsPerCargoById(int id);
+        Task<List<ProductPerCargo>> GetAllProductsPerCargos();
+        Task<ProductPerCargo> GetProductsPerCargoById(int cargo_id, int product_id);
         void AddProductsPerCargo(ProductPerCargo productsPerCargo);
-        void UpdateProductsPerCargo(ProductPerCargo productsPerCargo);
-        void DeleteProductsPerCargo(int id);
     }
 }

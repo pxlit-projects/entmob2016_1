@@ -110,14 +110,12 @@
     <Compile Include="BordersPerProductService.cs" />
     <Compile Include="CargoService.cs" />
     <Compile Include="CityService.cs" />
-    <Compile Include="CommentService.cs" />
     <Compile Include="DestinationService.cs" />
     <Compile Include="EmployeeService.cs" />
     <Compile Include="ExceedingsPerCargoService.cs" />
     <Compile Include="IBordersPerProductService.cs" />
     <Compile Include="ICargoService.cs" />
     <Compile Include="ICityService.cs" />
-    <Compile Include="ICommentService.cs" />
     <Compile Include="IDestinationService.cs" />
     <Compile Include="IEmployeeService.cs" />
     <Compile Include="IExceedingsPerCargoService.cs" />

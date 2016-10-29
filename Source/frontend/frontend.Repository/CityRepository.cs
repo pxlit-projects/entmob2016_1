@@ -22,7 +22,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<City>> GetAllCities()
+        public async Task<List<City>> GetAllCities()
         {
             var url = "/cities/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,7 +33,7 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var cities = JsonConvert.DeserializeObject<IEnumerable<City>>(jsonString);
+            var cities = JsonConvert.DeserializeObject<List<City>>(jsonString);
             return cities;
         }
 
@@ -64,12 +64,6 @@ namespace frontend.Repository
             var url = "/cities/update";
             var jsonString = JsonConvert.SerializeObject(city);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteCity(int id)
-        {
-            var url = "/cities/delete/" + id;
-            await Client.DeleteAsync(url);
         }
     }
 }

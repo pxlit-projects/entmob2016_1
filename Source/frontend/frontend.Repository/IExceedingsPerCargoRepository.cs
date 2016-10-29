@@ -9,10 +9,8 @@ namespace frontend.Repository
 {
     public interface IExceedingsPerCargoRepository
     {
-        Task<IEnumerable<ExceedingPerCargo>> GetAllExceedingsPerCargos();
+        Task<List<ExceedingPerCargo>> GetAllExceedingsPerCargos();
         Task<ExceedingPerCargo> GetExceedingsPerCargoById(int id);
         void AddExceedingsPerCargo(ExceedingPerCargo exceedingsPerCargo);
-        void UpdateExceedingsPerCargo(ExceedingPerCargo exceedingsPerCargo);
-        void DeleteExceedingsPerCargo(int id);
     }
 }

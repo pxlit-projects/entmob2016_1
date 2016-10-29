@@ -22,7 +22,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<Product>> GetAllProducts()
+        public async Task<List<Product>> GetAllProducts()
         {
             var url = "/products/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,7 +33,7 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var products = JsonConvert.DeserializeObject<IEnumerable<Product>>(jsonString);
+            var products = JsonConvert.DeserializeObject<List<Product>>(jsonString);
             return products;
         }
 
@@ -64,12 +64,6 @@ namespace frontend.Repository
             var url = "/products/update";
             var jsonString = JsonConvert.SerializeObject(product);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteProduct(int id)
-        {
-            var url = "/products/delete/" + id;
-            await Client.DeleteAsync(url);
         }
     }
 }

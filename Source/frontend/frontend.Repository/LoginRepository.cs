@@ -14,62 +14,37 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
+        public IEmployeeRepository EmployeeRepository { get; set; }
+
         public LoginRepository()
         {
+            EmployeeRepository = new EmployeeRepository();
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<Login>> GetAllLogins()
+        public async Task<List<Login>> GetAllLogins()
         {
-            var url = "/logins/all";
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var logins = JsonConvert.DeserializeObject<IEnumerable<Login>>(jsonString);
+            var employees = await EmployeeRepository.GetAllEmployees();
+            List<Login> logins = new List<Login>();
+            employees.ForEach(e => e.Logins.ForEach(l => logins.Add(l)));
             return logins;
         }
 
         public async Task<Login> GetLoginById(int id)
         {
-            var url = "/logins/get/" + id;
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var login = JsonConvert.DeserializeObject<Login>(jsonString);
+            var logins = await GetAllLogins();
+            var login = logins.FirstOrDefault(l => l.Login_id == id);
             return login;
         }
 
         public async void AddLogin(Login login)
         {
-            var url = "/logins/add";
-            var jsonString = JsonConvert.SerializeObject(login);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void UpdateLogin(Login login)
-        {
-            var url = "/logins/update";
-            var jsonString = JsonConvert.SerializeObject(login);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteLogin(int id)
-        {
-            var url = "/logins/delete/" + id;
-            await Client.DeleteAsync(url);
+            var employee = await EmployeeRepository.GetEmployeeById(login.Employee.Employee_id);
+            employee.Logins.Add(login);
+            EmployeeRepository.UpdateEmployee(employee);
         }
     }
 }
