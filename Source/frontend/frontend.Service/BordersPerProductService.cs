@@ -22,24 +22,14 @@ namespace frontend.Service
             return bordersPerProductRepository.GetAllBordersPerProducts().Result.ToList();
         }
 
-        public BorderPerProduct Find(int id)
+        public BorderPerProduct Find(int product_id, int variable_id)
         {
-            return bordersPerProductRepository.GetBordersPerProductById(id).Result;
+            return bordersPerProductRepository.GetBordersPerProductById(product_id, variable_id).Result;
         }
 
         public void Add(BorderPerProduct bordersPerProduct)
         {
             bordersPerProductRepository.AddBordersPerProduct(bordersPerProduct);
-        }
-
-        public void Update(BorderPerProduct bordersPerProduct)
-        {
-            bordersPerProductRepository.UpdateBordersPerProduct(bordersPerProduct);
-        }
-
-        public void Delete(int id)
-        {
-            bordersPerProductRepository.DeleteBordersPerProduct(id);
         }
     }
 }

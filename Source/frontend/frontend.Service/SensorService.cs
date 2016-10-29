@@ -27,11 +27,6 @@ namespace frontend.Service
             return sensorRepository.GetAllSensors().Result.ToList();
         }
 
-        public void Delete(int id)
-        {
-            sensorRepository.DeleteSensor(id);
-        }
-
         public Sensor Find(int id)
         {
             return sensorRepository.GetSensorById(id).Result;

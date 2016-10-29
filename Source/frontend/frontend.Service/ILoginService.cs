@@ -12,7 +12,5 @@ namespace frontend.Service
         List<Login> All();
         Login Find(int id);
         void Add(Login login);
-        void Update(Login login);
-        void Delete(int id);
     }
 }

@@ -13,7 +13,6 @@ namespace frontend.Service
         Sensor Find(int id);
         void Add(Sensor sensor);
         void Update(Sensor sensor);
-        void Delete(int id);
         void ChangeStatus(Sensor sensor);
     }
 }

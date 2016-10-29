@@ -26,12 +26,7 @@ namespace frontend.Service
         {
             return cityRepository.GetAllCities().Result.ToList();
         }
-
-        public void Delete(int id)
-        {
-            cityRepository.DeleteCity(id);
-        }
-
+        
         public City Find(int id)
         {
             return cityRepository.GetCityById(id).Result;

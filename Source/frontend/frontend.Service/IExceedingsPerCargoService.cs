@@ -12,7 +12,5 @@ namespace frontend.Service
         List<ExceedingPerCargo> All();
         ExceedingPerCargo Find(int id);
         void Add(ExceedingPerCargo exceedingsPerCargo);
-        void Update(ExceedingPerCargo exceedingsPerCargo);
-        void Delete(int id);
     }
 }

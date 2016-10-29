@@ -12,7 +12,5 @@ namespace frontend.Service
         List<BorderPerProduct> All();
         BorderPerProduct Find(int id);
         void Add(BorderPerProduct bordersPerProduct);
-        void Update(BorderPerProduct bordersPerProduct);
-        void Delete(int id);
     }
 }

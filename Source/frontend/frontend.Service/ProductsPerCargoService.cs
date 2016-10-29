@@ -27,19 +27,9 @@ namespace frontend.Service
             return productsPerCargoRepository.GetAllProductsPerCargos().Result.ToList();
         }
 
-        public void Delete(int id)
+        public ProductPerCargo Find(int cargo_id, int product_id)
         {
-            productsPerCargoRepository.DeleteProductsPerCargo(id);
-        }
-
-        public ProductPerCargo Find(int id)
-        {
-            return productsPerCargoRepository.GetProductsPerCargoById(id).Result;
-        }
-
-        public void Update(ProductPerCargo productsPerCargo)
-        {
-            productsPerCargoRepository.UpdateProductsPerCargo(productsPerCargo);
+            return productsPerCargoRepository.GetProductsPerCargoById(cargo_id, product_id).Result;
         }
     }
 }

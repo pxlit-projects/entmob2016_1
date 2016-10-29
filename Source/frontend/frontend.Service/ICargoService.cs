@@ -13,6 +13,5 @@ namespace frontend.Service
         Cargo Find(int id);
         void Add(Cargo cargo);
         void Update(Cargo cargo);
-        void Delete(int id);
     }
 }

@@ -13,7 +13,6 @@ namespace frontend.Service
         Product Find(int id);
         void Add(Product product);
         void Update(Product product);
-        void Delete(int id);
         void ChangeStatus(Product product);
     }
 }

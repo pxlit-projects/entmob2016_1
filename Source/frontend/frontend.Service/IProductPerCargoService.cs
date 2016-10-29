@@ -12,7 +12,5 @@ namespace frontend.Service
         List<ProductPerCargo> All();
         ProductPerCargo Find(int id);
         void Add(ProductPerCargo productsPerCargo);
-        void Update(ProductPerCargo productsPerCargo);
-        void Delete(int id);
     }
 }
