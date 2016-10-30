@@ -22,7 +22,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<Cargo>> GetAllCargos()
+        public async Task<List<Cargo>> GetAllCargos()
         {
             var url = "/cargos/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,7 +33,7 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var cargos = JsonConvert.DeserializeObject<IEnumerable<Cargo>>(jsonString);
+            var cargos = JsonConvert.DeserializeObject<List<Cargo>>(jsonString);
             return cargos;
         }
 
@@ -64,12 +64,6 @@ namespace frontend.Repository
             var url = "/cargos/update";
             var jsonString = JsonConvert.SerializeObject(cargo);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteCargo(int id)
-        {
-            var url = "/cargos/delete/" + id;
-            await Client.DeleteAsync(url);
         }
     }
 }

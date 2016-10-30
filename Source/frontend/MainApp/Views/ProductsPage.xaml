@@ -32,15 +32,17 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="100, 0, 100, 0" Padding="20">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical" Width="100px">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> ID:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Naam:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Beschrijving:</TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical" Width="500px">
                         <TextBlock x:Name="idTxt" Text="{Binding SelectedProduct.Product_id}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Naam:</TextBlock>
                         <TextBox x:Name="nameTxt" Text="{Binding SelectedProduct.Title, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Beschrijving:</TextBlock>
                         <TextBlock x:Name="descTxt" Text="{Binding SelectedProduct.Description}"/>
                     </StackPanel>
                 </StackPanel>

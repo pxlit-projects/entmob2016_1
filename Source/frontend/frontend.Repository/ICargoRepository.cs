@@ -9,10 +9,9 @@ namespace frontend.Repository
 {
     public interface ICargoRepository
     {
-        Task<IEnumerable<Cargo>> GetAllCargos();
+        Task<List<Cargo>> GetAllCargos();
         Task<Cargo> GetCargoById(int id);
         void AddCargo(Cargo cargo);
         void UpdateCargo(Cargo cargo);
-        void DeleteCargo(int id);
     }
 }

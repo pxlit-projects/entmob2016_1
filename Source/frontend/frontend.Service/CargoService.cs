@@ -27,11 +27,6 @@ namespace frontend.Service
             return cargoRepository.GetAllCargos().Result.ToList();
         }
 
-        public void Delete(int id)
-        {
-            cargoRepository.DeleteCargo(id);
-        }
-
         public Cargo Find(int id)
         {
             return cargoRepository.GetCargoById(id).Result;

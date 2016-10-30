@@ -14,62 +14,43 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
+        public ISensorRepository SensorRepository { get; set; }
+
+        public IEmployeeRepository EmployeeRepository { get; set; }
+
         public SensorUsageRepository()
         {
+            SensorRepository = new SensorRepository();
+            EmployeeRepository = new EmployeeRepository();
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<SensorUsage>> GetAllSensorUsages()
+        public async Task<List<SensorUsage>> GetAllSensorUsages()
         {
-            var url = "/sensorusages/all";
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var sensorUsages = JsonConvert.DeserializeObject<IEnumerable<SensorUsage>>(jsonString);
-            return sensorUsages;
+            var sensors = await SensorRepository.GetAllSensors();
+            List<SensorUsage> usages = new List<SensorUsage>();
+            sensors.ForEach(s => s.Usages.ForEach(u => usages.Add(u)));
+            return usages;
         }
 
         public async Task<SensorUsage> GetSensorUsageById(int id)
         {
-            var url = "/sensorusages/get/" + id;
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var sensorUsage = JsonConvert.DeserializeObject<SensorUsage>(jsonString);
-            return sensorUsage;
+            var usages = await GetAllSensorUsages();
+            var usage = usages.FirstOrDefault(u => u.Sensor_usage_id == id);
+            return usage;
         }
 
         public async void AddSensorUsage(SensorUsage sensorUsage)
         {
-            var url = "/sensorusages/add";
-            var jsonString = JsonConvert.SerializeObject(sensorUsage);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void UpdateSensorUsage(SensorUsage sensorUsage)
-        {
-            var url = "/sensorusages/update";
-            var jsonString = JsonConvert.SerializeObject(sensorUsage);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteSensorUsage(int id)
-        {
-            var url = "/sensorusages/delete/" + id;
-            await Client.DeleteAsync(url);
+            var sensor = await SensorRepository.GetSensorById(sensorUsage.Sensor.Sensor_id);
+            var employee = await EmployeeRepository.GetEmployeeById(sensorUsage.Employee.Employee_id);
+            sensor.Usages.Add(sensorUsage);
+            employee.Usages.Add(sensorUsage);
+            SensorRepository.UpdateSensor(sensor);
+            EmployeeRepository.UpdateEmployee(employee);
         }
     }
 }

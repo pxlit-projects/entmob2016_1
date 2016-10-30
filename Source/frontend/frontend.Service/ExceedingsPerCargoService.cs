@@ -17,29 +17,19 @@ namespace frontend.Service
             exceedingsPerCargoRepository = new ExceedingsPerCargoRepository();
         }
 
-        public void Add(ExceedingsPerCargo exceedingsPerCargo)
+        public void Add(ExceedingPerCargo exceedingsPerCargo)
         {
             exceedingsPerCargoRepository.AddExceedingsPerCargo(exceedingsPerCargo);
         }
 
-        public List<ExceedingsPerCargo> All()
+        public List<ExceedingPerCargo> All()
         {
             return exceedingsPerCargoRepository.GetAllExceedingsPerCargos().Result.ToList();
         }
 
-        public void Delete(int id)
-        {
-            exceedingsPerCargoRepository.DeleteExceedingsPerCargo(id);
-        }
-
-        public ExceedingsPerCargo Find(int id)
+        public ExceedingPerCargo Find(int id)
         {
             return exceedingsPerCargoRepository.GetExceedingsPerCargoById(id).Result;
-        }
-
-        public void Update(ExceedingsPerCargo exceedingsPerCargo)
-        {
-            exceedingsPerCargoRepository.UpdateExceedingsPerCargo(exceedingsPerCargo);
         }
     }
 }

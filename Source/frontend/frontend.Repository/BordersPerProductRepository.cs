@@ -14,62 +14,37 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
+        public IProductRepository ProductRepository { get; set; }
+
         public BordersPerProductRepository()
         {
+            ProductRepository = new ProductRepository();
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<BordersPerProduct>> GetAllBordersPerProducts()
+        public async Task<List<BorderPerProduct>> GetAllBordersPerProducts()
         {
-            var url = "/bordersperproducts/all";
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var bordersPerProducts = JsonConvert.DeserializeObject<IEnumerable<BordersPerProduct>>(jsonString);
-            return bordersPerProducts;
+            var products = await ProductRepository.GetAllProducts();
+            List<BorderPerProduct> borderPerProducts = new List<BorderPerProduct>();
+            products.ForEach(p => p.Borders.ForEach(b => borderPerProducts.Add(b)));
+            return borderPerProducts;
         }
 
-        public async Task<BordersPerProduct> GetBordersPerProductById(int id)
+        public async Task<BorderPerProduct> GetBordersPerProductById(int product_id, int variable_id)
         {
-            var url = "/bordersperproducts/get/" + id;
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var bordersPerProducts = JsonConvert.DeserializeObject<BordersPerProduct>(jsonString);
-            return bordersPerProducts;
+            var borderPerProducts = await GetAllBordersPerProducts();
+            var borderPerProduct = borderPerProducts.FirstOrDefault(b => b.Id.Product_id == product_id && b.Id.Variable_id == variable_id);
+            return borderPerProduct;
         }
 
-        public async void AddBordersPerProduct(BordersPerProduct bordersPerProduct)
+        public async void AddBordersPerProduct(BorderPerProduct bordersPerProduct)
         {
-            var url = "/bordersperproducts/add";
-            var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void UpdateBordersPerProduct(BordersPerProduct bordersPerProduct)
-        {
-            var url = "/bordersperproducts/update";
-            var jsonString = JsonConvert.SerializeObject(bordersPerProduct);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteBordersPerProduct(int id)
-        {
-            var url = "/bordersperproducts/delete/" + id;
-            await Client.DeleteAsync(url);
+            var product = await ProductRepository.GetProductById(bordersPerProduct.Product.Product_id);
+            product.Borders.Add(bordersPerProduct);
+            ProductRepository.UpdateProduct(product);
         }
     }
 }

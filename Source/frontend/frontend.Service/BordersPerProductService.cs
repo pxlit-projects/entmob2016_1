@@ -17,29 +17,19 @@ namespace frontend.Service
             bordersPerProductRepository = new BordersPerProductRepository();
         }
 
-        public List<BordersPerProduct> All()
+        public List<BorderPerProduct> All()
         {
             return bordersPerProductRepository.GetAllBordersPerProducts().Result.ToList();
         }
 
-        public BordersPerProduct Find(int id)
+        public BorderPerProduct Find(int product_id, int variable_id)
         {
-            return bordersPerProductRepository.GetBordersPerProductById(id).Result;
+            return bordersPerProductRepository.GetBordersPerProductById(product_id, variable_id).Result;
         }
 
-        public void Add(BordersPerProduct bordersPerProduct)
+        public void Add(BorderPerProduct bordersPerProduct)
         {
             bordersPerProductRepository.AddBordersPerProduct(bordersPerProduct);
-        }
-
-        public void Update(BordersPerProduct bordersPerProduct)
-        {
-            bordersPerProductRepository.UpdateBordersPerProduct(bordersPerProduct);
-        }
-
-        public void Delete(int id)
-        {
-            bordersPerProductRepository.DeleteBordersPerProduct(id);
         }
     }
 }

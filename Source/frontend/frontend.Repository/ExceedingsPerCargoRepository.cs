@@ -14,62 +14,37 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
+        public ICargoRepository CargoRepository { get; set; }
+
         public ExceedingsPerCargoRepository()
         {
+            CargoRepository = new CargoRepository();
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<ExceedingsPerCargo>> GetAllExceedingsPerCargos()
+        public async Task<List<ExceedingPerCargo>> GetAllExceedingsPerCargos()
         {
-            var url = "/exceedingsPerCargos/all";
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var exceedingsPerCargos = JsonConvert.DeserializeObject<IEnumerable<ExceedingsPerCargo>>(jsonString);
-            return exceedingsPerCargos;
+            var cargos = await CargoRepository.GetAllCargos();
+            List<ExceedingPerCargo> exceedingPerCargos = new List<ExceedingPerCargo>();
+            cargos.ForEach(c => c.Exceedings.ForEach(e => exceedingPerCargos.Add(e)));
+            return exceedingPerCargos;
         }
 
-        public async Task<ExceedingsPerCargo> GetExceedingsPerCargoById(int id)
+        public async Task<ExceedingPerCargo> GetExceedingsPerCargoById(int id)
         {
-            var url = "/exceedinsPerCargos/get/" + id;
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var exceedingsPerCargo = JsonConvert.DeserializeObject<ExceedingsPerCargo>(jsonString);
-            return exceedingsPerCargo;
+            var exceedingPerCargos = await GetAllExceedingsPerCargos();
+            var exceedingPerCargo = exceedingPerCargos.FirstOrDefault(e => e.Exceeding_per_cargo_id == id);
+            return exceedingPerCargo;
         }
 
-        public async void AddExceedingsPerCargo(ExceedingsPerCargo exceedingsPerCargo)
+        public async void AddExceedingsPerCargo(ExceedingPerCargo exceedingPerCargo)
         {
-            var url = "/exceedingsPerCargos/add";
-            var jsonString = JsonConvert.SerializeObject(exceedingsPerCargo);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void UpdateExceedingsPerCargo(ExceedingsPerCargo exceedingsPerCargo)
-        {
-            var url = "/exceedingsPerCargo/update";
-            var jsonString = JsonConvert.SerializeObject(exceedingsPerCargo);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteExceedingsPerCargo(int id)
-        {
-            var url = "/exceedingsPerCargo/delete/" + id;
-            await Client.DeleteAsync(url);
+            var cargo = await CargoRepository.GetCargoById(exceedingPerCargo.Cargo.Cargo_id);
+            cargo.Exceedings.Add(exceedingPerCargo);
+            CargoRepository.UpdateCargo(cargo);
         }
     }
 }

@@ -12,7 +12,5 @@ namespace frontend.Service
         List<SensorUsage> All();
         SensorUsage Find(int id);
         void Add(SensorUsage sensorUsage);
-        void Update(SensorUsage sensorUsage);
-        void Delete(int id);
     }
 }

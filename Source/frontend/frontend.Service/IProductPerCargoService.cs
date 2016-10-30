@@ -9,10 +9,8 @@ namespace frontend.Service
 {
     public interface IProductsPerCargoService
     {
-        List<ProductsPerCargo> All();
-        ProductsPerCargo Find(int id);
-        void Add(ProductsPerCargo productsPerCargo);
-        void Update(ProductsPerCargo productsPerCargo);
-        void Delete(int id);
+        List<ProductPerCargo> All();
+        ProductPerCargo Find(int id);
+        void Add(ProductPerCargo productsPerCargo);
     }
 }

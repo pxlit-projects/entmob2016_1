@@ -13,6 +13,5 @@ namespace frontend.Service
         City Find(int id);
         void Add(City city);
         void Update(City city);
-        void Delete(int id);
     }
 }

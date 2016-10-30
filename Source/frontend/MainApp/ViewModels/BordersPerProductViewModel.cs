@@ -18,12 +18,12 @@ namespace MainApp.ViewModels
     {
         
         
-            private ObservableCollection<BordersPerProduct> bordersPerProducts;
-            private BordersPerProduct selectedBordersPerProduct;
+            private ObservableCollection<BorderPerProduct> bordersPerProducts;
+            private BorderPerProduct selectedBordersPerProduct;
 
             public ICommand UpdateCommand { get; set; }
 
-            public ICommand ShowBordersPerProductDialogCommand { get; set; }
+            public ICommand DetailsCommand { get; set; }
 
             private IBordersPerProductService service;
 
@@ -34,7 +34,7 @@ namespace MainApp.ViewModels
                 LoadCommands();
             }
 
-            public ObservableCollection<BordersPerProduct> BorderPerProducts
+            public ObservableCollection<BorderPerProduct> BorderPerProducts
             {
                 get
                 {
@@ -47,7 +47,7 @@ namespace MainApp.ViewModels
                 }
             }
 
-            public BordersPerProduct SelectedBordersPerProduct
+            public BorderPerProduct SelectedBordersPerProduct
             {
                 get
                 {
@@ -63,7 +63,7 @@ namespace MainApp.ViewModels
             private void LoadData()
             {
                 var dummy = service.All().OrderBy(d => d.Id);
-                BorderPerProducts = new ObservableCollection<BordersPerProduct>(dummy);
+                BorderPerProducts = new ObservableCollection<BorderPerProduct>(dummy);
                 SelectedBordersPerProduct = bordersPerProducts.ElementAt(0);
             }
 
@@ -71,7 +71,7 @@ namespace MainApp.ViewModels
             {
                 UpdateCommand = new CustomCommand(Update, CanUpdate);
 
-                ShowBordersPerProductDialogCommand = new CustomCommand(ShowBordersPerProductDialog, null);
+                DetailsCommand = new CustomCommand(ShowBordersPerProductDialog, null);
             }
 
             private bool CanUpdate(object obj)

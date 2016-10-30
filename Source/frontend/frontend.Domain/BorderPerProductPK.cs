@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace frontend.Domain
 {
-    public class ProductsPerCargoPK
+    public class BorderPerProductPK
     {
         public int Product_id { get; set; }
-        public int Cargo_id { get; set; }
+        public int Variable_id { get; set; }
     }
 }

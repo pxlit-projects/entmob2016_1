@@ -17,5 +17,6 @@ namespace frontend.Domain
         public double MagnetMeter { get; set; }
         public double Gyroscoop { get; set; }
         public double Lightsensor { get; set; }
+        public Sensor Sensor { get; set; }
     }
 }

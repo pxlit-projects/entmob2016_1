@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace frontend.Domain
 {
-    public class BordersPerProduct
+    public class ExceedingPerCargo
     {
-        public BordersPerProductPK Id { get; set; }
-        public Product Product { get; set; }
+        public int Exceeding_per_cargo_id { get; set; }
+        public Cargo Cargo { get; set; }
         public Variable Variable { get; set; }
-        public float Border_value_number { get; set; }
+        public float Value { get; set; }
     }
 }
-

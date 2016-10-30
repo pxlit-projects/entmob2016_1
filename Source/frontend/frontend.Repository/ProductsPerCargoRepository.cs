@@ -14,62 +14,43 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
+        public IProductRepository ProductRepository { get; set; }
+
+        public ICargoRepository CargoRepository { get; set; }
+
         public ProductsPerCargoRepository()
         {
+            ProductRepository = new ProductRepository();
+            CargoRepository = new CargoRepository();
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<ProductsPerCargo>> GetAllProductsPerCargos()
+        public async Task<List<ProductPerCargo>> GetAllProductsPerCargos()
         {
-            var url = "/productPerCargos/all";
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var productsPerCargos = JsonConvert.DeserializeObject<IEnumerable<ProductsPerCargo>>(jsonString);
-            return productsPerCargos;
+            var products = await ProductRepository.GetAllProducts();
+            List<ProductPerCargo> productPerCargos = new List<ProductPerCargo>();
+            products.ForEach(p => p.Cargos.ForEach(c => productPerCargos.Add(c)));
+            return productPerCargos;
         }
 
-        public async Task<ProductsPerCargo> GetProductsPerCargoById(int id)
+        public async Task<ProductPerCargo> GetProductsPerCargoById(int cargo_id, int product_id)
         {
-            var url = "/productPerCargos/get/" + id;
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var productPerCargo = JsonConvert.DeserializeObject<ProductsPerCargo>(jsonString);
+            var productPerCargos = await GetAllProductsPerCargos();
+            var productPerCargo = productPerCargos.FirstOrDefault(p => p.Id.Cargo_id == cargo_id && p.Id.Product_id == product_id);
             return productPerCargo;
         }
 
-        public async void AddProductsPerCargo(ProductsPerCargo productsPerCargo)
+        public async void AddProductsPerCargo(ProductPerCargo productsPerCargo)
         {
-            var url = "/productPerCargos/add";
-            var jsonString = JsonConvert.SerializeObject(productsPerCargo);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void UpdateProductsPerCargo(ProductsPerCargo productsPerCargo)
-        {
-            var url = "/cities/update";
-            var jsonString = JsonConvert.SerializeObject(productsPerCargo);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteProductsPerCargo(int id)
-        {
-            var url = "/productsPerCargo/delete/" + id;
-            await Client.DeleteAsync(url);
+            var product = await ProductRepository.GetProductById(productsPerCargo.Product.Product_id);
+            var cargo = await CargoRepository.GetCargoById(productsPerCargo.Cargo.Cargo_id);
+            product.Cargos.Add(productsPerCargo);
+            cargo.Products.Add(productsPerCargo);
+            ProductRepository.UpdateProduct(product);
+            CargoRepository.UpdateCargo(cargo);
         }
     }
 }

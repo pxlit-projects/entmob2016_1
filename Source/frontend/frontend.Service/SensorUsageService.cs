@@ -27,19 +27,9 @@ namespace frontend.Service
             return sensorUsageRepository.GetAllSensorUsages().Result.ToList();
         }
 
-        public void Delete(int id)
-        {
-            sensorUsageRepository.DeleteSensorUsage(id);
-        }
-
         public SensorUsage Find(int id)
         {
             return sensorUsageRepository.GetSensorUsageById(id).Result;
-        }
-
-        public void Update(SensorUsage sensorUsage)
-        {
-            sensorUsageRepository.UpdateSensorUsage(sensorUsage);
         }
     }
 }

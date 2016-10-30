@@ -39,7 +39,7 @@
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> ID:</TextBlock>
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Product:</TextBlock>
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Variable:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Time:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Value:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
                         <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedBordersPerProduct.Id}"/>
@@ -54,7 +54,9 @@
                 <Button Style="{StaticResource PageButtonStyle}" Command="{Binding UpdateCommand}" Padding="12" HorizontalAlignment="Left" Margin="0,0,0,0" Width="125">Update</Button>
                 <Button Style="{StaticResource PageButtonStyle}" Command="{Binding DetailsCommand}" Padding="12" HorizontalAlignment="Right" Margin="20,0,0,0" Width="150">Borders details</Button>
             </Grid>
-
+            <Grid Padding="20">
+                <Button Style="{StaticResource PageButtonStyle}" Command="{Binding AddCommand}" Padding="12" HorizontalAlignment="Center"> Add Borders</Button>
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>

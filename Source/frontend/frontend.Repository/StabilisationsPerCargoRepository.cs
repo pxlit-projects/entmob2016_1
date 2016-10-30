@@ -22,7 +22,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<StabilisationsPerCargo>> GetAllStabilisationsPerCargos()
+        public async Task<IEnumerable<StabilisationPerCargo>> GetAllStabilisationsPerCargos()
         {
             var url = "/stabilisationspercargos/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,11 +33,11 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var stabilisationsPerCargos = JsonConvert.DeserializeObject<IEnumerable<StabilisationsPerCargo>>(jsonString);
+            var stabilisationsPerCargos = JsonConvert.DeserializeObject<IEnumerable<StabilisationPerCargo>>(jsonString);
             return stabilisationsPerCargos;
         }
 
-        public async Task<StabilisationsPerCargo> GetStabilisationsPerCargoById(int id)
+        public async Task<StabilisationPerCargo> GetStabilisationsPerCargoById(int id)
         {
             var url = "/stabilisationspercargos/get/" + id;
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -48,18 +48,18 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var stabilisationsPerCargo = JsonConvert.DeserializeObject<StabilisationsPerCargo>(jsonString);
+            var stabilisationsPerCargo = JsonConvert.DeserializeObject<StabilisationPerCargo>(jsonString);
             return stabilisationsPerCargo;
         }
 
-        public async void AddStabilisationsPerCargo(StabilisationsPerCargo stabilisationsPerCargo)
+        public async void AddStabilisationsPerCargo(StabilisationPerCargo stabilisationsPerCargo)
         {
             var url = "/stabilisationspercargos/add";
             var jsonString = JsonConvert.SerializeObject(stabilisationsPerCargo);
             await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
-        public async void UpdateStabilisationsPerCargo(StabilisationsPerCargo stabilisationsPerCargo)
+        public async void UpdateStabilisationsPerCargo(StabilisationPerCargo stabilisationsPerCargo)
         {
             var url = "/stabilisationspercargos/update";
             var jsonString = JsonConvert.SerializeObject(stabilisationsPerCargo);

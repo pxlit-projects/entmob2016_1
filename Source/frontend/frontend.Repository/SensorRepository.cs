@@ -22,7 +22,7 @@ namespace frontend.Repository
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<Sensor>> GetAllSensors()
+        public async Task<List<Sensor>> GetAllSensors()
         {
             var url = "/sensors/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,7 +33,7 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var sensors = JsonConvert.DeserializeObject<IEnumerable<Sensor>>(jsonString);
+            var sensors = JsonConvert.DeserializeObject<List<Sensor>>(jsonString);
             return sensors;
         }
 
@@ -64,12 +64,6 @@ namespace frontend.Repository
             var url = "/sensors/update";
             var jsonString = JsonConvert.SerializeObject(sensor);
             await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteSensor(int id)
-        {
-            var url = "/sensors/delete/" + id;
-            await Client.DeleteAsync(url);
         }
     }
 }

@@ -27,11 +27,6 @@ namespace frontend.Service
             return productRepository.GetAllProducts().Result.ToList();
         }
 
-        public void Delete(int id)
-        {
-            productRepository.DeleteProduct(id);
-        }
-
         public Product Find(int id)
         {
             return productRepository.GetProductById(id).Result;
@@ -41,6 +36,7 @@ namespace frontend.Service
         {
             productRepository.UpdateProduct(product);
         }
+
         public void ChangeStatus(Product product)
         {
             if (product.Status == true)

@@ -17,29 +17,19 @@ namespace frontend.Service
             productsPerCargoRepository = new ProductsPerCargoRepository();
         }
 
-        public void Add(ProductsPerCargo productsPerCargo)
+        public void Add(ProductPerCargo productsPerCargo)
         {
             productsPerCargoRepository.AddProductsPerCargo(productsPerCargo);
         }
 
-        public List<ProductsPerCargo> All()
+        public List<ProductPerCargo> All()
         {
             return productsPerCargoRepository.GetAllProductsPerCargos().Result.ToList();
         }
 
-        public void Delete(int id)
+        public ProductPerCargo Find(int cargo_id, int product_id)
         {
-            productsPerCargoRepository.DeleteProductsPerCargo(id);
-        }
-
-        public ProductsPerCargo Find(int id)
-        {
-            return productsPerCargoRepository.GetProductsPerCargoById(id).Result;
-        }
-
-        public void Update(ProductsPerCargo productsPerCargo)
-        {
-            productsPerCargoRepository.UpdateProductsPerCargo(productsPerCargo);
+            return productsPerCargoRepository.GetProductsPerCargoById(cargo_id, product_id).Result;
         }
     }
 }
