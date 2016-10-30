@@ -1,5 +1,7 @@
 package be.pxl.backend.entity;
 
+import be.pxl.backend.security.user.Role;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,6 +19,7 @@ public class Employee {
 	private String surName;
 	private String name;
 	private Boolean status;
+    public Role clearance;
     
     public int getEmployee_id () {
         return employee_id;
@@ -39,6 +42,7 @@ public class Employee {
     public Boolean getStatus () {
         return status;
     }
+    public Role getClearance() { return clearance; }
     
     public void setStatus(boolean status) { this.status = status; }
 	
