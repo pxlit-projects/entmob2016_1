@@ -35,10 +35,6 @@ public class SensorService implements ISensorService {
 		this.update(sensor);
 	}
 	
-	public void update(Sensor sensor) {
-		Sensor s = repo.findOne(sensor.getSensor_id());
-		s.copy(sensor);
-		repo.save(s);
-	}
+	public void update(Sensor sensor) { repo.save(sensor); }
 	
 }

@@ -1,24 +1,28 @@
 package be.pxl.backend.jms;
 
 import be.pxl.backend.entity.Log;
-import be.pxl.backend.repository.LogRepository;
+import be.pxl.backend.service.ILogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
-import javax.jms.Message;
+
+import javax.jms.JMSException;
+import javax.jms.TextMessage;
 
 @Component
 public class JMSMessageConsumer {
     
-    private LogRepository repo;
-    
-    public JMSMessageConsumer(LogRepository repo) {
-        this.repo = repo;
-    }
+    @Autowired
+    private ILogService service;
     
     @JmsListener(destination = "LoggerQueue")
-    public void onMessage(Message message) {
+    public void onMessage(TextMessage message) {
         Log log = new Log();
-        log.setMessage(String.valueOf(message));
-        repo.save(log);
+        try {
+            log.setMessage(message.getText());
+        } catch (JMSException e) {
+            log.setMessage("Log failed.");
+        }
+        service.persist(log);
     }
 }
