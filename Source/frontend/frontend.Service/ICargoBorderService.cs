@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace frontend.Service
 {
-    public interface IBordersPerProductService
+    public interface ICargoBorderService
     {
-        List<BorderPerProduct> All();
-        BorderPerProduct Find(int id);
-        void Add(BorderPerProduct bordersPerProduct);
+        List<CargoBorder> All();
+        CargoBorder Find(int id);
+        void Add(CargoBorder cargoBorder);
     }
 }

@@ -107,32 +107,18 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BordersPerProductService.cs" />
+    <Compile Include="CargoBorderService.cs" />
     <Compile Include="CargoService.cs" />
-    <Compile Include="CityService.cs" />
-    <Compile Include="DestinationService.cs" />
     <Compile Include="EmployeeService.cs" />
     <Compile Include="ExceedingsPerCargoService.cs" />
-    <Compile Include="IBordersPerProductService.cs" />
+    <Compile Include="ICargoBorderService.cs" />
     <Compile Include="ICargoService.cs" />
-    <Compile Include="ICityService.cs" />
-    <Compile Include="IDestinationService.cs" />
     <Compile Include="IEmployeeService.cs" />
     <Compile Include="IExceedingsPerCargoService.cs" />
-    <Compile Include="ILoginService.cs" />
-    <Compile Include="IProductPerCargoService.cs" />
-    <Compile Include="IProductService.cs" />
     <Compile Include="ISensorService.cs" />
-    <Compile Include="ISensorUsageService.cs" />
-    <Compile Include="IStabilisationsPerCargoService.cs" />
     <Compile Include="IVariableService.cs" />
-    <Compile Include="LoginService.cs" />
-    <Compile Include="ProductService.cs" />
-    <Compile Include="ProductsPerCargoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SensorService.cs" />
-    <Compile Include="SensorUsageService.cs" />
-    <Compile Include="StabilisationsPerCargoService.cs" />
     <Compile Include="VariableService.cs" />
     <EmbeddedResource Include="Properties\frontend.Service.rd.xml" />
   </ItemGroup>
