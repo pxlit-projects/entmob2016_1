@@ -12,5 +12,6 @@ namespace frontend.Domain
         public Cargo Cargo { get; set; }
         public Variable Variable { get; set; }
         public float Value { get; set; }
+        public TimeSpan time { get; set; }
     }
 }
