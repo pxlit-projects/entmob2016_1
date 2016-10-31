@@ -25,6 +25,13 @@ public class Cargo {
     @Cascade(CascadeType.ALL)
     @JsonManagedReference(value = "cargos_borders")
     private List<CargoBorder> borders;
+	
+	public Cargo(int sensor_id, float weight) {
+		this.sensor_id = sensor_id;
+		this.weight = weight;
+	}
+	
+	public Cargo() {}
 
 	public int getCargo_id () {
 		return cargo_id;

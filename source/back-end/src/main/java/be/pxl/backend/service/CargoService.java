@@ -32,4 +32,6 @@ public class CargoService implements ICargoService {
 	
 	public void update(Cargo cargo) { repo.save(cargo); }
 	
+	public List<Cargo> getCargoBySensor(int sensor_id) { return repo.findBySensor(sensor_id); }
+	
 }

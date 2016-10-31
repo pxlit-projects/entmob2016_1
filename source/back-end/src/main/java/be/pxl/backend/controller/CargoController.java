@@ -44,7 +44,7 @@ public class CargoController {
     @ResponseStatus (value = HttpStatus.CREATED)
     @PreAuthorize ("hasRole('ROLE_ADMIN')")
     public void addCargo(@RequestBody Cargo cargo) {
-        logger.log("Adding cargo with weight: " + cargo.getWeight() + " and " + cargo.getBorders().size() + " borders.");
+        logger.log("Adding cargo with weight: " + cargo.getWeight());
         service.persist(cargo);
     }
     
@@ -60,5 +60,11 @@ public class CargoController {
 		logger.log("Deleting cargo with id: " + id + ".");
         service.delete(id);
 	}
+    
+    @RequestMapping(value = "/get/sensor/{sensor}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public List<Cargo> getEmployeeByUsername(@PathVariable("sensor") int sensor_id) {
+        logger.log("Fetching cargo with sensor_id: " + sensor_id + ".");
+        return service.getCargoBySensor(sensor_id);
+    }
 
 }

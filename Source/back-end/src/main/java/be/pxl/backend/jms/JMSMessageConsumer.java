@@ -21,7 +21,7 @@ public class JMSMessageConsumer {
         try {
             log.setMessage(message.getText());
         } catch (JMSException e) {
-            log.setMessage("Log failed.");
+            log.setMessage("Log failed: " + e.getMessage());
         }
         service.persist(log);
     }
