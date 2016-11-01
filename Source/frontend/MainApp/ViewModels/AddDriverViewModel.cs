@@ -16,14 +16,11 @@ namespace MainApp.ViewModels
     public class AddDriverViewModel : INotifyPropertyChanged
     {
         private IEmployeeService service;
-
-        private List<string> sexList;
+        
         private List<string> statusList;
-
-        private string selectedSex;
+        
         private string selectedStatus;
         private Employee currentDriver;
-        private City currentCity;
 
         public ICommand AddCommand { get; set; }
         public ICommand CancelCommand { get; set; }
@@ -33,19 +30,6 @@ namespace MainApp.ViewModels
             this.service = service;
             LoadData();
             LoadCommands();
-        }
-
-        public List<string> SexList
-        {
-            get
-            {
-                return sexList;
-            }
-            set
-            {
-                sexList = value;
-                RaisePropertyChanged("SexList");
-            }
         }
 
         public List<string> StatusList
@@ -58,19 +42,6 @@ namespace MainApp.ViewModels
             {
                 statusList = value;
                 RaisePropertyChanged("StatusList");
-            }
-        }
-
-        public string SelectedSex
-        {
-            get
-            {
-                return selectedSex;
-            }
-            set
-            {
-                selectedSex = value;
-                RaisePropertyChanged("SelectedSex");
             }
         }
 
@@ -100,27 +71,8 @@ namespace MainApp.ViewModels
             }
         }
 
-        public City CurrentCity
-        {
-            get
-            {
-                return currentCity;
-            }
-            set
-            {
-                currentCity = value;
-                RaisePropertyChanged("CurrentCity");
-            }
-        }
-
         private void LoadData()
         {
-            SexList = new List<string>
-            {
-                "Male",
-                "Female"
-            };
-
             StatusList = new List<string>
             {
                 "Active",
@@ -128,7 +80,6 @@ namespace MainApp.ViewModels
             };
 
             CurrentDriver = new Employee();
-            CurrentCity = new City();
         }
 
         private void LoadCommands()
@@ -145,10 +96,6 @@ namespace MainApp.ViewModels
         {
             try
             {
-                CurrentDriver.Sex = SelectedSex;
-                CurrentDriver.City = CurrentCity;
-                CurrentDriver.Date_employment = new DateTime(1996, 1, 2).ToString();
-
                 if (SelectedStatus == "Active")
                 {
                     CurrentDriver.Status = true;

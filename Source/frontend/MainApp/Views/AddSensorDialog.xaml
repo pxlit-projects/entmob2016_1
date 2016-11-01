@@ -17,10 +17,7 @@
     <Grid>
         <StackPanel>
             <TextBox Text="{Binding CurrentSensor.Sensor_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Name"/>
-            
-
             <ComboBox Width="140px" Margin="4,0,0,0" Header="Status" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"/>
-
         </StackPanel>
     </Grid>
 </ContentDialog>

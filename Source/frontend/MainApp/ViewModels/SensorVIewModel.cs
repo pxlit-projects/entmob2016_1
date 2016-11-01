@@ -18,15 +18,12 @@ namespace MainApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private ISensorService service = new SensorService();
-        private ISensorUsageService usageService = new SensorUsageService();
         private ObservableCollection<Sensor> sensors;
-        private ObservableCollection<SensorUsage> sensorUsages;
-
 
         public ICommand UpdateCommand { get; set; }
         public ICommand ChangeStatusCommand { get; set; }
         public ICommand ShowDialogCommand { get; set; }
-        public ICommand ShowSensorUsageCommand { get; set; }
+
         public SensorViewModel(ISensorService service)
         {
             this.service = service;
@@ -39,8 +36,8 @@ namespace MainApp.ViewModels
             UpdateCommand = new CustomCommand(Update, CanUpdateOrChangeStatus);
             ChangeStatusCommand = new CustomCommand(ChangeStatus, CanUpdateOrChangeStatus);
             ShowDialogCommand = new CustomCommand(ShowDialog, null);
-            ShowSensorUsageCommand = new CustomCommand(ShowSensorUsage, null);
         }
+
         private void LoadData()
         {
             var sensorsList = service.All().OrderBy(d => d.Sensor_id);
@@ -72,12 +69,7 @@ namespace MainApp.ViewModels
                 LoadData();
             }
         }
-
-        public void ShowSensorUsage(object obj)
-        {
-            var list = usageService.All().Where(d => d.Sensor.Sensor_id == SelectedSensor.Sensor_id);
-            SensorUsages = new ObservableCollection<SensorUsage>(list);
-        }
+        
         public ObservableCollection<Sensor> Sensors
         {
             get
@@ -103,19 +95,6 @@ namespace MainApp.ViewModels
             {
                 selectedSensor = value;
                 RaisePropertyChanged("SelectedSensor");
-            }
-        }
-
-        public ObservableCollection<SensorUsage> SensorUsages
-        {
-            get
-            {
-                return sensorUsages;
-            }
-            set
-            {
-                sensorUsages = value;
-                RaisePropertyChanged("SensorUsages");
             }
         }
 

@@ -26,8 +26,8 @@ namespace MainApp.Views
         public MainPage()
         {
             this.InitializeComponent();
-            
         }
+
         public Frame getFrame()
         {
             return myFrame;
@@ -37,6 +37,5 @@ namespace MainApp.Views
         {
             return this.ShellSplitView;
         }
-        
     }
 }
