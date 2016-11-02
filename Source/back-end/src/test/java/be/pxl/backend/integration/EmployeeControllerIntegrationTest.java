@@ -4,7 +4,7 @@ import be.pxl.backend.controller.EmployeeController;
 import be.pxl.backend.entity.Employee;
 import be.pxl.backend.representation.EmployeeR;
 import be.pxl.backend.security.user.Role;
-import be.pxl.backend.service.EmployeeService;
+import be.pxl.backend.service.IEmployeeService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.mock.http.MockHttpOutputMessage;
+import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -37,7 +38,7 @@ public class EmployeeControllerIntegrationTest {
     private MockMvc mockMvc;
     
     @Autowired
-    private EmployeeService service;
+    private IEmployeeService service;
     
     @Autowired
     private WebApplicationContext context;
@@ -60,12 +61,14 @@ public class EmployeeControllerIntegrationTest {
     @Before
     public void setUp() throws Exception {
         List<Employee> employees = service.all();
-        
+
         for(Employee employee : employees) {
-            service.delete(employee.getEmployee_id());
+            service.hardDelete(employee.getEmployee_id());
         }
         
-        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+        mockMvc = MockMvcBuilders.webAppContextSetup(context)
+                .apply(SecurityMockMvcConfigurers.springSecurity())
+                .build();
     }
     
     @Test
@@ -80,11 +83,10 @@ public class EmployeeControllerIntegrationTest {
         
         service.persist(employee);
         
-        List<Employee> employees = service.all();
+        int employee_id = employee.getEmployee_id();
         
-        int employee_id = employees.get(employees.size()-1).getEmployee_id();
-        
-        mockMvc.perform(get(EmployeeController.EMPLOYEE_BASE_URL + "/get/id" + employee_id))
+        mockMvc.perform(get(EmployeeController.EMPLOYEE_BASE_URL + "/get/id/" + employee_id)
+                .with(user("user").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(asJson(
@@ -111,11 +113,10 @@ public class EmployeeControllerIntegrationTest {
         
         service.persist(employee);
         
-        List<Employee> employees = service.all();
+        int employee_id = employee.getEmployee_id();
         
-        int employee_id = employees.get(employees.size()-1).getEmployee_id();
-        
-        mockMvc.perform(get(EmployeeController.EMPLOYEE_BASE_URL + "/all"))
+        mockMvc.perform(get(EmployeeController.EMPLOYEE_BASE_URL + "/all")
+                .with(user("user").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(asJson(
@@ -131,17 +132,19 @@ public class EmployeeControllerIntegrationTest {
     }
     
     @Test
-    public void test_persist_cargo_with_admin() throws Exception {
+    public void test_persist_employee_with_admin() throws Exception {
         Employee employee = new Employee();
-        int employee_id = employee.getEmployee_id() + 1;
+        service.persist(employee);
+        int employee_id = service.all().get(0).getEmployee_id() + 1;
         
         mockMvc.perform(post(EmployeeController.EMPLOYEE_BASE_URL + "/add")
                 .with(user("admin").roles("ADMIN"))
-                .content(asJson(EmployeeR.of(employee_id, "kstrijbos", "password", "AAAAAA", "Strijbos", "Kevin", true, Role.ROLE_ADMIN)))
+                .content(asJson(EmployeeR.of(employee_id, "kstrijbos", "gsbFsdpT", "AAAAAA", "Strijbos", "Kevin", true, Role.ROLE_ADMIN)))
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
         
-        mockMvc.perform(get(EmployeeController.EMPLOYEE_BASE_URL + "/get/id" + employee_id))
+        mockMvc.perform(get(EmployeeController.EMPLOYEE_BASE_URL + "/get/id/" + employee_id)
+                .with(user("user").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(asJson(
@@ -157,7 +160,7 @@ public class EmployeeControllerIntegrationTest {
     }
     
     @Test
-    public void test_persist_cargo_with_user() throws Exception {
+    public void test_persist_employee_with_user() throws Exception {
         Employee employee = new Employee();
         int employee_id = employee.getEmployee_id() + 1;
         

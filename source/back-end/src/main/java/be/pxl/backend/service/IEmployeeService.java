@@ -16,4 +16,6 @@ public interface IEmployeeService {
 	public void update(Employee employee);
 
 	public Employee getEmployeeByUsername(String username);
+	
+	public void hardDelete(int id);
 }

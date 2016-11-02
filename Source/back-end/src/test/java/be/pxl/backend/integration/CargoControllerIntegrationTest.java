@@ -3,7 +3,7 @@ package be.pxl.backend.integration;
 import be.pxl.backend.controller.CargoController;
 import be.pxl.backend.entity.Cargo;
 import be.pxl.backend.representation.CargoR;
-import be.pxl.backend.service.CargoService;
+import be.pxl.backend.service.ICargoService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +28,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 
 @RunWith (SpringRunner.class)
 @SpringBootTest
@@ -36,7 +37,7 @@ public class CargoControllerIntegrationTest {
     private MockMvc mockMvc;
     
     @Autowired
-    private CargoService service;
+    private ICargoService service;
     
     @Autowired
     private WebApplicationContext context;
@@ -64,7 +65,9 @@ public class CargoControllerIntegrationTest {
             service.delete(cargo.getCargo_id());
         }
         
-        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+        mockMvc = MockMvcBuilders.webAppContextSetup(context)
+                .apply(SecurityMockMvcConfigurers.springSecurity())
+                .build();
     }
     
     @Test
@@ -76,11 +79,10 @@ public class CargoControllerIntegrationTest {
         
         service.persist(cargo);
         
-        List<Cargo> cargos = service.all();
+        int cargo_id = cargo.getCargo_id();
         
-        int cargo_id = cargos.get(cargos.size()-1).getCargo_id();
-        
-        mockMvc.perform(get(CargoController.CARGO_BASE_URL + "/get/" + cargo_id))
+        mockMvc.perform(get(CargoController.CARGO_BASE_URL + "/get/" + cargo_id)
+                .with(user("user").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(asJson(
@@ -92,22 +94,21 @@ public class CargoControllerIntegrationTest {
     
     @Test
     public void test_get_all_cargos() throws Exception {
-        Cargo c1 = aCargo()
+        Cargo cargo = aCargo()
                 .withSensorId(1)
                 .withWeight(500)
                 .build();
         
-        service.persist(c1);
+        service.persist(cargo);
         
-        List<Cargo> cargos = service.all();
-        
-        int c1_id = cargos.get(0).getCargo_id();
+        int cargo_id = cargo.getCargo_id();
 
-        mockMvc.perform(get(CargoController.CARGO_BASE_URL + "/all"))
+        mockMvc.perform(get(CargoController.CARGO_BASE_URL + "/all")
+                .with(user("user").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(asJson(
-                        singletonList(CargoR.of(c1_id,
+                        singletonList(CargoR.of(cargo_id,
                                 1,
                                 500))
                 )));
@@ -116,15 +117,18 @@ public class CargoControllerIntegrationTest {
     @Test
     public void test_persist_cargo_with_admin() throws Exception {
         Cargo cargo = new Cargo();
-        int cargo_id = cargo.getCargo_id() + 1;
-        
+        service.persist(cargo);
+        int cargo_id = service.all().get(0).getCargo_id() + 1;
+    
         mockMvc.perform(post(CargoController.CARGO_BASE_URL + "/add")
                 .with(user("admin").roles("ADMIN"))
                 .content(asJson(CargoR.of(cargo_id, 1, 500)))
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
         
-        mockMvc.perform(get(CargoController.CARGO_BASE_URL + "/get/" + cargo_id))
+        System.out.println("ID: " + cargo_id);
+        mockMvc.perform(get(CargoController.CARGO_BASE_URL + "/get/" + cargo_id)
+                .with(user("user").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(asJson(

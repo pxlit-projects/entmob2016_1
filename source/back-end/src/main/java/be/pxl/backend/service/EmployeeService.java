@@ -38,4 +38,6 @@ public class EmployeeService implements IEmployeeService {
 		return repo.getEmployeeByUsername(username);
 	}
 	
+	public void hardDelete(int id) { repo.delete(id); }
+	
 }

@@ -22,6 +22,7 @@ public class Sensor {
 	private List<SensorData> data;
 	
 	public Sensor(String sensorName) {
+		this.status = true;
 		this.sensor_name = sensorName;
 	}
 	

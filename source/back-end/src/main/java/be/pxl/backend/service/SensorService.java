@@ -37,4 +37,6 @@ public class SensorService implements ISensorService {
 	
 	public void update(Sensor sensor) { repo.save(sensor); }
 	
+	public void hardDelete(int id) { repo.delete(id); }
+	
 }

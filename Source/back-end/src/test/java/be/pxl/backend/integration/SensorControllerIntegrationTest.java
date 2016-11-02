@@ -3,7 +3,7 @@ package be.pxl.backend.integration;
 import be.pxl.backend.controller.SensorController;
 import be.pxl.backend.entity.Sensor;
 import be.pxl.backend.representation.SensorR;
-import be.pxl.backend.service.SensorService;
+import be.pxl.backend.service.ISensorService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.mock.http.MockHttpOutputMessage;
+import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -36,7 +37,7 @@ public class SensorControllerIntegrationTest {
     private MockMvc mockMvc;
     
     @Autowired
-    private SensorService service;
+    private ISensorService service;
     
     @Autowired
     private WebApplicationContext context;
@@ -61,10 +62,12 @@ public class SensorControllerIntegrationTest {
         List<Sensor> sensors = service.all();
         
         for(Sensor sensor : sensors) {
-            service.delete(sensor.getSensor_id());
+            service.hardDelete(sensor.getSensor_id());
         }
         
-        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+        mockMvc = MockMvcBuilders.webAppContextSetup(context)
+                .apply(SecurityMockMvcConfigurers.springSecurity())
+                .build();
     }
     
     @Test
@@ -75,11 +78,10 @@ public class SensorControllerIntegrationTest {
         
         service.persist(sensor);
         
-        List<Sensor> sensors = service.all();
+        int sensor_id = sensor.getSensor_id();
         
-        int sensor_id = sensors.get(sensors.size()-1).getSensor_id();
-        
-        mockMvc.perform(get(SensorController.SENSOR_BASE_URL + "/get/" + sensor_id))
+        mockMvc.perform(get(SensorController.SENSOR_BASE_URL + "/get/" + sensor_id)
+                .with(user("user").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(asJson(
@@ -90,17 +92,40 @@ public class SensorControllerIntegrationTest {
     }
     
     @Test
-    public void test_persist_cargo_with_admin() throws Exception {
+    public void test_all_sensors () throws Exception {
+        Sensor sensor = aSensor()
+                .withSensorName("Sensor 1")
+                .build();
+        
+        service.persist(sensor);
+        
+        int sensor_id = sensor.getSensor_id();
+        
+        mockMvc.perform(get(SensorController.SENSOR_BASE_URL + "/all/")
+                .with(user("user").roles("USER")))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().json(asJson(
+                        singletonList(SensorR.of(sensor_id,
+                                "Sensor 1",
+                                true))
+                )));
+    }
+    
+    @Test
+    public void test_persist_sensor_with_admin() throws Exception {
         Sensor sensor = new Sensor();
-        int sensor_id = sensor.getSensor_id() + 1;
+        service.persist(sensor);
+        int sensor_id = service.all().get(0).getSensor_id() + 1;
         
         mockMvc.perform(post(SensorController.SENSOR_BASE_URL + "/add")
                 .with(user("admin").roles("ADMIN"))
                 .content(asJson(SensorR.of(sensor_id, "Sensor 1", true)))
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
         
-        mockMvc.perform(get(SensorController.SENSOR_BASE_URL + "/get/" + sensor_id))
+        mockMvc.perform(get(SensorController.SENSOR_BASE_URL + "/get/" + sensor_id)
+                .with(user("user").roles("ADMIN")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(asJson(
@@ -111,7 +136,7 @@ public class SensorControllerIntegrationTest {
     }
     
     @Test
-    public void test_persist_cargo_with_user() throws Exception {
+    public void test_persist_sensor_with_user() throws Exception {
         Sensor sensor = new Sensor();
         int sensor_id = sensor.getSensor_id() + 1;
     
