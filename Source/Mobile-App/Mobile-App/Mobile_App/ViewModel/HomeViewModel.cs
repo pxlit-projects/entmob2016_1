@@ -23,6 +23,7 @@ namespace Mobile_App.ViewModel
         EventHandler<CharacteristicReadEventArgs> valueUpdatedHandler;
         ObservableCollection<ICharacteristic> characteristics;
         ObservableCollection<IService> services;
+        public ICommand ShowDataCommand { get; set; }
         double gyro_calX, gyro_calY, gyro_calZ;
         double magno_calX, magno_calY, magno_calZ;
         bool gyro_calibrated = false, magno_calibrated = false;
@@ -42,13 +43,28 @@ namespace Mobile_App.ViewModel
         public HomeViewModel(INavigationService navigationService)
         {
             this.navService = navigationService;
+            InitializeCommands();
             MessengerInstance.Register<VariableMessage>
              (
                  this,
                  (action) => ReceiveVariableMessage(action)
              );
         }
-
+        private void InitializeCommands()
+        {
+            ShowDataCommand = new Command(() =>
+            {
+                Debug.WriteLine("clicky");
+                foreach (var car in characteristics)
+                {
+                    if (car.Name.Contains("Data"))
+                    {
+                        car.ValueUpdated += valueUpdatedHandler;
+                        car.StartUpdates();
+                    }
+                }
+            });
+        }
         private void ConnectToDevice()
         {
             this.services = new ObservableCollection<IService>();
@@ -78,12 +94,8 @@ namespace Mobile_App.ViewModel
                 {
                     SwitchToggled(car, true);
                 }
-                else if (car.Name.Contains("Data"))
-                {
-                    car.ValueUpdated += valueUpdatedHandler;
-                    car.StartUpdates();
-                }
             }
+            Data = "Ready";
         }
 
         private void DiscoverServices()
