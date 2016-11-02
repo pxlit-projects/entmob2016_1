@@ -14,11 +14,11 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
-        public IBordersPerProductRepository BordersPerProductRepository { get; set; }
+        public ICargoRepository CargoRepository { get; set; }
 
         public VariableRepository()
         {
-            BordersPerProductRepository = new BordersPerProductRepository();
+            CargoRepository = new CargoRepository();
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
@@ -27,9 +27,9 @@ namespace frontend.Repository
 
         public async Task<List<Variable>> GetAllVariables()
         {
-            var borderPerProducts = await BordersPerProductRepository.GetAllBordersPerProducts();
+            var cargos = await CargoRepository.GetAllCargos();
             HashSet<Variable> variables = new HashSet<Variable>();
-            borderPerProducts.ForEach(b => variables.Add(b.Variable));
+            cargos.ForEach(c => c.Borders.ForEach(b => variables.Add(b.Variable)));
             return variables.ToList();
         }
 

@@ -10,5 +10,7 @@ namespace frontend.Domain
     {
         public int Variable_id { get; set; }
         public string Description { get; set; }
+        public List<ExceedingPerCargo> Exceedings { get; set; }
+        public List<CargoBorder> Borders { get; set; }
     }
 }

@@ -47,16 +47,12 @@
                         <TextBox x:Name="nameTxt" Width="500px" Text="{Binding Path=SelectedDriver.Name}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Email:</TextBlock>
-                        <TextBox x:Name="emailTxt" Width="500px" Text="{Binding Path=SelectedDriver.Email}"/>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Gebruikersnaam:</TextBlock>
+                        <TextBox x:Name="emailTxt" Width="500px" Text="{Binding Path=SelectedDriver.Username}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Mobiel:</TextBlock>
-                        <TextBox x:Name="mobileTxt" Width="500px" Text="{Binding Path=SelectedDriver.Mobile_phone}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Telefoon:</TextBlock>
-                        <TextBox x:Name="telephoneTxt" Width="500px" Text="{Binding Path=SelectedDriver.Telephone_number}"/>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Status:</TextBlock>
+                        <TextBox x:Name="mobileTxt" Width="500px" Text="{Binding Path=SelectedDriver.Status}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

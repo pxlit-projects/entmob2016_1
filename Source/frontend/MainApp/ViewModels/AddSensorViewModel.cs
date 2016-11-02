@@ -15,15 +15,12 @@ namespace MainApp.ViewModels
     public class AddSensorViewModel : INotifyPropertyChanged
     {
         private ISensorService service;
-
         
         private List<string> statusList;
 
-        
         private string selectedStatus;
         private Sensor currentSensor;
         
-
         public ICommand AddCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
@@ -33,8 +30,6 @@ namespace MainApp.ViewModels
             LoadData();
             LoadCommands();
         }
-
-      
 
         public List<string> StatusList
         {
@@ -77,12 +72,10 @@ namespace MainApp.ViewModels
             }
         }
 
-        
+
 
         private void LoadData()
         {
-           
-
             StatusList = new List<string>
             {
                 "Active",
@@ -90,7 +83,6 @@ namespace MainApp.ViewModels
             };
 
             CurrentSensor = new Sensor();
-            
         }
 
         private void LoadCommands()
@@ -107,8 +99,6 @@ namespace MainApp.ViewModels
         {
             try
             {
-               
-
                 if (SelectedStatus == "Active")
                 {
                     CurrentSensor.Status = true;

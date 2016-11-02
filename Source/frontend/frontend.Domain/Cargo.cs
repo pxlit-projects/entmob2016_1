@@ -11,11 +11,9 @@ namespace frontend.Domain
     public class Cargo
     {
         public int Cargo_id { get; set; }
-        public Sensor Sensor { get; set; }
-        public Destination Destination { get; set; }
+        public int Sensor_id { get; set; }
         public float Weight { get; set; }
-        public List<ProductPerCargo> Products { get; set; }
         public List<ExceedingPerCargo> Exceedings { get; set; }
-        public List<StabilisationPerCargo> Stabilisations { get; set; }
+        public List<CargoBorder> Borders { get; set; }
     }
 }
