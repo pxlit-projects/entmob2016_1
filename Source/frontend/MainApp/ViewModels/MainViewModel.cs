@@ -13,7 +13,6 @@ namespace MainApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-
         public ICommand HomeCommand { get; set; }
         public ICommand SensorCommand { get; set; }
         public ICommand DriverCommand { get; set; }
@@ -24,6 +23,7 @@ namespace MainApp.ViewModels
         public MainViewModel()
         {
             LoadCommands();
+            //new NavService().NavigateTo("Login");
         }
         
         public void ShowHideMenu(RadioButton obj)

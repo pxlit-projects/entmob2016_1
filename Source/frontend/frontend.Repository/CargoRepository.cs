@@ -14,12 +14,15 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
-        public CargoRepository()
+        public CargoRepository(string username, string password)
         {
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Basic", 
+                Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", username, password))));
         }
 
         public async Task<List<Cargo>> GetAllCargos()

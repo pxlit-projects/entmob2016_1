@@ -12,9 +12,9 @@ namespace frontend.Service
     {
         private ExceedingsPerCargoRepository exceedingsPerCargoRepository;
 
-        public ExceedingsPerCargoService()
+        public ExceedingsPerCargoService(string username, string password)
         {
-            exceedingsPerCargoRepository = new ExceedingsPerCargoRepository();
+            exceedingsPerCargoRepository = new ExceedingsPerCargoRepository(username, password);
         }
 
         public void Add(ExceedingPerCargo exceedingsPerCargo)

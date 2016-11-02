@@ -18,5 +18,6 @@ namespace frontend.Domain
         public string SurName { get; set; }
         public string Name { get; set; }
         public bool Status { get; set; }
+        public Role Clearance { get; set; }
     }
 }

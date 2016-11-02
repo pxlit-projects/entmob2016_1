@@ -1,5 +1,6 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Authentication;
 using MainApp.Utility;
 using MainApp.Views;
 using System;
@@ -17,7 +18,7 @@ namespace MainApp.ViewModels
     public class SensorViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private ISensorService service = new SensorService();
+        private ISensorService service = new SensorService(DefaultUser.username, DefaultUser.password);
         private ObservableCollection<Sensor> sensors;
 
         public ICommand UpdateCommand { get; set; }

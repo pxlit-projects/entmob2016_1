@@ -1,4 +1,5 @@
 ﻿using frontend.Service;
+using MainApp.Authentication;
 using MainApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace MainApp
 {
     public class ViewModelLocator
     {
-        private static ISensorService sensorService = new SensorService();
-        private static IEmployeeService employeeService = new EmployeeService();
-        private static ICargoService cargoService = new CargoService();
-        private static IVariableService variableService = new VariableService();
+        private static ISensorService sensorService = new SensorService(DefaultUser.username, DefaultUser.password);
+        private static IEmployeeService employeeService = new EmployeeService(DefaultUser.username, DefaultUser.password);
+        private static ICargoService cargoService = new CargoService(DefaultUser.username, DefaultUser.password);
+        private static IVariableService variableService = new VariableService(DefaultUser.username, DefaultUser.password);
 
         // Page Views
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
@@ -21,6 +22,7 @@ namespace MainApp
         private MainViewModel mainViewModel = new MainViewModel();
         private CargoViewModel cargoViewModel = new CargoViewModel(cargoService);
         private VariableViewModel variableViewModel = new VariableViewModel(variableService);
+        private LoginViewModel loginViewModel = new LoginViewModel(employeeService);
      
         // AddDialogs
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
@@ -79,6 +81,14 @@ namespace MainApp
             get
             {
                 return addSensorViewModel;
+            }
+        }
+
+        public LoginViewModel LoginViewModel
+        {
+            get
+            {
+                return loginViewModel;
             }
         }
     }

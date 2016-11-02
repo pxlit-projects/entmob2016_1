@@ -12,9 +12,9 @@ namespace frontend.Service
     {
         private SensorRepository sensorRepository;
 
-        public SensorService()
+        public SensorService(string username, string password)
         {
-            sensorRepository = new SensorRepository();
+            sensorRepository = new SensorRepository(username, password);
         }
 
         public void Add(Sensor sensor)

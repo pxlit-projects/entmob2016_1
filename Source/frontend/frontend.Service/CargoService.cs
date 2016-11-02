@@ -12,9 +12,9 @@ namespace frontend.Service
     {
         private CargoRepository cargoRepository;
 
-        public CargoService()
+        public CargoService(string username, string password)
         {
-            cargoRepository = new CargoRepository();
+            cargoRepository = new CargoRepository(username, password);
         }
 
         public void Add(Cargo cargo)

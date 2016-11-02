@@ -95,12 +95,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Authentication\DefaultUser.cs" />
     <Compile Include="Messages\Messenger.cs" />
+    <Compile Include="Utility\PasswordHandler.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="ViewModels\AddCargoViewModel.cs" />
     <Compile Include="ViewModels\AddDriverViewModel.cs" />
     <Compile Include="ViewModels\AddSensorViewModel.cs" />
     <Compile Include="ViewModels\CargoViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\VariableViewModel.cs" />
     <Compile Include="Views\AddCargoDialog.xaml.cs">
       <DependentUpon>AddCargoDialog.xaml</DependentUpon>
@@ -113,6 +116,9 @@
     </Compile>
     <Compile Include="Views\CargosPage.xaml.cs">
       <DependentUpon>CargosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -171,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CargosPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

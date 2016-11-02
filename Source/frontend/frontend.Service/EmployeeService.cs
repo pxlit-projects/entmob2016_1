@@ -12,9 +12,9 @@ namespace frontend.Service
     {
         private EmployeeRepository employeeRepository;
 
-        public EmployeeService()
+        public EmployeeService(string username, string password)
         {
-            employeeRepository = new EmployeeRepository();
+            employeeRepository = new EmployeeRepository(username, password);
         }
 
         public void Add(Employee employee)

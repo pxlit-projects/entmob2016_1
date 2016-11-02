@@ -12,17 +12,11 @@ namespace frontend.Repository
 {
     public class ExceedingsPerCargoRepository : IExceedingsPerCargoRepository
     {
-        public HttpClient Client { get; set; }
-
         public ICargoRepository CargoRepository { get; set; }
 
-        public ExceedingsPerCargoRepository()
+        public ExceedingsPerCargoRepository(string username, string password)
         {
-            CargoRepository = new CargoRepository();
-            Client = new HttpClient();
-            Client.BaseAddress = new Uri(Global.IP_ADRESS);
-            Client.DefaultRequestHeaders.Accept.Clear();
-            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            CargoRepository = new CargoRepository(username, password);
         }
 
         public async Task<List<ExceedingPerCargo>> GetAllExceedingsPerCargos()

@@ -12,9 +12,9 @@ namespace frontend.Service
     {
         private VariableRepository variableRepository;
 
-        public VariableService()
+        public VariableService(string username, string password)
         {
-            variableRepository = new VariableRepository();
+            variableRepository = new VariableRepository(username, password);
         }
         
         public List<Variable> All()
