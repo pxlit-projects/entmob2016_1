@@ -1,6 +1,7 @@
-package be.pxl.backend.repository;
+package be.pxl.backend.integration;
 
 import be.pxl.backend.entity.Employee;
+import be.pxl.backend.repository.EmployeeRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EmployeeRepositoryTest {
+public class EmployeeRepositoryIntegrationTest {
     
     @Autowired
     private EmployeeRepository repo;
@@ -47,6 +48,31 @@ public class EmployeeRepositoryTest {
         Employee employee = repo.getEmployeeByUsername("kstrijbos");
         
         assertThat(employee.getUsername().equals("kstrijbos"));
+    }
+    
+    @Test
+    public void test_delete_employee() {
+        Employee e1 = anEmployee()
+                .withUsername("kstrijbos")
+                .withName("Kevin")
+                .withSurName("Strijbos")
+                .withPassWord("gsbFsdpT")
+                .withSalt("AAAAA")
+                .build();
+        Employee e2 = anEmployee()
+                .withUsername("jvermeulen")
+                .withName("Joske")
+                .withSurName("Vermeulen")
+                .withPassWord("gsbFsdpT")
+                .withSalt("AAAAA")
+                .build();
+        
+        repo.save(Arrays.asList(e1,e2));
+        List<Employee> employees = repo.findAll();
+        int employee_id = employees.get(employees.size()-1).getEmployee_id();
+        repo.delete(employee_id);
+        
+        assertThat(repo.findAll().get(0).equals("kstrijbos"));
     }
     
 }

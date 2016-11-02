@@ -20,6 +20,12 @@ public class Sensor {
 	@Cascade (org.hibernate.annotations.CascadeType.ALL)
 	@JsonManagedReference (value = "sensor_data")
 	private List<SensorData> data;
+	
+	public Sensor(String sensorName) {
+		this.sensor_name = sensorName;
+	}
+	
+	public Sensor() {}
 
 	public int getSensor_id() {
 		return sensor_id;

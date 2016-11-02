@@ -21,7 +21,7 @@ public class Employee {
 	private String name;
 	private Boolean status;
     @Enumerated(EnumType.STRING)
-    public Role clearance = Role.ROLE_USER;
+    private Role clearance = Role.ROLE_USER;
     
     public Employee(String username, String password, String salt, String surName, String name) {
         this.username = username;
