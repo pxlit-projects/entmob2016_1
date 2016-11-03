@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import be.pxl.backend.service.*;
 
 @RestController
-@RequestMapping(CargoController.CARGO_BASE_URL)
+@RequestMapping(LogController.LOG_BASE_URL)
 public class LogController {
     
     @Autowired
@@ -22,7 +22,7 @@ public class LogController {
     
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json;charset=utf-8")
     public List<Log> getAllLogs() {
-        logger.log("Retrieving all logs.");
+      //  logger.log("Retrieving all logs.");
         return service.all();
     }
     

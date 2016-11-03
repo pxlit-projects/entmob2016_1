@@ -18,5 +18,6 @@ public class LogService implements ILogService {
         repo.save(log);
     }
     public List<Log> all() { return repo.findAll(); }
+    public void delete(int id) { repo.delete(id); }
     
 }

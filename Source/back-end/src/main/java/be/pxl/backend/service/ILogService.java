@@ -7,5 +7,6 @@ public interface ILogService {
     
     public void persist(Log log);
     public List<Log> all();
+    public void delete(int id);
     
 }
