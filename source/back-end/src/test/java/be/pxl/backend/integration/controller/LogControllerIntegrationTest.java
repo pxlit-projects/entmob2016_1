@@ -77,7 +77,7 @@ public class LogControllerIntegrationTest {
         Log log = aLog()
                 .withMessage("Test log.")
                 .build();
-        
+
         service.persist(log);
         
         int log_id = log.getId();
