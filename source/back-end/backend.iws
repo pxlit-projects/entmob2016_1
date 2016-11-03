@@ -176,23 +176,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="LogRepositoryIntegrationTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/be/pxl/backend/integration/repository/LogRepositoryIntegrationTest.java">
+      <file leaf-file-name="EmployeeRepositoryAspect.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/EmployeeRepositoryAspect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogBuilder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/be/pxl/backend/builder/LogBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state relative-caret-position="76">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -234,9 +222,6 @@
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/repository/CargoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/entity/Cargo.java" />
         <option value="$PROJECT_DIR$/src/test/java/be/pxl/backend/builder/EmployeeBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/SensorRepositoryAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/EmployeeRepositoryAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/CargoRepositoryAspect.java" />
         <option value="$PROJECT_DIR$/src/test/java/be/pxl/backend/builder/SensorBuilder.java" />
         <option value="$PROJECT_DIR$/src/test/java/be/pxl/backend/repository/SensorRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/be/pxl/backend/repository/CargoRepositoryTest.java" />
@@ -252,7 +237,6 @@
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/security/SpringSecurityWebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/service/IEmployeeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/service/EmployeeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/service/SensorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/service/ICargoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/service/ISensorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/entity/Sensor.java" />
@@ -268,6 +252,10 @@
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/controller/SensorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/controller/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/test/java/be/pxl/backend/builder/LogBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/service/SensorService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/SensorRepositoryAspect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/CargoRepositoryAspect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/EmployeeRepositoryAspect.java" />
       </list>
     </option>
   </component>
@@ -356,7 +344,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -557,10 +544,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="back-end" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="ProjectViewSettings">
@@ -1120,7 +1138,8 @@
       <workItem from="1478117144048" duration="599000" />
       <workItem from="1478173650104" duration="1510000" />
       <workItem from="1478181665984" duration="358000" />
-      <workItem from="1478182040939" duration="138000" />
+      <workItem from="1478182040939" duration="478000" />
+      <workItem from="1478182705441" duration="132000" />
     </task>
     <servers />
   </component>
@@ -1157,7 +1176,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92525000" />
+    <option name="totallyTimeSpent" value="92997000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1182,8 +1201,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.273326" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3413831" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3413831" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1440,8 +1459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/SensorRepositoryAspect.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/EmployeeRepositoryAspect.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/be/pxl/backend/builder/SensorBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -1454,13 +1471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/service/SensorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -1625,11 +1635,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/CargoRepositoryAspect.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/be/pxl/backend/builder/LogBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="228">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1637,16 +1646,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
           <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/be/pxl/backend/builder/LogBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/service/SensorService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        <state relative-caret-position="258">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/SensorRepositoryAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/CargoRepositoryAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/pxl/backend/aop/EmployeeRepositoryAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding />
         </state>
       </provider>
