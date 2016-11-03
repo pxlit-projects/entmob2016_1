@@ -49,7 +49,8 @@ namespace MainApp.ViewModels
 
         public void ShowAddBorderPage(object obj)
         {
-
+            Messenger.Default.Send(CurrentCargo);
+            new NavService().NavigateTo("AddCargoBorder");
         }
 
         public Cargo CurrentCargo

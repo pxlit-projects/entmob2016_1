@@ -1,6 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Authentication;
+using MainApp.Messages;
 using MainApp.Navigation;
 using MainApp.Utility;
 using MainApp.Views;
@@ -31,6 +32,7 @@ namespace MainApp.ViewModels
             this.service = service;
             LoadData();
             LoadCommands();
+            Messenger.Default.Register<Sensor>(this, HandleSensorMessage);
         }
 
         private void LoadCommands()
@@ -45,6 +47,18 @@ namespace MainApp.ViewModels
             var sensorsList = service.All().OrderBy(d => d.Sensor_id);
             Sensors = new ObservableCollection<Sensor>(sensorsList);
             SelectedSensor = sensors.ElementAt(0);
+        }
+
+        private void HandleSensorMessage(Sensor sensor)
+        {
+            if (sensor != null)
+            {
+                Sensor lastSensor = service.All().LastOrDefault();
+                if (Sensors.LastOrDefault().Sensor_id != lastSensor.Sensor_id)
+                {
+                    Sensors.Add(lastSensor);
+                }
+            }
         }
 
         public bool CanUpdateOrChangeStatus(object obj)
@@ -64,14 +78,9 @@ namespace MainApp.ViewModels
             LoadData();
         }
 
-        public async void ShowDialog(object obj)
+        public void ShowDialog(object obj)
         {
-            //var dialog = new AddSensorDialog();
-            //var result = await dialog.ShowAsync();
-            //if (result == ContentDialogResult.Primary)
-            //{
-            //LoadData();
-            //}
+            new NavService().NavigateTo("AddCargo");
         }
         
         public ObservableCollection<Sensor> Sensors

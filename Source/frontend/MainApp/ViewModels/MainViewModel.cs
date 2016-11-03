@@ -19,11 +19,11 @@ namespace MainApp.ViewModels
         public ICommand CargoCommand { get; set; }
         public ICommand MenuCommand { get; set; }
         public ICommand VariableCommand { get; set; }
+        public ICommand ExceedingsCommand { get; set; }
 
         public MainViewModel()
         {
             LoadCommands();
-            //new NavService().NavigateTo("Login");
         }
         
         public void ShowHideMenu(RadioButton obj)
@@ -63,11 +63,17 @@ namespace MainApp.ViewModels
             DriverCommand = new CustomCommand(NavigateDriver, null);
             MenuCommand = new RelayCommand<RadioButton>(ShowHideMenu, null);
             VariableCommand = new CustomCommand(NavigateVariable, null);
+            ExceedingsCommand = new CustomCommand(NavigateExceeding, null);
         }
 
         private void NavigateCargo(object obj)
         {
             new NavService().NavigateTo("Cargos");
+        }
+
+        private void NavigateExceeding(object obj)
+        {
+            new NavService().NavigateTo("Exceedings");
         }
     }
 }

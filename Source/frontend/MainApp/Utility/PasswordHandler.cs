@@ -43,5 +43,19 @@ namespace MainApp.Utility
 
             //return strBuilder.ToString();
         }
+
+        public static string GenerateSalt()
+        {
+            // Define the length, in bytes, of the buffer.
+            uint length = 32;
+
+            // Generate random data and copy it to a buffer.
+            IBuffer buffer = CryptographicBuffer.GenerateRandom(length);
+
+            // Encode the buffer to a hexadecimal string (for display).
+            string randomHex = CryptographicBuffer.EncodeToHexString(buffer);
+
+            return randomHex;
+        }
     }
 }

@@ -46,7 +46,13 @@ namespace MainApp.Navigation
                     case "AddCargo":
                         page.getFrame().Navigate(typeof(AddCargoPage));
                         break;
+                    case "AddCargoBorder":
+                        page.getFrame().Navigate(typeof(AddCargoBorderPage));
+                        break;
                     case "CargoDetails":
+                        page.getFrame().Navigate(typeof(CargoDetailsPage));
+                        break;
+                    case "Exceedings":
                         page.getFrame().Navigate(typeof(CargoDetailsPage));
                         break;
                     default:

@@ -31,6 +31,8 @@
                 <RadioButton Tag="&#xe125;" Content="Drivers" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DriverCommand}" />
                 <!-- Cargos button -->
                 <RadioButton Tag="&#xe125;" Content="Cargos" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding CargoCommand}" />
+                <!-- Exceedings button -->
+                <RadioButton Tag="&#xe125;" Content="Exceedings" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding ExceedingsCommand}" />
                 <!-- DestinationButton -->
                 <RadioButton Tag="&#xe125;" Content="Variables" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding VariableCommand}" />
             </StackPanel>

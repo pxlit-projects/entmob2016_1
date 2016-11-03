@@ -15,6 +15,7 @@ namespace MainApp
         private static IEmployeeService employeeService = new EmployeeService(DefaultUser.username, DefaultUser.password);
         private static ICargoService cargoService = new CargoService(DefaultUser.username, DefaultUser.password);
         private static IVariableService variableService = new VariableService(DefaultUser.username, DefaultUser.password);
+        private static IExceedingsPerCargoService exceedingsService = new ExceedingsPerCargoService(DefaultUser.username, DefaultUser.password);
 
         // Page Views
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
@@ -24,9 +25,11 @@ namespace MainApp
         private VariableViewModel variableViewModel = new VariableViewModel(variableService);
         private LoginViewModel loginViewModel = new LoginViewModel(employeeService);
         private CargoDetailsViewModel cargoDetailsViewModel = new CargoDetailsViewModel(cargoService);
+        private ExceedingsViewModel exceedingsViewModel = new ExceedingsViewModel(exceedingsService);
 
         // AddDialogs
         private AddCargoViewModel addCargoViewModel = new AddCargoViewModel(cargoService, sensorService);
+        private AddCargoBorderViewModel addCargoBorderViewModel = new AddCargoBorderViewModel(cargoService, variableService);
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
         private AddSensorViewModel addSensorViewModel = new AddSensorViewModel(sensorService);
 
@@ -94,6 +97,14 @@ namespace MainApp
             }
         }
 
+        public AddCargoBorderViewModel AddCargoBorderViewModel
+        {
+            get
+            {
+                return addCargoBorderViewModel;
+            }
+        }
+
         public LoginViewModel LoginViewModel
         {
             get
@@ -107,6 +118,14 @@ namespace MainApp
             get
             {
                 return cargoDetailsViewModel;
+            }
+        }
+
+        public ExceedingsViewModel ExceedingsViewModel
+        {
+            get
+            {
+                return exceedingsViewModel;
             }
         }
     }

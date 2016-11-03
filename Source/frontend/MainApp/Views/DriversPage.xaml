@@ -40,19 +40,19 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Voornaam:</TextBlock>
-                        <TextBox x:Name="surNameTxt" Width="500px" Text="{Binding Path=SelectedDriver.SurName}"/>
+                        <TextBox x:Name="surNameTxt" Width="500px" Text="{Binding Path=SelectedDriver.SurName, Mode=TwoWay}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Naam:</TextBlock>
-                        <TextBox x:Name="nameTxt" Width="500px" Text="{Binding Path=SelectedDriver.Name}"/>
+                        <TextBox x:Name="nameTxt" Width="500px" Text="{Binding Path=SelectedDriver.Name, Mode=TwoWay}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Gebruikersnaam:</TextBlock>
-                        <TextBox x:Name="emailTxt" Width="500px" Text="{Binding Path=SelectedDriver.Username}"/>
+                        <TextBox x:Name="emailTxt" Width="500px" Text="{Binding Path=SelectedDriver.Username, Mode=TwoWay}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Status:</TextBlock>
-                        <TextBox x:Name="mobileTxt" Width="500px" Text="{Binding Path=SelectedDriver.Status}"/>
+                        <TextBlock x:Name="mobileTxt" Width="500px" Text="{Binding Path=SelectedDriver.Status}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

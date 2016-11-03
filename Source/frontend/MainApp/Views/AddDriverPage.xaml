@@ -16,7 +16,46 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="LightGray">
+        <StackPanel Orientation="Vertical" Margin="10, 10, 10, 10">
+            <Grid VerticalAlignment="Top" x:Name="titleGrid">
+                <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Add Driver</TextBlock>
+            </Grid>
+        </StackPanel>
+        <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="100, 150, 100, 0" Padding="20" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" Width="600px">
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Gebruikersnaam:</TextBlock>
+                    <TextBox Width="500" Text="{Binding CurrentDriver.Username, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Wachtwoord:</TextBlock>
+                    <TextBox Width="500" Text="{Binding CurrentDriver.Password, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Wachtwoord:</TextBlock>
+                    <TextBox Width="500" Text="{Binding CurrentDriver.Password, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Naam:</TextBlock>
+                    <TextBox Width="500" Text="{Binding CurrentDriver.Name, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Voornaam:</TextBlock>
+                    <TextBox Width="500" Text="{Binding CurrentDriver.SurName, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Status:</TextBlock>
+                    <ComboBox Width="500" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Rol:</TextBlock>
+                    <TextBox Width="500" Text="{Binding CurrentDriver.Clearance, Mode=TwoWay}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Padding="20" x:Name="buttonGrid" Margin="0,400,0,0">
+            <Button Style="{StaticResource PageButtonStyle}" Command="{Binding AddCommand}" Padding="12" HorizontalAlignment="Left" Margin="20,0,0,0" Width="125">Add</Button>
+        </Grid>
     </Grid>
 </Page>

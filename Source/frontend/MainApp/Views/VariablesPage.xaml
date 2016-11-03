@@ -42,10 +42,6 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
-            <Grid Padding="20" x:Name="buttonGrid">
-                <Button Style="{StaticResource PageButtonStyle}" Command="{Binding AddCommand}" Padding="12" HorizontalAlignment="Right" Margin="20,0,0,0" Width="150">Add Variable</Button>
-            </Grid>
-
         </StackPanel>
     </Grid>
 </Page>

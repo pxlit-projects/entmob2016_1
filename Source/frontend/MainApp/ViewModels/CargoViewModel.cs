@@ -78,7 +78,10 @@ namespace MainApp.ViewModels
             if (cargo != null)
             {
                 Cargo lastCargo = cargoService.All().LastOrDefault();
-                Cargos.Add(lastCargo);
+                if (Cargos.LastOrDefault().Cargo_id != lastCargo.Cargo_id)
+                {
+                    Cargos.Add(lastCargo);
+                }
             }
         }
 
