@@ -9,10 +9,13 @@ namespace frontend.Domain
 {
     public class CargoBorder
     {
+        [JsonProperty("cargo_border_id")]
         public int Cargo_border_id { get; set; }
+        [JsonProperty("value")]
         public float Value { get; set; }
-        //[JsonProperty("cargos_borders")]
+        [JsonProperty("cargo")]
         public Cargo Cargo { get; set; }
+        [JsonProperty("variable")]
         public Variable Variable { get; set; }
     }
 }

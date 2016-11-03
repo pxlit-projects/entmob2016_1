@@ -138,12 +138,12 @@ namespace MainApp.ViewModels
 
         public async void ShowDriverDialog(object obj)
         {
-            var driverdialog = new AddDriverDialog();
-            var result = await driverdialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
-            {
-                LoadData();
-            }
+            //var driverdialog = new AddDriverDialog();
+            //var result = await driverdialog.ShowAsync();
+            //if (result == ContentDialogResult.Primary)
+            //{
+            //    LoadData();
+            //}
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

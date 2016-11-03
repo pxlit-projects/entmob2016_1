@@ -73,18 +73,18 @@ namespace frontend.Repository
             return employee;
         }
 
-        public async void AddEmployee(Employee employee)
+        public void AddEmployee(Employee employee)
         {
             var url = "/employees/add";
             var jsonString = JsonConvert.SerializeObject(employee);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
 
-        public async void UpdateEmployee(Employee employee)
+        public void UpdateEmployee(Employee employee)
         {
             var url = "/employees/update";
             var jsonString = JsonConvert.SerializeObject(employee);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
     }
 }

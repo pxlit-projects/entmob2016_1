@@ -11,12 +11,15 @@ namespace frontend.Domain
 {
     public class Cargo
     {
+        [JsonProperty("cargo_id")]
         public int Cargo_id { get; set; }
+        [JsonProperty("sensor_id")]
         public int Sensor_id { get; set; }
+        [JsonProperty("weight")]
         public float Weight { get; set; }
-        //[JsonProperty("cargos_exceedings")]
+        [JsonProperty("exceedings")]
         public List<ExceedingPerCargo> Exceedings { get; set; }
-        //[JsonProperty("cargos_borders")]
+        [JsonProperty("borders")]
         public List<CargoBorder> Borders { get; set; }
     }
 }

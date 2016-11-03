@@ -1,5 +1,8 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Authentication;
+using MainApp.Messages;
+using MainApp.Navigation;
 using MainApp.Utility;
 using MainApp.Views;
 using System;
@@ -12,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace MainApp.ViewModels
 {
@@ -24,13 +28,16 @@ namespace MainApp.ViewModels
         public ICommand DetailsCommand { get; set; }
         public ICommand ShowCargoDialogCommand { get; set; }
 
-        private ICargoService service;
+        private ICargoService cargoService;
+        private ISensorService sensorService;
 
-        public CargoViewModel(ICargoService service)
+        public CargoViewModel(ICargoService cargoService, ISensorService sensorService)
         {
-            this.service = service;
+            this.cargoService = cargoService;
+            this.sensorService = sensorService;
             LoadData();
             LoadCommands();
+            Messenger.Default.Register<Cargo>(this, HandleCargoMessage);
         }
 
         public ObservableCollection<Cargo> Cargos
@@ -61,9 +68,18 @@ namespace MainApp.ViewModels
 
         private void LoadData()
         {
-            var dummy = service.All().OrderBy(d => d.Cargo_id);
+            var dummy = cargoService.All().OrderBy(d => d.Cargo_id);
             Cargos = new ObservableCollection<Cargo>(dummy);
             SelectedCargo = cargos.ElementAt(0);
+        }
+
+        private void HandleCargoMessage(Cargo cargo)
+        {
+            if (cargo != null)
+            {
+                Cargo lastCargo = cargoService.All().LastOrDefault();
+                Cargos.Add(lastCargo);
+            }
         }
 
         private void LoadCommands()
@@ -85,24 +101,19 @@ namespace MainApp.ViewModels
 
         private void Update(object obj)
         {
-            service.Update(SelectedCargo);
+            cargoService.Update(SelectedCargo);
             LoadData();
         }
 
         public void ShowDetails(object obj)
         {
-
+            Messenger.Default.Send(SelectedCargo);
+            new NavService().NavigateTo("CargoDetails");
         }
 
-
-        public async void ShowCargoDialog(object obj)
+        public void ShowCargoDialog(object obj)
         {
-            var dialog = new AddCargoDialog();
-            var result = await dialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
-            {
-                LoadData();
-            }
+            new NavService().NavigateTo("AddCargo");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

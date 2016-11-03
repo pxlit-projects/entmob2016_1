@@ -1,6 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
 using MainApp.Authentication;
+using MainApp.Navigation;
 using MainApp.Utility;
 using MainApp.Views;
 using System;
@@ -54,21 +55,23 @@ namespace MainApp.ViewModels
         public void Update(object obj)
         {
             service.Update(SelectedSensor);
+            LoadData();
         }
 
         public void ChangeStatus(object obj)
         {
             service.ChangeStatus(SelectedSensor);
+            LoadData();
         }
 
         public async void ShowDialog(object obj)
         {
-            var dialog = new AddSensorDialog();
-            var result = await dialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
-            {
-                LoadData();
-            }
+            //var dialog = new AddSensorDialog();
+            //var result = await dialog.ShowAsync();
+            //if (result == ContentDialogResult.Primary)
+            //{
+            //LoadData();
+            //}
         }
         
         public ObservableCollection<Sensor> Sensors

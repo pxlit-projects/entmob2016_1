@@ -109,12 +109,12 @@ namespace MainApp.ViewModels
                 }
 
                 service.Add(CurrentSensor);
-                dialog.Title = "Succesfull!";
-                dialog.Hide();
+                //dialog.Title = "Succesfull!";
+                //dialog.Hide();
             }
             catch (Exception)
             {
-                dialog.Title = "Error! Please try again";
+                //dialog.Title = "Error! Please try again";
             }
 
         }

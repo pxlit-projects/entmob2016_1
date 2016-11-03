@@ -21,7 +21,7 @@
             <Grid VerticalAlignment="Top" x:Name="titleGrid">
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Cargos</TextBlock>
             </Grid>
-            <ListView x:Name="cargosList" ItemsSource="{Binding Cargos}" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" >
+            <ListView ItemsSource="{Binding Cargos}" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" MaxHeight="250">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -39,7 +39,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Gewicht:</TextBlock>
-                        <TextBox x:Name="weightTxt" Width="500" Text="{Binding Path=SelectedCargo.Weight}"/>
+                        <TextBox x:Name="weightTxt" Width="500" Text="{Binding Path=SelectedCargo.Weight, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Sensor id:</TextBlock>
+                        <TextBox Width="500" Text="{Binding SelectedCargo.Sensor_id, Mode=TwoWay}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

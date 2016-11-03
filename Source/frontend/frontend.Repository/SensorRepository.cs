@@ -55,18 +55,18 @@ namespace frontend.Repository
             return sensor;
         }
 
-        public async void AddSensor(Sensor sensor)
+        public void AddSensor(Sensor sensor)
         {
             var url = "/sensors/add";
             var jsonString = JsonConvert.SerializeObject(sensor);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
 
-        public async void UpdateSensor(Sensor sensor)
+        public void UpdateSensor(Sensor sensor)
         {
             var url = "/sensors/update";
             var jsonString = JsonConvert.SerializeObject(sensor);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
     }
 }

@@ -55,18 +55,18 @@ namespace frontend.Repository
             return cargo;
         }
 
-        public async void AddCargo(Cargo cargo)
+        public void AddCargo(Cargo cargo)
         {
             var url = "/cargos/add";
             var jsonString = JsonConvert.SerializeObject(cargo);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
 
-        public async void UpdateCargo(Cargo cargo)
+        public void UpdateCargo(Cargo cargo)
         {
             var url = "/cargos/update";
             var jsonString = JsonConvert.SerializeObject(cargo);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
     }
 }

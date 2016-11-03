@@ -37,7 +37,7 @@ namespace MainApp.ViewModels
 
         public void NavigateVariable(object obj)
         {
-            new NavService().NavigateTo("Variable");
+            new NavService().NavigateTo("Variables");
         }
 
         public void NavigateHome(object obj)
@@ -67,7 +67,7 @@ namespace MainApp.ViewModels
 
         private void NavigateCargo(object obj)
         {
-            new NavService().NavigateTo("Cargo");
+            new NavService().NavigateTo("Cargos");
         }
     }
 }

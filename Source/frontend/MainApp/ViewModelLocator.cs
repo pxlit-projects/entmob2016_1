@@ -20,11 +20,13 @@ namespace MainApp
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
         private DriverViewModel driverViewModel = new DriverViewModel(employeeService);
         private MainViewModel mainViewModel = new MainViewModel();
-        private CargoViewModel cargoViewModel = new CargoViewModel(cargoService);
+        private CargoViewModel cargoViewModel = new CargoViewModel(cargoService, sensorService);
         private VariableViewModel variableViewModel = new VariableViewModel(variableService);
         private LoginViewModel loginViewModel = new LoginViewModel(employeeService);
-     
+        private CargoDetailsViewModel cargoDetailsViewModel = new CargoDetailsViewModel(cargoService);
+
         // AddDialogs
+        private AddCargoViewModel addCargoViewModel = new AddCargoViewModel(cargoService, sensorService);
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
         private AddSensorViewModel addSensorViewModel = new AddSensorViewModel(sensorService);
 
@@ -84,11 +86,27 @@ namespace MainApp
             }
         }
 
+        public AddCargoViewModel AddCargoViewModel
+        {
+            get
+            {
+                return addCargoViewModel;
+            }
+        }
+
         public LoginViewModel LoginViewModel
         {
             get
             {
                 return loginViewModel;
+            }
+        }
+
+        public CargoDetailsViewModel CargoDetailsViewModel
+        {
+            get
+            {
+                return cargoDetailsViewModel;
             }
         }
     }

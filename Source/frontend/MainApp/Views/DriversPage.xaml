@@ -35,23 +35,23 @@
             <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="100, 0, 100, 0" Padding="20">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> ID:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> ID:</TextBlock>
                         <TextBlock x:Name="idTxt" Width="500px" Text="{Binding Path=SelectedDriver.Employee_id}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Voornaam:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Voornaam:</TextBlock>
                         <TextBox x:Name="surNameTxt" Width="500px" Text="{Binding Path=SelectedDriver.SurName}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Naam:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Naam:</TextBlock>
                         <TextBox x:Name="nameTxt" Width="500px" Text="{Binding Path=SelectedDriver.Name}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Gebruikersnaam:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Gebruikersnaam:</TextBlock>
                         <TextBox x:Name="emailTxt" Width="500px" Text="{Binding Path=SelectedDriver.Username}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="100px" VerticalAlignment="Center"> Status:</TextBlock>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Status:</TextBlock>
                         <TextBox x:Name="mobileTxt" Width="500px" Text="{Binding Path=SelectedDriver.Status}"/>
                     </StackPanel>
                 </StackPanel>

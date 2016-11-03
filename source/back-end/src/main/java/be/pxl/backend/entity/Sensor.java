@@ -16,10 +16,10 @@ public class Sensor {
 	private int sensor_id;
 	private String sensor_name;
 	private boolean status;
-	@OneToMany(mappedBy="sensor")
-	@Cascade (org.hibernate.annotations.CascadeType.ALL)
-	@JsonManagedReference (value = "sensor_data")
-	private List<SensorData> data;
+	//@OneToMany(mappedBy="sensor")
+	//@Cascade (org.hibernate.annotations.CascadeType.ALL)
+	//@JsonManagedReference (value = "sensor_data")
+	//private List<SensorData> data;
 	
 	public Sensor(String sensorName) {
 		this.status = true;
@@ -37,7 +37,7 @@ public class Sensor {
 	public boolean isStatus() {
 		return status;
 	}
-	public List<SensorData> getData() { return data; }
+	//public List<SensorData> getData() { return data; }
 
 	public void setStatus(boolean status) { this.status = status; }
     

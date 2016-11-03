@@ -31,11 +31,23 @@ namespace MainApp.Navigation
                     case "Sensors":
                         page.getFrame().Navigate(typeof(SensorsPage));
                         break;
-                    case "Cargo":
+                    case "Cargos":
                         page.getFrame().Navigate(typeof(CargosPage));
                         break;
-                    case "Variable":
+                    case "Variables":
                         page.getFrame().Navigate(typeof(VariablesPage));
+                        break;
+                    case "AddDriver":
+                        page.getFrame().Navigate(typeof(AddDriverPage));
+                        break;
+                    case "AddSensor":
+                        page.getFrame().Navigate(typeof(AddSensorPage));
+                        break;
+                    case "AddCargo":
+                        page.getFrame().Navigate(typeof(AddCargoPage));
+                        break;
+                    case "CargoDetails":
+                        page.getFrame().Navigate(typeof(CargoDetailsPage));
                         break;
                     default:
                         HomePage homeView = new HomePage();

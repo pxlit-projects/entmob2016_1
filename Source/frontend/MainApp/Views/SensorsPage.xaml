@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MainApp.Views"
-    xmlns:converters="using:MainApp.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -42,7 +41,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
                         <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedSensor.Sensor_id}"/>
-                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedSensor.Sensor_name}"/>
+                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedSensor.Sensor_name, Mode=TwoWay}"/>
                         <TextBlock x:Name="statusTxt" Text="{Binding Path=SelectedSensor.Status}"/>
                     </StackPanel>
                 </StackPanel>

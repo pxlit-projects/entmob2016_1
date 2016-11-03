@@ -99,20 +99,27 @@
     <Compile Include="Messages\Messenger.cs" />
     <Compile Include="Utility\PasswordHandler.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
+    <Compile Include="ViewModels\CargoDetailsViewModel.cs" />
     <Compile Include="ViewModels\AddCargoViewModel.cs" />
     <Compile Include="ViewModels\AddDriverViewModel.cs" />
     <Compile Include="ViewModels\AddSensorViewModel.cs" />
     <Compile Include="ViewModels\CargoViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\VariableViewModel.cs" />
-    <Compile Include="Views\AddCargoDialog.xaml.cs">
-      <DependentUpon>AddCargoDialog.xaml</DependentUpon>
+    <Compile Include="Views\AddCargoBorderPage.xaml.cs">
+      <DependentUpon>AddCargoBorderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddDriverDialog.xaml.cs">
-      <DependentUpon>AddDriverDialog.xaml</DependentUpon>
+    <Compile Include="Views\AddCargoPage.xaml.cs">
+      <DependentUpon>AddCargoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddSensorDialog.xaml.cs">
-      <DependentUpon>AddSensorDialog.xaml</DependentUpon>
+    <Compile Include="Views\AddDriverPage.xaml.cs">
+      <DependentUpon>AddDriverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSensorPage.xaml.cs">
+      <DependentUpon>AddSensorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CargoDetailsPage.xaml.cs">
+      <DependentUpon>CargoDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CargosPage.xaml.cs">
       <DependentUpon>CargosPage.xaml</DependentUpon>
@@ -164,15 +171,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\AddCargoDialog.xaml">
+    <Page Include="Views\AddCargoBorderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddDriverDialog.xaml">
+    <Page Include="Views\AddCargoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddSensorDialog.xaml">
+    <Page Include="Views\AddDriverPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddSensorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CargoDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
