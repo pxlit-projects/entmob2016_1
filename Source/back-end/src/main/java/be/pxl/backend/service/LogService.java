@@ -5,6 +5,7 @@ import be.pxl.backend.repository.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -16,5 +17,6 @@ public class LogService implements ILogService {
     public void persist (Log log) {
         repo.save(log);
     }
+    public List<Log> all() { return repo.findAll(); }
     
 }
