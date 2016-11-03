@@ -56,7 +56,6 @@ public class SensorController {
 	}
 	
 	@RequestMapping(value = "/update", method=RequestMethod.PUT)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void updateSensor(@RequestBody Sensor sensor) {
 		logger.log("Updating sensor with id: " + sensor.getSensor_id() + ".");
         service.update( sensor);

@@ -15,6 +15,9 @@ public class Log {
     @Column(length = 2056)
     private String message;
     
+    public Log(String message) { this.message = message; }
+    public Log() {}
+    
     public int getId () {
         return log_id;
     }
