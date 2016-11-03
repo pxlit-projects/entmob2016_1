@@ -56,6 +56,7 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void updateEmployee(@RequestBody Employee employee) {
         logger.log("Updating employee with id: " + employee.getEmployee_id() + ".");
 		service.update(employee);
