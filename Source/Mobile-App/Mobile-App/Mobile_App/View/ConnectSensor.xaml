@@ -37,4 +37,17 @@
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>
+  <ListView x:Name="listView" ItemsSource="{Binding CargoList}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" AbsoluteLayout.LayoutFlags="All" >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+              <Label Text="{Binding Cargo_id, Converter={StaticResource strConverter}}"></Label>
+            </StackLayout>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
 </ContentPage>

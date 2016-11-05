@@ -13,5 +13,6 @@ namespace Mobile_App.Services
         public IDevice connectedDevice { get; set; }
         public IAdapter adapter { get; set; }
         public Employee employee { get; set; }
+        public Cargo transportCargo { get; set; }
     }
 }
