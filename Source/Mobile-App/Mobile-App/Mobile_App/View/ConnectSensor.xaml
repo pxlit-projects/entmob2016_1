@@ -16,6 +16,7 @@
     <!--ToolbarItem x:Name="ScanHrmButton" Name="Scan" Icon="glyphish_29_heart.png"/-->
     <ToolbarItem x:Name="ScanAllButton" Command="{Binding SearchCommand}" Name="Scan" Icon="bluetooth.png"/>
   </ContentPage.ToolbarItems>
+  <StackLayout>
   <ListView x:Name="listView" ItemsSource="{Binding DeviceList}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" SelectedItem="{Binding SelectedDevice, Mode=TwoWay}" AbsoluteLayout.LayoutFlags="All" >
     <ListView.ItemTemplate>
       <DataTemplate>
@@ -37,7 +38,7 @@
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>
-  <ListView x:Name="listView" ItemsSource="{Binding CargoList}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" AbsoluteLayout.LayoutFlags="All" >
+  <ListView x:Name="CargolistView" ItemsSource="{Binding CargoList}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" AbsoluteLayout.LayoutFlags="All" >
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
@@ -50,4 +51,5 @@
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>
+    </StackLayout>
 </ContentPage>

@@ -1,8 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobile_App.View.HomeView">
-    <ContentView.Content>
-      <StackLayout Orientation="Vertical" Spacing="10" >
-
-      </StackLayout>
-  </ContentView.Content>
-</ContentPage>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobile_App.View.HomeView">
+  <ContentPage>
+    <StackLayout>
+      <Label Text="Red" />
+      <BoxView Color="Red" VerticalOptions="FillAndExpand" />
+    </StackLayout>
+  </ContentPage>
+  <ContentPage>
+    <StackLayout>
+      <Label Text="Green" />
+      <BoxView Color="Green" VerticalOptions="FillAndExpand" />
+    </StackLayout>
+  </ContentPage>
+  <ContentPage>
+    <StackLayout>
+      <Label Text="Blue" />
+      <BoxView Color="Blue" VerticalOptions="FillAndExpand" />
+    </StackLayout>
+  </ContentPage>
+</CarouselPage>

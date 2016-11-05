@@ -18,7 +18,7 @@ namespace JoesBurgerStore.Services
             {
                 case "MainPage": return new MainPage();
                 case "ConnectSensor": return new ConnectSensor();
-                case "HomeView": return new HomeView();
+               // case "HomeView": return new HomeView();
             }
             return null;
         }
@@ -78,7 +78,14 @@ namespace JoesBurgerStore.Services
 
         public Task PushAsync(string pageName)
         {
-            return Navigation.PushAsync(GetPage(pageName));
+            //TODO: CLEAN UP
+            if (pageName != "HomeView")
+            {
+                return Navigation.PushAsync(GetPage(pageName));
+            }
+            else {
+                return Navigation.PushAsync(new HomeView());
+            }
         }
 
         public Task PushAsync(string pageName, object objectToPass)

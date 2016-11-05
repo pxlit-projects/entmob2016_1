@@ -47,6 +47,7 @@ namespace Mobile_App.ViewModel
         private void InitializeCommands() {
             LoginCommand = new Command(() =>
             {
+                /*
                 Debug.WriteLine(username + " " + password);
                 IEmployeeService empService = new EmployeeService();
 
@@ -66,7 +67,10 @@ namespace Mobile_App.ViewModel
                 else {
                     Debug.WriteLine("Username Wrong");
                 }
+                */
+                navService.PushAsync("ConnectSensor");
             });
+
         }
     }
 }

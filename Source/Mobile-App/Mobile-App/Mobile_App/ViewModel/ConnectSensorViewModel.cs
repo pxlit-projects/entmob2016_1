@@ -20,7 +20,7 @@ namespace Mobile_App.ViewModel
 {
     class ConnectSensorViewModel : ViewModelBase
     {
-
+        //TODO: uncomment when testing with connection
         private IAdapter adapter;
         private Employee employee;
         private Cargo selectedCargo;
@@ -119,14 +119,15 @@ namespace Mobile_App.ViewModel
             });
             SelectCargoCommand = new Command(() =>
             {
-                transportedCargo = SelectedCargo as Cargo;
+                //transportedCargo = SelectedCargo as Cargo;
                 navService.PushAsync("HomeView");
                 Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() { connectedDevice = SelectedDevice as IDevice, adapter = this.adapter, employee = this.employee, transportCargo = this.transportedCargo });
             });
             ConnectCommand = new Command(() =>
             {
                 StopScanning();
-                GetCargoList();
+                // GetCargoList();
+                SelectCargoCommand.Execute(SelectedCargo);
             });
         }
         void StartScanning()

@@ -145,7 +145,7 @@ namespace Mobile_App.ViewModel
             adapter = variableMessage.adapter;
             employee = variableMessage.employee;
             transportedCargo = variableMessage.transportCargo;
-            ConnectToDevice();
+           // ConnectToDevice();
             return null;
         }
         public string Decode(ICharacteristic _characteristic)
