@@ -17,15 +17,18 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
-        public EmployeeRepository()
+        public EmployeeRepository(string username, string password)
         {
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Basic",
+                Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", username, password))));
         }
 
-        public async Task<IEnumerable<Employee>> GetAllEmployees()
+        public async Task<List<Employee>> GetAllEmployees()
         {
             var url = "/employees/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -36,7 +39,7 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
             
-            var employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
+            var employees = JsonConvert.DeserializeObject<List<Employee>>(jsonString);
             return employees;
         }
 
@@ -54,6 +57,7 @@ namespace frontend.Repository
             var employee = JsonConvert.DeserializeObject<Employee>(jsonString);
             return employee;
         }
+
         public async Task<Employee> GetEmployeeByUsername(String username)
         {
             var url = "/employees/get/username/" + username;
@@ -74,23 +78,13 @@ namespace frontend.Repository
             var url = "/employees/add";
             var jsonString = JsonConvert.SerializeObject(employee);
             HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
-            if (response.StatusCode == System.Net.HttpStatusCode.Created)
-            {
-                //test
-            }
         }
 
-        public async void UpdateEmployee(Employee employee)
+        public void UpdateEmployee(Employee employee)
         {
             var url = "/employees/update";
             var jsonString = JsonConvert.SerializeObject(employee);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteEmployee(int id)
-        {
-            var url = "/employees/delete/" + id;
-            await Client.DeleteAsync(url);
+            HttpResponseMessage response = Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
     }
 }

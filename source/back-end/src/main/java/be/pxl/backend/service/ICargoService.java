@@ -2,7 +2,6 @@ package be.pxl.backend.service;
 
 import java.util.List;
 import be.pxl.backend.entity.Cargo;
-import be.pxl.backend.entity.Product;
 
 public interface ICargoService {
 
@@ -13,5 +12,9 @@ public interface ICargoService {
 	public void persist(Cargo cargo);
 	
 	public void delete(int id);
+	
+	public void update(Cargo cargo);
+	
+	public List<Cargo> getCargoBySensor(int sensor_id);
 
 }

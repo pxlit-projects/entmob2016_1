@@ -1,5 +1,8 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Authentication;
+using MainApp.Messages;
+using MainApp.Navigation;
 using MainApp.Utility;
 using MainApp.Views;
 using System;
@@ -17,21 +20,19 @@ namespace MainApp.ViewModels
     public class SensorViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private ISensorService service = new SensorService();
-        private ISensorUsageService usageService = new SensorUsageService();
+        private ISensorService service = new SensorService(DefaultUser.username, DefaultUser.password);
         private ObservableCollection<Sensor> sensors;
-        private ObservableCollection<SensorUsage> sensorUsages;
-
 
         public ICommand UpdateCommand { get; set; }
         public ICommand ChangeStatusCommand { get; set; }
         public ICommand ShowDialogCommand { get; set; }
-        public ICommand ShowSensorUsageCommand { get; set; }
+
         public SensorViewModel(ISensorService service)
         {
             this.service = service;
             LoadData();
             LoadCommands();
+            Messenger.Default.Register<Sensor>(this, HandleSensorMessage);
         }
 
         private void LoadCommands()
@@ -39,13 +40,25 @@ namespace MainApp.ViewModels
             UpdateCommand = new CustomCommand(Update, CanUpdateOrChangeStatus);
             ChangeStatusCommand = new CustomCommand(ChangeStatus, CanUpdateOrChangeStatus);
             ShowDialogCommand = new CustomCommand(ShowDialog, null);
-            ShowSensorUsageCommand = new CustomCommand(ShowSensorUsage, null);
         }
+
         private void LoadData()
         {
             var sensorsList = service.All().OrderBy(d => d.Sensor_id);
             Sensors = new ObservableCollection<Sensor>(sensorsList);
             SelectedSensor = sensors.ElementAt(0);
+        }
+
+        private void HandleSensorMessage(Sensor sensor)
+        {
+            if (sensor != null)
+            {
+                Sensor lastSensor = service.All().LastOrDefault();
+                if (Sensors.LastOrDefault().Sensor_id != lastSensor.Sensor_id)
+                {
+                    Sensors.Add(lastSensor);
+                }
+            }
         }
 
         public bool CanUpdateOrChangeStatus(object obj)
@@ -56,28 +69,20 @@ namespace MainApp.ViewModels
         public void Update(object obj)
         {
             service.Update(SelectedSensor);
+            LoadData();
         }
 
         public void ChangeStatus(object obj)
         {
             service.ChangeStatus(SelectedSensor);
+            LoadData();
         }
 
-        public async void ShowDialog(object obj)
+        public void ShowDialog(object obj)
         {
-            var dialog = new AddSensorDialog();
-            var result = await dialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
-            {
-                LoadData();
-            }
+            new NavService().NavigateTo("AddCargo");
         }
-
-        public void ShowSensorUsage(object obj)
-        {
-            var list = usageService.All().Where(d => d.Sensor.Sensor_id == SelectedSensor.Sensor_id);
-            SensorUsages = new ObservableCollection<SensorUsage>(list);
-        }
+        
         public ObservableCollection<Sensor> Sensors
         {
             get
@@ -103,19 +108,6 @@ namespace MainApp.ViewModels
             {
                 selectedSensor = value;
                 RaisePropertyChanged("SelectedSensor");
-            }
-        }
-
-        public ObservableCollection<SensorUsage> SensorUsages
-        {
-            get
-            {
-                return sensorUsages;
-            }
-            set
-            {
-                sensorUsages = value;
-                RaisePropertyChanged("SensorUsages");
             }
         }
 

@@ -13,24 +13,16 @@ namespace MainApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-
         public ICommand HomeCommand { get; set; }
-        public ICommand ProductCommand { get; set; }
         public ICommand SensorCommand { get; set; }
         public ICommand DriverCommand { get; set; }
-
         public ICommand CargoCommand { get; set; }
-        public ICommand LoginCommand { get; set; }
-        public ICommand CityCommand { get; set; }
-
-        public ICommand BordersPerProductCommand { get; set; }
         public ICommand MenuCommand { get; set; }
-        public ICommand DestinationCommand { get; set; }
         public ICommand VariableCommand { get; set; }
+        public ICommand ExceedingsCommand { get; set; }
 
         public MainViewModel()
         {
-            
             LoadCommands();
         }
         
@@ -42,18 +34,15 @@ namespace MainApp.ViewModels
             obj.IsChecked = false;
 
         }
+
         public void NavigateVariable(object obj)
         {
-            new NavService().NavigateTo("Variable");
+            new NavService().NavigateTo("Variables");
         }
+
         public void NavigateHome(object obj)
         {
             new NavService().NavigateTo("Home");
-        }
-
-        public void NavigateProduct(object obj)
-        {
-            new NavService().NavigateTo("Products");
         }
 
         public void NavigateSensor(object obj)
@@ -66,47 +55,25 @@ namespace MainApp.ViewModels
             new NavService().NavigateTo("Drivers");
         }
 
-        public void NavigateDestination(object obj)
-        {
-            new NavService().NavigateTo("Destination");
-        }
-
         public void LoadCommands()
         {
             HomeCommand = new CustomCommand(NavigateHome, null);
-            LoginCommand = new CustomCommand(NavigateLogin, null);
             CargoCommand = new CustomCommand(NavigateCargo, null);
-            CityCommand = new CustomCommand(NavigateCity, null);
-            BordersPerProductCommand = new CustomCommand(NavigateBordersPerProduct, null);
-            ProductCommand = new CustomCommand(NavigateProduct, null);
             SensorCommand = new CustomCommand(NavigateSensor, null);
             DriverCommand = new CustomCommand(NavigateDriver, null);
             MenuCommand = new RelayCommand<RadioButton>(ShowHideMenu, null);
-            DestinationCommand = new CustomCommand(NavigateDestination, null);
             VariableCommand = new CustomCommand(NavigateVariable, null);
-            
-
-
-        }
-
-        private void NavigateBordersPerProduct(object obj)
-        {
-            new NavService().NavigateTo("BordersPerProduct");
-        }
-
-        private void NavigateCity(object obj)
-        {
-            new NavService().NavigateTo("City");
+            ExceedingsCommand = new CustomCommand(NavigateExceeding, null);
         }
 
         private void NavigateCargo(object obj)
         {
-            new NavService().NavigateTo("Cargo");
+            new NavService().NavigateTo("Cargos");
         }
 
-        private void NavigateLogin(object obj)
+        private void NavigateExceeding(object obj)
         {
-            new NavService().NavigateTo("Login");
+            new NavService().NavigateTo("Exceedings");
         }
     }
 }

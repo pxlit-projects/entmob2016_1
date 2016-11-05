@@ -1,5 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Messages;
+using MainApp.Navigation;
 using MainApp.Utility;
 using System;
 using System.Collections.Generic;
@@ -17,13 +19,10 @@ namespace MainApp.ViewModels
     {
         private IEmployeeService service;
 
-        private List<string> sexList;
         private List<string> statusList;
 
-        private string selectedSex;
         private string selectedStatus;
         private Employee currentDriver;
-        private City currentCity;
 
         public ICommand AddCommand { get; set; }
         public ICommand CancelCommand { get; set; }
@@ -33,19 +32,6 @@ namespace MainApp.ViewModels
             this.service = service;
             LoadData();
             LoadCommands();
-        }
-
-        public List<string> SexList
-        {
-            get
-            {
-                return sexList;
-            }
-            set
-            {
-                sexList = value;
-                RaisePropertyChanged("SexList");
-            }
         }
 
         public List<string> StatusList
@@ -58,19 +44,6 @@ namespace MainApp.ViewModels
             {
                 statusList = value;
                 RaisePropertyChanged("StatusList");
-            }
-        }
-
-        public string SelectedSex
-        {
-            get
-            {
-                return selectedSex;
-            }
-            set
-            {
-                selectedSex = value;
-                RaisePropertyChanged("SelectedSex");
             }
         }
 
@@ -100,27 +73,8 @@ namespace MainApp.ViewModels
             }
         }
 
-        public City CurrentCity
-        {
-            get
-            {
-                return currentCity;
-            }
-            set
-            {
-                currentCity = value;
-                RaisePropertyChanged("CurrentCity");
-            }
-        }
-
         private void LoadData()
         {
-            SexList = new List<string>
-            {
-                "Male",
-                "Female"
-            };
-
             StatusList = new List<string>
             {
                 "Active",
@@ -128,45 +82,30 @@ namespace MainApp.ViewModels
             };
 
             CurrentDriver = new Employee();
-            CurrentCity = new City();
         }
 
         private void LoadCommands()
         {
-            AddCommand = new RelayCommand<ContentDialog>(AddDriver, CanAddDriver);
+            AddCommand = new CustomCommand(AddDriver, null);
         }
 
-        private bool CanAddDriver(object obj)
+        private void AddDriver(object obj)
         {
-            return CurrentDriver != null;
-        }
-
-        private void AddDriver(ContentDialog dialog)
-        {
-            try
+            if (SelectedStatus == "Active")
             {
-                CurrentDriver.Sex = SelectedSex;
-                CurrentDriver.City = CurrentCity;
-                CurrentDriver.Date_employment = new DateTime(1996, 1, 2).ToString();
-
-                if (SelectedStatus == "Active")
-                {
-                    CurrentDriver.Status = true;
-                }
-                else
-                {
-                    CurrentDriver.Status = false;
-                }
-
-                service.Add(CurrentDriver);
-                dialog.Title = "Succesfull!";
-                dialog.Hide();
+                CurrentDriver.Status = true;
             }
-            catch (Exception)
+            else
             {
-                dialog.Title = "Error! Please try again";
+                CurrentDriver.Status = false;
             }
 
+            CurrentDriver.Salt = PasswordHandler.GenerateSalt();
+            CurrentDriver.Password = PasswordHandler.Md5Encrypt(CurrentDriver.Password, CurrentDriver.Salt);
+
+            service.Add(CurrentDriver);
+            Messenger.Default.Send(CurrentDriver);
+            new NavService().NavigateTo("Drivers");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

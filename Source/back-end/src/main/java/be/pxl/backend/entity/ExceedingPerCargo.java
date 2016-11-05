@@ -1,54 +1,36 @@
 package be.pxl.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import javax.persistence.*;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
-@Table(name="Exceedings_per_cargo")
+@Table(name="exceeding_per_cargo")
 public class ExceedingPerCargo {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int exceeding_per_cargo_id;
 	@ManyToOne
-	@JsonBackReference
+    @JsonBackReference(value = "cargos_exceedings")
 	private Cargo cargo;
-	@OneToOne
+	@ManyToOne
 	private Variable variable;
 	private float value;
-	
-	
+    private Timestamp time = new Timestamp(new Date().getTime());
+    
 	public double getValue() {
 		return value;
-	}
-	public void setValue(float value) {
-		this.value = value;
 	}
 	public int getExceeding_per_cargo_id() {
 		return exceeding_per_cargo_id;
 	}
-	public void setExceeding_per_cargo_id(int exceeding_per_cargo_id) {
-		this.exceeding_per_cargo_id = exceeding_per_cargo_id;
-	}
-	public Cargo getCargo() {
-		return cargo;
-	}
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
-	}
 	public Variable getVariable() {
 		return variable;
 	}
-	public void setVariable(Variable variable) {
-		this.variable = variable;
-	}
+	public Timestamp getTime() { return time; }
 	
 }

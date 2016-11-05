@@ -107,35 +107,19 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BordersPerProductRepository.cs" />
+    <Compile Include="CargoBorderRepository.cs" />
     <Compile Include="CargoRepository.cs" />
-    <Compile Include="CityRepository.cs" />
-    <Compile Include="CommentRepository.cs" />
-    <Compile Include="DestinationRepository.cs" />
     <Compile Include="EmployeeRepository.cs" />
     <Compile Include="ExceedingsPerCargoRepository.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="IBordersPerProductRepository.cs" />
+    <Compile Include="ICargoBorderRepository.cs" />
     <Compile Include="ICargoRepository.cs" />
-    <Compile Include="ICityRepository.cs" />
-    <Compile Include="ICommentRepository.cs" />
-    <Compile Include="IDestinationRepository.cs" />
     <Compile Include="IEmployeeRepository.cs" />
     <Compile Include="IExceedingsPerCargoRepository.cs" />
-    <Compile Include="ILoginRepository.cs" />
-    <Compile Include="IProductRepository.cs" />
-    <Compile Include="IProductsPerCargoRepository.cs" />
     <Compile Include="ISensorRepository.cs" />
-    <Compile Include="ISensorUsageRepository.cs" />
-    <Compile Include="IStabilisationsPerCargoRepository.cs" />
     <Compile Include="IVariableRepository.cs" />
-    <Compile Include="LoginRepository.cs" />
-    <Compile Include="ProductRepository.cs" />
-    <Compile Include="ProductsPerCargoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SensorRepository.cs" />
-    <Compile Include="SensorUsageRepository.cs" />
-    <Compile Include="StabilisationsPerCargoRepository.cs" />
     <Compile Include="VariableRepository.cs" />
     <EmbeddedResource Include="Properties\frontend.Repository.rd.xml" />
   </ItemGroup>

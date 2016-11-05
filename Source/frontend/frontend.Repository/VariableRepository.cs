@@ -12,64 +12,33 @@ namespace frontend.Repository
 {
     public class VariableRepository : IVariableRepository
     {
-        public HttpClient Client { get; set; }
+        public ICargoRepository CargoRepository { get; set; }
 
-        public VariableRepository()
+        public VariableRepository(string username, string password)
         {
-            Client = new HttpClient();
-            Client.BaseAddress = new Uri(Global.IP_ADRESS);
-            Client.DefaultRequestHeaders.Accept.Clear();
-            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            CargoRepository = new CargoRepository(username, password);
         }
 
-        public async Task<IEnumerable<Variable>> GetAllVariables()
+        public async Task<List<Variable>> GetAllVariables()
         {
-            var url = "/variables/all";
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
+            var cargos = await CargoRepository.GetAllCargos();
+            HashSet<int> variablesId = new HashSet<int>();
+            List<Variable> variables = new List<Variable>();
+            cargos.ForEach(c => c.Borders.ForEach(b => variablesId.Add(b.Variable.Variable_id)));
 
-            if (response.IsSuccessStatusCode)
+            foreach (int id in variablesId)
             {
-                jsonString = await response.Content.ReadAsStringAsync();
+                variables.Add(await GetVariableById(id));
             }
 
-            var variables = JsonConvert.DeserializeObject<IEnumerable<Variable>>(jsonString);
             return variables;
         }
 
         public async Task<Variable> GetVariableById(int id)
         {
-            var url = "/variables/get/" + id;
-            HttpResponseMessage response = Client.GetAsync(url).Result;
-            string jsonString = "";
-
-            if (response.IsSuccessStatusCode)
-            {
-                jsonString = await response.Content.ReadAsStringAsync();
-            }
-
-            var variable = JsonConvert.DeserializeObject<Variable>(jsonString);
+            var variables = await GetAllVariables();
+            var variable = variables.FirstOrDefault(v => v.Variable_id == id);
             return variable;
-        }
-
-        public async void AddVariable(Variable variable)
-        {
-            var url = "/variables/add";
-            var jsonString = JsonConvert.SerializeObject(variable);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void UpdateVariable(Variable variable)
-        {
-            var url = "/variables/update";
-            var jsonString = JsonConvert.SerializeObject(variable);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteVariable(int id)
-        {
-            var url = "/variables/delete/" + id;
-            await Client.DeleteAsync(url);
         }
     }
 }

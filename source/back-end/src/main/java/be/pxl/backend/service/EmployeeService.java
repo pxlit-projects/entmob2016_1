@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import be.pxl.backend.entity.Employee;
-import be.pxl.backend.entity.Login;
 import be.pxl.backend.repository.EmployeeRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,14 +32,12 @@ public class EmployeeService implements IEmployeeService {
 		this.update(employee);
 	}
 	
-	public void update(Employee employee) {
-		Employee e = repo.findOne(employee.getEmployee_id());
-		e.copy(employee);
-		repo.save(employee);
-	}
+	public void update(Employee employee) {	repo.save(employee); }
 
 	public Employee getEmployeeByUsername(String username) {
 		return repo.getEmployeeByUsername(username);
 	}
+	
+	public void hardDelete(int id) { repo.delete(id); }
 	
 }

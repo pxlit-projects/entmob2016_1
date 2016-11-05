@@ -1,5 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Messages;
+using MainApp.Navigation;
 using MainApp.Utility;
 using MainApp.Views;
 using System;
@@ -32,6 +34,7 @@ namespace MainApp.ViewModels
             this.service = service;
             LoadData();
             LoadCommands();
+            Messenger.Default.Register<Employee>(this, HandleDriverMessage);
         }
 
         public ObservableCollection<Employee> Drivers
@@ -72,6 +75,18 @@ namespace MainApp.ViewModels
             UpdateCommand = new CustomCommand(Update, CanUpdate);
             ChangeStatusCommand = new CustomCommand(ChangeStatus, CanChangeStatus);
             ShowDriverDialogCommand = new CustomCommand(ShowDriverDialog, null);
+        }
+
+        private void HandleDriverMessage(Employee employee)
+        {
+            if (employee != null)
+            {
+                Employee lastEmployee = service.All().LastOrDefault();
+                if (Drivers.LastOrDefault().Employee_id != lastEmployee.Employee_id)
+                {
+                    Drivers.Add(lastEmployee);
+                }
+            }
         }
 
         private bool CanUpdate(object obj)
@@ -136,14 +151,9 @@ namespace MainApp.ViewModels
             }
         }
 
-        public async void ShowDriverDialog(object obj)
+        public void ShowDriverDialog(object obj)
         {
-            var driverdialog = new AddDriverDialog();
-            var result = await driverdialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
-            {
-                LoadData();
-            }
+            new NavService().NavigateTo("AddDriver");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

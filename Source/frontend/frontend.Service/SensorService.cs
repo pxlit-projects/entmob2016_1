@@ -12,9 +12,9 @@ namespace frontend.Service
     {
         private SensorRepository sensorRepository;
 
-        public SensorService()
+        public SensorService(string username, string password)
         {
-            sensorRepository = new SensorRepository();
+            sensorRepository = new SensorRepository(username, password);
         }
 
         public void Add(Sensor sensor)
@@ -25,11 +25,6 @@ namespace frontend.Service
         public List<Sensor> All()
         {
             return sensorRepository.GetAllSensors().Result.ToList();
-        }
-
-        public void Delete(int id)
-        {
-            sensorRepository.DeleteSensor(id);
         }
 
         public Sensor Find(int id)

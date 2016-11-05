@@ -11,21 +11,21 @@ namespace frontend.Domain
 {
     public class Employee
     {
+        [JsonProperty("employee_id")]
         public int Employee_id { get; set; }
+        [JsonProperty("username")]
         public string Username { get; set; }
+        [JsonProperty("password")]
         public string Password { get; set; }
+        [JsonProperty("salt")]
         public string Salt { get; set; }
+        [JsonProperty("surName")]
         public string SurName { get; set; }
+        [JsonProperty("name")]
         public string Name { get; set; }
-        public string Street { get; set; }
-        public string HouseNr { get; set; }
-        public City City { get; set; }
-        //[JsonConverter(typeof(DateConverter))]
-        public string Date_employment { get; set; }
-        public string Mobile_phone { get; set; }
-        public string Telephone_number { get; set; }
-        public string Email { get; set; }
-        public string Sex { get; set; }
+        [JsonProperty("status")]
         public bool Status { get; set; }
+        [JsonProperty("clearance")]
+        public Role Clearance { get; set; }
     }
 }

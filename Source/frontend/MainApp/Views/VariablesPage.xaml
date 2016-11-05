@@ -26,8 +26,6 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Variable_id}" Width="100px" HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding Description}" Width="250px" HorizontalAlignment="Center"/>
-                            
-
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -37,21 +35,13 @@
                     <StackPanel Orientation="Vertical" Width="100px">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> ID:</TextBlock>
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Description:</TextBlock>
-                        
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Width="500px">
                         <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedVariable.Variable_id}"/>
                         <TextBlock x:Name="descriptionTxt" Text="{Binding Path=SelectedVariable.Description}"/>
-                        
-
                     </StackPanel>
                 </StackPanel>
             </Grid>
-            <Grid Padding="20" x:Name="buttonGrid">
-                <Button Style="{StaticResource PageButtonStyle}" Command="{Binding UpdateCommand}" Padding="12" HorizontalAlignment="Left" Margin="0,0,0,0" Width="125">Update</Button>
-                <Button Style="{StaticResource PageButtonStyle}" Command="{Binding AddCommand}" Padding="12" HorizontalAlignment="Right" Margin="20,0,0,0" Width="150">Add Variable</Button>
-            </Grid>
-
         </StackPanel>
     </Grid>
 </Page>

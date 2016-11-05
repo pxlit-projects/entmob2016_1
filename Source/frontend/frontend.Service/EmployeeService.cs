@@ -12,9 +12,9 @@ namespace frontend.Service
     {
         private EmployeeRepository employeeRepository;
 
-        public EmployeeService()
+        public EmployeeService(string username, string password)
         {
-            employeeRepository = new EmployeeRepository();
+            employeeRepository = new EmployeeRepository(username, password);
         }
 
         public void Add(Employee employee)
@@ -26,16 +26,12 @@ namespace frontend.Service
         {
             return employeeRepository.GetAllEmployees().Result.ToList();
         }
-
-        public void Delete(int id)
-        {
-            employeeRepository.DeleteEmployee(id);
-        }
-
+        
         public Employee Find(int id)
         {
             return employeeRepository.GetEmployeeById(id).Result;
         }
+
         public Employee FindByUsername(String username) {
             return employeeRepository.GetEmployeeByUsername(username).Result;
         }

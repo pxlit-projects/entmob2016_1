@@ -19,17 +19,12 @@ namespace MainApp.ViewModels
         private ObservableCollection<Variable> variables;
         private Variable selectedVariable;
 
-        public ICommand UpdateCommand { get; set; }
-
-        public ICommand ShowCityDialogCommand { get; set; }
-
         private IVariableService service;
 
         public VariableViewModel(IVariableService service)
         {
             this.service = service;
             LoadData();
-            LoadCommands();
         }
 
         public ObservableCollection<Variable> Variables
@@ -63,39 +58,6 @@ namespace MainApp.ViewModels
             var dummy = service.All().OrderBy(d => d.Variable_id);
             Variables = new ObservableCollection<Variable>(dummy);
             SelectedVariable = variables.ElementAt(0);
-        }
-
-        private void LoadCommands()
-        {
-            UpdateCommand = new CustomCommand(Update, CanUpdate);
-
-            ShowCityDialogCommand = new CustomCommand(ShowCityDialog, null);
-        }
-
-        private bool CanUpdate(object obj)
-        {
-            return SelectedVariable != null;
-        }
-
-
-
-        private void Update(object obj)
-        {
-            service.Update(SelectedVariable);
-            LoadData();
-        }
-
-
-
-
-        public async void ShowCityDialog(object obj)
-        {
-            var dialog = new AddVariableDialog();
-            var result = await dialog.ShowAsync();
-            if (result == ContentDialogResult.Primary)
-            {
-                LoadData();
-            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

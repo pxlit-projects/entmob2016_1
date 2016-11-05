@@ -14,15 +14,18 @@ namespace frontend.Repository
     {
         public HttpClient Client { get; set; }
 
-        public CargoRepository()
+        public CargoRepository(string username, string password)
         {
             Client = new HttpClient();
             Client.BaseAddress = new Uri(Global.IP_ADRESS);
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Basic", 
+                Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", username, password))));
         }
 
-        public async Task<IEnumerable<Cargo>> GetAllCargos()
+        public async Task<List<Cargo>> GetAllCargos()
         {
             var url = "/cargos/all";
             HttpResponseMessage response = Client.GetAsync(url).Result;
@@ -33,7 +36,7 @@ namespace frontend.Repository
                 jsonString = await response.Content.ReadAsStringAsync();
             }
 
-            var cargos = JsonConvert.DeserializeObject<IEnumerable<Cargo>>(jsonString);
+            var cargos = JsonConvert.DeserializeObject<List<Cargo>>(jsonString);
             return cargos;
         }
 
@@ -52,24 +55,18 @@ namespace frontend.Repository
             return cargo;
         }
 
-        public async void AddCargo(Cargo cargo)
+        public void AddCargo(Cargo cargo)
         {
             var url = "/cargos/add";
             var jsonString = JsonConvert.SerializeObject(cargo);
-            await Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
 
-        public async void UpdateCargo(Cargo cargo)
+        public void UpdateCargo(Cargo cargo)
         {
             var url = "/cargos/update";
             var jsonString = JsonConvert.SerializeObject(cargo);
-            await Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
-        }
-
-        public async void DeleteCargo(int id)
-        {
-            var url = "/cargos/delete/" + id;
-            await Client.DeleteAsync(url);
+            HttpResponseMessage response = Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
     }
 }

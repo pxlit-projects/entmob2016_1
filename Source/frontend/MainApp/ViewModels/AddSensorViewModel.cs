@@ -1,5 +1,7 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Messages;
+using MainApp.Navigation;
 using MainApp.Utility;
 using System;
 using System.Collections.Generic;
@@ -16,13 +18,10 @@ namespace MainApp.ViewModels
     {
         private ISensorService service;
 
-        
         private List<string> statusList;
 
-        
         private string selectedStatus;
         private Sensor currentSensor;
-        
 
         public ICommand AddCommand { get; set; }
         public ICommand CancelCommand { get; set; }
@@ -33,8 +32,6 @@ namespace MainApp.ViewModels
             LoadData();
             LoadCommands();
         }
-
-      
 
         public List<string> StatusList
         {
@@ -49,7 +46,7 @@ namespace MainApp.ViewModels
             }
         }
 
-       
+
 
         public string SelectedStatus
         {
@@ -77,12 +74,10 @@ namespace MainApp.ViewModels
             }
         }
 
-        
+
 
         private void LoadData()
         {
-           
-
             StatusList = new List<string>
             {
                 "Active",
@@ -90,7 +85,6 @@ namespace MainApp.ViewModels
             };
 
             CurrentSensor = new Sensor();
-            
         }
 
         private void LoadCommands()
@@ -105,28 +99,18 @@ namespace MainApp.ViewModels
 
         private void AddSensor(ContentDialog dialog)
         {
-            try
+            if (SelectedStatus == "Active")
             {
-               
-
-                if (SelectedStatus == "Active")
-                {
-                    CurrentSensor.Status = true;
-                }
-                else
-                {
-                    CurrentSensor.Status = false;
-                }
-
-                service.Add(CurrentSensor);
-                dialog.Title = "Succesfull!";
-                dialog.Hide();
+                CurrentSensor.Status = true;
             }
-            catch (Exception)
+            else
             {
-                dialog.Title = "Error! Please try again";
+                CurrentSensor.Status = false;
             }
 
+            service.Add(CurrentSensor);
+            Messenger.Default.Send(CurrentSensor);
+            new NavService().NavigateTo("Sensors");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

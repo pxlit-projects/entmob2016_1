@@ -28,29 +28,31 @@
                             <TextBlock Text="{Binding Employee_id}" Width="100px" HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding SurName}" Width="250px" HorizontalAlignment="Center"/>
                             <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Status}" Margin="20,0,0,0" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="100, 0, 100, 0" Padding="20">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical" Width="100px">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> ID:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Voornaam:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Naam:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Email:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Mobiel:</TextBlock>
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}"> Telefoon:</TextBlock>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> ID:</TextBlock>
+                        <TextBlock x:Name="idTxt" Width="500px" Text="{Binding Path=SelectedDriver.Employee_id}"/>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Width="500px">
-                        <TextBlock x:Name="idTxt" Text="{Binding Path=SelectedDriver.Employee_id}"/>
-                        <TextBox x:Name="surNameTxt" Text="{Binding Path=SelectedDriver.SurName}"/>
-                        <TextBox x:Name="nameTxt" Text="{Binding Path=SelectedDriver.Name}"/>
-                        <TextBox x:Name="emailTxt" Text="{Binding Path=SelectedDriver.Email}"/>
-                        <TextBox x:Name="mobileTxt" Text="{Binding Path=SelectedDriver.Mobile_phone}"/>
-                        <TextBox x:Name="telephoneTxt" Text="{Binding Path=SelectedDriver.Telephone_number}"/>
-                        <DatePicker x:Name="dateTxt" Date="{Binding Path=SelectedDriver.Date_employment}"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Voornaam:</TextBlock>
+                        <TextBox x:Name="surNameTxt" Width="500px" Text="{Binding Path=SelectedDriver.SurName, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Naam:</TextBlock>
+                        <TextBox x:Name="nameTxt" Width="500px" Text="{Binding Path=SelectedDriver.Name, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Gebruikersnaam:</TextBlock>
+                        <TextBox x:Name="emailTxt" Width="500px" Text="{Binding Path=SelectedDriver.Username, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Status:</TextBlock>
+                        <TextBlock x:Name="mobileTxt" Width="500px" Text="{Binding Path=SelectedDriver.Status}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

@@ -12,34 +12,19 @@ namespace frontend.Service
     {
         private VariableRepository variableRepository;
 
-        public VariableService()
+        public VariableService(string username, string password)
         {
-            variableRepository = new VariableRepository();
+            variableRepository = new VariableRepository(username, password);
         }
-
-        public void Add(Variable variable)
-        {
-            variableRepository.AddVariable(variable);
-        }
-
+        
         public List<Variable> All()
         {
             return variableRepository.GetAllVariables().Result.ToList();
         }
 
-        public void Delete(int id)
-        {
-            variableRepository.DeleteVariable(id);
-        }
-
         public Variable Find(int id)
         {
             return variableRepository.GetVariableById(id).Result;
-        }
-
-        public void Update(Variable variable)
-        {
-            variableRepository.UpdateVariable(variable);
         }
     }
 }

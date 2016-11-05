@@ -95,60 +95,42 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Authentication\DefaultUser.cs" />
     <Compile Include="Messages\Messenger.cs" />
+    <Compile Include="Utility\PasswordHandler.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
-    <Compile Include="ViewModels\AddBordersPerProductViewModel.cs" />
+    <Compile Include="ViewModels\AddCargoBorderViewModel.cs" />
+    <Compile Include="ViewModels\CargoDetailsViewModel.cs" />
     <Compile Include="ViewModels\AddCargoViewModel.cs" />
-    <Compile Include="ViewModels\AddCityViewModel.cs" />
-    <Compile Include="ViewModels\AddDestinationViewModel.cs" />
     <Compile Include="ViewModels\AddDriverViewModel.cs" />
-    <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="ViewModels\AddSensorViewModel.cs" />
-    <Compile Include="ViewModels\AddVariableViewModel.cs" />
-    <Compile Include="ViewModels\BordersPerProductViewModel.cs" />
     <Compile Include="ViewModels\CargoViewModel.cs" />
-    <Compile Include="ViewModels\CityViewModel.cs" />
-    <Compile Include="ViewModels\DestinationViewModel.cs" />
+    <Compile Include="ViewModels\ExceedingsViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\VariableViewModel.cs" />
-    <Compile Include="Views\AddBordersPerProductDialog.xaml.cs">
-      <DependentUpon>AddBordersPerProductDialog.xaml</DependentUpon>
+    <Compile Include="Views\AddCargoBorderPage.xaml.cs">
+      <DependentUpon>AddCargoBorderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddCargoDialog.xaml.cs">
-      <DependentUpon>AddCargoDialog.xaml</DependentUpon>
+    <Compile Include="Views\AddCargoPage.xaml.cs">
+      <DependentUpon>AddCargoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddCityDialog.xaml.cs">
-      <DependentUpon>AddCityDialog.xaml</DependentUpon>
+    <Compile Include="Views\AddDriverPage.xaml.cs">
+      <DependentUpon>AddDriverPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddDestinationDialog.xaml.cs">
-      <DependentUpon>AddDestinationDialog.xaml</DependentUpon>
+    <Compile Include="Views\AddSensorPage.xaml.cs">
+      <DependentUpon>AddSensorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddDriverDialog.xaml.cs">
-      <DependentUpon>AddDriverDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AddProductDialog.xaml.cs">
-      <DependentUpon>AddProductDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AddSensorDialog.xaml.cs">
-      <DependentUpon>AddSensorDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AddVariableDialog.xaml.cs">
-      <DependentUpon>AddVariableDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BordersPerProductPage.xaml.cs">
-      <DependentUpon>BordersPerProductPage.xaml</DependentUpon>
+    <Compile Include="Views\CargoDetailsPage.xaml.cs">
+      <DependentUpon>CargoDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CargosPage.xaml.cs">
       <DependentUpon>CargosPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CitiesPage.xaml.cs">
-      <DependentUpon>CitiesPage.xaml</DependentUpon>
+    <Compile Include="Views\ExceedingsPage.xaml.cs">
+      <DependentUpon>ExceedingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DestinationsPage.xaml.cs">
-      <DependentUpon>DestinationsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginsPage.xaml.cs">
-      <DependentUpon>LoginsPage.xaml</DependentUpon>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -159,16 +141,12 @@
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\DriverViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SensorViewModel.cs" />
     <Compile Include="Views\DriversPage.xaml.cs">
       <DependentUpon>DriversPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ProductsPage.xaml.cs">
-      <DependentUpon>ProductsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SensorsPage.xaml.cs">
       <DependentUpon>SensorsPage.xaml</DependentUpon>
@@ -198,39 +176,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\AddBordersPerProductDialog.xaml">
+    <Page Include="Views\AddCargoBorderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddCargoDialog.xaml">
+    <Page Include="Views\AddCargoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddCityDialog.xaml">
+    <Page Include="Views\AddDriverPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddDestinationDialog.xaml">
+    <Page Include="Views\AddSensorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddDriverDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\AddProductDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\AddSensorDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\AddVariableDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\BordersPerProductPage.xaml">
+    <Page Include="Views\CargoDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,15 +200,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CitiesPage.xaml">
+    <Page Include="Views\ExceedingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DestinationsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginsPage.xaml">
+    <Page Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -264,10 +222,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HomePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ProductsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

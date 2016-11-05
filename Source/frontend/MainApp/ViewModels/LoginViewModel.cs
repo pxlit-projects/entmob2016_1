@@ -1,109 +1,60 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Navigation;
 using MainApp.Utility;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Popups;
 
 namespace MainApp.ViewModels
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel
     {
-        private ObservableCollection<Login> logins;
-        private Login selectedLogin;
+        private Employee currentEmployee;
 
-        public ICommand UpdateCommand { get; set; }
-        public ICommand DetailsCommand { get; set; }
-        
+        private IEmployeeService service;
 
-        private ILoginService service;
+        public ICommand LoginCommand { get; set; }
 
-        public LoginViewModel(ILoginService service)
+        public LoginViewModel(IEmployeeService service)
         {
             this.service = service;
-            LoadData();
             LoadCommands();
         }
 
-        public ObservableCollection<Login> Logins
+        public void LoadCommands()
+        {
+            LoginCommand = new CustomCommand(Login, null);
+        }
+
+        private bool CanLogin(object obj)
+        {
+            return CurrentEmployee != null;
+        }
+
+        private void Login(object obj)
+        {
+            //Employee employee = service.FindByUsername(CurrentEmployee.Username);
+            //string hashedPassword = PasswordHandler.Md5Encrypt(CurrentEmployee.Password, employee.Salt);
+            //if (hashedPassword == employee.Password)
+            //{
+                new NavService().NavigateTo("Main");
+            //}
+        }
+
+        public Employee CurrentEmployee
         {
             get
             {
-                return logins;
+                return currentEmployee;
             }
             set
             {
-                logins = value;
-                RaisePropertyChanged("Logins");
+                currentEmployee = value;
             }
-        }
-
-        public Login SelectedLogin
-        {
-            get
-            {
-                return selectedLogin;
-            }
-            set
-            {
-                selectedLogin = value;
-                RaisePropertyChanged("SelectedLogin");
-            }
-        }
-
-        private void LoadData()
-        {
-            var dummy = service.All().OrderBy(d => d.Login_id);
-            Logins = new ObservableCollection<Login>(dummy);
-            SelectedLogin = logins.ElementAt(0);
-        }
-
-        private void LoadCommands()
-        {
-            UpdateCommand = new CustomCommand(Update, CanUpdate);
-            DetailsCommand = new RelayCommand<MessageDialog>(ShowDetails, null);
-           
-        }
-
-        private bool CanUpdate(object obj)
-        {
-            return SelectedLogin != null;
-        }
-
-        private bool CanChangeStatus(object obj)
-        {
-            return SelectedLogin != null;
-        }
-
-        private void Update(object obj)
-        {
-            service.Update(SelectedLogin);
-            LoadData();
-        }
-
-        public void ShowDetails(MessageDialog message)
-        {
-
-        }
-
-       
-              
-    
-
-
-    public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string v)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(v));
         }
     }
 }
-

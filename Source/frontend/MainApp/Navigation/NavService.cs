@@ -14,47 +14,53 @@ namespace MainApp.Navigation
         public void NavigateTo(string key)
         {
             var frame = (Frame)Window.Current.Content;
-            var page = (MainPage)frame.Content;
 
-
-
-
-
-            switch (key)
+            if (key == "Main")
             {
-                case "Drivers":                  
-                    page.getFrame().Navigate(typeof(DriversPage));
-                    break;                  
-                case "Products":                  
-                    page.getFrame().Navigate(typeof(ProductsPage));
-                    break;
-                case "Sensors":                    
-                    page.getFrame().Navigate(typeof(SensorsPage));
-                    break;
-                case "City":                  
-                    page.getFrame().Navigate(typeof(CitiesPage));
-                    break;
-                case "Cargo":                    
-                    page.getFrame().Navigate(typeof(CargosPage));
-                    break;
-                case "Login":
-                    page.getFrame().Navigate(typeof(LoginsPage));
-                    break;
-                case "BordersPerProduct":
-                    page.getFrame().Navigate(typeof(BordersPerProductPage));
-                    break;
-                case "Destination":
-                    page.getFrame().Navigate(typeof(DestinationsPage));
-                    break;
-                case "Variable":
-                    page.getFrame().Navigate(typeof(VariablesPage));
-                    break;
-                default:
-                    HomePage homeView = new HomePage();
-                    page.getFrame().Navigate(typeof(HomePage));
-                    break;
+                frame.Navigate(typeof(MainPage));
             }
+            else
+            {
+                var page = (MainPage)frame.Content;
 
+                switch (key)
+                {
+                    case "Drivers":
+                        page.getFrame().Navigate(typeof(DriversPage));
+                        break;
+                    case "Sensors":
+                        page.getFrame().Navigate(typeof(SensorsPage));
+                        break;
+                    case "Cargos":
+                        page.getFrame().Navigate(typeof(CargosPage));
+                        break;
+                    case "Variables":
+                        page.getFrame().Navigate(typeof(VariablesPage));
+                        break;
+                    case "AddDriver":
+                        page.getFrame().Navigate(typeof(AddDriverPage));
+                        break;
+                    case "AddSensor":
+                        page.getFrame().Navigate(typeof(AddSensorPage));
+                        break;
+                    case "AddCargo":
+                        page.getFrame().Navigate(typeof(AddCargoPage));
+                        break;
+                    case "AddCargoBorder":
+                        page.getFrame().Navigate(typeof(AddCargoBorderPage));
+                        break;
+                    case "CargoDetails":
+                        page.getFrame().Navigate(typeof(CargoDetailsPage));
+                        break;
+                    case "Exceedings":
+                        page.getFrame().Navigate(typeof(CargoDetailsPage));
+                        break;
+                    default:
+                        HomePage homeView = new HomePage();
+                        page.getFrame().Navigate(typeof(HomePage));
+                        break;
+                }
+            }
         }
     }
 }

@@ -12,9 +12,9 @@ namespace frontend.Service
     {
         private CargoRepository cargoRepository;
 
-        public CargoService()
+        public CargoService(string username, string password)
         {
-            cargoRepository = new CargoRepository();
+            cargoRepository = new CargoRepository(username, password);
         }
 
         public void Add(Cargo cargo)
@@ -25,11 +25,6 @@ namespace frontend.Service
         public List<Cargo> All()
         {
             return cargoRepository.GetAllCargos().Result.ToList();
-        }
-
-        public void Delete(int id)
-        {
-            cargoRepository.DeleteCargo(id);
         }
 
         public Cargo Find(int id)

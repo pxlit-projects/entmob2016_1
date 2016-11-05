@@ -1,26 +1,29 @@
 package be.pxl.backend.entity;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
-@Table(name = "Logs")
+@Table(name = "logs")
 public class Log {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private LocalDateTime localDateTime = LocalDateTime.now();
+    private int log_id;
+    private Timestamp time = new Timestamp(new Date().getTime());
+    @Column(length = 2056)
     private String message;
     
+    public Log(String message) { this.message = message; }
+    public Log() {}
+    
     public int getId () {
-        return id;
+        return log_id;
     }
-    
-    public LocalDateTime getLocalDateTime () {
-        return localDateTime;
+    public Timestamp getTime () {
+        return time;
     }
-    
     public String getMessage () {
         return message;
     }
@@ -28,4 +31,5 @@ public class Log {
     public void setMessage (String message) {
         this.message = message;
     }
+    
 }

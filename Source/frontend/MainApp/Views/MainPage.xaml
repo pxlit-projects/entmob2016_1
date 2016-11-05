@@ -23,28 +23,16 @@
             <StackPanel>
                 <!-- Menu (hamburger) button -->
                 <RadioButton x:Name="MenuRadioButton" Style="{StaticResource SplitViewMenuButtonStyle}" Command="{Binding MenuCommand}" CommandParameter="{Binding ElementName=MenuRadioButton}" />
-
                 <!-- Home button -->
                 <RadioButton Tag="&#xe10f;" Content="Home" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding HomeCommand}" IsChecked="True" />
-
-                <!-- Products button -->
-                <RadioButton Tag="&#xe781;" Content="Products" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding ProductCommand}" />
-
                 <!-- Sensors button -->
                 <RadioButton Tag="&#xe12c;" Content="Sensors" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding SensorCommand}" />
-
                 <!-- Drivers button -->
                 <RadioButton Tag="&#xe125;" Content="Drivers" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DriverCommand}" />
-                <!-- Logins button -->
-                <RadioButton Tag="&#xe125;" Content="Logins" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding LoginCommand}" />
-                <!-- Cities button -->
-                <RadioButton Tag="&#xe125;" Content="Cities" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding CityCommand}" />
                 <!-- Cargos button -->
                 <RadioButton Tag="&#xe125;" Content="Cargos" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding CargoCommand}" />
-                <!-- BordersPerProduct button -->
-                <RadioButton Tag="&#xe125;" Content="Borders Per Product" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding BordersPerProductCommand}" />
-                <!-- DestinationButton -->
-                <RadioButton Tag="&#xe125;" Content="Destinations" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DestinationCommand}" />
+                <!-- Exceedings button -->
+                <RadioButton Tag="&#xe125;" Content="Exceedings" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding ExceedingsCommand}" />
                 <!-- DestinationButton -->
                 <RadioButton Tag="&#xe125;" Content="Variables" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding VariableCommand}" />
             </StackPanel>

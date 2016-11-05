@@ -1,23 +1,14 @@
 package be.pxl.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import java.util.ArrayList;
-import java.util.Date;
+import org.hibernate.annotations.*;
+import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 @Entity
-@Table(name="Sensors")
+@Table(name="sensors")
 public class Sensor {
 
 	@Id
@@ -25,43 +16,29 @@ public class Sensor {
 	private int sensor_id;
 	private String sensor_name;
 	private boolean status;
-	@OneToMany(mappedBy = "sensor")
-	@JsonManagedReference
-	private List<SensorData> data = new ArrayList<SensorData>();
-	@OneToMany(mappedBy = "sensor")
-	@JsonManagedReference
-	private List<SensorUsage> usages = new ArrayList<SensorUsage>();
-	@OneToMany(mappedBy="sensor")
-	@JsonManagedReference
-    @JsonIgnore
-	private List<SensorUsage> cargos = new ArrayList<SensorUsage>();
+	//@OneToMany(mappedBy="sensor")
+	//@Cascade (org.hibernate.annotations.CascadeType.ALL)
+	//@JsonManagedReference (value = "sensor_data")
+	//private List<SensorData> data;
+	
+	public Sensor(String sensorName) {
+		this.status = true;
+		this.sensor_name = sensorName;
+	}
+	
+	public Sensor() {}
 
 	public int getSensor_id() {
 		return sensor_id;
 	}
-
-	public void setSensor_id(int sensor_id) {
-		this.sensor_id = sensor_id;
-	}
-
 	public String getSensor_name() {
 		return sensor_name;
 	}
-
-	public void setSensor_name(String sensor_name) {
-		this.sensor_name = sensor_name;
-	}
-
 	public boolean isStatus() {
 		return status;
 	}
+	//public List<SensorData> getData() { return data; }
 
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-	
-	public void copy(Sensor sensor) {
-		this.sensor_name = sensor.sensor_name;
-		this.status = sensor.status;
-	}
+	public void setStatus(boolean status) { this.status = status; }
+    
 }
