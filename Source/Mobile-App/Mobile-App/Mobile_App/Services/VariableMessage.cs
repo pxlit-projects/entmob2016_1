@@ -1,4 +1,5 @@
-﻿using Robotics.Mobile.Core.Bluetooth.LE;
+﻿using frontend.Domain;
+using Robotics.Mobile.Core.Bluetooth.LE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Mobile_App.Services
     {
         public IDevice connectedDevice { get; set; }
         public IAdapter adapter { get; set; }
+        public Employee employee { get; set; }
     }
 }

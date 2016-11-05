@@ -2,8 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobile_App.View.HomeView">
     <ContentView.Content>
       <StackLayout Orientation="Vertical" Spacing="10" >
-        <Button Command="{Binding ShowDataCommand}" BackgroundColor="#3FC2D0" FontSize="20" TextColor="White" Text="Show Data" />
-        <Label Text="{Binding Data}" />
+        <ListView x:Name="listView" ItemsSource="{Binding CargoList}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" AbsoluteLayout.LayoutFlags="All" >
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                  <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                    <Label Text="{Binding Cargo_id, Converter={StaticResource strConverter}}"></Label>
+                  </StackLayout>
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
       </StackLayout>
   </ContentView.Content>
 </ContentPage>

@@ -52,8 +52,9 @@ namespace Mobile_App.ViewModel
                 Employee emp = empService.FindByUsername(username);
                 if (emp != null)
                 {
-                    if (emp.password == Password)
+                    if (emp.Password == Password)
                     {
+                        //TODO: SEND EMPLOYEE TO THE NEXT PAGE
                         navService.PushAsync("ConnectSensor");
                     }
                     else

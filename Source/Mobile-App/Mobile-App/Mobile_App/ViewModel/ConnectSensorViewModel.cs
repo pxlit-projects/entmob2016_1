@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using frontend.Domain;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using Java.Lang;
 using JoesBurgerStore.Contracts;
@@ -15,10 +16,12 @@ using Xamarin.Forms;
 
 namespace Mobile_App.ViewModel
 {
+    //TODO: RECIEVE LOGIN EMPLOYEE
     class ConnectSensorViewModel : ViewModelBase
     {
 
         private IAdapter adapter;
+        private Employee employee;
         private ObservableCollection<IDevice> devicesList;
         private INavigationService navService;
         public ICommand SearchCommand { get; set; }
@@ -87,7 +90,7 @@ namespace Mobile_App.ViewModel
                 
                 var device = SelectedDevice as IDevice;
                 navService.PushAsync("HomeView");
-                Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() { connectedDevice = device, adapter = this.adapter });
+                Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() { connectedDevice = device, adapter = this.adapter, employee=this.employee });
             });
         }
         void StartScanning()

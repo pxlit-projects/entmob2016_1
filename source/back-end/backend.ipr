@@ -513,15 +513,15 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.8.9/aspectjweaver-1.8.9-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.assertj:assertj-core:3.5.2">
+    <library name="Maven: org.assertj:assertj-core:2.5.0">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/3.5.2/assertj-core-3.5.2.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/2.5.0/assertj-core-2.5.0.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/3.5.2/assertj-core-3.5.2-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/2.5.0/assertj-core-2.5.0-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/3.5.2/assertj-core-3.5.2-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/2.5.0/assertj-core-2.5.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11">
@@ -689,15 +689,15 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.skyscreamer:jsonassert:1.2.3">
+    <library name="Maven: org.skyscreamer:jsonassert:1.3.0">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/skyscreamer/jsonassert/1.2.3/jsonassert-1.2.3.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/skyscreamer/jsonassert/1.3.0/jsonassert-1.3.0.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/skyscreamer/jsonassert/1.2.3/jsonassert-1.2.3-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/skyscreamer/jsonassert/1.3.0/jsonassert-1.3.0-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/skyscreamer/jsonassert/1.2.3/jsonassert-1.2.3-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/skyscreamer/jsonassert/1.3.0/jsonassert-1.3.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.slf4j:jcl-over-slf4j:1.7.21">

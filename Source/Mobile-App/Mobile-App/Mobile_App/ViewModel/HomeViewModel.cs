@@ -20,10 +20,11 @@ namespace Mobile_App.ViewModel
         private INavigationService navService;
         private IDevice device;
         private IAdapter adapter;
+        private Employee employee;
         EventHandler<CharacteristicReadEventArgs> valueUpdatedHandler;
         ObservableCollection<ICharacteristic> characteristics;
         ObservableCollection<IService> services;
-        public ICommand ShowDataCommand { get; set; }
+        public ICommand SelectCargoCommand { get; set; }
         double gyro_calX, gyro_calY, gyro_calZ;
         double magno_calX, magno_calY, magno_calZ;
         bool gyro_calibrated = false, magno_calibrated = false;
@@ -40,6 +41,37 @@ namespace Mobile_App.ViewModel
                 RaisePropertyChanged("Data");
             }
         }
+        private Cargo selectedCargo;
+        private ObservableCollection<Cargo> cargoList;
+
+        public Cargo SelectedCargo
+        {
+            get
+            {
+                return selectedCargo;
+            }
+            set
+            {
+                if (selectedCargo != value)
+                {
+                    selectedCargo = value;
+                    RaisePropertyChanged("SelectedCargo");
+                    SelectCargoCommand.Execute(selectedCargo);
+                }
+            }
+        }
+        public ObservableCollection<Cargo> CargoList
+        {
+            get
+            {
+                return cargoList;
+            }
+            set
+            {
+                cargoList = value;
+                RaisePropertyChanged("CargoList");
+            }
+        }
         public HomeViewModel(INavigationService navigationService)
         {
             this.navService = navigationService;
@@ -52,18 +84,21 @@ namespace Mobile_App.ViewModel
         }
         private void InitializeCommands()
         {
-            ShowDataCommand = new Command(() =>
+            SelectCargoCommand = new Command(() =>
             {
-                Debug.WriteLine("clicky");
-                foreach (var car in characteristics)
-                {
-                    if (car.Name.Contains("Data"))
-                    {
-                        car.ValueUpdated += valueUpdatedHandler;
-                        car.StartUpdates();
-                    }
-                }
+                var cargo = SelectedCargo as Cargo;
+
             });
+        }
+        private void StartReadingData() {
+            foreach (var car in characteristics)
+            {
+                if (car.Name.Contains("Data"))
+                {
+                    car.ValueUpdated += valueUpdatedHandler;
+                    car.StartUpdates();
+                }
+            }
         }
         private void ConnectToDevice()
         {
@@ -143,9 +178,22 @@ namespace Mobile_App.ViewModel
         {
             device = variableMessage.connectedDevice;
             adapter = variableMessage.adapter;
+            employee = variableMessage.employee;
             ConnectToDevice();
+            GetCargoList();
             return null;
         }
+
+        private void GetCargoList()
+        {
+            ICargoService cargoService = new CargoService(employee.Username, employee.Password);
+            ISensorService sensorService = new SensorService(employee.Username, employee.Password);
+            List<Cargo> cargos = cargoService.All();
+            List<Sensor> sensors = sensorService.All();
+            Sensor sensor = sensors.Single(s => s.Sensor_name == device.ID.ToString());
+            CargoList = new ObservableCollection<Cargo>(cargos.Where(c => c.Sensor_id == sensor.Sensor_id));
+        }
+
         public string Decode(ICharacteristic _characteristic)
         {
             string output = "";
