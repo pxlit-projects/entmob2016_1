@@ -46,19 +46,24 @@ namespace Mobile_App.ViewModel
         private void InitializeCommands() {
             LoginCommand = new Command(() =>
             {
-                /*
                 Debug.WriteLine(username + " " + password);
                 IEmployeeService empService = new EmployeeService();
-                ILoginService logService = new LoginService();
 
                 Employee emp = empService.FindByUsername(username);
-                if (emp != null) {
-                    if (emp.password == _md5.Md5Encrypt(emp.salt + password)) {
-                        Debug.WriteLine("LOGIN");
+                if (emp != null)
+                {
+                    if (emp.password == Password)
+                    {
+                        navService.PushAsync("ConnectSensor");
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Password Wrong");
                     }
                 }
-                */
-                navService.PushAsync("ConnectSensor");
+                else {
+                    Debug.WriteLine("Username Wrong");
+                }
             });
         }
     }
