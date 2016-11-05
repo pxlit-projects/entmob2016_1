@@ -21,6 +21,18 @@ namespace Mobile_App.ViewModel
         private IDevice device;
         private IAdapter adapter;
         private Employee employee;
+        public ICommand StartCommand { get; set; }
+        public Employee Employee {
+            get
+            {
+                return employee;
+            }
+            set
+            {
+                employee = value;
+                RaisePropertyChanged("Employee");
+            }
+        }
         private Cargo transportedCargo;
         EventHandler<CharacteristicReadEventArgs> valueUpdatedHandler;
         ObservableCollection<ICharacteristic> characteristics;
@@ -45,6 +57,10 @@ namespace Mobile_App.ViewModel
         {
             this.navService = navigationService;
             InitializeCommands();
+            employee = new Employee();
+            employee.Name = "Bram";
+            employee.SurName = "Van Vleymen";
+            Employee = employee;
             MessengerInstance.Register<VariableMessage>
              (
                  this,
@@ -53,7 +69,10 @@ namespace Mobile_App.ViewModel
         }
         private void InitializeCommands()
         {
-
+            StartCommand = new Command(() =>
+            {
+                StartReadingData();
+            });
         }
         private void StartReadingData() {
             foreach (var car in characteristics)
@@ -145,7 +164,7 @@ namespace Mobile_App.ViewModel
             adapter = variableMessage.adapter;
             employee = variableMessage.employee;
             transportedCargo = variableMessage.transportCargo;
-           // ConnectToDevice();
+            ConnectToDevice();
             return null;
         }
         public string Decode(ICharacteristic _characteristic)
