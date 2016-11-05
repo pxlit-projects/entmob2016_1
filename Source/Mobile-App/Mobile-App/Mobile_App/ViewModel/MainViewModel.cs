@@ -1,6 +1,7 @@
 using frontend.Domain;
 using frontend.Service;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using JoesBurgerStore.Contracts;
 using System;
 using System.Diagnostics;
@@ -54,8 +55,8 @@ namespace Mobile_App.ViewModel
                 {
                     if (emp.Password == Password)
                     {
-                        //TODO: SEND EMPLOYEE TO THE NEXT PAGE
                         navService.PushAsync("ConnectSensor");
+                        Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() {employee = emp});
                     }
                     else
                     {

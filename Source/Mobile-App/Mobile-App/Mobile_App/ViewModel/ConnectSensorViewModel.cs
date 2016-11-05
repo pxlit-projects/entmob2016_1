@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using Java.Lang;
 using JoesBurgerStore.Contracts;
+using Mobile_App.Services;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,6 @@ using Xamarin.Forms;
 
 namespace Mobile_App.ViewModel
 {
-    //TODO: RECIEVE LOGIN EMPLOYEE
     class ConnectSensorViewModel : ViewModelBase
     {
 
@@ -173,6 +173,11 @@ namespace Mobile_App.ViewModel
             List<Sensor> sensors = sensorService.All();
             Sensor sensor = sensors.Single(s => s.Sensor_name == SelectedDevice.ID.ToString());
             CargoList = new ObservableCollection<Cargo>(cargos.Where(c => c.Sensor_id == sensor.Sensor_id));
+        }
+        private object ReceiveVariableMessage(VariableMessage variableMessage)
+        {
+            employee = variableMessage.employee;
+            return null;
         }
     }
 
