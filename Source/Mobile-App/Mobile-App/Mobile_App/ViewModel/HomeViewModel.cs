@@ -10,11 +10,17 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Mobile_App.ViewModel
 {
+   public class SensorData {
+        public string Temperature { get; set; }
+        public string Humidity { get; set; }
+        public string Barometer { get; set; }
+    }
     public class HomeViewModel : ViewModelBase
     {
         private INavigationService navService;
@@ -22,6 +28,18 @@ namespace Mobile_App.ViewModel
         private IAdapter adapter;
         private Employee employee;
         public ICommand StartCommand { get; set; }
+        private SensorData dataSensor;
+        public SensorData DataSensor {
+            get
+            {
+                return dataSensor;
+            }
+            set
+            {
+                dataSensor = value;
+                RaisePropertyChanged("DataSensor");
+            }
+        }
         public Employee Employee {
             get
             {
@@ -61,6 +79,7 @@ namespace Mobile_App.ViewModel
             employee.Name = "Bram";
             employee.SurName = "Van Vleymen";
             Employee = employee;
+            dataSensor = new SensorData();
             MessengerInstance.Register<VariableMessage>
              (
                  this,
@@ -74,13 +93,17 @@ namespace Mobile_App.ViewModel
                 StartReadingData();
             });
         }
-        private void StartReadingData() {
+        private void StartReadingData()
+        {
             foreach (var car in characteristics)
             {
                 if (car.Name.Contains("Data"))
                 {
-                    car.ValueUpdated += valueUpdatedHandler;
-                    car.StartUpdates();
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        car.ValueUpdated += valueUpdatedHandler;
+                        car.StartUpdates();
+                    });
                 }
             }
         }
@@ -105,7 +128,16 @@ namespace Mobile_App.ViewModel
         {
             valueUpdatedHandler = (fs, a) =>
             {
-                Data = Decode(a.Characteristic);
+                switch (a.Characteristic.Name)
+                {
+                    case "TI SensorTag Infrared Temperature Data":
+                        dataSensor.Temperature = Decode(a.Characteristic);
+                        break;
+                    case "TI SensorTag Humidity Data":
+                        dataSensor.Humidity = Decode(a.Characteristic);
+                        break;
+                }
+                DataSensor = dataSensor;
             };
             foreach (var car in characteristics)
             {
@@ -338,6 +370,7 @@ namespace Mobile_App.ViewModel
             }
             return output;
         }
+
         void SwitchToggled(ICharacteristic characteristic, Boolean e)
         {
             if (e)

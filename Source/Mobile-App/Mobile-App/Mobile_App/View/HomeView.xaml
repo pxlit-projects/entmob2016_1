@@ -8,14 +8,9 @@
   <ContentPage BackgroundImage="background.jpg">
     <StackLayout>
       <Label Text="Sensor Data" FontSize="20" />
-      <Label Text="{Binding SensorData.Acceleration}" />
-      <Label Text="{Binding SensorData.Gyroscope}" />
-      <Label Text="{Binding SensorData.Humidity}" />
-      <Label Text="{Binding SensorData.Light}" />
-      <Label Text="{Binding SensorData.Magnetism}" />
-      <Label Text="{Binding SensorData.Pressure}" />
-      <Label Text="{Binding SensorData.Temperature}" />
-      <Label Text="{Binding Data}" />
+      <Label Text="{Binding DataSensor.Humidity}" />
+      <Label Text="{Binding DataSensor.Temperature}" />
+      <Label Text="{Binding DataSensor.Barometer}" />
     </StackLayout>
   </ContentPage>
   <ContentPage BackgroundImage="background.jpg">
