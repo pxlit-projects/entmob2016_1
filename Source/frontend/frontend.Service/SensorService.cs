@@ -24,12 +24,28 @@ namespace frontend.Service
 
         public List<Sensor> All()
         {
-            return sensorRepository.GetAllSensors().Result.ToList();
+            var sensors = sensorRepository.GetAllSensors().Result.ToList();
+            if (sensors != null)
+            {
+                return sensors;
+            }
+            else
+            {
+                return new List<Sensor>();
+            }
         }
 
         public Sensor Find(int id)
         {
-            return sensorRepository.GetSensorById(id).Result;
+            var sensor = sensorRepository.GetSensorById(id).Result;
+            if (sensor != null)
+            {
+                return sensor;
+            }
+            else
+            {
+                return new Sensor();
+            }
         }
 
         public void Update(Sensor sensor)

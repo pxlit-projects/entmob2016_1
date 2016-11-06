@@ -28,16 +28,40 @@ namespace frontend.Service
 
         public List<Employee> All()
         {
-            return employeeRepository.GetAllEmployees().Result.ToList();
+            var employees = employeeRepository.GetAllEmployees().Result.ToList();
+            if (employees != null)
+            {
+                return employees;
+            }
+            else
+            {
+                return new List<Employee>();
+            }
         }
         
         public Employee Find(int id)
         {
-            return employeeRepository.GetEmployeeById(id).Result;
+            var employee = employeeRepository.GetEmployeeById(id).Result;
+            if (employee != null)
+            {
+                return employee;
+            }
+            else
+            {
+                return new Employee();
+            }
         }
 
         public Employee FindByUsername(String username) {
-            return employeeRepository.GetEmployeeByUsername(username).Result;
+            var employee = employeeRepository.GetEmployeeByUsername(username).Result;
+            if (employee != null)
+            {
+                return employee;
+            }
+            else
+            {
+                return new Employee();
+            }
         }
 
         public void Update(Employee employee)

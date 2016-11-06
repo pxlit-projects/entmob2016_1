@@ -20,6 +20,7 @@ namespace MainApp.ViewModels
         public ICommand MenuCommand { get; set; }
         public ICommand VariableCommand { get; set; }
         public ICommand ExceedingsCommand { get; set; }
+        public ICommand LogCommand { get; set; }
 
         public MainViewModel()
         {
@@ -64,6 +65,7 @@ namespace MainApp.ViewModels
             MenuCommand = new RelayCommand<RadioButton>(ShowHideMenu, null);
             VariableCommand = new CustomCommand(NavigateVariable, null);
             ExceedingsCommand = new CustomCommand(NavigateExceeding, null);
+            LogCommand = new CustomCommand(NavigateLog, null);
         }
 
         private void NavigateCargo(object obj)
@@ -74,6 +76,11 @@ namespace MainApp.ViewModels
         private void NavigateExceeding(object obj)
         {
             new NavService().NavigateTo("Exceedings");
+        }
+
+        private void NavigateLog(object obj)
+        {
+            new NavService().NavigateTo("Logs");
         }
     }
 }

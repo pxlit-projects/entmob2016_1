@@ -24,12 +24,28 @@ namespace frontend.Service
 
         public List<Cargo> All()
         {
-            return cargoRepository.GetAllCargos().Result.ToList();
+            var cargos = cargoRepository.GetAllCargos().Result.ToList();
+            if (cargos != null)
+            {
+                return cargos;
+            }
+            else
+            {
+                return new List<Cargo>();
+            }
         }
 
         public Cargo Find(int id)
         {
-            return cargoRepository.GetCargoById(id).Result;
+            var cargo = cargoRepository.GetCargoById(id).Result;
+            if (cargo != null)
+            {
+                return cargo;
+            }
+            else
+            {
+                return new Cargo();
+            }
         }
 
         public void Update(Cargo cargo)
