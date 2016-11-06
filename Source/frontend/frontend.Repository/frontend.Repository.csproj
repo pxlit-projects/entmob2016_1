@@ -116,9 +116,11 @@
     <Compile Include="ICargoRepository.cs" />
     <Compile Include="IEmployeeRepository.cs" />
     <Compile Include="IExceedingsPerCargoRepository.cs" />
+    <Compile Include="ILogRepository.cs" />
     <Compile Include="ISensorDataRepository.cs" />
     <Compile Include="ISensorRepository.cs" />
     <Compile Include="IVariableRepository.cs" />
+    <Compile Include="LogRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SensorDataRepository.cs" />
     <Compile Include="SensorRepository.cs" />

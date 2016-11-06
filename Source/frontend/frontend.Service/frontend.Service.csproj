@@ -115,9 +115,13 @@
     <Compile Include="ICargoService.cs" />
     <Compile Include="IEmployeeService.cs" />
     <Compile Include="IExceedingsPerCargoService.cs" />
+    <Compile Include="ILogService.cs" />
+    <Compile Include="ISensorDataService.cs" />
     <Compile Include="ISensorService.cs" />
     <Compile Include="IVariableService.cs" />
+    <Compile Include="LogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorDataService.cs" />
     <Compile Include="SensorService.cs" />
     <Compile Include="VariableService.cs" />
     <EmbeddedResource Include="Properties\frontend.Service.rd.xml" />

@@ -12,6 +12,5 @@ namespace frontend.Repository
         Task<List<SensorData>> GetAllSensorData();
         Task<SensorData> GetSensorDataById(int id);
         void AddSensorData(SensorData sensorData);
-        void UpdateSensorData(SensorData sensorData);
     }
 }

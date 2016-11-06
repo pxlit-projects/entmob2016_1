@@ -16,6 +16,7 @@ namespace MainApp
         private static ICargoService cargoService = new CargoService(DefaultUser.username, DefaultUser.password);
         private static IVariableService variableService = new VariableService(DefaultUser.username, DefaultUser.password);
         private static IExceedingsPerCargoService exceedingsService = new ExceedingsPerCargoService(DefaultUser.username, DefaultUser.password);
+        private static ILogService logService = new LogService(DefaultUser.username, DefaultUser.password);
 
         // Page Views
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
@@ -26,8 +27,7 @@ namespace MainApp
         private LoginViewModel loginViewModel = new LoginViewModel(employeeService);
         private CargoDetailsViewModel cargoDetailsViewModel = new CargoDetailsViewModel(cargoService);
         private ExceedingsViewModel exceedingsViewModel = new ExceedingsViewModel(exceedingsService);
-
-        // AddDialogs
+        private LogViewModel logViewModel = new LogViewModel(logService);
         private AddCargoViewModel addCargoViewModel = new AddCargoViewModel(cargoService, sensorService);
         private AddCargoBorderViewModel addCargoBorderViewModel = new AddCargoBorderViewModel(cargoService, variableService);
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
@@ -126,6 +126,14 @@ namespace MainApp
             get
             {
                 return exceedingsViewModel;
+            }
+        }
+
+        public LogViewModel LogViewModel
+        {
+            get
+            {
+                return logViewModel;
             }
         }
     }
