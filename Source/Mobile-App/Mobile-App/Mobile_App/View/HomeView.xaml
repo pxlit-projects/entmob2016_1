@@ -8,8 +8,8 @@
   <ContentPage BackgroundImage="background.jpg">
     <StackLayout>
       <Label Text="Sensor Data" FontSize="20" />
-      <Label Text="{Binding DataSensor.Humidity}" />
       <Label Text="{Binding DataSensor.Temperature}" />
+      <Label Text="{Binding DataSensor.Pressure}" />
       <Label Text="{Binding DataSensor.Barometer}" />
     </StackLayout>
   </ContentPage>

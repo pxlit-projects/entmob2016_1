@@ -16,17 +16,25 @@ using Xamarin.Forms;
 
 namespace Mobile_App.ViewModel
 {
-   public class SensorData {
-        public string Temperature { get; set; }
-        public string Humidity { get; set; }
-        public string Barometer { get; set; }
-    }
     public class HomeViewModel : ViewModelBase
     {
         private INavigationService navService;
         private IDevice device;
         private IAdapter adapter;
         private Employee employee;
+        private ObservableCollection<CargoBorder> borders;
+        public ObservableCollection<CargoBorder> Borders
+        {
+            get
+            {
+                return borders;
+            }
+            set
+            {
+                borders = value;
+                RaisePropertyChanged("Borders");
+            }
+        }
         public ICommand StartCommand { get; set; }
         private SensorData dataSensor;
         public SensorData DataSensor {
@@ -106,7 +114,42 @@ namespace Mobile_App.ViewModel
                     });
                 }
             }
+            StartTransmitting();
         }
+
+        private void StartTransmitting()
+        {
+            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+                CheckBorders();
+                SendSensorData();
+                    return true;
+            });
+        }
+
+        private void CheckBorders()
+        {
+            foreach (var border in borders)
+            {
+                //TODO: MAKE CASE
+                if (border.Variable.Description == "Temperature") {
+                    if (DataSensor.Temperature > border.Value) {
+                        IExceedingsPerCargoService excPerCargoService = new ExceedingsPerCargoService(employee.Username, employee.Password);
+                        ExceedingPerCargo exc = new ExceedingPerCargo() {
+                            Cargo = transportedCargo, Value = DataSensor.Temperature, Variable = border.Variable, Time = DateTime.Now.ToString()
+                        };
+                        excPerCargoService.Add(exc);
+                    }
+                }
+            }
+        }
+
+        private void SendSensorData()
+        {
+            //ISensorDataService sensorDataService = new SensorDataService(employee.Username, employee.Password);
+            //sensorDataService.Add(DataSensor);
+            Debug.WriteLine("SEND DATA");
+        }
+
         private void ConnectToDevice()
         {
             this.services = new ObservableCollection<IService>();
@@ -131,10 +174,16 @@ namespace Mobile_App.ViewModel
                 switch (a.Characteristic.Name)
                 {
                     case "TI SensorTag Infrared Temperature Data":
-                        dataSensor.Temperature = Decode(a.Characteristic);
+                        var deco = Decode(a.Characteristic);
+                        deco = deco.Replace("\n", "/");
+                        var split = deco.Split(new Char[1] { '/' });
+                        dataSensor.Temperature = float.Parse(split.First().Split(new Char[1] { ':' }).Last().Substring(1));
+                        //Has to be IR Temp
+                        var temp = split.Last().Split(new Char[1] { ':' }).Last().Substring(1).Replace(" C", "");
+                        dataSensor.Pressure = float.Parse(split.Last().Split(new Char[1] { ':' }).Last().Substring(1).Replace(" C",""));
                         break;
                     case "TI SensorTag Humidity Data":
-                        dataSensor.Humidity = Decode(a.Characteristic);
+                        dataSensor.Humidity = float.Parse(Decode(a.Characteristic).Split(':').Last());
                         break;
                 }
                 DataSensor = dataSensor;
@@ -197,8 +246,16 @@ namespace Mobile_App.ViewModel
             employee = variableMessage.employee;
             transportedCargo = variableMessage.transportCargo;
             ConnectToDevice();
+            DiscoverBorders();
             return null;
         }
+
+        private void DiscoverBorders()
+        {
+            ICargoBorderService cargoBorderService = new CargoBorderService(employee.Username, employee.Password);
+            borders = new ObservableCollection<CargoBorder>(cargoBorderService.All().Where(c => c.Cargo.Cargo_id == transportedCargo.Cargo_id));
+        }
+
         public string Decode(ICharacteristic _characteristic)
         {
             string output = "";
