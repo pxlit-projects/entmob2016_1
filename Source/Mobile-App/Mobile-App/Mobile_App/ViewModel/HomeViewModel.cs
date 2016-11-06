@@ -79,6 +79,7 @@ namespace Mobile_App.ViewModel
                 RaisePropertyChanged("Data");
             }
         }
+        private bool sendData = false;
         public HomeViewModel(INavigationService navigationService)
         {
             this.navService = navigationService;
@@ -87,7 +88,6 @@ namespace Mobile_App.ViewModel
             employee.Name = "Bram";
             employee.SurName = "Van Vleymen";
             Employee = employee;
-            dataSensor = new SensorData();
             MessengerInstance.Register<VariableMessage>
              (
                  this,
@@ -119,10 +119,14 @@ namespace Mobile_App.ViewModel
 
         private void StartTransmitting()
         {
+            sendData = true;
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                 CheckBorders();
                 SendSensorData();
+                if (sendData)
                     return true;
+                else
+                    return false;
             });
         }
 
@@ -155,7 +159,26 @@ namespace Mobile_App.ViewModel
             this.services = new ObservableCollection<IService>();
             this.characteristics = new ObservableCollection<ICharacteristic>();
             adapter.ConnectToDevice(device);
+            GetSensor();
             SetEvents();
+        }
+
+        private void GetSensor()
+        {
+            /*
+            ISensorService sensorService = new SensorService(employee.Username,employee.Password);
+            dataSensor = new SensorData()
+            {
+                Sensor = sensorService.All().Single(s => s.Sensor_name == device.Rssi.ToString()),
+                Temperature = 0,
+                Gyroscope = 0,
+                Acceleration = 0,
+                Humidity = 0,
+                Light = 0,
+                Magnetism = 0,
+                Pressure = 0
+            };
+            */
         }
 
         private void SetEvents()
@@ -252,8 +275,11 @@ namespace Mobile_App.ViewModel
 
         private void DiscoverBorders()
         {
+            /*
             ICargoBorderService cargoBorderService = new CargoBorderService(employee.Username, employee.Password);
             borders = new ObservableCollection<CargoBorder>(cargoBorderService.All().Where(c => c.Cargo.Cargo_id == transportedCargo.Cargo_id));
+            */
+            borders = new ObservableCollection<CargoBorder>();
         }
 
         public string Decode(ICharacteristic _characteristic)

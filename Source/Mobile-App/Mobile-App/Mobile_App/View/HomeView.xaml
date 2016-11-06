@@ -19,7 +19,26 @@
       <Label Text="{Binding Employee.Name}" />
       <Label Text="{Binding Employee.SurName}" />
       <Label Text="Borders" FontSize="20" />
-      
+      <ListView x:Name="BorderslistView" ItemsSource="{Binding Borders}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" >
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding Borders.Variable.Description}" Grid.Row="0" Grid.Column="0" />
+                <Label Text="{Binding Borders.Value}" Grid.Row="0" Grid.Column="1" />
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
     </StackLayout>
   </ContentPage>
 </CarouselPage>
