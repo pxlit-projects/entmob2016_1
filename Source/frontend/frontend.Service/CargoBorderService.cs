@@ -24,12 +24,28 @@ namespace frontend.Service
 
         public List<CargoBorder> All()
         {
-            return cargoBorderRepository.GetAllCargoBorders().Result.ToList();
+            var cargoBorders = cargoBorderRepository.GetAllCargoBorders().Result.ToList();
+            if (cargoBorders != null)
+            {
+                return cargoBorders;
+            }
+            else
+            {
+                return new List<CargoBorder>();
+            }
         }
 
         public CargoBorder Find(int id)
         {
-            return cargoBorderRepository.GetCargoBorderById(id).Result;
+            var cargoBorder = cargoBorderRepository.GetCargoBorderById(id).Result;
+            if (cargoBorder != null)
+            {
+                return cargoBorder;
+            }
+            else
+            {
+                return new CargoBorder();
+            }
         }
     }
 }

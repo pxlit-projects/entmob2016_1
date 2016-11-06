@@ -19,12 +19,28 @@ namespace frontend.Service
         
         public List<Variable> All()
         {
-            return variableRepository.GetAllVariables().Result.ToList();
+            var variables = variableRepository.GetAllVariables().Result.ToList();
+            if (variables != null)
+            {
+                return variables;
+            }
+            else
+            {
+                return new List<Variable>();
+            }
         }
 
         public Variable Find(int id)
         {
-            return variableRepository.GetVariableById(id).Result;
+            var variable = variableRepository.GetVariableById(id).Result;
+            if (variable != null)
+            {
+                return variable;
+            }
+            else
+            {
+                return new Variable();
+            }
         }
     }
 }
