@@ -62,7 +62,7 @@ public class CargoController {
 	}
     
     @RequestMapping(value = "/get/sensor/{sensor}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
-    public List<Cargo> getEmployeeByUsername(@PathVariable("sensor") int sensor_id) {
+    public List<Cargo> getCargoBsySensor(@PathVariable("sensor") int sensor_id) {
         logger.log("Fetching cargo with sensor_id: " + sensor_id + ".");
         return service.getCargoBySensor(sensor_id);
     }
