@@ -1,7 +1,10 @@
-﻿using GalaSoft.MvvmLight;
+﻿using frontend.Domain;
+using frontend.Service;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using Java.Lang;
 using JoesBurgerStore.Contracts;
+using Mobile_App.Services;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using System;
 using System.Collections.Generic;
@@ -17,14 +20,47 @@ namespace Mobile_App.ViewModel
 {
     class ConnectSensorViewModel : ViewModelBase
     {
-
+        //TODO: uncomment when testing with connection
         private IAdapter adapter;
+        private Employee employee;
+        private Cargo selectedCargo;
+        private ObservableCollection<Cargo> cargoList;
         private ObservableCollection<IDevice> devicesList;
         private INavigationService navService;
         public ICommand SearchCommand { get; set; }
         public ICommand ConnectCommand { get; set; }
+        public ICommand SelectCargoCommand { get; set; }
         private IDevice selectedDevice;
+        private Cargo transportedCargo;
 
+        public Cargo SelectedCargo
+        {
+            get
+            {
+                return selectedCargo;
+            }
+            set
+            {
+                if (selectedCargo != value)
+                {
+                    selectedCargo = value;
+                    RaisePropertyChanged("SelectedCargo");
+                    SelectCargoCommand.Execute(selectedCargo);
+                }
+            }
+        }
+        public ObservableCollection<Cargo> CargoList
+        {
+            get
+            {
+                return cargoList;
+            }
+            set
+            {
+                cargoList = value;
+                RaisePropertyChanged("CargoList");
+            }
+        }
         public IDevice SelectedDevice
         {
             get
@@ -81,13 +117,17 @@ namespace Mobile_App.ViewModel
             {
                 StartScanning();
             });
+            SelectCargoCommand = new Command(() =>
+            {
+                //transportedCargo = SelectedCargo as Cargo;
+                navService.PushAsync("HomeView");
+                Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() { connectedDevice = SelectedDevice as IDevice, adapter = this.adapter, employee = this.employee, transportCargo = this.transportedCargo });
+            });
             ConnectCommand = new Command(() =>
             {
                 StopScanning();
-                
-                var device = SelectedDevice as IDevice;
-                navService.PushAsync("HomeView");
-                Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() { connectedDevice = device, adapter = this.adapter });
+                // GetCargoList();
+                SelectCargoCommand.Execute(SelectedCargo);
             });
         }
         void StartScanning()
@@ -124,6 +164,21 @@ namespace Mobile_App.ViewModel
         void UpdateDisplay(ICharacteristic c)
         {
             Debug.WriteLine(c.StringValue);
+        }
+        private void GetCargoList()
+        {
+            DeviceList.Clear();
+            ICargoService cargoService = new CargoService(employee.Username, employee.Password);
+            ISensorService sensorService = new SensorService(employee.Username, employee.Password);
+            List<Cargo> cargos = cargoService.All();
+            List<Sensor> sensors = sensorService.All();
+            Sensor sensor = sensors.Single(s => s.Sensor_name == SelectedDevice.ID.ToString());
+            CargoList = new ObservableCollection<Cargo>(cargos.Where(c => c.Sensor_id == sensor.Sensor_id));
+        }
+        private object ReceiveVariableMessage(VariableMessage variableMessage)
+        {
+            employee = variableMessage.employee;
+            return null;
         }
     }
 

@@ -16,5 +16,7 @@ namespace frontend.Domain
         public string Sensor_name { get; set; }
         [JsonProperty("status")]
         public bool Status { get; set; }
+        [JsonProperty("data")]
+        public List<SensorData> Data { get; set; }
     }
 }

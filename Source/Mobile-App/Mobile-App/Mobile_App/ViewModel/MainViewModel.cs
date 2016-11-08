@@ -1,6 +1,7 @@
 using frontend.Domain;
 using frontend.Service;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using JoesBurgerStore.Contracts;
 using System;
 using System.Diagnostics;
@@ -49,17 +50,27 @@ namespace Mobile_App.ViewModel
                 /*
                 Debug.WriteLine(username + " " + password);
                 IEmployeeService empService = new EmployeeService();
-                ILoginService logService = new LoginService();
 
                 Employee emp = empService.FindByUsername(username);
-                if (emp != null) {
-                    if (emp.password == _md5.Md5Encrypt(emp.salt + password)) {
-                        Debug.WriteLine("LOGIN");
+                if (emp != null)
+                {
+                    if (emp.Password == Password)
+                    {
+                        navService.PushAsync("ConnectSensor");
+                        Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() {employee = emp});
                     }
+                    else
+                    {
+                        Debug.WriteLine("Password Wrong");
+                    }
+                }
+                else {
+                    Debug.WriteLine("Username Wrong");
                 }
                 */
                 navService.PushAsync("ConnectSensor");
             });
+
         }
     }
 }

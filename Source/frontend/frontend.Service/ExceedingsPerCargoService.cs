@@ -24,12 +24,28 @@ namespace frontend.Service
 
         public List<ExceedingPerCargo> All()
         {
-            return exceedingsPerCargoRepository.GetAllExceedingsPerCargos().Result.ToList();
+            var exceedings = exceedingsPerCargoRepository.GetAllExceedingsPerCargos().Result.ToList();
+            if (exceedings != null)
+            {
+                return exceedings;
+            }
+            else
+            {
+                return new List<ExceedingPerCargo>();
+            }
         }
 
         public ExceedingPerCargo Find(int id)
         {
-            return exceedingsPerCargoRepository.GetExceedingsPerCargoById(id).Result;
+            var exceeding = exceedingsPerCargoRepository.GetExceedingsPerCargoById(id).Result;
+            if (exceeding != null)
+            {
+                return exceeding;
+            }
+            else
+            {
+                return new ExceedingPerCargo();
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ using System;
 
 namespace Mobile_App.View
 {
-    public partial class HomeView : ContentPage
+    public partial class HomeView : CarouselPage
     {
         private readonly HomeViewModel viewModel;
         public HomeView()

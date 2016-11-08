@@ -1,6 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobile_App.View.HomeView">
-    <ContentView.Content>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobile_App.View.HomeView">
+  <ContentPage BackgroundImage="background.jpg">
+    <StackLayout>
+      <Button Command="{Binding StartCommand}" BackgroundColor="#3FC2D0" FontSize="20" TextColor="White" Text="Start" />
+    </StackLayout>
+  </ContentPage>
+  <ContentPage BackgroundImage="background.jpg">
+    <StackLayout>
+      <Label Text="Sensor Data" FontSize="20" />
+      <Label Text="{Binding SensorData.Acceleration}" />
+      <Label Text="{Binding SensorData.Gyroscope}" />
+      <Label Text="{Binding SensorData.Humidity}" />
+      <Label Text="{Binding SensorData.Light}" />
+      <Label Text="{Binding SensorData.Magnetism}" />
+      <Label Text="{Binding SensorData.Pressure}" />
+      <Label Text="{Binding SensorData.Temperature}" />
       <Label Text="{Binding Data}" />
-  </ContentView.Content>
-</ContentPage>
+    </StackLayout>
+  </ContentPage>
+  <ContentPage BackgroundImage="background.jpg">
+    <StackLayout>
+      <Label Text="User" FontSize="20" />
+      <Label Text="{Binding Employee.Name}" />
+      <Label Text="{Binding Employee.SurName}" />
+      <Label Text="Borders" FontSize="20" />
+      
+    </StackLayout>
+  </ContentPage>
+</CarouselPage>

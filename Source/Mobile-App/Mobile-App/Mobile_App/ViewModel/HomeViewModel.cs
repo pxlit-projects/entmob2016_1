@@ -20,6 +20,20 @@ namespace Mobile_App.ViewModel
         private INavigationService navService;
         private IDevice device;
         private IAdapter adapter;
+        private Employee employee;
+        public ICommand StartCommand { get; set; }
+        public Employee Employee {
+            get
+            {
+                return employee;
+            }
+            set
+            {
+                employee = value;
+                RaisePropertyChanged("Employee");
+            }
+        }
+        private Cargo transportedCargo;
         EventHandler<CharacteristicReadEventArgs> valueUpdatedHandler;
         ObservableCollection<ICharacteristic> characteristics;
         ObservableCollection<IService> services;
@@ -42,13 +56,34 @@ namespace Mobile_App.ViewModel
         public HomeViewModel(INavigationService navigationService)
         {
             this.navService = navigationService;
+            InitializeCommands();
+            employee = new Employee();
+            employee.Name = "Bram";
+            employee.SurName = "Van Vleymen";
+            Employee = employee;
             MessengerInstance.Register<VariableMessage>
              (
                  this,
                  (action) => ReceiveVariableMessage(action)
              );
         }
-
+        private void InitializeCommands()
+        {
+            StartCommand = new Command(() =>
+            {
+                StartReadingData();
+            });
+        }
+        private void StartReadingData() {
+            foreach (var car in characteristics)
+            {
+                if (car.Name.Contains("Data"))
+                {
+                    car.ValueUpdated += valueUpdatedHandler;
+                    car.StartUpdates();
+                }
+            }
+        }
         private void ConnectToDevice()
         {
             this.services = new ObservableCollection<IService>();
@@ -78,12 +113,8 @@ namespace Mobile_App.ViewModel
                 {
                     SwitchToggled(car, true);
                 }
-                else if (car.Name.Contains("Data"))
-                {
-                    car.ValueUpdated += valueUpdatedHandler;
-                    car.StartUpdates();
-                }
             }
+            Data = "Ready";
         }
 
         private void DiscoverServices()
@@ -131,6 +162,8 @@ namespace Mobile_App.ViewModel
         {
             device = variableMessage.connectedDevice;
             adapter = variableMessage.adapter;
+            employee = variableMessage.employee;
+            transportedCargo = variableMessage.transportCargo;
             ConnectToDevice();
             return null;
         }

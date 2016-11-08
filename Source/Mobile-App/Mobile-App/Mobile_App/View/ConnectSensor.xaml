@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mobile_App.View.ConnectSensor"
-             xmlns:local="clr-namespace:Mobile_App">
+             xmlns:local="clr-namespace:Mobile_App"
+             BackgroundImage="background.jpg" >
  
 
   <ContentPage.Resources>
@@ -16,6 +17,7 @@
     <!--ToolbarItem x:Name="ScanHrmButton" Name="Scan" Icon="glyphish_29_heart.png"/-->
     <ToolbarItem x:Name="ScanAllButton" Command="{Binding SearchCommand}" Name="Scan" Icon="bluetooth.png"/>
   </ContentPage.ToolbarItems>
+  <StackLayout>
   <ListView x:Name="listView" ItemsSource="{Binding DeviceList}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" SelectedItem="{Binding SelectedDevice, Mode=TwoWay}" AbsoluteLayout.LayoutFlags="All" >
     <ListView.ItemTemplate>
       <DataTemplate>
@@ -37,4 +39,18 @@
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>
+  <ListView x:Name="CargolistView" ItemsSource="{Binding CargoList}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" AbsoluteLayout.LayoutFlags="All" >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+              <Label Text="{Binding Cargo_id, Converter={StaticResource strConverter}}"></Label>
+            </StackLayout>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+    </StackLayout>
 </ContentPage>
