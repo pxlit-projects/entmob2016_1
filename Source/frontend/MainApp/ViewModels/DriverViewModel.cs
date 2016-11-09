@@ -1,5 +1,6 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Authentication;
 using MainApp.Messages;
 using MainApp.Navigation;
 using MainApp.Utility;
@@ -35,6 +36,7 @@ namespace MainApp.ViewModels
             LoadData();
             LoadCommands();
             Messenger.Default.Register<Employee>(this, HandleDriverMessage);
+            
         }
 
         public ObservableCollection<Employee> Drivers

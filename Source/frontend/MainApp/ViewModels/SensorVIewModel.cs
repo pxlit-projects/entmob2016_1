@@ -20,7 +20,7 @@ namespace MainApp.ViewModels
     public class SensorViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private ISensorService service = new SensorService(DefaultUser.username, DefaultUser.password);
+        private ISensorService service; 
         private ObservableCollection<Sensor> sensors;
 
         public ICommand UpdateCommand { get; set; }

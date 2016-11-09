@@ -26,5 +26,7 @@ namespace MainApp.Views
         {
             this.InitializeComponent();
         }
+
+        
     }
 }

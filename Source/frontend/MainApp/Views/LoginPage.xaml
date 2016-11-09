@@ -20,13 +20,13 @@
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Username:" Width="100px" VerticalAlignment="Center"/>
-                <TextBox Text="" Width="200px"/>
+                <TextBox x:Name="userNameTxt" Width="200px" Text="{Binding Path=CurrentEmployee.Username}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                 <TextBlock Text="Password:" Width="100px" VerticalAlignment="Center"/>
-                <PasswordBox Width="200px"/>
+                <PasswordBox x:Name="passWordTxt" Width="200px" Password="{Binding Path=CurrentEmployee.Password}"/>
             </StackPanel>
-            <Button Command="{Binding LoginCommand}" Content="Aanmelden" HorizontalAlignment="Center" Width="300px" Margin="0,20,0,0"/>
+            <Button Command="{Binding LoginCommand}" Content="Aanmelden" HorizontalAlignment="Center" Width="300px" Margin="0,20,0,0" Style="{StaticResource PageButtonStyle}"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -11,12 +11,12 @@ namespace MainApp
 {
     public class ViewModelLocator
     {
-        private static ISensorService sensorService = new SensorService(DefaultUser.username, DefaultUser.password);
-        private static IEmployeeService employeeService = new EmployeeService(DefaultUser.username, DefaultUser.password);
-        private static ICargoService cargoService = new CargoService(DefaultUser.username, DefaultUser.password);
-        private static IVariableService variableService = new VariableService(DefaultUser.username, DefaultUser.password);
-        private static IExceedingsPerCargoService exceedingsService = new ExceedingsPerCargoService(DefaultUser.username, DefaultUser.password);
-        private static ILogService logService = new LogService(DefaultUser.username, DefaultUser.password);
+        private static ISensorService sensorService = new SensorService(LoggedUser.Username, LoggedUser.Password);
+        private static IEmployeeService employeeService = new EmployeeService(LoggedUser.Username, LoggedUser.Password);
+        private static ICargoService cargoService = new CargoService(LoggedUser.Username, LoggedUser.Password);
+        private static IVariableService variableService = new VariableService(LoggedUser.Username, LoggedUser.Password);
+        private static IExceedingsPerCargoService exceedingsService = new ExceedingsPerCargoService(LoggedUser.Username, LoggedUser.Password);
+        private static ILogService logService = new LogService(LoggedUser.Username, LoggedUser.Password);
 
         // Page Views
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
