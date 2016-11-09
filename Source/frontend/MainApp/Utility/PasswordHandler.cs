@@ -14,7 +14,7 @@ namespace MainApp.Utility
 {
     public static class PasswordHandler
     {
-        private static IEmployeeService service = new EmployeeService(DefaultUser.username, DefaultUser.password);
+        private static IEmployeeService service = new EmployeeService(LoggedUser.Username, LoggedUser.Password);
 
         public static string Md5Encrypt(string password, string salt)
         {
