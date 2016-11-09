@@ -123,8 +123,7 @@ namespace MainApp.ViewModels
 
         private void RaisePropertyChanged(string v)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(v));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
         }
     }
 }
