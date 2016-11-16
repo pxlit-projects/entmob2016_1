@@ -48,9 +48,12 @@ namespace MainApp.ViewModels
 
         public void UpdateBorder(object obj)
         {
-            CurrentCargo.Borders.Where(b => b.Cargo_border_id == SelectedBorder.Cargo_border_id).ToList().ForEach(b => b = SelectedBorder);
-            cargoService.Update(CurrentCargo);
-            new NavService().NavigateTo("Cargos");
+            if (SelectedBorder != null)
+            {
+                CurrentCargo.Borders.Where(b => b.Cargo_border_id == SelectedBorder.Cargo_border_id).ToList().ForEach(b => b = SelectedBorder);
+                cargoService.Update(CurrentCargo);
+                new NavService().NavigateTo("Cargos");
+            }
         }
 
         public void ShowAddBorderPage(object obj)

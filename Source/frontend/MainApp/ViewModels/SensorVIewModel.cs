@@ -71,8 +71,11 @@ namespace MainApp.ViewModels
 
         public void Update(object obj)
         {
-            service.Update(SelectedSensor);
-            LoadData();
+            if (SelectedSensor != null)
+            {
+                service.Update(SelectedSensor);
+                LoadData();
+            }
         }
 
         public void ChangeStatus(object obj)

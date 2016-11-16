@@ -99,15 +99,13 @@ namespace MainApp.ViewModels
             ShowCargoDialogCommand = new CustomCommand(ShowCargoDialog, null);
         }
 
-        private bool CanUpdate(object obj)
-        {
-            return SelectedCargo != null;
-        }
-
         private void Update(object obj)
         {
-            cargoService.Update(SelectedCargo);
-            LoadData();
+            if (SelectedCargo != null)
+            {
+                cargoService.Update(SelectedCargo);
+                LoadData();
+            }
         }
 
         public void ShowDetails(object obj)

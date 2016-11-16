@@ -92,8 +92,11 @@ namespace MainApp.ViewModels
 
         private void Update(object obj)
         {
-            service.Update(SelectedDriver);
-            LoadData();
+            if (SelectedDriver != null)
+            {
+                service.Update(SelectedDriver);
+                LoadData();
+            }
         }
 
         private async void ChangeStatus(object obj)
