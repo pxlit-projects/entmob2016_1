@@ -26,31 +26,27 @@
             <StackPanel Orientation="Vertical" Width="600px">
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Gebruikersnaam:</TextBlock>
-                    <TextBox Width="500" Text="{Binding CurrentDriver.Username, Mode=TwoWay}"/>
+                    <TextBox Width="300" Text="{Binding CurrentDriver.Username, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Wachtwoord:</TextBlock>
-                    <TextBox Width="500" Text="{Binding CurrentDriver.Password, Mode=TwoWay}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Wachtwoord:</TextBlock>
-                    <TextBox Width="500" Text="{Binding CurrentDriver.Password, Mode=TwoWay}"/>
+                    <TextBox Width="300" Text="{Binding CurrentDriver.Password, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Naam:</TextBlock>
-                    <TextBox Width="500" Text="{Binding CurrentDriver.Name, Mode=TwoWay}"/>
+                    <TextBox Width="300" Text="{Binding CurrentDriver.Name, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Voornaam:</TextBlock>
-                    <TextBox Width="500" Text="{Binding CurrentDriver.SurName, Mode=TwoWay}"/>
+                    <TextBox Width="300" Text="{Binding CurrentDriver.SurName, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Status:</TextBlock>
-                    <ComboBox Width="500" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus}"/>
+                    <ComboBox Width="300" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="125"> Rol:</TextBlock>
-                    <TextBox Width="500" Text="{Binding CurrentDriver.Clearance, Mode=TwoWay}"/>
+                    <TextBlock Width="300" Text="{Binding CurrentDriver.Clearance, Mode=TwoWay}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

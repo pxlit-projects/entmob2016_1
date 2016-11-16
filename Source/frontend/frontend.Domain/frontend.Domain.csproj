@@ -109,7 +109,6 @@
   <ItemGroup>
     <Compile Include="Cargo.cs" />
     <Compile Include="CargoBorder.cs" />
-    <Compile Include="Converter\DateConverter.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="ExceedingPerCargo.cs" />
     <Compile Include="Log.cs" />

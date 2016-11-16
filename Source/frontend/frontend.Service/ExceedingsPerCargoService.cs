@@ -25,14 +25,7 @@ namespace frontend.Service
         public List<ExceedingPerCargo> All()
         {
             var exceedings = exceedingsPerCargoRepository.GetAllExceedingsPerCargos().Result.ToList();
-            if (exceedings != null)
-            {
-                return exceedings;
-            }
-            else
-            {
-                return new List<ExceedingPerCargo>();
-            }
+            return exceedings;
         }
 
         public ExceedingPerCargo Find(int id)

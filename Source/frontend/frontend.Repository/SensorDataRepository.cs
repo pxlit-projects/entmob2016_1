@@ -9,23 +9,23 @@ namespace frontend.Repository
 {
     public class SensorDataRepository : ISensorDataRepository
     {
-        public ISensorRepository SensorRepository { get; set; }
+        private ISensorRepository sensorRepository;
 
         public SensorDataRepository(string username, string password)
         {
-            SensorRepository = new SensorRepository(username, password);
+            sensorRepository = new SensorRepository(username, password);
         }
 
         public async void AddSensorData(SensorData sensorData)
         {
-            var sensor = await SensorRepository.GetSensorById(sensorData.Sensor.Sensor_id);
+            var sensor = await sensorRepository.GetSensorById(sensorData.Sensor.Sensor_id);
             sensor.Data.Add(sensorData);
-            SensorRepository.UpdateSensor(sensor);
+            sensorRepository.UpdateSensor(sensor);
         }
 
         public async Task<List<SensorData>> GetAllSensorData()
         {
-            var sensors = await SensorRepository.GetAllSensors();
+            var sensors = await sensorRepository.GetAllSensors();
             List<SensorData> sensorData = new List<SensorData>();
             sensors.ForEach(s => s.Data.ForEach(d => sensorData.Add(d)));
             return sensorData;

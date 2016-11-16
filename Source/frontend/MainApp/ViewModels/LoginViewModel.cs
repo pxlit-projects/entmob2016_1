@@ -23,14 +23,13 @@ namespace MainApp.ViewModels
 
         private IEmployeeService service;
 
-
-
         public ICommand LoginCommand { get; set; }
 
         public LoginViewModel(IEmployeeService service)
         {
             this.service = service;
             LoadCommands();
+            currentEmployee = new Employee();
         }
 
         public void LoadCommands()
@@ -45,21 +44,16 @@ namespace MainApp.ViewModels
 
         private void Login(object obj)
         {
-            
-
             Employee employee = service.FindByUsername(CurrentEmployee.Username);
             string hashedPassword = PasswordHandler.Md5Encrypt(CurrentEmployee.Password, employee.Salt);
             if (hashedPassword == employee.Password)
             {
                 LoggedUser.Employee_id = employee.Employee_id;
-                LoggedUser.Clearance = employee.Clearance;
                 LoggedUser.Name = employee.Name;
-                LoggedUser.Password = hashedPassword;
                 LoggedUser.Salt = employee.Salt;
                 LoggedUser.Status = employee.Status;
                 LoggedUser.SurName = employee.SurName;
-                LoggedUser.Username = currentEmployee.Username;
-                
+
                 new NavService().NavigateTo("Main");
             }
         }

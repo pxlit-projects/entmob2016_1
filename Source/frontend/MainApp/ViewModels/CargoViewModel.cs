@@ -70,7 +70,6 @@ namespace MainApp.ViewModels
         {
             var dummy = cargoService.All().OrderBy(d => d.Cargo_id);
             Cargos = new ObservableCollection<Cargo>(dummy);
-            SelectedCargo = cargos.ElementAt(0);
         }
 
         private void HandleCargoMessage(Cargo cargo)
@@ -78,7 +77,15 @@ namespace MainApp.ViewModels
             if (cargo != null)
             {
                 Cargo lastCargo = cargoService.All().LastOrDefault();
-                if (Cargos.LastOrDefault().Cargo_id != lastCargo.Cargo_id)
+                Cargo lastCargoFromList = Cargos.LastOrDefault();
+                if (lastCargoFromList != null)
+                {
+                    if (lastCargoFromList.Cargo_id != lastCargo.Cargo_id)
+                    {
+                        Cargos.Add(lastCargo);
+                    }
+                }
+                else
                 {
                     Cargos.Add(lastCargo);
                 }
@@ -87,17 +94,12 @@ namespace MainApp.ViewModels
 
         private void LoadCommands()
         {
-            UpdateCommand = new CustomCommand(Update, CanUpdate);
+            UpdateCommand = new CustomCommand(Update, null);
             DetailsCommand = new CustomCommand(ShowDetails, null);
             ShowCargoDialogCommand = new CustomCommand(ShowCargoDialog, null);
         }
 
         private bool CanUpdate(object obj)
-        {
-            return SelectedCargo != null;
-        }
-
-        private bool CanChangeStatus(object obj)
         {
             return SelectedCargo != null;
         }

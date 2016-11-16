@@ -55,7 +55,6 @@ namespace MainApp.ViewModels
         {
             var dummy = service.All().OrderBy(d => d.Exceeding_per_cargo_id);
             Exceedings = new ObservableCollection<ExceedingPerCargo>(dummy);
-            SelectedExceeding = exceedings.ElementAt(0);
         }
 
         private void RaisePropertyChanged(string v)

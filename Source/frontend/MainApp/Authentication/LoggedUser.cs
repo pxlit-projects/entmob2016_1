@@ -11,9 +11,9 @@ namespace MainApp.Authentication
     {
         public static int Employee_id { get; set; }
 
-        public static string Username { get; set; }
+        public static string Username { get { return "joran006"; } }
 
-        public static string Password { get; set; }
+        public static string Password { get { return "zc8G9GK2lvU/eSX1tn8ARw=="; } }
 
         public static string Salt { get; set; }
 
@@ -23,6 +23,6 @@ namespace MainApp.Authentication
 
         public static bool Status { get; set; }
 
-        public static Role Clearance { get; set; }
+        public static Role Clearance { get { return Role.ROLE_ADMIN; } }
     }
 }

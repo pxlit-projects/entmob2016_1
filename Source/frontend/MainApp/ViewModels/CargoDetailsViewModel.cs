@@ -40,6 +40,12 @@ namespace MainApp.ViewModels
             CurrentCargo = cargo;
         }
 
+        private void HandleCargoBorderMessage(CargoBorder cargoBorder)
+        {
+            CargoBorder border = cargoService.Find(cargoBorder.Cargo.Cargo_id).Borders.FirstOrDefault(b => b.Cargo_border_id == cargoBorder.Cargo_border_id);
+            CurrentCargo.Borders.Add(border);
+        }
+
         public void UpdateBorder(object obj)
         {
             CurrentCargo.Borders.Where(b => b.Cargo_border_id == SelectedBorder.Cargo_border_id).ToList().ForEach(b => b = SelectedBorder);
