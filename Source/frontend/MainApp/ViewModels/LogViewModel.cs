@@ -1,5 +1,6 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace MainApp.ViewModels
 {
     public class LogViewModel
     {
-        private ObservableCollection<Log> logs;
+        private List<Log> logs;
         private ILogService service;
 
         public LogViewModel(ILogService service)
@@ -21,7 +22,7 @@ namespace MainApp.ViewModels
             LoadData();
         }
 
-        public ObservableCollection<Log> Logs
+        public List<Log> Logs
         {
             get
             {
@@ -30,22 +31,13 @@ namespace MainApp.ViewModels
             set
             {
                 logs = value;
-                RaisePropertyChanged("Logs");
             }
         }
 
         private void LoadData()
         {
-            var dummy = service.All().OrderByDescending(d => d.Log_id);
-            Logs = new ObservableCollection<Log>(dummy);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string v)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(v));
+            var dummy = service.All().OrderByDescending(d => d.Time);
+            Logs = new List<Log>(dummy);
         }
     }
 }

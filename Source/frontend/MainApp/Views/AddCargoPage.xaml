@@ -26,11 +26,11 @@
             <StackPanel Orientation="Vertical" Width="600px">
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Sensor:</TextBlock>
-                    <ComboBox Width="500" ItemsSource="{Binding SensorList}" SelectedItem="{Binding SelectedSensor, Mode=TwoWay}"/>
+                    <ComboBox Width="300" ItemsSource="{Binding SensorList}" SelectedItem="{Binding SelectedSensor, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Gewicht:</TextBlock>
-                    <TextBox Width="500" Text="{Binding CurrentCargo.Weight, Mode=TwoWay}"/>
+                    <TextBox Width="300" Text="{Binding CurrentCargo.Weight, Mode=TwoWay}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

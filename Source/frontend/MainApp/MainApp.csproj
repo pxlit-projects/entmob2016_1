@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Authentication\LoggedUser.cs" />
+    <Compile Include="Converter\DateConverter.cs" />
     <Compile Include="Messages\Messenger.cs" />
     <Compile Include="Utility\PasswordHandler.cs" />
     <Compile Include="Utility\RelayCommand.cs" />

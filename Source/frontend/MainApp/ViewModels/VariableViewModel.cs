@@ -57,7 +57,6 @@ namespace MainApp.ViewModels
         {
             var dummy = service.All().OrderBy(d => d.Variable_id);
             Variables = new ObservableCollection<Variable>(dummy);
-            SelectedVariable = variables.ElementAt(0);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

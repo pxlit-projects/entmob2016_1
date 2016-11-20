@@ -53,10 +53,10 @@ namespace MainApp.Navigation
                         page.getFrame().Navigate(typeof(CargoDetailsPage));
                         break;
                     case "Exceedings":
-                        page.getFrame().Navigate(typeof(CargoDetailsPage));
+                        page.getFrame().Navigate(typeof(ExceedingsPage));
                         break;
                     case "Logs":
-                        page.getFrame().Navigate(typeof(CargoDetailsPage));
+                        page.getFrame().Navigate(typeof(LogPage));
                         break;
                     default:
                         HomePage homeView = new HomePage();

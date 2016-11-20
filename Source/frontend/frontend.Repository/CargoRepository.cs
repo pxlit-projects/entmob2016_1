@@ -12,15 +12,15 @@ namespace frontend.Repository
 {
     public class CargoRepository : ICargoRepository
     {
-        public HttpClient Client { get; set; }
+        private HttpClient client;
 
         public CargoRepository(string username, string password)
         {
-            Client = new HttpClient();
-            Client.BaseAddress = new Uri(Global.IP_ADRESS);
-            Client.DefaultRequestHeaders.Accept.Clear();
-            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+            client = new HttpClient();
+            client.BaseAddress = new Uri(Global.IP_ADRESS);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Basic", 
                 Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", username, password))));
         }
@@ -28,7 +28,7 @@ namespace frontend.Repository
         public async Task<List<Cargo>> GetAllCargos()
         {
             var url = "/cargos/all";
-            HttpResponseMessage response = Client.GetAsync(url).Result;
+            HttpResponseMessage response = client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -37,13 +37,20 @@ namespace frontend.Repository
             }
 
             var cargos = JsonConvert.DeserializeObject<List<Cargo>>(jsonString);
-            return cargos;
+            if (cargos != null)
+            {
+                return cargos;
+            }
+            else
+            {
+                return new List<Cargo>();
+            }
         }
 
         public async Task<Cargo> GetCargoById(int id)
         {
             var url = "/cargos/get/" + id;
-            HttpResponseMessage response = Client.GetAsync(url).Result;
+            HttpResponseMessage response = client.GetAsync(url).Result;
             string jsonString = "";
 
             if (response.IsSuccessStatusCode)
@@ -59,14 +66,14 @@ namespace frontend.Repository
         {
             var url = "/cargos/add";
             var jsonString = JsonConvert.SerializeObject(cargo);
-            HttpResponseMessage response = Client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage response = client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
 
         public void UpdateCargo(Cargo cargo)
         {
             var url = "/cargos/update";
             var jsonString = JsonConvert.SerializeObject(cargo);
-            HttpResponseMessage response = Client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage response = client.PutAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json")).Result;
         }
     }
 }

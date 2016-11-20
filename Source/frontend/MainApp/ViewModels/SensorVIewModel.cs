@@ -37,8 +37,8 @@ namespace MainApp.ViewModels
 
         private void LoadCommands()
         {
-            UpdateCommand = new CustomCommand(Update, CanUpdateOrChangeStatus);
-            ChangeStatusCommand = new CustomCommand(ChangeStatus, CanUpdateOrChangeStatus);
+            UpdateCommand = new CustomCommand(Update, null);
+            ChangeStatusCommand = new CustomCommand(ChangeStatus, null);
             ShowDialogCommand = new CustomCommand(ShowDialog, null);
         }
 
@@ -46,7 +46,6 @@ namespace MainApp.ViewModels
         {
             var sensorsList = service.All().OrderBy(d => d.Sensor_id);
             Sensors = new ObservableCollection<Sensor>(sensorsList);
-            SelectedSensor = sensors.ElementAt(0);
         }
 
         private void HandleSensorMessage(Sensor sensor)
@@ -54,22 +53,29 @@ namespace MainApp.ViewModels
             if (sensor != null)
             {
                 Sensor lastSensor = service.All().LastOrDefault();
-                if (Sensors.LastOrDefault().Sensor_id != lastSensor.Sensor_id)
+                Sensor lastSensorFromList = Sensors.LastOrDefault();
+                if (lastSensorFromList != null)
+                {
+                    if (lastSensorFromList.Sensor_id != lastSensor.Sensor_id)
+                    {
+                        Sensors.Add(lastSensor);
+                    }
+                }
+                else
                 {
                     Sensors.Add(lastSensor);
                 }
+                
             }
-        }
-
-        public bool CanUpdateOrChangeStatus(object obj)
-        {
-            return SelectedSensor != null;
         }
 
         public void Update(object obj)
         {
-            service.Update(SelectedSensor);
-            LoadData();
+            if (SelectedSensor != null)
+            {
+                service.Update(SelectedSensor);
+                LoadData();
+            }
         }
 
         public void ChangeStatus(object obj)
@@ -80,7 +86,7 @@ namespace MainApp.ViewModels
 
         public void ShowDialog(object obj)
         {
-            new NavService().NavigateTo("AddCargo");
+            new NavService().NavigateTo("AddSensor");
         }
         
         public ObservableCollection<Sensor> Sensors

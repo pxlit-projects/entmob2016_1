@@ -21,13 +21,13 @@
             <Grid VerticalAlignment="Top" x:Name="titleGrid">
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 0" Foreground="White"> Logs</TextBlock>
             </Grid>
-            <ListView ItemsSource="{Binding Logs}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" >
+            <ListView ItemsSource="{Binding Logs}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" MaxHeight="400">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Log_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding Time}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Message}" Width="250px" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Time, Converter={StaticResource DateConverter}}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Message}" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

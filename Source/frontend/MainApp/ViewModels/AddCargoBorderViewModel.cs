@@ -53,11 +53,14 @@ namespace MainApp.ViewModels
 
         private void AddBorder(object obj)
         {
-            List<Variable> variables = variableService.All();
-            CurrentCargoBorder.Variable = variables.FirstOrDefault(v => v.Description == SelectedVariable);
-            SelectedCargo.Borders.Add(CurrentCargoBorder);
-            cargoService.Update(SelectedCargo);
-            new NavService().NavigateTo("Cargos");
+            if (SelectedVariable != null)
+            {
+                List<Variable> variables = variableService.All();
+                CurrentCargoBorder.Variable = variables.FirstOrDefault(v => v.Description == SelectedVariable);
+                SelectedCargo.Borders.Add(CurrentCargoBorder);
+                cargoService.Update(SelectedCargo);
+                new NavService().NavigateTo("Cargos");
+            }
         }
 
         public Cargo SelectedCargo

@@ -69,13 +69,12 @@ namespace MainApp.ViewModels
         {
             var dummy = service.All().OrderBy(d => d.Employee_id);
             Drivers = new ObservableCollection<Employee>(dummy);
-            SelectedDriver = drivers.ElementAt(0);
         }
 
         private void LoadCommands()
         {
-            UpdateCommand = new CustomCommand(Update, CanUpdate);
-            ChangeStatusCommand = new CustomCommand(ChangeStatus, CanChangeStatus);
+            UpdateCommand = new CustomCommand(Update, null);
+            ChangeStatusCommand = new CustomCommand(ChangeStatus, null);
             ShowDriverDialogCommand = new CustomCommand(ShowDriverDialog, null);
         }
 
@@ -91,20 +90,13 @@ namespace MainApp.ViewModels
             }
         }
 
-        private bool CanUpdate(object obj)
-        {
-            return SelectedDriver != null;
-        }
-
-        private bool CanChangeStatus(object obj)
-        {
-            return SelectedDriver != null;
-        }
-
         private void Update(object obj)
         {
-            service.Update(SelectedDriver);
-            LoadData();
+            if (SelectedDriver != null)
+            {
+                service.Update(SelectedDriver);
+                LoadData();
+            }
         }
 
         private async void ChangeStatus(object obj)

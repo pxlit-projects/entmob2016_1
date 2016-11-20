@@ -70,7 +70,6 @@ namespace MainApp.ViewModels
         {
             var dummy = cargoService.All().OrderBy(d => d.Cargo_id);
             Cargos = new ObservableCollection<Cargo>(dummy);
-            SelectedCargo = cargos.ElementAt(0);
         }
 
         private void HandleCargoMessage(Cargo cargo)
@@ -78,7 +77,15 @@ namespace MainApp.ViewModels
             if (cargo != null)
             {
                 Cargo lastCargo = cargoService.All().LastOrDefault();
-                if (Cargos.LastOrDefault().Cargo_id != lastCargo.Cargo_id)
+                Cargo lastCargoFromList = Cargos.LastOrDefault();
+                if (lastCargoFromList != null)
+                {
+                    if (lastCargoFromList.Cargo_id != lastCargo.Cargo_id)
+                    {
+                        Cargos.Add(lastCargo);
+                    }
+                }
+                else
                 {
                     Cargos.Add(lastCargo);
                 }
@@ -87,25 +94,18 @@ namespace MainApp.ViewModels
 
         private void LoadCommands()
         {
-            UpdateCommand = new CustomCommand(Update, CanUpdate);
+            UpdateCommand = new CustomCommand(Update, null);
             DetailsCommand = new CustomCommand(ShowDetails, null);
             ShowCargoDialogCommand = new CustomCommand(ShowCargoDialog, null);
         }
 
-        private bool CanUpdate(object obj)
-        {
-            return SelectedCargo != null;
-        }
-
-        private bool CanChangeStatus(object obj)
-        {
-            return SelectedCargo != null;
-        }
-
         private void Update(object obj)
         {
-            cargoService.Update(SelectedCargo);
-            LoadData();
+            if (SelectedCargo != null)
+            {
+                cargoService.Update(SelectedCargo);
+                LoadData();
+            }
         }
 
         public void ShowDetails(object obj)
@@ -123,8 +123,7 @@ namespace MainApp.ViewModels
 
         private void RaisePropertyChanged(string v)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(v));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
         }
     }
 }
