@@ -13,7 +13,7 @@ namespace frontend.DomainEF.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201611201123520_ExceedingsPerCargoTableNameFix"; }
+            get { return "201611201950504_ExceedingsPerCargoTableNameFix"; }
         }
         
         string IMigrationMetadata.Source

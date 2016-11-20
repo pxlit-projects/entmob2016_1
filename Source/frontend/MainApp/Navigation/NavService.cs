@@ -59,7 +59,6 @@ namespace MainApp.Navigation
                         page.getFrame().Navigate(typeof(LogPage));
                         break;
                     default:
-                        HomePage homeView = new HomePage();
                         page.getFrame().Navigate(typeof(HomePage));
                         break;
                 }

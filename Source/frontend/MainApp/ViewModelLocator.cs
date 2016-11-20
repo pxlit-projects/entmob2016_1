@@ -11,14 +11,16 @@ namespace MainApp
 {
     public class ViewModelLocator
     {
+        #region Services
         private static ISensorService sensorService = new SensorService(LoggedUser.Username, LoggedUser.Password);
         private static IEmployeeService employeeService = new EmployeeService(LoggedUser.Username, LoggedUser.Password);
         private static ICargoService cargoService = new CargoService(LoggedUser.Username, LoggedUser.Password);
         private static IVariableService variableService = new VariableService(LoggedUser.Username, LoggedUser.Password);
         private static IExceedingsPerCargoService exceedingsService = new ExceedingsPerCargoService(LoggedUser.Username, LoggedUser.Password);
         private static ILogService logService = new LogService(LoggedUser.Username, LoggedUser.Password);
+        #endregion
 
-        // Page Views
+        #region Views
         private SensorViewModel sensorViewModel = new SensorViewModel(sensorService);
         private DriverViewModel driverViewModel = new DriverViewModel(employeeService);
         private MainViewModel mainViewModel = new MainViewModel();
@@ -32,7 +34,9 @@ namespace MainApp
         private AddCargoBorderViewModel addCargoBorderViewModel = new AddCargoBorderViewModel(cargoService, variableService);
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
         private AddSensorViewModel addSensorViewModel = new AddSensorViewModel(sensorService);
+        #endregion
 
+        #region Properties
         public DriverViewModel DriverViewModel
         {
             get
@@ -136,5 +140,6 @@ namespace MainApp
                 return logViewModel;
             }
         }
+        #endregion
     }
 }

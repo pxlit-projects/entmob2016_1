@@ -13,7 +13,7 @@ namespace frontend.DomainEF.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201611201120283_Initial"; }
+            get { return "201611201949150_Initial"; }
         }
         
         string IMigrationMetadata.Source

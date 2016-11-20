@@ -1,0 +1,36 @@
+** Instructies UWP app **
+
+1. 	Open XAMPP of WAMP.
+2. 	Start Apache en MySQL.
+3. 	Open backend project.
+4. 	Ga naar src => main => resources => application.properties.
+5. 	In de laatste regel vervang "update" naar "create".
+6. 	Run het backend project, zodat de database aangemaakt wordt.
+7. 	Check of de database aangemaakt is op http://localhost/phpmyadmin.
+8. 	Als de database aangemaakt is, vervang je "create" terug naar "update".
+9. 	Ga naar de de employees table op phpmyadmin.
+10. 	In het menu vanboven klik je op invoegen.
+11.	Je voegt deze waardes in:
+		employee_id: 1 (neem een andere id als deze in gebruik is)
+		clearance: ROLE_ADMIN
+		name: <naar keuze>
+		password: zc8G9GK2lvU/eSX1tn8ARw== (=salted password)
+		salt: 3e6de6e3f97be78e3e033a3146b3b547da7b63abf23de199546e11794cc8ca93
+		status: 1 (komt overeen met true)
+		sur_name: <naar keuze>
+		username: gebruiker
+12.	Open frontend project
+13.	Zorg de MainApp als startup project staat
+14. 	Deploy en run de MainApp
+15.	Bij de login gebruik je:
+		username: gebruiker
+		password: test123
+
+** Instructies aanmaken database - Entity Framework **
+
+1. 	Zet frontend.DomainEF als startup project. Deze is nodig zodat hij de connectionstring
+		kan vinden in de app.config.
+2. 	Boven in het menu klik je op Tools => NuGet Package Manager => Package Manager Console
+3.	In de console type je: Update-Database
+4. 	Bovin in het menu klik je op View => SQL Server Object Explorer
+5. 	In de (localdb)\MSSQLLocalDB zou je database moeten terugvinden
