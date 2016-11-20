@@ -60,11 +60,5 @@ public class SensorController {
 		logger.log("Updating sensor with id: " + sensor.getSensor_id() + ".");
         service.update( sensor);
 	}
-	
-	/*
-		Function to inject mocks
-	 */
-	public void setService(SensorService service) {
-		this.service = service;
-	}
+    
 }
