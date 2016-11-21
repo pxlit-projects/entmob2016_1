@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace UnitTests
 {
     [TestClass]
-    public class UnitTest1
+using Windows.UI.Xaml;
     {
         private ICargoService cargoService;
         private IEmployeeService employeeService;
