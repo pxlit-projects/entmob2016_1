@@ -96,7 +96,7 @@ namespace MainApp.ViewModels
             return CurrentSensor != null;
         }
 
-        private void AddSensor(Object obj)
+        public void AddSensor(Object obj)
         {
             if (SelectedStatus == "Active")
             {
