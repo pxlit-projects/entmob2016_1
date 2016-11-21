@@ -5,6 +5,7 @@ using frontend.Service;
 using frontend.Domain;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using Windows.UI.Xaml;
 
 namespace UnitTests
 {
