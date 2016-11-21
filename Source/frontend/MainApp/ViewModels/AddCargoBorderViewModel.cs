@@ -1,5 +1,6 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Authentication;
 using MainApp.Messages;
 using MainApp.Navigation;
 using MainApp.Utility;
@@ -17,6 +18,7 @@ namespace MainApp.ViewModels
     {
         private ICargoService cargoService;
         private IVariableService variableService;
+        private ICargoBorderService cargoBorderService;
         private Cargo selectedCargo;
         private CargoBorder currentCargoBorder;
         private List<string> variableList;
@@ -28,6 +30,7 @@ namespace MainApp.ViewModels
         {
             this.cargoService = cargoService;
             this.variableService = variableService;
+            this.cargoBorderService = new CargoBorderService(LoggedUser.Username, LoggedUser.Password);
             LoadCommands();
             LoadData();
             Messenger.Default.Register<Cargo>(this, HandleCargoMessage);
@@ -57,6 +60,11 @@ namespace MainApp.ViewModels
             {
                 List<Variable> variables = variableService.All();
                 CurrentCargoBorder.Variable = variables.FirstOrDefault(v => v.Description == SelectedVariable);
+
+                var cargoBorders = cargoBorderService.All();
+                var lastCargoBorderId = cargoBorders.Max(c => c.Cargo_border_id);
+                CurrentCargoBorder.Cargo_border_id = lastCargoBorderId + 1;
+
                 SelectedCargo.Borders.Add(CurrentCargoBorder);
                 cargoService.Update(SelectedCargo);
                 new NavService().NavigateTo("Cargos");
