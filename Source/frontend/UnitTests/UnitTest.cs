@@ -10,7 +10,7 @@ using Windows.UI.Xaml;
 namespace UnitTests
 {
     [TestClass]
-using Windows.UI.Xaml;
+    public class UnitTest
     {
         private ICargoService cargoService;
         private IEmployeeService employeeService;
