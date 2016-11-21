@@ -2,11 +2,7 @@
 using frontend.Service;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
-<<<<<<< HEAD
 using Java.Lang;
-=======
-using JoesBurgerStore.Contracts;
->>>>>>> cf6b8a480cb65592b4b6fe1b4b8b3d6ddc0f3028
 using Mobile_App.Services;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using System;
