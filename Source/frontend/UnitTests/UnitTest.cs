@@ -38,7 +38,7 @@ namespace UnitTests
             var viewmodel = new CargoViewModel(cargoService, sensorService);
             ObservableCollection<Cargo> expectedData = new ObservableCollection<Cargo>(cargoService.All());
             var actualData = viewmodel.Cargos;
-            Assert.AreSame(expectedData, actualData);
+            CollectionAssert.AreEquivalent(expectedData, actualData);
         }
         [TestMethod]
         public void TestEmployeeViewModel()
@@ -46,7 +46,8 @@ namespace UnitTests
             var viewmodel = new DriverViewModel(employeeService);
             ObservableCollection<Employee> expectedData = new ObservableCollection<Employee>(employeeService.All());
             var actualData = viewmodel.Drivers;
-            Assert.AreSame(expectedData, actualData);
+            CollectionAssert.AreEquivalent(expectedData, actualData);
+            
         }
         [TestMethod]
         public void TestExceedingViewModel()
@@ -54,7 +55,7 @@ namespace UnitTests
             var viewmodel = new ExceedingsViewModel(exceedingsService);
             ObservableCollection<ExceedingPerCargo> expectedData = new ObservableCollection<ExceedingPerCargo>(exceedingsService.All());
             var actualData = viewmodel.Exceedings;
-            Assert.AreSame(expectedData, actualData);
+            CollectionAssert.AreEquivalent(expectedData, actualData);
         }
         [TestMethod]
         public void TestLogViewModel()
@@ -62,7 +63,7 @@ namespace UnitTests
             var viewmodel = new LogViewModel(logService);
             ObservableCollection<Log> expectedData = new ObservableCollection<Log>(logService.All());
             var actualData = viewmodel.Logs;
-            Assert.AreSame(expectedData, actualData);
+            CollectionAssert.AreEquivalent(expectedData, actualData);
         }
        
         [TestMethod]
@@ -71,7 +72,7 @@ namespace UnitTests
             var viewmodel = new SensorViewModel(sensorService);
             ObservableCollection<Sensor> expectedData = new ObservableCollection<Sensor>(sensorService.All());
             var actualData = viewmodel.Sensors;
-            Assert.AreSame(expectedData, actualData);
+            CollectionAssert.AreEquivalent(expectedData, actualData);
         }
         [TestMethod]
         public void TestVariableViewModel()
@@ -79,7 +80,7 @@ namespace UnitTests
             var viewmodel = new VariableViewModel(variableService);
             ObservableCollection<Variable> expectedData = new ObservableCollection<Variable>(variableService.All());
             var actualData = viewmodel.Variables;
-            Assert.AreEqual(expectedData, actualData);           
+            CollectionAssert.AreEquivalent(expectedData, actualData);           
         }
         [TestMethod]
         public void TestAddCargoViewModel()
