@@ -2,7 +2,6 @@
 using frontend.Service;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
-using JoesBurgerStore.Contracts;
 using Mobile_App.Services;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using System;
@@ -33,6 +32,19 @@ namespace Mobile_App.ViewModel
             {
                 borders = value;
                 RaisePropertyChanged("Borders");
+            }
+        }
+        private ObservableCollection<ExceedingPerCargo> exceedingsPerBorders;
+        public ObservableCollection<ExceedingPerCargo> ExceedingsPerBorders
+        {
+            get
+            {
+                return exceedingsPerBorders;
+            }
+            set
+            {
+                exceedingsPerBorders = value;
+                RaisePropertyChanged("ExceedingsPerBorders");
             }
         }
         public ICommand StartCommand { get; set; }
@@ -142,6 +154,7 @@ namespace Mobile_App.ViewModel
                             Cargo = transportedCargo, Value = DataSensor.Temperature, Variable = border.Variable, Time = DateTime.Now.ToString()
                         };
                         excPerCargoService.Add(exc);
+                        ExceedingsPerBorders.Add(exc);
                     }
                 }
             }
@@ -167,9 +180,10 @@ namespace Mobile_App.ViewModel
         {
             /*
             ISensorService sensorService = new SensorService(employee.Username,employee.Password);
+            */
             dataSensor = new SensorData()
             {
-                Sensor = sensorService.All().Single(s => s.Sensor_name == device.Rssi.ToString()),
+                //Sensor = sensorService.All().Single(s => s.Sensor_name == device.Rssi.ToString()),
                 Temperature = 0,
                 Gyroscope = 0,
                 Acceleration = 0,
@@ -178,7 +192,7 @@ namespace Mobile_App.ViewModel
                 Magnetism = 0,
                 Pressure = 0
             };
-            */
+            
         }
 
         private void SetEvents()

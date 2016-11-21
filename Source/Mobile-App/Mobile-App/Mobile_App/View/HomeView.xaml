@@ -3,6 +3,26 @@
   <ContentPage BackgroundImage="background.jpg">
     <StackLayout>
       <Button Command="{Binding StartCommand}" BackgroundColor="#3FC2D0" FontSize="20" TextColor="White" Text="Start" />
+      <ListView x:Name="ExceedingslistView" ItemsSource="{Binding ExceedingsPerBorders}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" >
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*" />
+                  <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding ExceedingsPerBorders}" Grid.Row="0" Grid.Column="0" />
+                <Label Text="{Binding ExceedingsPerBorders}" Grid.Row="0" Grid.Column="1" />
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
     </StackLayout>
   </ContentPage>
   <ContentPage BackgroundImage="background.jpg">

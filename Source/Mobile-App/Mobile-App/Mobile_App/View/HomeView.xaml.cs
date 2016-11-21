@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using JoesBurgerStore;
 using Mobile_App.Services;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using Mobile_App.ViewModel;

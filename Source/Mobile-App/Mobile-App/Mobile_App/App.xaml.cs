@@ -1,7 +1,6 @@
 ﻿
 using Autofac;
-using JoesBurgerStore;
-using JoesBurgerStore.Contracts;
+using Mobile_App.ViewModel;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using System;
 using System.Collections.Generic;

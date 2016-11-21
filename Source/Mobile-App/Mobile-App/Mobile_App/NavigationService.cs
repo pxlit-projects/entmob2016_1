@@ -1,6 +1,7 @@
-﻿using JoesBurgerStore.Contracts;
+﻿
 using Mobile_App;
 using Mobile_App.View;
+using Mobile_App.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace JoesBurgerStore.Services
+namespace Mobile_App
+
 {
     public class NavigationService : INavigationService
     {

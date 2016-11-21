@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using JoesBurgerStore;
 using Mobile_App.ViewModel;
 using System;
 using System.Collections.Generic;

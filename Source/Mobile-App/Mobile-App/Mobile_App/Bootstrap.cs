@@ -1,10 +1,9 @@
 ﻿using Autofac;
-using JoesBurgerStore.Contracts;
-using JoesBurgerStore.Services;
 using Mobile_App.ViewModel;
 using Xamarin.Forms;
 
-namespace JoesBurgerStore
+namespace Mobile_App
+
 {
     public class Bootstrap
     {

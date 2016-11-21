@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace JoesBurgerStore.Contracts
+namespace Mobile_App
+
 {
     public interface INavigationService
     {

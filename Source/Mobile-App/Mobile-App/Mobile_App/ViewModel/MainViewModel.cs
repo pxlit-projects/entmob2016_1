@@ -2,7 +2,6 @@ using frontend.Domain;
 using frontend.Service;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
-using JoesBurgerStore.Contracts;
 using System;
 using System.Diagnostics;
 using System.Windows.Input;
