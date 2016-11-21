@@ -26,11 +26,11 @@ namespace MainApp.ViewModels
 
         public ICommand AddCommand { get; set; }
 
-        public AddCargoBorderViewModel(ICargoService cargoService, IVariableService variableService)
+        public AddCargoBorderViewModel(ICargoService cargoService, IVariableService variableService, ICargoBorderService cargoBorderService)
         {
             this.cargoService = cargoService;
             this.variableService = variableService;
-            this.cargoBorderService = new CargoBorderService(LoggedUser.Username, LoggedUser.Password);
+            this.cargoBorderService = cargoBorderService;
             LoadCommands();
             LoadData();
             Messenger.Default.Register<Cargo>(this, HandleCargoMessage);

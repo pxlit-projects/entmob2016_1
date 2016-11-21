@@ -15,6 +15,7 @@ namespace MainApp
         private static ISensorService sensorService = new SensorService(LoggedUser.Username, LoggedUser.Password);
         private static IEmployeeService employeeService = new EmployeeService(LoggedUser.Username, LoggedUser.Password);
         private static ICargoService cargoService = new CargoService(LoggedUser.Username, LoggedUser.Password);
+        private static ICargoBorderService cargoBorderService = new CargoBorderService(LoggedUser.Username, LoggedUser.Password);
         private static IVariableService variableService = new VariableService(LoggedUser.Username, LoggedUser.Password);
         private static IExceedingsPerCargoService exceedingsService = new ExceedingsPerCargoService(LoggedUser.Username, LoggedUser.Password);
         private static ILogService logService = new LogService(LoggedUser.Username, LoggedUser.Password);
@@ -31,7 +32,7 @@ namespace MainApp
         private ExceedingsViewModel exceedingsViewModel = new ExceedingsViewModel(exceedingsService);
         private LogViewModel logViewModel = new LogViewModel(logService);
         private AddCargoViewModel addCargoViewModel = new AddCargoViewModel(cargoService, sensorService);
-        private AddCargoBorderViewModel addCargoBorderViewModel = new AddCargoBorderViewModel(cargoService, variableService);
+        private AddCargoBorderViewModel addCargoBorderViewModel = new AddCargoBorderViewModel(cargoService, variableService, cargoBorderService);
         private AddDriverViewModel addDriverViewModel = new AddDriverViewModel(employeeService);
         private AddSensorViewModel addSensorViewModel = new AddSensorViewModel(sensorService);
         #endregion

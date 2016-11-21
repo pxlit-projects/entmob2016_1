@@ -25,8 +25,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Log_id}" Width="100px" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding Time, Converter={StaticResource DateConverter}}" Width="250px" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Time, Converter={StaticResource DateConverter}}" Width="250px" HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding Message}" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
