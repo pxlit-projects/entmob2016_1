@@ -47,10 +47,13 @@ namespace MainApp.ViewModels
 
         public void AddCargo(object obj)
         {
-            CurrentCargo.Sensor_id = Convert.ToInt32(SelectedSensor);
-            cargoService.Add(CurrentCargo);
-            Messenger.Default.Send(CurrentCargo);
-            new NavService().NavigateTo("Cargos");
+            if (SelectedSensor != null)
+            {
+                CurrentCargo.Sensor_id = Convert.ToInt32(SelectedSensor);
+                cargoService.Add(CurrentCargo);
+                Messenger.Default.Send(CurrentCargo);
+                new NavService().NavigateTo("Cargos");
+            }
         }
 
         public Cargo CurrentCargo

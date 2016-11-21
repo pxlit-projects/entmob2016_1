@@ -60,4 +60,5 @@ public class SensorController {
 		logger.log("Updating sensor with id: " + sensor.getSensor_id() + ".");
         service.update( sensor);
 	}
+    
 }

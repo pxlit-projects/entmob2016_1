@@ -26,15 +26,15 @@
             <StackPanel Orientation="Vertical" Width="600px">
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Cargo:</TextBlock>
-                    <TextBlock Width="500" Text="{Binding SelectedCargo.Cargo_id, Mode=TwoWay}"/>
+                    <TextBlock Width="300" Text="{Binding SelectedCargo.Cargo_id, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Variabele:</TextBlock>
-                    <ComboBox Width="500" ItemsSource="{Binding VariableList}" SelectedItem="{Binding SelectedVariable, Mode=TwoWay}"/>
+                    <ComboBox Width="300" ItemsSource="{Binding VariableList}" SelectedItem="{Binding SelectedVariable, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Waarde:</TextBlock>
-                    <TextBox Width="500" Text="{Binding CurrentCargoBorder.Value, Mode=TwoWay}"/>
+                    <TextBox Width="300" Text="{Binding CurrentCargoBorder.Value, Mode=TwoWay}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

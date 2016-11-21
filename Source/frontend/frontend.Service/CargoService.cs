@@ -25,14 +25,7 @@ namespace frontend.Service
         public List<Cargo> All()
         {
             var cargos = cargoRepository.GetAllCargos().Result.ToList();
-            if (cargos != null)
-            {
-                return cargos;
-            }
-            else
-            {
-                return new List<Cargo>();
-            }
+            return cargos;
         }
 
         public Cargo Find(int id)

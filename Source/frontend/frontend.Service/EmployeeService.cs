@@ -29,14 +29,7 @@ namespace frontend.Service
         public List<Employee> All()
         {
             var employees = employeeRepository.GetAllEmployees().Result.ToList();
-            if (employees != null)
-            {
-                return employees;
-            }
-            else
-            {
-                return new List<Employee>();
-            }
+            return employees;
         }
         
         public Employee Find(int id)

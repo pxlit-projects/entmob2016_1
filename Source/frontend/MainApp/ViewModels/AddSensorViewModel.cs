@@ -1,5 +1,6 @@
 ﻿using frontend.Domain;
 using frontend.Service;
+using MainApp.Authentication;
 using MainApp.Messages;
 using MainApp.Navigation;
 using MainApp.Utility;
@@ -46,8 +47,6 @@ namespace MainApp.ViewModels
             }
         }
 
-
-
         public string SelectedStatus
         {
             get
@@ -89,7 +88,7 @@ namespace MainApp.ViewModels
 
         private void LoadCommands()
         {
-            AddCommand = new RelayCommand<ContentDialog>(AddSensor, CanAddSensor);
+            AddCommand = new CustomCommand(AddSensor, CanAddSensor);
         }
 
         private bool CanAddSensor(object obj)
@@ -97,7 +96,7 @@ namespace MainApp.ViewModels
             return CurrentSensor != null;
         }
 
-        private void AddSensor(ContentDialog dialog)
+        public void AddSensor(Object obj)
         {
             if (SelectedStatus == "Active")
             {

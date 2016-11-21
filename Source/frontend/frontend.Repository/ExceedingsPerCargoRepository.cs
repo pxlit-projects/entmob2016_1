@@ -12,19 +12,26 @@ namespace frontend.Repository
 {
     public class ExceedingsPerCargoRepository : IExceedingsPerCargoRepository
     {
-        public ICargoRepository CargoRepository { get; set; }
+        private ICargoRepository cargoRepository;
 
         public ExceedingsPerCargoRepository(string username, string password)
         {
-            CargoRepository = new CargoRepository(username, password);
+            cargoRepository = new CargoRepository(username, password);
         }
 
         public async Task<List<ExceedingPerCargo>> GetAllExceedingsPerCargos()
         {
-            var cargos = await CargoRepository.GetAllCargos();
+            var cargos = await cargoRepository.GetAllCargos();
             List<ExceedingPerCargo> exceedingPerCargos = new List<ExceedingPerCargo>();
             cargos.ForEach(c => c.Exceedings.ForEach(e => exceedingPerCargos.Add(e)));
-            return exceedingPerCargos;
+            if (exceedingPerCargos != null)
+            {
+                return exceedingPerCargos;
+            }
+            else
+            {
+                return new List<ExceedingPerCargo>();
+            }
         }
 
         public async Task<ExceedingPerCargo> GetExceedingsPerCargoById(int id)
@@ -36,9 +43,9 @@ namespace frontend.Repository
 
         public async void AddExceedingsPerCargo(ExceedingPerCargo exceedingPerCargo)
         {
-            var cargo = await CargoRepository.GetCargoById(exceedingPerCargo.Cargo.Cargo_id);
+            var cargo = await cargoRepository.GetCargoById(exceedingPerCargo.Cargo.Cargo_id);
             cargo.Exceedings.Add(exceedingPerCargo);
-            CargoRepository.UpdateCargo(cargo);
+            cargoRepository.UpdateCargo(cargo);
         }
     }
 }

@@ -6,13 +6,16 @@ using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
 using System;
+using MainApp.Messages;
+using frontend.Domain;
+using MainApp.Authentication;
 
 namespace MainApp.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
+        LoggedUser logged;
         public ICommand HomeCommand { get; set; }
         public ICommand SensorCommand { get; set; }
         public ICommand DriverCommand { get; set; }
@@ -24,7 +27,16 @@ namespace MainApp.ViewModels
 
         public MainViewModel()
         {
+            Messenger.Default.Register<LoggedUser>(this, SaveLoggedUser);
             LoadCommands();
+        }
+
+        public void SaveLoggedUser(LoggedUser User)
+        {
+            if (User!=null)
+            {
+                logged = User;
+            }
         }
         
         public void ShowHideMenu(RadioButton obj)
@@ -38,21 +50,25 @@ namespace MainApp.ViewModels
 
         public void NavigateVariable(object obj)
         {
+            Messenger.Default.Send<LoggedUser>(logged);
             new NavService().NavigateTo("Variables");
         }
 
         public void NavigateHome(object obj)
         {
+            Messenger.Default.Send<LoggedUser>(logged);
             new NavService().NavigateTo("Home");
         }
 
         public void NavigateSensor(object obj)
         {
+            Messenger.Default.Send<LoggedUser>(logged);
             new NavService().NavigateTo("Sensors");
         }
 
         public void NavigateDriver(object obj)
         {
+            Messenger.Default.Send<LoggedUser>(logged);
             new NavService().NavigateTo("Drivers");
         }
 
@@ -70,16 +86,19 @@ namespace MainApp.ViewModels
 
         private void NavigateCargo(object obj)
         {
+            Messenger.Default.Send<LoggedUser>(logged);
             new NavService().NavigateTo("Cargos");
         }
 
         private void NavigateExceeding(object obj)
         {
+            Messenger.Default.Send<LoggedUser>(logged);
             new NavService().NavigateTo("Exceedings");
         }
 
         private void NavigateLog(object obj)
         {
+            Messenger.Default.Send<LoggedUser>(logged);
             new NavService().NavigateTo("Logs");
         }
     }

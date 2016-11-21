@@ -25,14 +25,7 @@ namespace frontend.Service
         public List<Sensor> All()
         {
             var sensors = sensorRepository.GetAllSensors().Result.ToList();
-            if (sensors != null)
-            {
-                return sensors;
-            }
-            else
-            {
-                return new List<Sensor>();
-            }
+            return sensors;
         }
 
         public Sensor Find(int id)

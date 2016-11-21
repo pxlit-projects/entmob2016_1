@@ -21,7 +21,7 @@
             <Grid VerticalAlignment="Top" x:Name="titleGrid">
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Drivers</TextBlock>
             </Grid>
-            <ListView x:Name="driversList" ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" >
+            <ListView ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" MaxHeight="400">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -36,23 +36,23 @@
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> ID:</TextBlock>
-                        <TextBlock x:Name="idTxt" Width="500px" Text="{Binding Path=SelectedDriver.Employee_id}"/>
+                        <TextBlock Width="500px" Text="{Binding Path=SelectedDriver.Employee_id}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Voornaam:</TextBlock>
-                        <TextBox x:Name="surNameTxt" Width="500px" Text="{Binding Path=SelectedDriver.SurName, Mode=TwoWay}"/>
+                        <TextBox Width="500px" Text="{Binding Path=SelectedDriver.SurName, Mode=TwoWay}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Naam:</TextBlock>
-                        <TextBox x:Name="nameTxt" Width="500px" Text="{Binding Path=SelectedDriver.Name, Mode=TwoWay}"/>
+                        <TextBox Width="500px" Text="{Binding Path=SelectedDriver.Name, Mode=TwoWay}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Gebruikersnaam:</TextBlock>
-                        <TextBox x:Name="emailTxt" Width="500px" Text="{Binding Path=SelectedDriver.Username, Mode=TwoWay}"/>
+                        <TextBox Width="500px" Text="{Binding Path=SelectedDriver.Username, Mode=TwoWay}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" Width="125px" VerticalAlignment="Center"> Status:</TextBlock>
-                        <TextBlock x:Name="mobileTxt" Width="500px" Text="{Binding Path=SelectedDriver.Status}"/>
+                        <TextBlock Width="500px" Text="{Binding Path=SelectedDriver.Status, Converter={StaticResource StatusConverter}}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

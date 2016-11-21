@@ -19,15 +19,8 @@ namespace frontend.Service
 
         public List<Log> All()
         {
-           var logs = repo.GetAllLogs().Result;
-            if (logs != null)
-            {
-                return logs;
-            }
-            else
-            {
-                return new List<Log>();
-            }
+            var logs = repo.GetAllLogs().Result.ToList();
+            return logs;
         }
     }
 }

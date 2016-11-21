@@ -21,7 +21,7 @@
             <Grid VerticalAlignment="Top" x:Name="titleGrid">
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Margin="100, 10, 0, 10" Foreground="White"> Cargos</TextBlock>
             </Grid>
-            <ListView ItemsSource="{Binding Cargos}" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" MaxHeight="250">
+            <ListView ItemsSource="{Binding Cargos}" SelectedItem="{Binding SelectedCargo, Mode=TwoWay}" Background="White" BorderBrush="Black" Margin="20,20,20,20" BorderThickness="2" MaxHeight="400">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -35,15 +35,15 @@
                 <StackPanel Orientation="Vertical" Width="600px">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> ID:</TextBlock>
-                        <TextBlock x:Name="idTxt" Width="500" Text="{Binding Path=SelectedCargo.Cargo_id}"/>
+                        <TextBlock Width="300" Text="{Binding Path=SelectedCargo.Cargo_id}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Gewicht:</TextBlock>
-                        <TextBox x:Name="weightTxt" Width="500" Text="{Binding Path=SelectedCargo.Weight, Mode=TwoWay}"/>
+                        <TextBox Width="300" Text="{Binding Path=SelectedCargo.Weight, Mode=TwoWay}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Sensor id:</TextBlock>
-                        <TextBox Width="500" Text="{Binding SelectedCargo.Sensor_id, Mode=TwoWay}"/>
+                        <TextBox Width="300" Text="{Binding SelectedCargo.Sensor_id, Mode=TwoWay}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -53,7 +53,6 @@
                 </Grid>
             <Grid Padding="20" x:Name="addGrid">
                 <Button Style="{StaticResource PageButtonStyle}" Command="{Binding ShowCargoDialogCommand}" Padding="12" HorizontalAlignment="Center" Margin="0,0,0,0" Width="125">Add Cargo</Button>
-
             </Grid>
         </StackPanel>
     </Grid>

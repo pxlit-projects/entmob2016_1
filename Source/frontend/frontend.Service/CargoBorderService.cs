@@ -25,14 +25,7 @@ namespace frontend.Service
         public List<CargoBorder> All()
         {
             var cargoBorders = cargoBorderRepository.GetAllCargoBorders().Result.ToList();
-            if (cargoBorders != null)
-            {
-                return cargoBorders;
-            }
-            else
-            {
-                return new List<CargoBorder>();
-            }
+            return cargoBorders;
         }
 
         public CargoBorder Find(int id)

@@ -89,7 +89,7 @@ namespace MainApp.ViewModels
             AddCommand = new CustomCommand(AddDriver, null);
         }
 
-        private void AddDriver(object obj)
+        public void AddDriver(object obj)
         {
             if (SelectedStatus == "Active")
             {
