@@ -79,13 +79,14 @@ namespace UnitTests
             var viewmodel = new VariableViewModel(variableService);
             ObservableCollection<Variable> expectedData = new ObservableCollection<Variable>(variableService.All());
             var actualData = viewmodel.Variables;
-            Assert.AreSame(expectedData, actualData);           
+            Assert.AreEqual(expectedData, actualData);           
         }
         [TestMethod]
         public void TestAddCargoViewModel()
         {
             var viewmodel = new AddCargoViewModel(cargoService, sensorService);
             Cargo dummy = new Cargo();
+            viewmodel.SelectedSensor = "SensorTag 1.1";
             viewmodel.CurrentCargo = dummy;
             viewmodel.AddCargo(null);
             Assert.IsTrue(cargoService.All().Contains(dummy));
