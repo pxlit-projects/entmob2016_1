@@ -5,6 +5,7 @@
     xmlns:converter="using:MainApp.Converter">
 
     <converter:DateConverter x:Key="DateConverter"/>
+    <converter:StatusConverter x:Key="StatusConverter"/>
 
     <SolidColorBrush x:Key="SplitViewBackgroundBrush" Color="Green" />
     <SolidColorBrush x:Key="SplitViewForegroundBrush" Color="White" />

@@ -27,7 +27,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Sensor_id}" Width="100px" HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding Sensor_name}" Width="250px" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Status}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Status, Converter={StaticResource StatusConverter}}" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -44,7 +44,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Status:</TextBlock>
-                        <TextBlock Width="300" Text="{Binding SelectedSensor.Status}"/>
+                        <TextBlock Width="300" Text="{Binding SelectedSensor.Status, Converter={StaticResource StatusConverter}}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

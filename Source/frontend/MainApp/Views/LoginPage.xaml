@@ -15,17 +15,19 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Username:" Width="100px" VerticalAlignment="Center"/>
-                <TextBox x:Name="userNameTxt" Width="200px" Text="{Binding Path=CurrentEmployee.Username, Mode=TwoWay}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                <TextBlock Text="Password:" Width="100px" VerticalAlignment="Center"/>
-                <PasswordBox x:Name="passWordTxt" Width="200px" Password="{Binding Path=CurrentEmployee.Password, Mode=TwoWay}"/>
-            </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RelativePanel Name="userNamePanel" Height="40">
+                <TextBlock Name="userNameBlock" Text="Username:" Width="100px" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <TextBox Name="userNameTxt" Width="200px" Text="{Binding Path=CurrentEmployee.Username, Mode=TwoWay}" RelativePanel.RightOf="userNameBlock" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+
+            <RelativePanel Name="passwordPanel" Height="40">
+                <TextBlock Name="passwordBlock" Text="Password:" Width="100px" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <PasswordBox x:Name="passWordTxt" Width="200px" Password="{Binding Path=CurrentEmployee.Password, Mode=TwoWay}" RelativePanel.RightOf="passwordBlock" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+
             <Button Command="{Binding LoginCommand}" Content="Aanmelden" HorizontalAlignment="Center" Width="300px" Margin="0,20,0,0" Style="{StaticResource PageButtonStyle}"/>
         </StackPanel>
     </Grid>

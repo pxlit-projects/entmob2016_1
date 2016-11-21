@@ -28,15 +28,15 @@
                 <!-- Sensors button -->
                 <RadioButton Tag="&#xe12c;" Content="Sensors" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding SensorCommand}" />
                 <!-- Drivers button -->
-                <RadioButton Tag="&#xe125;" Content="Drivers" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DriverCommand}" />
+                <RadioButton Tag="&#xE716;" Content="Drivers" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding DriverCommand}" />
                 <!-- Cargos button -->
-                <RadioButton Tag="&#xe125;" Content="Cargos" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding CargoCommand}" />
+                <RadioButton Tag="&#xE8CE;" Content="Cargos" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding CargoCommand}" />
                 <!-- Exceedings button -->
-                <RadioButton Tag="&#xe125;" Content="Exceedings" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding ExceedingsCommand}" />
+                <RadioButton Tag="&#xE730;" Content="Exceedings" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding ExceedingsCommand}" />
                 <!-- VariableButton -->
-                <RadioButton Tag="&#xe125;" Content="Variables" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding VariableCommand}" />
+                <RadioButton Tag="&#xE8C1;" Content="Variables" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding VariableCommand}" />
                 <!-- LogsButton -->
-                <RadioButton Tag="&#xe125;" Content="Logs" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding LogCommand}" />
+                <RadioButton Tag="&#xE8D7;" Content="Logs" Style="{StaticResource SplitViewNavButtonStyle}" Command="{Binding LogCommand}" />
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
