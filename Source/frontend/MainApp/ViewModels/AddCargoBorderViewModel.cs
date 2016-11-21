@@ -62,9 +62,17 @@ namespace MainApp.ViewModels
                 CurrentCargoBorder.Variable = variables.FirstOrDefault(v => v.Description == SelectedVariable);
 
                 var cargoBorders = cargoBorderService.All();
-                var lastCargoBorderId = cargoBorders.Max(c => c.Cargo_border_id);
-                CurrentCargoBorder.Cargo_border_id = lastCargoBorderId + 1;
 
+                if (cargoBorders.Count > 0)
+                {
+                    var lastCargoBorderId = cargoBorders.Max(c => c.Cargo_border_id);
+                    CurrentCargoBorder.Cargo_border_id = lastCargoBorderId + 1;
+                }
+                else
+                {
+                    CurrentCargoBorder.Cargo_border_id = 1;
+                }
+                
                 SelectedCargo.Borders.Add(CurrentCargoBorder);
                 cargoService.Update(SelectedCargo);
                 new NavService().NavigateTo("Cargos");
