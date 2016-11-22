@@ -162,9 +162,9 @@ namespace Mobile_App.ViewModel
 
         private void SendSensorData()
         {
-            //ISensorDataService sensorDataService = new SensorDataService(employee.Username, employee.Password);
-            //sensorDataService.Add(DataSensor);
-            Debug.WriteLine("SEND DATA");
+            ISensorDataService sensorDataService = new SensorDataService(employee.Username, employee.Password);
+            sensorDataService.Add(DataSensor);
+            Debug.WriteLine("SEND DATA TO DB");
         }
 
         private void ConnectToDevice()
@@ -178,12 +178,10 @@ namespace Mobile_App.ViewModel
 
         private void GetSensor()
         {
-            /*
             ISensorService sensorService = new SensorService(employee.Username,employee.Password);
-            */
             dataSensor = new SensorData()
             {
-                //Sensor = sensorService.All().Single(s => s.Sensor_name == device.Rssi.ToString()),
+                Sensor = sensorService.All().Single(s => s.Sensor_name == device.ID.ToString()),
                 Temperature = 0,
                 Gyroscope = 0,
                 Acceleration = 0,
@@ -289,11 +287,7 @@ namespace Mobile_App.ViewModel
 
         private void DiscoverBorders()
         {
-            /*
-            ICargoBorderService cargoBorderService = new CargoBorderService(employee.Username, employee.Password);
-            borders = new ObservableCollection<CargoBorder>(cargoBorderService.All().Where(c => c.Cargo.Cargo_id == transportedCargo.Cargo_id));
-            */
-            borders = new ObservableCollection<CargoBorder>();
+            Borders = new ObservableCollection<CargoBorder>(transportedCargo.Borders);
         }
 
         public string Decode(ICharacteristic _characteristic)
