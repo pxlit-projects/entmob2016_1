@@ -46,9 +46,9 @@ namespace Mobile_App.ViewModel
         private void InitializeCommands() {
             LoginCommand = new Command(() =>
             {
-                /*
+                
                 Debug.WriteLine(username + " " + password);
-                IEmployeeService empService = new EmployeeService();
+                IEmployeeService empService = new EmployeeService(Username,Password);
 
                 Employee emp = empService.FindByUsername(username);
                 if (emp != null)
@@ -66,7 +66,7 @@ namespace Mobile_App.ViewModel
                 else {
                     Debug.WriteLine("Username Wrong");
                 }
-                */
+                
                 navService.PushAsync("ConnectSensor");
             });
 
