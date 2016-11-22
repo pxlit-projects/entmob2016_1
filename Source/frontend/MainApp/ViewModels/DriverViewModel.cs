@@ -36,7 +36,6 @@ namespace MainApp.ViewModels
             LoadData();
             LoadCommands();
             Messenger.Default.Register<Employee>(this, HandleDriverMessage);
-            
         }
 
         public ObservableCollection<Employee> Drivers
