@@ -111,6 +111,7 @@ namespace Mobile_App.ViewModel
                 StartReadingData();
             });
         }
+        //Start reading sensor data
         private void StartReadingData()
         {
             foreach (var car in characteristics)
@@ -126,11 +127,11 @@ namespace Mobile_App.ViewModel
             }
             StartTransmitting();
         }
-
+        //Send data to the API
         private void StartTransmitting()
         {
             sendData = true;
-            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+            Device.StartTimer(TimeSpan.FromSeconds(5), () => {
                 CheckBorders();
                 SendSensorData();
                 if (sendData)
@@ -144,7 +145,6 @@ namespace Mobile_App.ViewModel
         {
             foreach (var border in borders)
             {
-                //TODO: MAKE CASE
                 if (border.Variable.Description == "Temperature") {
                     if (DataSensor.Temperature > border.Value && !TempTriggered) {
                         IExceedingsPerCargoService excPerCargoService = new ExceedingsPerCargoService(employee.Username, employee.Password);
@@ -282,7 +282,7 @@ namespace Mobile_App.ViewModel
         {
             device = variableMessage.connectedDevice;
             adapter = variableMessage.adapter;
-            employee = variableMessage.employee;
+            Employee = variableMessage.employee;
             transportedCargo = variableMessage.transportCargo;
             ConnectToDevice();
             DiscoverBorders();
@@ -293,7 +293,7 @@ namespace Mobile_App.ViewModel
         {
             Borders = new ObservableCollection<CargoBorder>(transportedCargo.Borders);
         }
-
+        //Decode the sensor data
         public string Decode(ICharacteristic _characteristic)
         {
             string output = "";
@@ -465,7 +465,7 @@ namespace Mobile_App.ViewModel
             }
             return output;
         }
-
+        //Turn the sensor on and off
         void SwitchToggled(ICharacteristic characteristic, Boolean e)
         {
             if (e)

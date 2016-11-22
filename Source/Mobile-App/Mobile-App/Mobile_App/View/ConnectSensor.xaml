@@ -45,8 +45,8 @@
         <ViewCell>
           <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
             <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-              <Label Text="{Binding Cargo_id}"></Label>
-              <Label Text="{Binding Weight}"></Label>
+              <Label Text="{Binding Cargo_id, StringFormat='Cargo id: {0}'}"></Label>
+              <Label Text="{Binding Weight, StringFormat='Weight: {0}Kg'}"></Label>
             </StackLayout>
           </StackLayout>
         </ViewCell>

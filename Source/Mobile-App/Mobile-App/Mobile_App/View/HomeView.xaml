@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobile_App.View.HomeView">
   <ContentPage BackgroundImage="background.jpg">
-    <StackLayout>
+    <StackLayout Padding="20,20,20,20">
       <Button Command="{Binding StartCommand}" BackgroundColor="#3FC2D0" FontSize="20" TextColor="White" Text="Start" />
       <ListView x:Name="ExceedingslistView" ItemsSource="{Binding ExceedingsPerBorders}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" >
         <ListView.ItemTemplate>
@@ -16,8 +16,8 @@
                   <ColumnDefinition Width="*" />
                   <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="{Binding ExceedingsPerBorders}" Grid.Row="0" Grid.Column="0" />
-                <Label Text="{Binding ExceedingsPerBorders}" Grid.Row="0" Grid.Column="1" />
+                <Label Text="{Binding Variable.Description}" Grid.Row="0" Grid.Column="0" />
+                <Label Text="{Binding Value}" Grid.Row="0" Grid.Column="1" />
               </Grid>
             </ViewCell>
           </DataTemplate>
@@ -26,18 +26,18 @@
     </StackLayout>
   </ContentPage>
   <ContentPage BackgroundImage="background.jpg">
-    <StackLayout>
+    <StackLayout Padding="20,20,20,20">
       <Label Text="Sensor Data" FontSize="20" />
-      <Label Text="{Binding DataSensor.Temperature}" />
-      <Label Text="{Binding DataSensor.Pressure}" />
-      <Label Text="{Binding DataSensor.Barometer}" />
+      <Label Text="{Binding DataSensor.Temperature, StringFormat='Temperature: {0}'}" />
+      <Label Text="{Binding DataSensor.Pressure, StringFormat='IR: {0}'}" />
     </StackLayout>
   </ContentPage>
   <ContentPage BackgroundImage="background.jpg">
-    <StackLayout>
+    <StackLayout Padding="20,20,20,20">
       <Label Text="User" FontSize="20" />
-      <Label Text="{Binding Employee.Name}" />
-      <Label Text="{Binding Employee.SurName}" />
+      <Label Text="{Binding Employee.Name, StringFormat='Name: {0}'}" />
+      <Label Text="{Binding Employee.SurName, StringFormat='Last Name: {0}'}" />
+      <Label Text="{Binding Employee.Username, StringFormat='Username: {0}'}" />
       <Label Text="Borders" FontSize="20" />
       <ListView x:Name="BorderslistView" ItemsSource="{Binding Borders}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" >
         <ListView.ItemTemplate>
@@ -52,8 +52,8 @@
                   <ColumnDefinition Width="*" />
                   <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="{Binding Borders.Variable.Description}" Grid.Row="0" Grid.Column="0" />
-                <Label Text="{Binding Borders.Value}" Grid.Row="0" Grid.Column="1" />
+                <Label Text="{Binding Variable.Description}" Grid.Row="0" Grid.Column="0" />
+                <Label Text="{Binding Value}" Grid.Row="0" Grid.Column="1" />
               </Grid>
             </ViewCell>
           </DataTemplate>
