@@ -80,7 +80,6 @@ namespace Mobile_App
 
         public Task PushAsync(string pageName)
         {
-            //TODO: CLEAN UP
             if (pageName != "HomeView")
             {
                 return Navigation.PushAsync(GetPage(pageName));
@@ -93,7 +92,6 @@ namespace Mobile_App
         public Task PushAsync(string pageName, object objectToPass)
         {
             ContentPage page = GetPage(pageName);
-            //page.ViewModel.PassedDataContext = objectToPass;
             return Navigation.PushAsync(page);
         }
 
@@ -105,7 +103,6 @@ namespace Mobile_App
         public Task PushModalAsync(string pageName, object objectToPass)
         {
             ContentPage page = GetPage(pageName, objectToPass);
-            //page.ViewModel.PassedDataContext = objectToPass;
             return Navigation.PushModalAsync(page);
         }
 

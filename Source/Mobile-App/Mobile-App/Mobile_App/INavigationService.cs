@@ -27,6 +27,5 @@ namespace Mobile_App
         Task PushAsync(string pageName, object objectToPass);
         Task PushModalAsync(string pageName, bool animated);
         void RemovePage(string pageName);
-        //void PushAsync(object burgerDetailView);
     }
 }
