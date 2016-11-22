@@ -79,19 +79,6 @@ namespace Mobile_App.ViewModel
         double gyro_calX, gyro_calY, gyro_calZ;
         double magno_calX, magno_calY, magno_calZ;
         bool gyro_calibrated = false, magno_calibrated = false;
-        private String data;
-        public String Data
-        {
-            get
-            {
-                return data;
-            }
-            set
-            {
-                data = value;
-                RaisePropertyChanged("Data");
-            }
-        }
         private bool sendData = false;
         public HomeViewModel(INavigationService navigationService)
         {
@@ -106,6 +93,8 @@ namespace Mobile_App.ViewModel
         }
         private void InitializeCommands()
         {
+            //Het start commando is nodig omdat de sensor eerst aangezet moet worden voor alleer er data uitgehaald kan worden. 
+            //Als dit te vroeg zou gebeuren word er geen data uitgehaald.
             StartCommand = new Command(() =>
             {
                 StartReadingData();
@@ -141,6 +130,7 @@ namespace Mobile_App.ViewModel
             });
         }
 
+        //Controleerd of geen border overschreden is
         private void CheckBorders()
         {
             foreach (var border in borders)
@@ -168,9 +158,9 @@ namespace Mobile_App.ViewModel
         {
             ISensorDataService sensorDataService = new SensorDataService(employee.Username, employee.Password);
             sensorDataService.Add(DataSensor);
-            Debug.WriteLine("SEND DATA TO DB");
         }
 
+        
         private void ConnectToDevice()
         {
             this.services = new ObservableCollection<IService>();
@@ -199,6 +189,7 @@ namespace Mobile_App.ViewModel
 
         private void SetEvents()
         {
+            //dit word getriggered wanneer de connectie succesvol is
             adapter.DeviceConnected += (s, e) =>
             {
                 device = e.Device;
@@ -208,12 +199,14 @@ namespace Mobile_App.ViewModel
 
         private void InitialiseCharacteristics()
         {
+            //wanneer een value van de sensor update word deze eruit gehaalt and in een SensorData object gezet.
             valueUpdatedHandler = (fs, a) =>
             {
                 switch (a.Characteristic.Name)
                 {
                     case "TI SensorTag Infrared Temperature Data":
                         var deco = Decode(a.Characteristic);
+                        //de sensor returned de temperatuur als "Temp: 24°c\nIR:30.5" om de float waarden er uit te krijgen moete we deze string opsplitsen
                         deco = deco.Replace("\n", "/");
                         var split = deco.Split(new Char[1] { '/' });
                         dataSensor.Temperature = float.Parse(split.First().Split(new Char[1] { ':' }).Last().Substring(1));
@@ -227,6 +220,7 @@ namespace Mobile_App.ViewModel
                 }
                 DataSensor = dataSensor;
             };
+            //Er word gezocht naar wat voor characterisic het is. Als het een On/Off is word deze aangezet
             foreach (var car in characteristics)
             {
                 if (car.Name.Contains("On/Off"))
@@ -234,9 +228,10 @@ namespace Mobile_App.ViewModel
                     SwitchToggled(car, true);
                 }
             }
-            Data = "Ready";
         }
-
+        //Een sensor heeft verschillende services zoals Temprature sensor, deze heeft verchillende characteristics zoals DATA & on/off.
+        //Hier worden de services gevonden en als deze gevonden zijn worden de characteristics van deze service ook gezocht.
+        //Deze worden in een list gezet, zodat we deze makkelijk kunnen berijken wanneer nodig.
         private void DiscoverServices()
         {
             device.ServicesDiscovered += (object se, EventArgs ea) =>
@@ -465,7 +460,7 @@ namespace Mobile_App.ViewModel
             }
             return output;
         }
-        //Turn the sensor on and off
+        //Turn the service on and off
         void SwitchToggled(ICharacteristic characteristic, Boolean e)
         {
             if (e)
@@ -480,7 +475,7 @@ namespace Mobile_App.ViewModel
             else
             {
                 // OFF
-                characteristic.Write(new byte[] { 0x00 });
+                characteristic.Write(new byte[] { 0x00 }); // off
             }
         }
     }
