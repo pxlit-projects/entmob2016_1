@@ -7,7 +7,7 @@
 - Sacha Reyskens
 
 ## Omschrijving
-![Alt text](/documents/ContextDiagram.jpg?raw=true "Context Diagram")
+![Alt text](documents/ContextDiagram.JPG?raw=true "Context Diagram")
 ### Algemeen 
 We zullen een app creëeren voor een transportbedrijf. Er zullen sensoren gebruikt worden om de cargo te controleren op grenswaarden. De app zal zowel het management aspect als het cargo aspect beheren.   
 ### Desktop-app
@@ -16,7 +16,7 @@ Management zal werken met een desktop-app. In deze desktop-app zal een overzicht
 Een chauffeur kan een sensor in zijn cargo plaatsen in geval van vervoer. Om met de sensor te verbinden zal er gebruik gemaakt worden van Bluetooth via een smartphone. Eenmaal een chauffeur zijn smartphone verbindt met een sensor zal dit in de desktop-app te zien zijn. Nadat de verbinding is gelukt kan de chauffeur het soort cargo kiezen via een dropdown lijst. De grenswaarden zullen automatisch geconfigureerd worden aan de hand van de eerdere instellingen in de desktop app. Tijdens vervoer controleert de sensor op een overschrijding van de grenswaarde. Als een grenswaarde overschreden wordt, zal de chauffeur verwittigd worden door middel van zijn smartphone. Als de grenswaarde terug stabiliseert zal de chauffeur ook een notificatie krijgen. Al deze notificaties zullen zichtbaar zijn in de desktop-app. Communicatie tussen chauffeur en management is ook mogelijk. Bij het deconnecteren met een sensor kan de chauffeur commentaar toevoegen die beschikbaar zal zijn via de desktop-app.
 #### Setup
 In de file global.cs in repository moet het ip ingegeven worden van de API.
-
+Het ip is zo opgebouwd http://IP:PORT/ (http://127.0.0.1/8080/)
 ## Gedetailleerd
 ### Communicatie tussen smartphone-app en desktop-app
 De uitwisseling van gegevens tussen de smartphone-app en de desktop-app zal gebeuren via een server gehost op Azure. Deze server bevat een database met alle nodige data. De data zal opgevraagd en bewerkt kunnen worden via een REST-api mits authenticatie door een Oauth-token. De desktop-app werkt niet real-time maar met een refresh knop. 
