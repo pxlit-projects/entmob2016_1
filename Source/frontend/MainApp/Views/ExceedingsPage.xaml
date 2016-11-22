@@ -24,7 +24,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Exceedings_per_cargo_id}" Width="100px" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Variable.Description}" Width="100px" HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding Value}" Width="250px" HorizontalAlignment="Center"/>
                             <TextBlock Text="{Binding Time, Converter={StaticResource DateConverter}}" Width="250px" HorizontalAlignment="Right"/>
                         </StackPanel>
@@ -34,8 +34,8 @@
             <Grid Background="White" BorderBrush="Black" BorderThickness="2" Margin="100, 0, 100, 0" Padding="20">
                 <StackPanel Orientation="Vertical" Width="600px">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> ID:</TextBlock>
-                        <TextBlock x:Name="idTxt" Width="500" Text="{Binding Path=SelectedExceeding.Exceedings_per_cargo_id}"/>
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Beschrijving:</TextBlock>
+                        <TextBlock x:Name="idTxt" Width="500" Text="{Binding Path=SelectedExceeding.Variable.Description}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <TextBlock Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" Width="100"> Value:</TextBlock>
