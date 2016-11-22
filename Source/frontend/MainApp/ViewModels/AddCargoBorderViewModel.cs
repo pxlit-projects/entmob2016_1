@@ -54,7 +54,7 @@ namespace MainApp.ViewModels
             variables.ForEach(v => VariableList.Add(v.Description));
         }
 
-        private void AddBorder(object obj)
+        public void AddBorder(object obj)
         {
             if (SelectedVariable != null)
             {
