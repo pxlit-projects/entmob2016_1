@@ -12,7 +12,7 @@ namespace Mobile_App.ViewModel
     public class MainViewModel : ViewModelBase
     {
         //  private IMD5 _md5;
-        private INavigationService navService;
+        private INavigationService navigationService;
         private String username;
         public String Username {
             get {
@@ -39,7 +39,7 @@ namespace Mobile_App.ViewModel
         public ICommand LoginCommand { get; set; }
         public MainViewModel(INavigationService navigationService)
         {
-            this.navService = navigationService;
+            this.navigationService = navigationService;
             InitializeCommands();
         }
         private void InitializeCommands() {
@@ -54,7 +54,7 @@ namespace Mobile_App.ViewModel
                 {
                     if (emp.Password == Password)
                     {
-                        navService.PushAsync("ConnectSensor");
+                        navigationService.PushAsync("ConnectSensor");
                         Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() {employee = emp});
                     }
                     else
@@ -66,7 +66,7 @@ namespace Mobile_App.ViewModel
                     Debug.WriteLine("Username Wrong");
                 }
                 
-                navService.PushAsync("ConnectSensor");
+                navigationService.PushAsync("ConnectSensor");
             });
 
         }

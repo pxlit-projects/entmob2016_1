@@ -17,7 +17,7 @@ namespace Mobile_App.ViewModel
 {
     public class HomeViewModel : ViewModelBase
     {
-        private INavigationService navService;
+        private INavigationService navigationService;
         private IDevice device;
         private IAdapter adapter;
         private Employee employee;
@@ -72,7 +72,7 @@ namespace Mobile_App.ViewModel
             }
         }
         private Cargo transportedCargo;
-        private Boolean TempTriggered = false;
+        private Boolean TemperatureTriggered = false;
         EventHandler<CharacteristicReadEventArgs> valueUpdatedHandler;
         ObservableCollection<ICharacteristic> characteristics;
         ObservableCollection<IService> services;
@@ -82,7 +82,7 @@ namespace Mobile_App.ViewModel
         private bool sendData = false;
         public HomeViewModel(INavigationService navigationService)
         {
-            this.navService = navigationService;
+            this.navigationService = navigationService;
             InitializeCommands();
             ExceedingsPerBorders = new ObservableCollection<ExceedingPerCargo>();
             MessengerInstance.Register<VariableMessage>
@@ -103,14 +103,14 @@ namespace Mobile_App.ViewModel
         //Start reading sensor data
         private void StartReadingData()
         {
-            foreach (var car in characteristics)
+            foreach (var characteristic in characteristics)
             {
-                if (car.Name.Contains("Data"))
+                if (characteristic.Name.Contains("Data"))
                 {
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        car.ValueUpdated += valueUpdatedHandler;
-                        car.StartUpdates();
+                        characteristic.ValueUpdated += valueUpdatedHandler;
+                        characteristic.StartUpdates();
                     });
                 }
             }
@@ -136,19 +136,19 @@ namespace Mobile_App.ViewModel
             foreach (var border in borders)
             {
                 if (border.Variable.Description == "Temperature") {
-                    if (DataSensor.Temperature > border.Value && !TempTriggered) {
+                    if (DataSensor.Temperature > border.Value && !TemperatureTriggered) {
                         IExceedingsPerCargoService excPerCargoService = new ExceedingsPerCargoService(employee.Username, employee.Password);
-                        TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
-                        int secondsSinceEpoch = (int)t.TotalSeconds;
+                        TimeSpan time = DateTime.UtcNow - new DateTime(1970, 1, 1);
+                        int secondsSinceEpoch = (int)time.TotalSeconds;
                         ExceedingPerCargo exc = new ExceedingPerCargo() {
                             Cargo = transportedCargo, Value = DataSensor.Temperature, Variable = border.Variable, Time = secondsSinceEpoch.ToString()
                         };
                         excPerCargoService.Add(exc);
                         ExceedingsPerBorders.Add(exc);
-                        TempTriggered = true;
+                        TemperatureTriggered = true;
                     }
-                    if (TempTriggered && DataSensor.Temperature < border.Value) {
-                        TempTriggered = false;
+                    if (TemperatureTriggered && DataSensor.Temperature < border.Value) {
+                        TemperatureTriggered = false;
                     }
                 }
             }
@@ -205,10 +205,10 @@ namespace Mobile_App.ViewModel
                 switch (a.Characteristic.Name)
                 {
                     case "TI SensorTag Infrared Temperature Data":
-                        var deco = Decode(a.Characteristic);
+                        var decodedString = Decode(a.Characteristic);
                         //de sensor returned de temperatuur als "Temp: 24°c\nIR:30.5" om de float waarden er uit te krijgen moete we deze string opsplitsen
-                        deco = deco.Replace("\n", "/");
-                        var split = deco.Split(new Char[1] { '/' });
+                        decodedString = decodedString.Replace("\n", "/");
+                        var split = decodedString.Split(new Char[1] { '/' });
                         dataSensor.Temperature = float.Parse(split.First().Split(new Char[1] { ':' }).Last().Substring(1));
                         //Has to be IR Temp
                         var temp = split.Last().Split(new Char[1] { ':' }).Last().Substring(1).Replace(" C", "");
@@ -257,9 +257,9 @@ namespace Mobile_App.ViewModel
                 service.CharacteristicsDiscovered += (object sender, EventArgs e) => {
                     if (characteristics.Count < 38)
                         Device.BeginInvokeOnMainThread(() => {
-                            foreach (var serv in services)
+                            foreach (var servics in services)
                             {
-                                foreach (var characteristic in serv.Characteristics)
+                                foreach (var characteristic in servics.Characteristics)
                                 {
                                     characteristics.Add(characteristic);
                                 }

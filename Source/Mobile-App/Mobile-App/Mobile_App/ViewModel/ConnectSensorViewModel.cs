@@ -24,7 +24,7 @@ namespace Mobile_App.ViewModel
         private Cargo selectedCargo;
         private ObservableCollection<Cargo> cargoList;
         private ObservableCollection<IDevice> devicesList;
-        private INavigationService navService;
+        private INavigationService navigationService;
         public ICommand SearchCommand { get; set; }
         public ICommand ConnectCommand { get; set; }
         public ICommand SelectCargoCommand { get; set; }
@@ -92,7 +92,7 @@ namespace Mobile_App.ViewModel
         {
             this.adapter = App.GetAdapter();
             DeviceList = new ObservableCollection<IDevice>();
-            this.navService = navigationService;
+            this.navigationService = navigationService;
             MessengerInstance.Register<VariableMessage>
  (
      this,
@@ -123,7 +123,7 @@ namespace Mobile_App.ViewModel
             SelectCargoCommand = new Command(() =>
             {
                 transportedCargo = SelectedCargo as Cargo;
-                navService.PushAsync("HomeView");
+                navigationService.PushAsync("HomeView");
                 Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() { connectedDevice = SelectedDevice as IDevice, adapter = this.adapter, employee = this.employee, transportCargo = this.transportedCargo });
             });
             ConnectCommand = new Command(() =>
