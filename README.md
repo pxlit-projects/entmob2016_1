@@ -7,6 +7,7 @@
 - Sacha Reyskens
 
 ## Omschrijving
+![Alt text](/documents/ContextDiagram.jpg?raw=true "Context Diagram")
 ### Algemeen 
 We zullen een app creëeren voor een transportbedrijf. Er zullen sensoren gebruikt worden om de cargo te controleren op grenswaarden. De app zal zowel het management aspect als het cargo aspect beheren.   
 ### Desktop-app
