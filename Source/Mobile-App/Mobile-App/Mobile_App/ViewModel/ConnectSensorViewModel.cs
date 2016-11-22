@@ -94,20 +94,24 @@ namespace Mobile_App.ViewModel
             this.adapter = App.GetAdapter();
             DeviceList = new ObservableCollection<IDevice>();
             this.navService = navigationService;
+            MessengerInstance.Register<VariableMessage>
+ (
+     this,
+     (action) => ReceiveVariableMessage(action)
+ );
             adapter.DeviceDiscovered += (object sender, DeviceDiscoveredEventArgs e) =>
             {
-                    foreach (var item in devicesList)
+                foreach (var item in devicesList)
+                {
+                    if (item.ID == e.Device.ID)
                     {
-                        if (item.ID == e.Device.ID)
-                        {
-                            return;
-                        }
+                        return;
                     }
-                    devicesList.Add(e.Device);
-                    DeviceList = devicesList;
-                
+                }
+                devicesList.Add(e.Device);
+                DeviceList = devicesList;
+
             };
-            InitialiseCommands();
         }
 
         private void InitialiseCommands()
@@ -118,15 +122,14 @@ namespace Mobile_App.ViewModel
             });
             SelectCargoCommand = new Command(() =>
             {
-                //transportedCargo = SelectedCargo as Cargo;
+                transportedCargo = SelectedCargo as Cargo;
                 navService.PushAsync("HomeView");
                 Messenger.Default.Send<Services.VariableMessage>(new Services.VariableMessage() { connectedDevice = SelectedDevice as IDevice, adapter = this.adapter, employee = this.employee, transportCargo = this.transportedCargo });
             });
             ConnectCommand = new Command(() =>
             {
                 StopScanning();
-                // GetCargoList();
-                SelectCargoCommand.Execute(SelectedCargo);
+                GetCargoList();
             });
         }
         void StartScanning()
@@ -166,7 +169,6 @@ namespace Mobile_App.ViewModel
         }
         private void GetCargoList()
         {
-            DeviceList.Clear();
             ICargoService cargoService = new CargoService(employee.Username, employee.Password);
             ISensorService sensorService = new SensorService(employee.Username, employee.Password);
             List<Cargo> cargos = cargoService.All();
@@ -177,6 +179,7 @@ namespace Mobile_App.ViewModel
         private object ReceiveVariableMessage(VariableMessage variableMessage)
         {
             employee = variableMessage.employee;
+            InitialiseCommands();
             return null;
         }
     }

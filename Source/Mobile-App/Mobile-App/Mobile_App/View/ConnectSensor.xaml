@@ -45,7 +45,8 @@
         <ViewCell>
           <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
             <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-              <Label Text="{Binding Cargo_id, Converter={StaticResource strConverter}}"></Label>
+              <Label Text="{Binding Cargo_id}"></Label>
+              <Label Text="{Binding Weight}"></Label>
             </StackLayout>
           </StackLayout>
         </ViewCell>
