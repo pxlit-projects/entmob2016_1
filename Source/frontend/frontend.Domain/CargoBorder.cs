@@ -13,7 +13,7 @@ namespace frontend.Domain
         public int Cargo_border_id { get; set; }
         [JsonProperty("value")]
         public float Value { get; set; }
-        [JsonProperty("cargo")]
+        [JsonIgnore]
         public Cargo Cargo { get; set; }
         [JsonProperty("variable")]
         public Variable Variable { get; set; }

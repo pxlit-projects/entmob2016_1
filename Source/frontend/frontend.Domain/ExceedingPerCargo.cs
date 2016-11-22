@@ -9,9 +9,9 @@ namespace frontend.Domain
 {
     public class ExceedingPerCargo
     {
-        [JsonProperty("exceeding_per_cargo_id")]
+        [JsonIgnore]
         public int Exceeding_per_cargo_id { get; set; }
-        [JsonProperty("cargo")]
+        [JsonIgnore]
         public Cargo Cargo { get; set; }
         [JsonProperty("variable")]
         public Variable Variable { get; set; }

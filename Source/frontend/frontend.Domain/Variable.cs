@@ -13,9 +13,9 @@ namespace frontend.Domain
         public int Variable_id { get; set; }
         [JsonProperty("description")]
         public string Description { get; set; }
-        [JsonProperty("exceedings")]
+        [JsonIgnore]
         public List<ExceedingPerCargo> Exceedings { get; set; }
-        [JsonProperty("borders")]
+        [JsonIgnore]
         public List<CargoBorder> Borders { get; set; }
     }
 }

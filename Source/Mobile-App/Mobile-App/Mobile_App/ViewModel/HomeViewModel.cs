@@ -72,6 +72,7 @@ namespace Mobile_App.ViewModel
             }
         }
         private Cargo transportedCargo;
+        private Boolean TempTriggered = false;
         EventHandler<CharacteristicReadEventArgs> valueUpdatedHandler;
         ObservableCollection<ICharacteristic> characteristics;
         ObservableCollection<IService> services;
@@ -96,10 +97,7 @@ namespace Mobile_App.ViewModel
         {
             this.navService = navigationService;
             InitializeCommands();
-            employee = new Employee();
-            employee.Name = "Bram";
-            employee.SurName = "Van Vleymen";
-            Employee = employee;
+            ExceedingsPerBorders = new ObservableCollection<ExceedingPerCargo>();
             MessengerInstance.Register<VariableMessage>
              (
                  this,
@@ -148,13 +146,19 @@ namespace Mobile_App.ViewModel
             {
                 //TODO: MAKE CASE
                 if (border.Variable.Description == "Temperature") {
-                    if (DataSensor.Temperature > border.Value) {
+                    if (DataSensor.Temperature > border.Value && !TempTriggered) {
                         IExceedingsPerCargoService excPerCargoService = new ExceedingsPerCargoService(employee.Username, employee.Password);
+                        TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+                        int secondsSinceEpoch = (int)t.TotalSeconds;
                         ExceedingPerCargo exc = new ExceedingPerCargo() {
-                            Cargo = transportedCargo, Value = DataSensor.Temperature, Variable = border.Variable, Time = DateTime.Now.ToString()
+                            Cargo = transportedCargo, Value = DataSensor.Temperature, Variable = border.Variable, Time = secondsSinceEpoch.ToString()
                         };
                         excPerCargoService.Add(exc);
                         ExceedingsPerBorders.Add(exc);
+                        TempTriggered = true;
+                    }
+                    if (TempTriggered && DataSensor.Temperature < border.Value) {
+                        TempTriggered = false;
                     }
                 }
             }

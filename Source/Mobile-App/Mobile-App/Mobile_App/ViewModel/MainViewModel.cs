@@ -39,7 +39,6 @@ namespace Mobile_App.ViewModel
         public ICommand LoginCommand { get; set; }
         public MainViewModel(INavigationService navigationService)
         {
-            //_md5 = md5;
             this.navService = navigationService;
             InitializeCommands();
         }

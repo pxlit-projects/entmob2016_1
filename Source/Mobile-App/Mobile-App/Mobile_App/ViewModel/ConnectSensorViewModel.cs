@@ -19,7 +19,6 @@ namespace Mobile_App.ViewModel
 {
     class ConnectSensorViewModel : ViewModelBase
     {
-        //TODO: uncomment when testing with connection
         private IAdapter adapter;
         private Employee employee;
         private Cargo selectedCargo;
@@ -99,6 +98,7 @@ namespace Mobile_App.ViewModel
      this,
      (action) => ReceiveVariableMessage(action)
  );
+            //Only adds unique devices to the list
             adapter.DeviceDiscovered += (object sender, DeviceDiscoveredEventArgs e) =>
             {
                 foreach (var item in devicesList)
@@ -162,10 +162,6 @@ namespace Mobile_App.ViewModel
                     adapter.StopScanningForDevices();
                 }
             }).Start();
-        }
-        void UpdateDisplay(ICharacteristic c)
-        {
-            Debug.WriteLine(c.StringValue);
         }
         private void GetCargoList()
         {
