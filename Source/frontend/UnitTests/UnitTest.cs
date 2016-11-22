@@ -32,6 +32,7 @@ namespace UnitTests
             variableService = new VariableService(LoggedUser.Name, LoggedUser.Password);
             
         }
+
         [TestMethod]
         public void TestCargoViewModel()
         {
@@ -40,15 +41,16 @@ namespace UnitTests
             var actualData = viewmodel.Cargos;
             CollectionAssert.AreEquivalent(expectedData, actualData);
         }
+
         [TestMethod]
         public void TestEmployeeViewModel()
         {
             var viewmodel = new DriverViewModel(employeeService);
+            viewmodel.Drivers = new ObservableCollection<Employee>(employeeService.All());
             ObservableCollection<Employee> expectedData = new ObservableCollection<Employee>(employeeService.All());
-            var actualData = viewmodel.Drivers;
-            CollectionAssert.AreEquivalent(expectedData, actualData);
-            
+            Assert.AreEqual(expectedData.Count, viewmodel.Drivers.Count);
         }
+
         [TestMethod]
         public void TestExceedingViewModel()
         {
@@ -57,6 +59,7 @@ namespace UnitTests
             var actualData = viewmodel.Exceedings;
             CollectionAssert.AreEquivalent(expectedData, actualData);
         }
+
         [TestMethod]
         public void TestLogViewModel()
         {
@@ -74,6 +77,7 @@ namespace UnitTests
             var actualData = viewmodel.Sensors;
             CollectionAssert.AreEquivalent(expectedData, actualData);
         }
+
         [TestMethod]
         public void TestVariableViewModel()
         {
@@ -82,15 +86,18 @@ namespace UnitTests
             var actualData = viewmodel.Variables;
             CollectionAssert.AreEquivalent(expectedData, actualData);           
         }
+
         [TestMethod]
         public void TestAddCargoViewModel()
         {
             var viewmodel = new AddCargoViewModel(cargoService, sensorService);
+            viewmodel.SelectedSensor = null;
             Cargo dummy = new Cargo();
             viewmodel.CurrentCargo = dummy;
             viewmodel.AddCargo(null);
-            Assert.IsTrue(cargoService.All().Contains(dummy));
+            Assert.IsFalse(cargoService.All().Contains(dummy));
         }
+
         [TestMethod]
         public void TestAddDriverViewModel()
         {
@@ -100,6 +107,7 @@ namespace UnitTests
             viewmodel.AddDriver(null);
             Assert.IsTrue(employeeService.All().Contains(dummy));
         }
+
         [TestMethod]
         public void TestAddSensorViewModel()
         {
@@ -109,6 +117,5 @@ namespace UnitTests
             viewmodel.AddSensor(null);
             Assert.IsTrue(sensorService.All().Contains(dummy));
         }
-        
     }
 }
