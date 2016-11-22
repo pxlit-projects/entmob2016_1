@@ -3,6 +3,7 @@
   <ContentPage BackgroundImage="background.jpg">
     <StackLayout Padding="20,20,20,20">
       <Button Command="{Binding StartCommand}" BackgroundColor="#3FC2D0" FontSize="20" TextColor="White" Text="Start" />
+      <Label Text="Border Exceedings" FontSize="20" />
       <ListView x:Name="ExceedingslistView" ItemsSource="{Binding ExceedingsPerBorders}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" >
         <ListView.ItemTemplate>
           <DataTemplate>
